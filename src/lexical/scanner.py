@@ -79,11 +79,11 @@ class Scanner:
         elif c == "/":
             if self.match("/"):
                 # Um comentário vai até o fim da linha
-                while self.peek() != "\n" and not self.is_at_end():
+                while not (self.peek() == "\n") and not self.is_at_end():
                     self.advance()
             elif self.match("*"):
                 # Um comentário vai até o fim do bloco
-                while not (self.peek() == "*" and self.peek_next()) and not self.is_at_end():
+                while not (self.peek() == "*" and self.peek_next() == "/") and not self.is_at_end():
                     if self.peek() == "\n":
                         self.line += 1
                     self.advance()
