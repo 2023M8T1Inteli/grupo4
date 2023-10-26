@@ -5,8 +5,9 @@ result = []
 palavra_atual = ''
 
 i = 1
+j = 0
 # abrir codigo
-with open('testPrograms/program.txt', 'r', encoding='utf-8') as arquivo:
+with open('testPrograms\program1.txt', 'r', encoding='utf-8') as arquivo:
     for linha in arquivo:
         for letra in linha:
             if letra in 'abcdefghijklmnopqrstuvwxyz':
@@ -17,9 +18,13 @@ with open('testPrograms/program.txt', 'r', encoding='utf-8') as arquivo:
                 else:
                     lexemas.append(palavra_atual)
                     palavra_atual = ''
+                    linhas.append(i)
                     if letra != '':
                         lexemas.append(letra)
-                linhas.append(i)
+                
+                if letra != ' ':
+                    linhas.append(i)
+                j += 1
         i += 1
 
 # removendo espaços em branco
@@ -90,3 +95,4 @@ while i < item:
 
 #print(lexemas)
 print(result)
+#print(linhas)
