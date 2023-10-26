@@ -1,0 +1,5 @@
+se abc <> xyz entao
+inicio
+x=(verdade)
+y= ler ( )
+fim

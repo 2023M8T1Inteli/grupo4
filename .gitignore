@@ -1,3 +1,4 @@
 .vscode
 target
 *.pdf
+__pycache__
