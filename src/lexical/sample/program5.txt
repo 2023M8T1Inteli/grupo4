@@ -1,0 +1,10 @@
+programa :
+inicio
+programas = verdade
+verdades = 0
+se entao inicio
+ses = verdades
+programas = ler()
+x = ler_varios(11, 4, 1)
+fim
+fim.
