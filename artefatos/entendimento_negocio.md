@@ -2,6 +2,7 @@
 
 # 1 Canvas Proposta de Valor
 
+![Canvas Proposta de Valor](img/VPC.jpg)
 
 # 2 Total Addressable Market, Service Addressable Market, e Service Obtainable Market
 
@@ -21,15 +22,7 @@ O SOM é a porção do SAM que pode ser realista e efetivamente alcançada por u
 
 Estas são estimativas iniciais, e para uma análise precisa, é imperativo conduzir uma pesquisa de mercado aprofundada. Essa pesquisa deve considerar aspectos como aceitação do produto, capacidade de produção e distribuição, concorrência no mercado de tecnologias assistivas, e outros fatores limitantes, como preço, barreiras geográficas e regulamentações. Ao utilizar fontes confiáveis e dados atualizados, podemos refinar ainda mais estas estimativas para fornecer uma visão clara do potencial de mercado para o tapete tátil com sistemas embarcados.
 
-
-
-#  3 Matriz de avaliação de valor Oceano Azul
-
-# 4 Matriz de Risco
-
-# 5 Análise financeira
-
-### Referências:
+## 2.4 Referências:
 
 - Instituto Brasileiro de Geografia e Estatística (IBGE). [Pesquisa Nacional por Amostra de Domicílios (PNAD): Pessoas com Deficiência 2022](https://agenciadenoticias.ibge.gov.br/agencia-noticias/2012-agencia-de-noticias/noticias/37317-pessoas-com-deficiencia-tem-menor-acesso-a-educacao-ao-trabalho-e-a-renda). Acesso em: 24/10/2023.
 
@@ -37,4 +30,12 @@ Estas são estimativas iniciais, e para uma análise precisa, é imperativo cond
 
 - [Brasil tem 18,6 milhões de pessoas com deficiência, indica pesquisa divulgada pelo IBGE e MDHC](https://www.gov.br/mdh/pt-br/assuntos/noticias/2023/julho/brasil-tem-18-6-milhoes-de-pessoas-com-deficiencia-indica-pesquisa-divulgada-pelo-ibge-e-mdhc)
 
+
+
+
+#  3 Matriz de avaliação de valor Oceano Azul
+
+# 4 Matriz de Risco
+
+# 5 Análise financeira
 
