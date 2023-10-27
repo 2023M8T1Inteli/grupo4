@@ -30,6 +30,8 @@ class Scanner:
         "tocar": TokenType.COMANDO,
         "mostrar_tocar": TokenType.COMANDO,
         "esperar": TokenType.COMANDO,
+        "ou": TokenType.OPSUM,
+        "e": TokenType.OPMUL,
     }
 
     def scan_tokens(self) -> List[Token]:
@@ -60,8 +62,6 @@ class Scanner:
             self.add_token(TokenType.OPMUL)
         elif c == "%":
             self.add_token(TokenType.OPMUL)
-        elif c == "e":
-            self.add_token(TokenType.OPMUL)
         elif c == "^":
             self.add_token(TokenType.OPPOW)
         elif c == "=":
@@ -78,8 +78,23 @@ class Scanner:
         elif c == "/":
             if self.match("/"):
                 # Um comentário vai até o fim da linha
-                while self.peek() != "\n" and not self.is_at_end():
+                while not self.peek() == "\n" and not self.is_at_end():
                     self.advance()
+            elif self.match("*"):
+                # Um comentário vai até o fim do bloco
+                while not (self.peek() == "*" and self.peek_next() == "/") and not self.is_at_end():
+                    if self.peek() == "\n":
+                        self.line += 1
+                    self.advance()
+
+                # Erro se chegou ao fim do arquivo sem fechar o comentário de bloco
+                if self.is_at_end():
+                    self.error(self.line, "Comentário de bloco não finalizado.")
+                    return
+
+                # Avança o último '*' e o '/'
+                self.advance()
+                self.advance()
             else:
                 self.add_token(TokenType.OPMUL)
         elif c == " " or c == "\r" or c == "\t":
@@ -117,7 +132,7 @@ class Scanner:
         self.start = self.current
 
         # Avança até o '"' final (mas não inclui ele)
-        while self.peek() != '"' and not self.is_at_end():
+        while not self.peek() == '"' and not self.is_at_end():
             if self.peek() == "\n":
                 self.line += 1
             self.advance()
@@ -148,6 +163,11 @@ class Scanner:
         if self.is_at_end():
             return "\0"  # EOF
         return self.source[self.current]
+
+    def peek_next(self) -> str:
+        if self.current + 1 >= len(self.source):
+            return '\0' # EOF
+        return self.source[self.current + 1]
 
     def is_alpha(self, c: str) -> bool:
         return (
