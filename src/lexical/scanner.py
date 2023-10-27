@@ -31,6 +31,7 @@ class Scanner:
         "mostrar_tocar": TokenType.COMANDO,
         "esperar": TokenType.COMANDO,
         "ou": TokenType.OPSUM,
+        "e": TokenType.OPMUL,
     }
 
     def scan_tokens(self) -> List[Token]:
@@ -60,8 +61,6 @@ class Scanner:
         elif c == "*":
             self.add_token(TokenType.OPMUL)
         elif c == "%":
-            self.add_token(TokenType.OPMUL)
-        elif c == "e":
             self.add_token(TokenType.OPMUL)
         elif c == "^":
             self.add_token(TokenType.OPPOW)
