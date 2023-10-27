@@ -225,3 +225,7 @@ Token(type=TokenType.RBLOCK, lexeme='fim', literal=None, line=12)
 Token(type=TokenType.DOT, lexeme='.', literal=None, line=12)
 Token(type=TokenType.EOF, lexeme='', literal=None, line=13)
 ```
+
+## Conclusão
+
+Todos os resultados dos testes foram satisfatórios, e o analisador léxico foi capaz de identificar corretamente os tokens em cada um dos arquivos de teste, como era esperado.
