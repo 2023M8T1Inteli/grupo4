@@ -14,9 +14,9 @@ Este é um dos repositórios do projeto de alunos do Inteli em parceria com a AA
 
 > Se você é um dos alunos que faz parte deste grupo, veja as [instruções para os alunos](./instrucoes_para_alunos/LEIAME_aluno.md).
 
-# Projeto: *Nome do projeto*
+# Projeto: Tapete Mágico
 
-# Grupo: *Nome_do_seu_Grupo*
+# Grupo: Aladdin
 
 # Integrantes:
 
@@ -38,7 +38,7 @@ Este é um dos repositórios do projeto de alunos do Inteli em parceria com a AA
 
 # Releases
 
-* SPRINT1: *descrição*
+* SPRINT1: Analisador léxico (versão 1), Entendimento do Negócio, Entendimento do Usuário e Arquitetura inicial
 * SPRINT2: *descrição*
 * SPRINT3: *descrição*
 * SPRINT4: *descrição*
