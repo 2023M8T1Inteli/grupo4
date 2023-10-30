@@ -35,6 +35,60 @@ Estas são estimativas iniciais, e para uma análise precisa, é imperativo cond
 - Associação de Assistência à Criança Deficiente (AACD). [Site oficial](https://aacd.org.br/). Acesso em: 24/10/2023.
 
 #  3 Matriz de avaliação de valor Oceano Azul
+**Matriz de oceano azul**
+
+A matriz de oceano azul é uma ferramenta estratégica que ajuda as organizações a escaparem do chamado “oceano vermelho”. O oceano como pode ser visto, é utilizado como uma metáfora, onde existem os tubarões definidos como empresas grandes, enquanto os peixes referem-se às pequenas empresas. O oceano vermelho são ambientes onde a competição é predominante, devido a constante batalha por recursos e a disputa por sobrevivência, este tipo de ambiente gera riscos em que, por analogia, uma empresa é devorada por outra, ou seja, a concorrência se sobressai. Observando os prejuízos que a energia botada em um oceano vermelho pode gerar, verificaram que explorar um oceano azul é a melhor alternativa para gerar um ciclo virtuoso, o qual é possível nadar em águas que possuem diversas oportunidades para crescer e ser um diferencial. O oceano azul diz respeito a um ambiente com poucos concorrentes, onde há presença do diferencial e de maiores chances dos clientes estarem alinhados com o que você espera pelo futuro do seu negócio.
+
+Desse modo, a matriz do oceano azul oferece uma visão clara e ampla de características relevantes para o progresso de um negócio enquanto se alinha ao mercado em que se está inserido, para isso possui quatro aspectos, sendo:
+
+
+
+|**Eliminar**|Refere-se a quais fatores a empresa/indústria/mercado não utiliza mais e que devem ser eliminados, são fatores que apenas ocupam esforços e tempo e não geram um bom retorno.|
+| - | - |
+|**Reduzir**|São aqueles fatores que devem ser reduzidos abaixo dos padrões do setor/mercado|
+|**Criar**|É o necessário para navegar no oceano azul, diz respeito ao que a empresa e o mercado não oferecem e o que é preciso criar para ter vantagem competitiva.|
+|**Elevar**|São fatores que devem ser melhorados, é aquilo que ao ser melhorado, diferencia a empresa ao mesmo tempo que agrega qualidade/valor.|
+
+
+
+**Matriz de oceano azul - Projeto Tapete Mágico**
+
+|**Eliminar**| Plano de assinatura|
+| - | - |
+|**Reduzir**| Uso de aparelhos móveis(tela azul); |
+|**Criar**| <p>● Feedbacks do progresso de aprendizagem;</p><p> ● Personalização de atividades feitas pelo profissional.</p>|
+|**Elevar**|<p>● Inovação(tecnologias e funcionalidades); ● Acompanhamento preciso e mais próximo do profissional;</p><p>● Conforto através da facilidade de adaptação através de diferentes estímulos;</p><p>●Garantir maior acessibilidade com atividades adaptadas ao perfil do paciente.</p>|
+
+O gráfico abaixo demonstra com mais especificidade os atributos que compõem a solução, além da comparação com concorrentes que possuem produtos semelhantes:
+
+[Copy of Matriz Oceano Azul - exemplo.xlsx](https://docs.google.com/spreadsheets/d/1gnIxeNkvrEHYinvOoBEi1wTz4126kh4r/edit?usp=sharing&ouid=103057983775806856099&rtpof=true&sd=true)
+
+![](img/Aspose.Words.f0d45cb8-ff88-4292-a3e1-6b1bca8c97e5.002.jpeg)
+
+![](img/Aspose.Words.f0d45cb8-ff88-4292-a3e1-6b1bca8c97e5.003.jpeg)
+
+Desse modo, após observar os principais atributos, abaixo há uma explicação de cada um deles e a abordagem a respeito da comparação com a concorrência, além de “como” os valores foram declarados a partir da análise de possíveis implementações e de como se diferenciam com o que existe no mercado atualmente:
+
+| **Atributos** | **Concorrência** | **Como** |
+|--------------|--------------|--------------|
+| Preço | Diferenciar-se dos concorrentes oferecendo um produto que não é utilizado através do modelo de negócio por assinatura, optando por viabilizá-lo por um custo mais acessível que o total(assinatura) calculado no período de um ano em relação à concorrência.| Preço amigável, sem modelo de assinatura e com um valor total mais viável do que a concorrência. |
+| Qualidade | Diferente da concorrência há diferentes funções e recursos que podem ser configuradas pelo usuário, esses aspectos também garantem segurança, sem causar danos à integridade emocional devido a algum tipo de estímulo que leva ao desconforto. Tal como apresenta inovação por manter um sistema integrado com o mundo físico e virtual simultaneamente. Além disso, a interface intuitiva não é apenas para o paciente, como também para o profissional, permitindo que ambos compreendam e utilizem com facilidade. | <p>● Oferece uma experiência mais envolvente através da atuação do profissional nas atividades de desenvolvimento;</p><p> ● Interface intuitiva, o qual o profissional tem facilidade de uso e a criança ao interagir com o meio físico, entende o que foi proposto pelo profissional através de estímulos ajustados ao seu perfil;</p><p> ● Resultados mensuráveis a partir de dados quantificáveis, como melhorias no movimento motor, coordenação das crianças que utilizaram o produto.</p>
+ |
+| Tecnologia | As tecnologias existentes não possuem a combinação e comunicação do físico e virtual, geralmente a concorrência oferece produtos focados em equipamentos físicos, como teclados ou softwares, como jogos de desenvolvimento cognitivo e não incluem profissionais em seus sistemas.| Integração do melhor que os recursos físicos e virtuais podem oferecer através do software(virtual) e do tapete(físico). |
+| Conforto | Despertar um maior interesse através de estímulos ao mesmo tempo em que a interação referente a respostas desses estímulos(visuais, táteis, sonoros), não comprometam o conforto do paciente, deixando-o livre para tomada de decisão e manter uma experiência agradável por meio do atendimento de suas necessidades(personalização). A concorrência possui soluções, mas são padronizadas, se um paciente tem por preferência o contato, uma tela pode comprometer o desenvolvimento tátil e ser desconfortável, assim como estímulos sonoros que podem ser desagradáveis. Além disso, as soluções da concorrência podem não ser tão adequadas para pessoas que possuem limitação física e, por não oferecerem atividades personalizadas, o paciente faz tarefas muitas vezes consideradas monótonas devido à escassez de atividades diversificadas. | Possibilidade de utilizar dados do paciente ao implementar atividades, evitando que fatores desconfortáveis façam parte dessas atividades(principalmente em relação a barulhos). |
+| Acessibilidade | Os produtos podem ser considerados acessíveis por possuir recursos gerais que auxiliam o desenvolvimento de um paciente com paralisia cerebral, como controles simples, interface intuitiva e ergonomicamente amigável. Embora sejam funcionais, podem não atender totalmente as necessidades mais específicas de cada paciente, dificultando sua acessibilidade. | Inclui opções para ajustar interfaces e funcionamento das atividades, garantindo uma alta personalização que resulta em uma maior acessibilidade. |
+| Praticidade | Um produto não deve ser apenas acessível, deve ser prático e oferecer soluções adaptadas para os pacientes ou profissionais que acompanham esses pacientes. Isso significa que um produto acessível com atividades personalizadas não garante o ajuste conforme o paciente cresce ou suas necessidades mudam, pois pode apresentar problema em se integrar de forma eficiente na vida cotidiana de quem utiliza ao se referir em configuração, uso e manutenção. | Garantir uma configuração fácil do sistema e ao implementar atividades. |
+| Personalização | Permitir que o profissional crie tarefas personalizadas de acordo com o perfil do paciente e faça updates dessas atividades conforme o progresso ou necessidades apresentadas ao longo do processo de acompanhamento, visto que a concorrência não permite tal ação por oferecerem produtos com ferramentas e atividades já padronizadas. | Permitir que os profissionais criem atividades com base em seus critérios, eliminando a padronização que torna o processo limitante. |
+| Feedback | Oferecer ao longo do acompanhamento, relatórios conforme o histórico de atividade e observações gravados na plataforma pelo profissional, a fim de facilitar a análise de resultados do paciente e montagem/direcionamentos de novas atividades. Em relação a feedbacks, a concorrência apenas utiliza-se de informações transmitidas apenas no momento de interação, sem guardá-los precisamente para utilizá-las como fatores de avaliação. | Oferecer relatórios conforme é feito o acompanhamento da criação. |
+
+
+
+
+
+
+
+
+
 
 # 4 Matriz de Risco
 
