@@ -97,6 +97,9 @@ Em suma, o valor total de investimento deste projeto é estimado em 88.000 reais
 
 Em relação à receita estimada, por se tratar de um projeto interno da AACD, esse dado não é relevante.
 
+Uma lista de materiais pode ser acompanhada [através desse link](https://docs.google.com/spreadsheets/d/1ZFiTqLNZlBLmzQYdyL4rw4I2294iZFfG/edit?usp=sharing&ouid=106760528618634954678&rtpof=true&sd=true). Por se tratar da primeira sprint, muitos componentes não estão listados por não contemplarem a [arquitetura incial](./img/Arquitetura%20AACD.png).
+
+
 ## 5.2 Referências
 
 BENU EVENTOS. Disponível em: <https://loja.benu.com.br/tapete-sensorial.html>. Acesso em: 26/10/2023.
