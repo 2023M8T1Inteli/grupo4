@@ -42,5 +42,4 @@ Além dos valores, cada cor representa um nível diferente, sendo para:
 
 No link a seguir é possível visualizar todas as user stories que compõem o projeto: [User stories](https://docs.google.com/spreadsheets/u/0/d/1_eL6y09Z2oyLGsReNsVMgOtnp8tDJZ5z4-Jtz7uJXiM/edit)
 
-
-
+Além disso, há uma simples interface visual demonstrando uma tela com funcionalidades baseadas nas user stories mencionadas acima: [Interface visual](https://github.com/2023M8T1Inteli/grupo4.git)
