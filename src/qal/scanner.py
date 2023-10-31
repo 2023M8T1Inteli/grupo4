@@ -1,5 +1,5 @@
 from typing import List
-from token import Token # type: ignore
+from lexical_token import LexicalToken
 from token_type import TokenType
 
 
@@ -7,7 +7,7 @@ class Scanner:
     def __init__(self, source: str, error_function):
         self.source = source
         self.error = error_function
-        self._tokens: List[Token] = []
+        self._tokens: List[LexicalToken] = []
         self.start = 0  # Posição inicial do lexema sendo analisado
         self.current = 0  # Posição do caractere sendo analisado
         self.line = 1  # Linha atual
@@ -34,12 +34,12 @@ class Scanner:
         "e": TokenType.OPMUL,
     }
 
-    def scan_tokens(self) -> List[Token]:
+    def scan_tokens(self) -> List[LexicalToken]:
         while not self.is_at_end():
             self.start = self.current
             self.scan_token()
 
-        self._tokens.append(Token(TokenType.EOF, "", None, self.line))
+        self._tokens.append(LexicalToken(TokenType.EOF, "", None, self.line))
         return self._tokens
 
     def scan_token(self):
@@ -82,7 +82,10 @@ class Scanner:
                     self.advance()
             elif self.match("*"):
                 # Um comentário vai até o fim do bloco
-                while not (self.peek() == "*" and self.peek_next() == "/") and not self.is_at_end():
+                while (
+                    not (self.peek() == "*" and self.peek_next() == "/")
+                    and not self.is_at_end()
+                ):
                     if self.peek() == "\n":
                         self.line += 1
                     self.advance()
@@ -114,12 +117,11 @@ class Scanner:
         while self.is_alpha_numeric(self.peek()):
             self.advance()
 
-        type = self.keywords.get(
+        token_type = self.keywords.get(
             self.source[self.start : self.current], TokenType.ID
         )
 
-        self.add_token(type)
-
+        self.add_token(token_type)
 
     def number(self):
         while self.is_digit(self.peek()):
@@ -142,14 +144,13 @@ class Scanner:
             return
 
         # Adiciona o token da string, sem as aspas
-        value = self.source[self.start: self.current]
+        value = self.source[self.start : self.current]
         self.add_token(TokenType.STRING, value)
         self.start = self.current
 
         # Adiciona o '"' final
         self.advance()
         self.add_token(TokenType.DQUOTE)
-
 
     def match(self, expected: str) -> bool:
         if self.is_at_end():
@@ -166,31 +167,27 @@ class Scanner:
 
     def peek_next(self) -> str:
         if self.current + 1 >= len(self.source):
-            return '\0' # EOF
+            return "\0"  # EOF
         return self.source[self.current + 1]
 
     def is_alpha(self, c: str) -> bool:
         return (
-            (c >= "a" and c <= "z")
-            or (c >= "A" and c <= "Z")
-            or c == "_"
-            or c == "ç"
-            or c == "Ç"
+            ("a" <= c <= "z") or ("A" <= c <= "Z") or c == "_" or c == "ç" or c == "Ç"
         )
 
     def is_alpha_numeric(self, c: str) -> bool:
         return self.is_alpha(c) or self.is_digit(c)
 
     def is_digit(self, c: str) -> bool:
-        return c >= "0" and c <= "9"
+        return "0" <= c <= "9"
 
     def advance(self) -> str:
         self.current += 1
         return self.source[self.current - 1]
 
-    def add_token(self, type: TokenType, literal=None):
+    def add_token(self, token_type: TokenType, literal=None):
         text = self.source[self.start : self.current]
-        self._tokens.append(Token(type, text, literal, self.line))
+        self._tokens.append(LexicalToken(token_type, text, literal, self.line))
 
     def is_at_end(self) -> bool:
         return self.current >= len(self.source)

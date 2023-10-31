@@ -36,4 +36,3 @@ class TokenType(Enum):
     STRING = auto()
 
     EOF = auto()
-

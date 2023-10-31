@@ -1,3 +1,0 @@
-inicio
-z = -1234
-fim

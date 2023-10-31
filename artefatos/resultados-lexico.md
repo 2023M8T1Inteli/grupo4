@@ -12,19 +12,19 @@ Ao transformar o texto do programa em tokens, o analisador léxico simplifica as
 
 Nossa implementação do analisador léxico foi baseada no livro *Crafting Interpreters* de Robert Nystrom, que pode ser lido na íntegra [neste link](https://craftinginterpreters.com/).
 
-O código-fonte do analisador léxico foi desenvolvido na linguagem Python e pode ser encontrado na pasta `/src/lexical` do repositório.
+O código-fonte do analisador léxico foi desenvolvido na linguagem Python e pode ser encontrado na pasta `/src/qal` do repositório.
 
 ## Resultado dos Testes
 
-Para testar o analisador léxico, foram usados 5 arquivos, que estão na pasta `/src/lexical/sample` do repositório. Os resultados dos testes podem ser vistos a seguir.
+Para testar o analisador léxico, foram usados 5 arquivos, que estão na pasta `/src/qal/sample` do repositório. Os resultados dos testes podem ser vistos a seguir.
 
-Os comandos abaixo devem ser executados no terminal, na pasta `/src/lexical`. É necessário ter uma versão atualizada do Python instalada.
+Os comandos abaixo devem ser executados no terminal, na pasta `/src/qal`. É necessário ter uma versão atualizada do Python instalada.
 
 ### Exemplo 1
 
 #### Input
 
-`python lexical.py sample/program1.txt`
+`python qal.py sample/program1.txt`
 
 ```
 a = 1
@@ -56,7 +56,7 @@ Token(type=TokenType.EOF, lexeme='', literal=None, line=4)
 
 #### Input
 
-`python lexical.py sample/program2.txt`
+`python qal.py sample/program2.txt`
 
 ```
 inicio
@@ -81,7 +81,7 @@ Token(type=TokenType.EOF, lexeme='', literal=None, line=4)
 
 #### Input
 
-`python lexical.py sample/program3.txt`
+`python qal.py sample/program3.txt`
 
 ```
 teste = 1+2 -3 *
@@ -131,7 +131,7 @@ Token(type=TokenType.EOF, lexeme='', literal=None, line=5)
 
 #### Input
 
-`python lexical.py sample/program4.txt`
+`python qal.py sample/program4.txt`
 
 ```
 se abc <> xyz entao
@@ -169,7 +169,7 @@ Token(type=TokenType.EOF, lexeme='', literal=None, line=6)
 
 #### Input
 
-`python lexical.py sample/program5.txt`
+`python qal.py sample/program5.txt`
 
 ```
 programa :
