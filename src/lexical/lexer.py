@@ -10,11 +10,11 @@ def run_file(path: str):
         with open(path, "r", encoding="utf-8") as file:
             run(file.read())
             if hadError:
-                sys.exit(1)
+                sys.exit(65) # Codigo 65: erro no dado de entrada
     except IOError as e:
         print(f"Não foi possível ler o arquivo: {path}")
         print(e)
-        sys.exit(1)
+        sys.exit(65) # Codigo 65: erro no dado de entrada
 
 
 def run_prompt():
@@ -47,7 +47,7 @@ def main():
 
     if len(sys.argv) > 2:
         print("Exemplo de uso: python lexer.py [script]")
-        sys.exit(1)
+        sys.exit(64) # Codigo 64: uso incorreto
     elif len(sys.argv) == 2:
         run_file(sys.argv[1])
     else:
