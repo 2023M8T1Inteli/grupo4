@@ -1,4 +1,6 @@
 .vscode
+.idea
 target
 *.pdf
 __pycache__
+venv/

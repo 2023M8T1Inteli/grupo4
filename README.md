@@ -14,19 +14,20 @@ Este é um dos repositórios do projeto de alunos do Inteli em parceria com a AA
 
 > Se você é um dos alunos que faz parte deste grupo, veja as [instruções para os alunos](./instrucoes_para_alunos/LEIAME_aluno.md).
 
-# Projeto: *Nome do projeto*
+# Projeto: Tapete Mágico
 
-# Grupo: *Nome_do_seu_Grupo*
+# Grupo: Aladdin
 
 # Integrantes:
 
-* Estudante 1
-* Estudante 2
-* Estudante 3
-* Estudante 4
-* Estudante 5
-* Estudante 6
-* Estudante 7
+* [André Lessa](https://www.linkedin.com/in/andrelessajr/)
+* [Gabriel Carneiro](https://www.linkedin.com/in/gabecarneiro/)
+* [Leandro Custódio](https://www.linkedin.com/in/leandro-custodio/)
+* [Sarah Ribeiro](https://www.linkedin.com/in/sarah-miranda-ribeiro/)
+* [Stefano Butori](https://www.linkedin.com/in/sbutori/)
+* [Vinicius Souza](https://www.linkedin.com/in/vinicius-souza-santos/) 
+* [Yasmin Rocha](https://www.linkedin.com/in/yasminvit%C3%B3riarocha/)
+
 
 # Descrição
 
@@ -38,7 +39,7 @@ Este é um dos repositórios do projeto de alunos do Inteli em parceria com a AA
 
 # Releases
 
-* SPRINT1: *descrição*
+* [SPRINT1](https://github.com/2023M8T1Inteli/grupo4/releases/tag/sprint1): Analisador léxico (versão 1), Entendimento do Negócio, Entendimento do Usuário e Arquitetura inicial
 * SPRINT2: *descrição*
 * SPRINT3: *descrição*
 * SPRINT4: *descrição*
