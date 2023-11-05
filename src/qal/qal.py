@@ -1,6 +1,10 @@
 import sys
 
 from scanner import Scanner
+from parsing import Parsing
+from lexical_token import LexicalToken
+from token_type import TokenType
+from ast_printer import AstPrinter
 
 had_error = False
 
@@ -33,7 +37,7 @@ def run_prompt():
             break  # Sair do loop se encontrar CTRL + D
 
 
-def error(line: int, message: str):
+def scan_error(line: int, message: str):
     report(line, "", message)
 
 
@@ -41,6 +45,11 @@ def report(line: int, where: str, message: str):
     print(f"[linha {line}] Erro {where}: {message}")
     had_error = True
 
+def parsing_error(token: LexicalToken, message: str):
+    if token.type == TokenType.EOF:
+        report(token.line, " no final", message)
+    else:
+        report(token.line, f" no '{token.lexeme}'", message)
 
 def main():
     global had_error
@@ -55,12 +64,20 @@ def main():
 
 
 def run(source: str):
-    scanner = Scanner(source, error_function=error)
+    scanner = Scanner(source, error_function=scan_error)
     tokens = scanner.scan_tokens()
 
-    for token in tokens:
-        print(token)
+    # for token in tokens:
+    #     print(token)
 
+    parser = Parsing(tokens, error_function=parsing_error)
+    expression = parser.parse()
+
+    # Erros de sintaxe
+    if had_error:
+        return
+
+    print(AstPrinter().print(expression))
 
 if __name__ == "__main__":
     main()

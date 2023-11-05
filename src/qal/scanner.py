@@ -22,16 +22,17 @@ class Scanner:
         "nao": TokenType.NAO,
         "inicio": TokenType.LBLOCK,
         "fim": TokenType.RBLOCK,
-        "verdade": TokenType.BOOLEAN,
-        "falso": TokenType.BOOLEAN,
+        "verdade": TokenType.TRUE,
+        "falso": TokenType.FALSE,
         "ler": TokenType.COMANDO,
         "ler_varios": TokenType.COMANDO,
         "mostrar": TokenType.COMANDO,
         "tocar": TokenType.COMANDO,
         "mostrar_tocar": TokenType.COMANDO,
         "esperar": TokenType.COMANDO,
-        "ou": TokenType.OPSUM,
-        "e": TokenType.OPMUL,
+        "ou": TokenType.OU,
+        "e": TokenType.E,
+        "nil": TokenType.NIL,
     }
 
     def scan_tokens(self) -> List[LexicalToken]:
@@ -55,26 +56,26 @@ class Scanner:
         elif c == ")":
             self.add_token(TokenType.RPAR)
         elif c == "+":
-            self.add_token(TokenType.OPSUM)
+            self.add_token(TokenType.PLUS)
         elif c == "-":
-            self.add_token(TokenType.OPSUM)
+            self.add_token(TokenType.MINUS)
         elif c == "*":
-            self.add_token(TokenType.OPMUL)
+            self.add_token(TokenType.STAR)
         elif c == "%":
-            self.add_token(TokenType.OPMUL)
+            self.add_token(TokenType.PERCENT)
         elif c == "^":
-            self.add_token(TokenType.OPPOW)
+            self.add_token(TokenType.CARET)
         elif c == "=":
-            self.add_token(TokenType.OPREL if self.match("=") else TokenType.ASSIGN)
+            self.add_token(TokenType.EQUAL_EQUAL if self.match("=") else TokenType.EQUAL)
         elif c == "<":
             if self.match("="):
-                self.add_token(TokenType.OPREL)
+                self.add_token(TokenType.LESS_EQUAL)
             elif self.match(">"):
-                self.add_token(TokenType.OPREL)
+                self.add_token(TokenType.NOT_EQUAL)
             else:
-                self.add_token(TokenType.OPREL)
+                self.add_token(TokenType.LESS)
         elif c == ">":
-            self.add_token(TokenType.OPREL if self.match("=") else TokenType.OPREL)
+            self.add_token(TokenType.GREATER_EQUAL if self.match("=") else TokenType.GREATER)
         elif c == "/":
             if self.match("/"):
                 # Um comentário vai até o fim da linha
@@ -99,7 +100,7 @@ class Scanner:
                 self.advance()
                 self.advance()
             else:
-                self.add_token(TokenType.OPMUL)
+                self.add_token(TokenType.SLASH)
         elif c == " " or c == "\r" or c == "\t":
             pass  # Ignorar espaços em branco
         elif c == "\n":
@@ -129,28 +130,21 @@ class Scanner:
         self.add_token(TokenType.INTEGER, int(self.source[self.start : self.current]))
 
     def string(self):
-        # Adiciona o '"' inicial
-        self.add_token(TokenType.DQUOTE)
-        self.start = self.current
-
-        # Avança até o '"' final (mas não inclui ele)
-        while not self.peek() == '"' and not self.is_at_end():
-            if self.peek() == "\n":
+        while self.peek() != '"' and not self.is_at_end():
+            if self.peek() == '\n':
                 self.line += 1
             self.advance()
 
         if self.is_at_end():
-            self.error(self.line, "String não finalizada.")
+            self.error(self.line, "String não foi terminada.")
             return
 
-        # Adiciona o token da string, sem as aspas
-        value = self.source[self.start : self.current]
-        self.add_token(TokenType.STRING, value)
-        self.start = self.current
-
-        # Adiciona o '"' final
+        # Pular as aspas (") finais.
         self.advance()
-        self.add_token(TokenType.DQUOTE)
+
+        # Tirar as aspas em volta
+        value = self.source[self.start + 1: self.current - 1]
+        self.add_token(TokenType.STRING, value)
 
     def match(self, expected: str) -> bool:
         if self.is_at_end():
