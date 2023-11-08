@@ -41,19 +41,34 @@ class App(customtkinter.CTk):
         self.edit_section = customtkinter.CTkFrame(self.content, width=366.66, height=580, corner_radius=30)
         self.edit_section.grid(column=0, row=0)
 
-        self.edit_header = customtkinter.CTkLabel(self.edit_section, height=50, width=366.66, text="RELATÓRIOS", fg_color="#D51130", text_color="#fff", corner_radius=20 )
+        self.edit_header = customtkinter.CTkLabel(self.edit_section, height=50, width=366.66, text="RELATÓRIOS", fg_color="#D51130", text_color="#fff", corner_radius=20)
         self.edit_header.grid(column=0, row=0)
 
         self.edit_header = customtkinter.CTkFrame(self.edit_section, height=500, width=366.66, fg_color="#fff", corner_radius=0)
         self.edit_header.grid(column=0, row=1)
 
         #Programação em blocos Section
-        self.block_programming_section = customtkinter.CTkFrame(self.content, width=366.66, height=580, fg_color="green")
+        self.block_programming_section = customtkinter.CTkFrame(self.content, width=366.66, height=580)
         self.block_programming_section.grid(column=1, row=0)
 
+        self.block_programming_header = customtkinter.CTkLabel(self.block_programming_section, height=50, fg_color="#fff", width=366.66, text="Jogo 2", text_color="#111")
+        self.block_programming_header.grid(column=0, row=0)
+
+        self.block_programming_header = customtkinter.CTkFrame(self.block_programming_section, height=500, width=366.66, fg_color="#fff", corner_radius=0)
+        self.block_programming_header.grid(column=0, row=1)
+
         #Play Section
-        self.play_section = customtkinter.CTkFrame(self.content, width=366.66, height=580, fg_color="purple")
+        self.play_section = customtkinter.CTkFrame(self.content, width=366.66, height=580)
         self.play_section.grid(column=2, row=0)
+
+        self.play_section_header = customtkinter.CTkFrame(self.play_section, height=50, fg_color="#fff", width=366.66)
+        self.play_section_header.grid(column=0, row=0)
+
+        self.play_section_header = customtkinter.CTkFrame(self.play_section, height=40, fg_color="#CDCBCB", width=366.66)
+        self.play_section_header.grid(column=0, row=1)
+
+        self.play_section_header = customtkinter.CTkFrame(self.play_section, height=460, width=366.66, fg_color="#fff", corner_radius=0)
+        self.play_section_header.grid(column=0, row=2)
 
 if __name__ == "__main__":
     app = App()
