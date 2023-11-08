@@ -44,8 +44,8 @@ class App(customtkinter.CTk):
         self.edit_header = customtkinter.CTkLabel(self.edit_section, height=50, width=366.66, text="RELATÓRIOS", fg_color="#D51130", text_color="#fff", corner_radius=20)
         self.edit_header.grid(column=0, row=0)
 
-        self.edit_header = customtkinter.CTkFrame(self.edit_section, height=500, width=366.66, fg_color="#fff", corner_radius=0)
-        self.edit_header.grid(column=0, row=1)
+        self.edit_content = customtkinter.CTkFrame(self.edit_section, height=500, width=366.66, fg_color="#fff", corner_radius=0)
+        self.edit_content.grid(column=0, row=1)
 
         #Programação em blocos Section
         self.block_programming_section = customtkinter.CTkFrame(self.content, width=366.66, height=580)
@@ -54,21 +54,23 @@ class App(customtkinter.CTk):
         self.block_programming_header = customtkinter.CTkLabel(self.block_programming_section, height=50, fg_color="#fff", width=366.66, text="Jogo 2", text_color="#111")
         self.block_programming_header.grid(column=0, row=0)
 
-        self.block_programming_header = customtkinter.CTkFrame(self.block_programming_section, height=500, width=366.66, fg_color="#fff", corner_radius=0)
-        self.block_programming_header.grid(column=0, row=1)
+        self.block_programming_content = customtkinter.CTkFrame(self.block_programming_section, height=500, width=366.66, fg_color="#fff", corner_radius=0)
+        self.block_programming_content.grid(column=0, row=1)
 
         #Play Section
         self.play_section = customtkinter.CTkFrame(self.content, width=366.66, height=580)
         self.play_section.grid(column=2, row=0)
 
-        self.play_section_header = customtkinter.CTkFrame(self.play_section, height=50, fg_color="#fff", width=366.66)
+        self.play_section_header = customtkinter.CTkFrame(self.play_section, height=50, fg_color="#fff", width=366.66, corner_radius=0)
         self.play_section_header.grid(column=0, row=0)
 
-        self.play_section_header = customtkinter.CTkFrame(self.play_section, height=40, fg_color="#CDCBCB", width=366.66)
-        self.play_section_header.grid(column=0, row=1)
+        #self.play_section_header_btn = customtkinter.CTkButton(self.play_section_header, fg_color="blue", height=20, width=20, corner_radius=0, text="pimba")
 
-        self.play_section_header = customtkinter.CTkFrame(self.play_section, height=460, width=366.66, fg_color="#fff", corner_radius=0)
-        self.play_section_header.grid(column=0, row=2)
+        self.play_section_sub_header = customtkinter.CTkFrame(self.play_section, height=40, fg_color="#CDCBCB", width=366.66, corner_radius=0)
+        self.play_section_sub_header.grid(column=0, row=1)
+
+        self.play_section_content_header = customtkinter.CTkFrame(self.play_section, height=460, width=366.66, fg_color="#fff", corner_radius=0)
+        self.play_section_content_header.grid(column=0, row=2)
 
 if __name__ == "__main__":
     app = App()
