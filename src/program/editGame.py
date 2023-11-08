@@ -1,5 +1,7 @@
 import tkinter as tk
 from tkinter import font
+import customtkinter
+from customtkinter import *
 
 import customtkinter
 customtkinter.set_appearance_mode("System")  # Modes: "System" (standard), "Dark", "Light"
@@ -7,43 +9,29 @@ customtkinter.set_default_color_theme("blue")  # Themes: "blue" (standard), "gre
 class App(customtkinter.CTk):
     def __init__(self):
         super().__init__()
-
+        self.title("edit game.py")
         self.geometry(f"{1100}x{580}")
-        self.title('Lelis')
+        
+        self.header = customtkinter.CTkFrame(self, height=60,  fg_color="#D51130", corner_radius=0)
+        self.header.pack(fill='x')
 
-        # Frame para a "div"
-        self.div_frame = tk.Frame(self, bg='white', relief='solid', highlightbackground="red", highlightthickness=2)
-        self.div_frame.pack(fill='x', ipadx=900, ipady=12)  # Define o lado esquerdo para a "div"
+        self.frame1 = customtkinter.CTkButton(self.header, width=100, height=58, text="HOME", fg_color="#D51130", hover_color="#333")
+        self.frame1.grid(row=0, column=1)
+        self.frame1.place(relx=0.6)
 
-        # Estilo de fonte em negrito
-        self.bold_font = font.nametofont("TkDefaultFont")
-        self.bold_font.configure(weight='bold')
+        self.frame2 = customtkinter.CTkButton(self.header, width=100, height=58, text="JOGOS", fg_color="#D51130", hover_color="#333")
+        self.frame2.grid(row=0, column=2)
+        self.frame2.place(relx=0.7)
 
-        # Label dentro da "div"
-        self.test = tk.Label(self.div_frame, text="HOME", bg='white', fg="red",  font=self.bold_font)
-        self.test.pack(ipadx=10, ipady=12)  # Ajuste o ipadx/ipady conforme necessário
+        self.frame3 = customtkinter.CTkButton(self.header, width=100, height=58, text="RELATÓRIOS", fg_color="#D51130", hover_color="#333")
+        self.frame3.grid(row=0, column=3)
+        self.frame3.place(relx=0.8)
 
-        # Label dentro da "div"
-        self.test = tk.Label(self.div_frame, text="JOGOS", bg='white', fg="red",  font=self.bold_font)
-        self.test.pack(ipadx=10, ipady=12)  # Ajuste o ipadx/ipady conforme necessário
+        self.frame4 = customtkinter.CTkButton(self.header, width=50, height=50,  text="", fg_color="#D51130", hover_color="#333", corner_radius=100, border_width=.5, border_color="#fff")
+        self.frame4.grid(row=0, column=4)
+        self.frame4.place(relx=.92)
 
-        # Label dentro da "div"
-        self.test = tk.Label(self.div_frame, text="RELATÓRIOS", bg='white', fg="red",  font=self.bold_font)
-        self.test.pack(ipadx=10, ipady=12)  # Ajuste o ipadx/ipady conforme necessário
 
-        # Frame para a direita da tela
-        self.right_frame = tk.Frame(self)
-        self.right_frame.pack(side='right', fill='both', expand=True)
-
-        # configure grid layout (4x4)
-        self.grid_columnconfigure(1, weight=1)
-        self.grid_columnconfigure((2, 3), weight=0)
-        self.grid_rowconfigure((0, 1, 2), weight=1)
-
-        # create sidebar frame with widgets
-        self.sidebar = customtkinter.CTkFrame(self, width=140, corner_radius=0)
-        self.sidebar.grid_rowconfigure(4, weight=1)
-        self.logo_label = customtkinter.CTkLabel(self.sidebar, text="CustomTkinter", font=customtkinter.CTkFont(size=20, weight="bold"))
 if __name__ == "__main__":
     app = App()
     app.mainloop()
