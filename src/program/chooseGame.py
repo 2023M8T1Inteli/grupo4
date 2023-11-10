@@ -5,6 +5,7 @@ from customtkinter import *
 
 import customtkinter
 customtkinter.set_appearance_mode("light")  
+file_path = os.path.dirname(os.path.realpath(__file__))
 
 class App(customtkinter.CTk):
     def __init__(self):
@@ -38,19 +39,19 @@ class App(customtkinter.CTk):
         for i in range(1, 4):  # Adjust the range and number of games as needed
             game = CTkFrame(gamesFrame, fg_color="white", border_color="#D51130", border_width=2, corner_radius=28, width=300, height=500)
             game.pack(side="left", padx=40)
-        
+
             edit_button = customtkinter.CTkButton(game, corner_radius=40, fg_color="#D51130",command=edit(i), hover_color="#D54100", text="Editar")
             edit_button.pack(side="right", padx=10)
             edit_button.place(rely=0.03, relx=0.5)
 
-            image = PhotoImage(file='./assets/game.png')
+            image = PhotoImage(file=file_path + '/assets/game.png')
             image_button = CTkButton(game, fg_color="transparent", hover=False, text="", image=image)
             image_button.pack(padx=80, pady=50)
 
             text = customtkinter.CTkLabel(game, font=CTkFont(weight="bold", size=20), text=f"Jogo {i}")
             text.pack(side="bottom", pady=40)
 
-            
+
 def teste():
     print('pqp')
 
