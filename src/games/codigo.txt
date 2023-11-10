@@ -1,3 +1,2 @@
-aipapai
-salveleleo 2
-vini loucuras
+if Quad1: 
+	 print(0) 

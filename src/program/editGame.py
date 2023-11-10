@@ -13,6 +13,7 @@ class App(customtkinter.CTk):
         self.title("edit game.py")
         self.geometry(f"{1100}x{580}")
         self.configure(bg="#fff")
+        self.code = []
 
         file_path = os.path.dirname(os.path.realpath(__file__))
 
@@ -56,21 +57,42 @@ class App(customtkinter.CTk):
         self.edit_content = customtkinter.CTkFrame(self.edit_section, height=500, width=366.66, fg_color="#fff", corner_radius=0)
         self.edit_content.grid(column=0, row=2)
 
-        self.edit_button_1 = customtkinter.CTkButton(self.edit_content, width=100, height=108, text="JOGOS", fg_color="green", hover_color="#333")
-        self.edit_button_1.grid(column=3)
-        self.edit_button_1.place(relx=0.1)
+        current_item = 0
+        current_sound = 0
+        cor = "#fff"
+        value = ""
+        for i in range(1, 6):
+            for j in range(1, 5):
+                button_number = (i - 1) * 4 + j
+                if current_item == 13:
+                    button_number = 0
 
-        self.edit_button_2 = customtkinter.CTkButton(self.edit_content, width=100, height=108, text="JOGOS", fg_color="green", hover_color="#333")
-        self.edit_button_2.grid(column=3)
-        self.edit_button_2.place(relx=0.6)
+                if current_item <= 12:
+                    cor = "#FF4500"
+                    value = f"if Quad{button_number}: \n"
+                    button_name = f"self.edit_button_{button_number}"
 
-        self.edit_button_3 = customtkinter.CTkButton(self.edit_content, width=100, height=108, text="JOGOS", fg_color="green", hover_color="#333")
-        self.edit_button_3.grid(column=3)
-        self.edit_button_3.place(relx=0.1, rely=0.25)
+                    button_text = f"Quad {button_number} \n"
+                else:
+                    cor = "#6495ED"
+                    value = f"\t print({current_sound}) \n"
+                    current_sound += 1
+                    button_name = f"self.edit_button_{button_number}"
 
-        self.edit_button_2 = customtkinter.CTkButton(self.edit_content, width=100, height=108, text="JOGOS", fg_color="green", hover_color="#333")
-        self.edit_button_2.grid(column=3)
-        self.edit_button_2.place(relx=0.6,  rely=0.25)
+                    button_text = f"Som {current_sound}"
+
+                command_lambda = lambda val=value: self.insert_code(val)
+
+                setattr(self, button_name, customtkinter.CTkButton(self.edit_content, width=50, height=50, text=button_text, fg_color=cor, hover_color="#333", command=command_lambda))
+                getattr(self, button_name).grid(column=3)
+
+                relx_value = (j - 1) * 0.2 + 0.1
+                rely_value = (i - 1) * 0.15
+
+                getattr(self, button_name).place(relx=relx_value, rely=rely_value)
+
+                current_item += 1
+
         
         #Programação em blocos Section
         self.block_programming_section = customtkinter.CTkFrame(self.content, width=366.66, height=580)
@@ -104,12 +126,13 @@ class App(customtkinter.CTk):
         self.play_section_content_header = customtkinter.CTkFrame(self.play_section, height=460, width=366.66, fg_color="#fff", corner_radius=0)
         self.play_section_content_header.grid(column=0, row=2)
 
+    def insert_code(self, value):
+        self.code.append(value)
 
     def generate_code(self):
-        codigo = ["ai", "papai", "\n", "salve", "leleo 2", "\n", "vini loucuras"]
         with open("src\games/codigo.txt", "w") as arquivo:
-            for i in range(len(codigo)):
-                arquivo.write(codigo[i])
+            for i in range(len(self.code)):
+                arquivo.write(self.code[i])
 
 if __name__ == "__main__":
     app = App()
