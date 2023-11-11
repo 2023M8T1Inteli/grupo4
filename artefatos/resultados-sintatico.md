@@ -99,3 +99,22 @@ O analisador sintático foi capaz de reconhecer a expressão `(1 + 2) * 3` e ger
 #### Comentários
 
 O analisador sintático foi capaz de reconhecer a expressão `7 / 5` e gerar a árvore sintática correspondente. O resultado da avaliação da expressão também foi exibido. O resultado da divisão foi truncado, pois a linguagem QAL não suporta números de ponto flutuante (fracionários).
+
+### Exemplo 5
+
+#### Input
+
+```
+> "ola " + "mundo"
+```
+
+#### Output
+
+```
+(+ ola  mundo)
+ola mundo
+```
+
+#### Comentários
+
+O analisador sintático foi capaz de reconhecer a expressão `"ola " + "mundo"` e gerar a árvore sintática correspondente. O resultado da avaliação da expressão também foi exibido. A operação de soma de strings concatenou as duas strings.
