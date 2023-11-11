@@ -70,11 +70,6 @@ O analisador sintático foi capaz de reconhecer a expressão `1 - "bolo"` e gera
 > (1 + 2) * 3
 ```
 
-(- casa)
-Erro: Operando deve ser um número.
-[linha 1]
-None
-
 #### Output
 
 ```
