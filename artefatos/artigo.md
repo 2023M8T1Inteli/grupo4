@@ -23,3 +23,10 @@ A proposta visa criar um ambiente terapêutico adaptado, oferecendo interação 
 ## 3. Resultados 
 
 ## Referências 
+Petry, J. R., Mafalda, C. G. O., Zangerolami, Y. E., Wiebbelling, G. D. S., Pereira, M. B., & Trost, B. E. (2018). Tecnologia Assistiva: Tapete Sensorial para Crianças Autistas. XXVI Seminário de Iniciação Científica. UNIJUÍ.
+
+A Short History of Assistive Technology. Disponível em: <https://www.scanningpens.blog/news/2022/11/10/a-short-history-of-assistive-technology>.
+
+‌Compiladores - História - www.cadcobol.com.br. Disponível em: <https://www.cadcobol.com.br/compiladores_wikipedia_historia.htm>. Acesso em: 14 nov. 2023.
+
+‌Schneider, C. S., Passerino, L. M., & Oliveira, R. F. (2005). Compilador Educativo VERTO: ambiente para aprendizagem de compiladores. Novas Tecnologias na Educação CINTED-UFRGS, V. 3 Nº 2, Novembro, 1-9.
