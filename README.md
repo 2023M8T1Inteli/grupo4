@@ -40,7 +40,7 @@ Este é um dos repositórios do projeto de alunos do Inteli em parceria com a AA
 # Releases
 
 * [SPRINT1](https://github.com/2023M8T1Inteli/grupo4/releases/tag/sprint1): Analisador léxico (versão 1), Entendimento do Negócio, Entendimento do Usuário e Arquitetura inicial
-* SPRINT2: *descrição*
+* [SPRINT2](https://github.com/2023M8T1Inteli/grupo4/releases/tag/sprint2): Analisador léxico (versão 2), Analisador sintático (versão 1), IDE (versão 1), Artigo (versão 1)
 * SPRINT3: *descrição*
 * SPRINT4: *descrição*
 * SPRINT5: *descrição*
