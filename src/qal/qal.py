@@ -83,17 +83,14 @@ def run(source: str):
     #     print(token)
 
     parser = Parsing(tokens, error_function=parsing_error)
-    expression = parser.parse()
+    statements = parser.parse()
 
     # Erros de sintaxe
     if had_error:
         return
 
-    print(AstPrinter().print(expression))
-
     interpreter = Interpreter(runtime_error)
-    value = interpreter.interpret(expression)
-    print(value)
+    interpreter.interpret(statements)
 
 
 if __name__ == "__main__":

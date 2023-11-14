@@ -29,6 +29,7 @@ class AstPrinter:
         parts.append(")")
         return "".join(parts)
 
+
 def main():
     """Teste do printer."""
     expression = Binary(
@@ -38,6 +39,7 @@ def main():
     )
 
     print(AstPrinter().print(expression))
+
 
 if __name__ == "__main__":
     main()

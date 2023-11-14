@@ -1,11 +1,9 @@
 from typing import Any
 from lexical_token import LexicalToken
 
-
 class Expr:
     def accept(self, visitor):
         pass
-
 
 class Binary(Expr):
     def __init__(self, left, operator: LexicalToken, right):
@@ -18,7 +16,7 @@ class Binary(Expr):
 
 
 class Grouping(Expr):
-    def __init__(self, expression: Expr):
+    def __init__(self, expression):
         self.expression = expression
 
     def accept(self, visitor):
@@ -42,6 +40,14 @@ class Unary(Expr):
         return visitor.visit_unary_expr(self)
 
 
+class Variable(Expr):
+    def __init__(self, name: LexicalToken):
+        self.name = name
+
+    def accept(self, visitor):
+        return visitor.visit_variable_expr(self)
+
+
 class Visitor:
     def visit_binary_expr(self, expr: Binary):
         pass
@@ -54,3 +60,7 @@ class Visitor:
 
     def visit_unary_expr(self, expr: Unary):
         pass
+
+    def visit_variable_expr(self, expr: Variable):
+        pass
+
