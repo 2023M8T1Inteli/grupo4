@@ -1,4 +1,5 @@
-from expr import Binary, Grouping, Literal, Unary
+from expr import Binary, Grouping, Literal, Unary, Variable
+from stmt import Print, Var
 from token_type import TokenType
 from lexical_token import LexicalToken
 from ast_printer import AstPrinter
@@ -17,18 +18,63 @@ class Parsing:
 
     def parse(self):
         """Realiza o parse dos tokens."""
-        try:
-            return self._expression()
-        except Parsing.ParseError:
-            return None
+
+        statements = []
+        while not self._is_at_end():
+            statements.append(self._declaration())
+
+        return statements
 
     def _expression(self):
-        """expression → equality ;"""
+        """expression → equality"""
 
         return self._equality()
 
+    def _declaration(self):
+        """declaration → var_declaration | statement"""
+        try:
+            if self._match(TokenType.VAR):
+                return self._var_declaration()
+
+            return self._statement()
+        except Parsing.ParseError:
+            self._syncronize()
+            return None
+
+    def _statement(self):
+        """statement → expression_statement | print_statement"""
+        if self._match(TokenType.PRINT):
+            return self._print_statement()
+
+        return self._expression_statement()
+
+    def _print_statement(self):
+        """print_statement → "print" expression ";" """
+        value = self._expression()
+        self._consume(TokenType.SEMICOLON, "Era esperado ';' após o valor.")
+        return Print(value)
+
+    def _var_declaration(self):
+        """var_declaration → "var" IDENTIFIER ( "=" expression )? ";" """
+        name = self._consume(TokenType.IDENTIFIER, "Era esperado um nome de variável.")
+
+        initializer = None
+        if self._match(TokenType.EQUAL):
+            initializer = self._expression()
+
+        self._consume(
+            TokenType.SEMICOLON, "Era esperado ';' após a declaração da variável."
+        )
+        return Var(name, initializer)
+
+    def _expression_statement(self):
+        """expression_statement → expression ";" """
+        expr = self._expression()
+        self._consume(TokenType.SEMICOLON, "Era esperado ';' após a expressão.")
+        return expr
+
     def _equality(self):
-        """equality → comparison ( ( "!=" | "==" ) comparison )* ;"""
+        """equality → comparison ( ( "!=" | "==" ) comparison )*"""
         expr = self._comparison()
 
         while self._match(TokenType.NOT_EQUAL, TokenType.EQUAL_EQUAL):
@@ -39,7 +85,7 @@ class Parsing:
         return expr
 
     def _comparison(self):
-        """comparison → term ( ( ">" | ">=" | "<" | "<=" ) term )* ;"""
+        """comparison → term ( ( ">" | ">=" | "<" | "<=" ) term )*"""
         expr = self._term()
 
         while self._match(
@@ -55,7 +101,7 @@ class Parsing:
         return expr
 
     def _term(self):
-        """term → factor ( ( "-" | "+" ) factor )* ;"""
+        """term → factor ( ( "-" | "+" ) factor )*"""
         expr = self._factor()
 
         while self._match(TokenType.MINUS, TokenType.PLUS):
@@ -66,7 +112,7 @@ class Parsing:
         return expr
 
     def _factor(self):
-        """factor → unary ( ( "/" | "*" ) unary )* ;"""
+        """factor → unary ( ( "/" | "*" ) unary )*"""
         expr = self._unary()
 
         while self._match(TokenType.SLASH, TokenType.STAR, TokenType.PERCENT):
@@ -77,7 +123,7 @@ class Parsing:
         return expr
 
     def _unary(self):
-        """unary → ( "nao" | "-" ) unary | primary ;"""
+        """unary → ( "nao" | "-" ) unary | primary"""
         if self._match(TokenType.NAO, TokenType.MINUS):
             operator = self._previous()
             right = self._unary()
@@ -86,7 +132,7 @@ class Parsing:
         return self._primary()
 
     def _primary(self):
-        """primary → NUMBER | STRING | "verdade" | "falso" | "nil" | "(" expression ")" ;"""
+        """primary → NUMBER | STRING | "verdade" | "falso" | "nil" | "(" expression ")" | IDENTIFIER"""
         if self._match(TokenType.TRUE):
             return Literal(True)
         if self._match(TokenType.FALSE):
@@ -97,6 +143,8 @@ class Parsing:
         if self._match(TokenType.INTEGER, TokenType.STRING):
             return Literal(self._previous().literal)
 
+        if self._match(TokenType.IDENTIFIER):
+            return Variable(self._previous())
         if self._match(TokenType.LPAR):
             expr = self._expression()
             self._consume(TokenType.RPAR, "Era esperado um ')' após a expressão.")
@@ -151,6 +199,13 @@ class Parsing:
 
     def _syncronize(self):
         """Sincroniza o parser após um erro de parse."""
+
+        if self._peek().type == TokenType.EOF:
+            return
+
+        if self._previous().type == TokenType.SEMICOLON:
+            return
+
         self._advance()
 
         while not self._is_at_end():

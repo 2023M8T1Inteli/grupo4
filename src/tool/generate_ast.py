@@ -16,10 +16,21 @@ def main():
         output_dir,
         "Expr",
         [
-            "Binary   : left: Expr, operator: LexicalToken, right: Expr",
-            "Grouping : expression: Expr",
+            "Binary   : left, operator: LexicalToken, right",
+            "Grouping : expression",
             "Literal  : value: Any",
-            "Unary    : operator: LexicalToken, right: Expr",
+            "Unary    : operator: LexicalToken, right",
+            "Variable : name: LexicalToken",
+        ],
+    )
+
+    define_ast(
+        output_dir,
+        "Stmt",
+        [
+            "Expression : expression",
+            "Print      : expression",
+            "Var        : name: LexicalToken, initializer",
         ],
     )
 

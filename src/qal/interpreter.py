@@ -1,17 +1,22 @@
 import expr
+import stmt
 from lexical_token import TokenType
 from runtime_exception import RuntimeException
+from environment import Environment
 
 
-class Interpreter(expr.Visitor):
+class Interpreter(
+    expr.Visitor,
+    stmt.Visitor,
+):
     def __init__(self, error_function):
         self.error = error_function
+        self._environment = Environment()
 
-    def interpret(self, expr):
+    def interpret(self, statements):
         try:
-            value = self._evaluate(expr)
-            evaluation = self._stringify(value)
-            return evaluation
+            for statement in statements:
+                self._execute(statement)
         except RuntimeException as e:
             self.error(e)
 
@@ -33,6 +38,9 @@ class Interpreter(expr.Visitor):
         # Não deveria chegar aqui
         return None
 
+    def visit_variable_expr(self, expr: expr.Variable):
+        return self._environment.get(expr.name)
+
     def _check_number_operand(self, operator, operand):
         if isinstance(operand, int):
             return
@@ -52,6 +60,26 @@ class Interpreter(expr.Visitor):
 
     def _evaluate(self, expr):
         return expr.accept(self)
+
+    def _execute(self, stmt):
+        stmt.accept(self)
+
+    def visit_expression_stmt(self, stmt: stmt.Expression):
+        self._evaluate(stmt.expression)
+        return None
+
+    def visit_print_stmt(self, stmt: stmt.Print):
+        value = self._evaluate(stmt.expression)
+        print(self._stringify(value))
+        return None
+
+    def visit_var_stmt(self, stmt: stmt.Var):
+        value = None
+        if stmt.initializer != None:
+            value = self._evaluate(stmt.initializer)
+
+        self._environment.define(stmt.name.lexeme, value)
+        return None
 
     def visit_binary_expr(self, expr: expr.Binary):
         left = self._evaluate(expr.left)

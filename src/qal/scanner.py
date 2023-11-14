@@ -33,6 +33,8 @@ class Scanner:
         "ou": TokenType.OU,
         "e": TokenType.E,
         "nil": TokenType.NIL,
+        "imprime": TokenType.PRINT,
+        "var": TokenType.VAR,
     }
 
     def scan_tokens(self) -> List[LexicalToken]:
@@ -47,6 +49,8 @@ class Scanner:
         c = self.advance()
         if c == ":":
             self.add_token(TokenType.COLON)
+        elif c == ";":
+            self.add_token(TokenType.SEMICOLON)
         elif c == ",":
             self.add_token(TokenType.COMMA)
         elif c == ".":
@@ -66,7 +70,9 @@ class Scanner:
         elif c == "^":
             self.add_token(TokenType.CARET)
         elif c == "=":
-            self.add_token(TokenType.EQUAL_EQUAL if self.match("=") else TokenType.EQUAL)
+            self.add_token(
+                TokenType.EQUAL_EQUAL if self.match("=") else TokenType.EQUAL
+            )
         elif c == "<":
             if self.match("="):
                 self.add_token(TokenType.LESS_EQUAL)
@@ -75,7 +81,9 @@ class Scanner:
             else:
                 self.add_token(TokenType.LESS)
         elif c == ">":
-            self.add_token(TokenType.GREATER_EQUAL if self.match("=") else TokenType.GREATER)
+            self.add_token(
+                TokenType.GREATER_EQUAL if self.match("=") else TokenType.GREATER
+            )
         elif c == "/":
             if self.match("/"):
                 # Um comentário vai até o fim da linha
@@ -119,7 +127,7 @@ class Scanner:
             self.advance()
 
         token_type = self.keywords.get(
-            self.source[self.start : self.current], TokenType.ID
+            self.source[self.start : self.current], TokenType.IDENTIFIER
         )
 
         self.add_token(token_type)
@@ -131,7 +139,7 @@ class Scanner:
 
     def string(self):
         while self.peek() != '"' and not self.is_at_end():
-            if self.peek() == '\n':
+            if self.peek() == "\n":
                 self.line += 1
             self.advance()
 
@@ -143,7 +151,7 @@ class Scanner:
         self.advance()
 
         # Tirar as aspas em volta
-        value = self.source[self.start + 1: self.current - 1]
+        value = self.source[self.start + 1 : self.current - 1]
         self.add_token(TokenType.STRING, value)
 
     def match(self, expected: str) -> bool:
