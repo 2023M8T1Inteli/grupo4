@@ -3,9 +3,11 @@ from token_type import TokenType
 from lexical_token import LexicalToken
 from ast_printer import AstPrinter
 
+
 class Parsing:
     class ParseError(Exception):
         """Erro de parse."""
+
         pass
 
     def __init__(self, tokens, error_function):
@@ -40,7 +42,12 @@ class Parsing:
         """comparison → term ( ( ">" | ">=" | "<" | "<=" ) term )* ;"""
         expr = self._term()
 
-        while self._match(TokenType.GREATER, TokenType.GREATER_EQUAL, TokenType.LESS, TokenType.LESS_EQUAL):
+        while self._match(
+            TokenType.GREATER,
+            TokenType.GREATER_EQUAL,
+            TokenType.LESS,
+            TokenType.LESS_EQUAL,
+        ):
             operator = self._previous()
             right = self._term()
             expr = Binary(expr, operator, right)
@@ -62,7 +69,7 @@ class Parsing:
         """factor → unary ( ( "/" | "*" ) unary )* ;"""
         expr = self._unary()
 
-        while self._match(TokenType.SLASH, TokenType.STAR):
+        while self._match(TokenType.SLASH, TokenType.STAR, TokenType.PERCENT):
             operator = self._previous()
             right = self._unary()
             expr = Binary(expr, operator, right)

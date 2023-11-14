@@ -1,12 +1,14 @@
 from typing import Any
 from lexical_token import LexicalToken
 
+
 class Expr:
     def accept(self, visitor):
         pass
 
+
 class Binary(Expr):
-    def __init__(self, left: Expr, operator: LexicalToken, right: Expr):
+    def __init__(self, left, operator: LexicalToken, right):
         self.left = left
         self.operator = operator
         self.right = right
@@ -32,7 +34,7 @@ class Literal(Expr):
 
 
 class Unary(Expr):
-    def __init__(self, operator: LexicalToken, right: Expr):
+    def __init__(self, operator: LexicalToken, right):
         self.operator = operator
         self.right = right
 
@@ -52,4 +54,3 @@ class Visitor:
 
     def visit_unary_expr(self, expr: Unary):
         pass
-

@@ -2,11 +2,13 @@ import sys
 
 from scanner import Scanner
 from parsing import Parsing
+from interpreter import Interpreter
 from lexical_token import LexicalToken
 from token_type import TokenType
 from ast_printer import AstPrinter
 
 had_error = False
+had_runtime_error = False
 
 
 def run_file(path: str):
@@ -15,6 +17,8 @@ def run_file(path: str):
             run(file.read())
             if had_error:
                 sys.exit(65)  # Codigo 65: erro no dado de entrada
+            if had_runtime_error:
+                sys.exit(70)  # Codigo 70: erro na execução
     except IOError as e:
         print(f"Não foi possível ler o arquivo: {path}")
         print(e)
@@ -45,14 +49,22 @@ def report(line: int, where: str, message: str):
     print(f"[linha {line}] Erro {where}: {message}")
     had_error = True
 
+
 def parsing_error(token: LexicalToken, message: str):
     if token.type == TokenType.EOF:
         report(token.line, " no final", message)
     else:
         report(token.line, f" no '{token.lexeme}'", message)
 
+
+def runtime_error(error):
+    print(f"Erro: {error.message}\n[linha {error.token.line}]")
+    had_runtime_error = True
+
+
 def main():
     global had_error
+    global had_runtime_error
 
     if len(sys.argv) > 2:
         print("Exemplo de uso: python qal.py [script]")
@@ -78,6 +90,11 @@ def run(source: str):
         return
 
     print(AstPrinter().print(expression))
+
+    interpreter = Interpreter(runtime_error)
+    value = interpreter.interpret(expression)
+    print(value)
+
 
 if __name__ == "__main__":
     main()
