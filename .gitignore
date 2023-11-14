@@ -4,5 +4,4 @@ target
 *.pdf
 __pycache__
 venv/
-src/program/.DS_Store
-src/program/assets/.DS_Store
+.DS_Store
