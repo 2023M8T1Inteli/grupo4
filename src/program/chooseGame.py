@@ -27,10 +27,10 @@ class App(customtkinter.CTk):
         
         back_button_image = PhotoImage(file=file_path + '/assets/left_arrow.png')
 
-        self.back_btn = customtkinter.CTkButton(self.header, fg_color="transparent", command=teste, text="", image=back_button_image)
+        self.back_btn = customtkinter.CTkButton(self.header, fg_color="transparent", command=nullCommand, text="", image=back_button_image)
         self.back_btn.pack(side='left', padx=30, pady=20)
 
-        self.creation_btn = customtkinter.CTkButton(self.header, text="SUAS CRIAÇÕES", fg_color="transparent", hover_color="#fefefe", command=teste, text_color="red")
+        self.creation_btn = customtkinter.CTkButton(self.header, text="SUAS CRIAÇÕES", fg_color="transparent", hover_color="#fefefe", command=nullCommand, text_color="red")
         self.creation_btn.pack(side="right", padx=30)  # Ajuste o ipadx/ipady conforme necessário
 
         self.title = customtkinter.CTkLabel(self, text="ESCOLHA SEU JOGO", font=CTkFont(size=40, weight="bold"))
@@ -55,8 +55,8 @@ class App(customtkinter.CTk):
             text.pack(side="bottom", pady=40)
 
 
-def teste():
-    print('pqp')
+def nullCommand():
+    print('nullCommand')
 
 def edit(n): 
     print(f'{n}')
