@@ -3,6 +3,7 @@ from tkinter import ttk, font, PhotoImage
 import customtkinter
 from customtkinter import *
 
+
 import customtkinter
 customtkinter.set_appearance_mode("light")  
 file_path = os.path.dirname(os.path.realpath(__file__))
@@ -10,7 +11,7 @@ file_path = os.path.dirname(os.path.realpath(__file__))
 class App(customtkinter.CTk):
     def __init__(self):
         super().__init__()
-        self.title("edit game.py")
+        self.title("Edite seus jogos")
         self.geometry(f"{1100}x{800}")
 
         # Estilo de fonte em negrito
@@ -24,7 +25,9 @@ class App(customtkinter.CTk):
         self.border = customtkinter.CTkFrame(self, height=2,  fg_color="#D51130", corner_radius=0)
         self.border.pack(fill='x')
         
-        self.back_btn = customtkinter.CTkButton(self.header, command=teste, text="Voltar")
+        back_button_image = PhotoImage(file=file_path + '/assets/left_arrow.png')
+
+        self.back_btn = customtkinter.CTkButton(self.header, fg_color="transparent", command=teste, text="", image=back_button_image)
         self.back_btn.pack(side='left', padx=30, pady=20)
 
         self.creation_btn = customtkinter.CTkButton(self.header, text="SUAS CRIAÇÕES", fg_color="transparent", hover_color="#fefefe", command=teste, text_color="red")
