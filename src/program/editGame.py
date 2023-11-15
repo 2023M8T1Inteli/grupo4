@@ -122,7 +122,7 @@ class App(customtkinter.CTk):
 
         play_image = customtkinter.CTkImage(Image.open(file_path + "/triangle.png"), size=(26, 26))
 
-        self.play_section_sub_header_btn = customtkinter.CTkButton(self.play_section_sub_header, width=60, height=40, text="", fg_color="transparent", corner_radius=20, hover_color="#333", image=play_image)
+        self.play_section_sub_header_btn = customtkinter.CTkButton(self.play_section_sub_header, width=60, height=40, text="", fg_color="transparent", corner_radius=20, hover_color="#333", image=play_image, command=self.run_compiler)
         self.play_section_sub_header_btn.grid(column=0, row=0)
 
         self.play_section_content_header = customtkinter.CTkFrame(self.play_section, height=460, width=366.66, fg_color="#fff", corner_radius=0)
@@ -137,6 +137,8 @@ class App(customtkinter.CTk):
             for i in range(len(self.code)):
                 arquivo.write(self.code[i])
 
+    def run_compiler(self):
+        os.system('python src\\qal\\qal.py src\\games\\codigo.txt')
 
 if __name__ == "__main__":
     app = App()
