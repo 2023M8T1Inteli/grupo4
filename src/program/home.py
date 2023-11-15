@@ -2,67 +2,76 @@ import customtkinter
 import os
 from PIL import Image, ImageTk
 
+# Obtém o caminho do diretório atual do arquivo
 file_path = os.path.dirname(os.path.realpath(__file__))
 
+# Função de retorno de chamada do botão
 def buttonCallBack():
     print("Cliquei")
 
+# Configura o modo de aparência para "light"
+customtkinter.set_appearance_mode("light")  
+
+# Cria uma instância do CTk (customtkinter)
 app = customtkinter.CTk()
 app.title("Home")
 
-width= app.winfo_screenwidth()               
-height= app.winfo_screenheight()               
+# Obtém as dimensões da tela
+width = app.winfo_screenwidth()               
+height = app.winfo_screenheight()               
 app.geometry("%dx%d" % (width, height))
 
-# Create the head_frame
+# Cria o frame do cabeçalho
 head_frame = customtkinter.CTkFrame(app, width=width, height=90, corner_radius=0, fg_color="#D51130")
 head_frame.grid(row=0, column=0, sticky="nsew")
 
-# Load the image and create a CTkImage
+# Carrega a imagem e cria uma CTkImage
 imgProfile = customtkinter.CTkImage(Image.open(file_path + "/assets/Group 4.png"), size=(50, 50))
 
-# Add click function in label
+# Adiciona uma função de clique ao rótulo
 def label_click():
-    print("Oi")
+    print("label_click")
 
-# Add the "HOME" label
+# Adiciona o rótulo "HOME"
 home_label = customtkinter.CTkLabel(
     head_frame,
     text="HOME",
     font=("Inter", 18, "bold"),
     text_color="white",
 )
-home_label.place(x=width - 270, y=30)  # Adjust the coordinates (x, y) as needed
-home_label.configure(cursor="hand2")  # Change the cursor style
+home_label.place(x=width - 270, y=30)  # Ajusta as coordenadas (x, y) conforme necessário
+home_label.configure(cursor="hand2")  # Altera o estilo do cursor
 
-# Add the "JOGOS" label
+# Adiciona o rótulo "JOGOS"
 jogos_label = customtkinter.CTkLabel(
     head_frame,
     text="JOGOS",
     font=("Inter", 18, "bold"),
     text_color="white",
 )
-jogos_label.place(x=width - 180, y=30)  # Adjust the coordinates (x, y) as needed
-jogos_label.configure(cursor="hand2")  # Change the cursor style
+jogos_label.place(x=width - 180, y=30)  # Ajusta as coordenadas (x, y) conforme necessário
+jogos_label.configure(cursor="hand2")  # Altera o estilo do cursor
 
-# Add the image label
+# Adiciona o rótulo de imagem
 img_label = customtkinter.CTkLabel(head_frame, image=imgProfile, text="")
-img_label.place(x=width - 90, y=20)  # Adjust the coordinates (x, y) as needed
+img_label.place(x=width - 90, y=20)  # Ajusta as coordenadas (x, y) conforme necessário
 img_label.configure(cursor="hand2")
 
-# Lower the head_frame to the background
+# Abaixa o head_frame para o plano de fundo
 head_frame.lower()
 
-# Bind click events to the labels
+# Associa eventos de clique aos rótulos
 home_label.bind("<Button-1>", lambda event: label_click())
 jogos_label.bind("<Button-1>", lambda event: label_click())
 img_label.bind("<Button-1>", lambda event: label_click())
 
+# Função de retorno de chamada para o botão de pesquisa
 def search_button_callback():
     print("uhum")
-    search_text = search_entry.get().lower()  # Get the search text from the entry and convert to lowercase
+    search_text = search_entry.get().lower()  # Obtém o texto de pesquisa da entrada e converte para minúsculas
     print(search_text)
 
+    # Itera sobre os widgets da janela
     for widget in app.winfo_children():
         if isinstance(widget, customtkinter.CTkButton) and "buttonClient" in widget.winfo_name():
             button_text = widget.cget("text").lower()
@@ -72,20 +81,20 @@ def search_button_callback():
             else:
                 widget.grid_remove()
 
-# Create a new frame for the search bar, image, and button
+# Cria um novo frame para a barra de pesquisa, imagem, e botão
 search_frame = customtkinter.CTkFrame(app, bg_color="#EBEBEB", fg_color="#EBEBEB")
 search_frame.grid(row=1, column=0, padx=width/4, pady=20, sticky="wn")
 
+# Carrega a imagem da pesquisa
 img_search = customtkinter.CTkImage(Image.open(file_path + "/assets/Vector.png"), size=(30, 30))
 
-# Add the image label (img_label_back) to the search frame
+# Adiciona a imagem ao rótulo na barra de pesquisa
 img_label_search = customtkinter.CTkLabel(search_frame, image=img_search, text="")
 img_label_search.grid(row=0, column=0, padx=0, pady=0, sticky="w")
 img_label_search.configure(cursor="hand2")
 img_label_search.bind("<Button-1>", lambda event: search_button_callback())
 
-
-# Add the search entry to the search frame
+# Adiciona a entrada de pesquisa ao frame de pesquisa
 search_entry = customtkinter.CTkEntry(
     search_frame, 
     width=300, 
@@ -99,7 +108,7 @@ search_entry = customtkinter.CTkEntry(
 )
 search_entry.grid(row=0, column=1, padx=10, pady=0, sticky="w")
 
-# Add the buttonAdd to the search frame
+# Adiciona o botãoAdicionar ao frame de pesquisa
 imgAdd = customtkinter.CTkImage(Image.open(file_path + "/assets/Group 141.png"), size=(40, 40))
 buttonAdd = customtkinter.CTkButton(
     search_frame,
@@ -115,7 +124,7 @@ buttonAdd = customtkinter.CTkButton(
 )
 buttonAdd.grid(row=0, column=2, padx=5, pady=0, sticky="w")
 
-# Config button
+# Configuração do botão
 img = customtkinter.CTkImage(Image.open(file_path + "/assets/Group 135.png"), size=(30,30))
 
 buttonClient = customtkinter.CTkButton(
@@ -135,7 +144,6 @@ buttonClient = customtkinter.CTkButton(
     compound="left",
     border_spacing=20
 )
-
 
 buttonClient.grid(row=2, column=0, padx=width/4, pady=20, sticky="wn")
 
