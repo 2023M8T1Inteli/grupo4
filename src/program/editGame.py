@@ -3,6 +3,8 @@ from tkinter import font
 from PIL import Image, ImageTk
 import customtkinter
 from customtkinter import *
+import os
+import time
 
 import customtkinter
 customtkinter.set_appearance_mode("System")  # Modes: "System" (standard), "Dark", "Light"
@@ -69,13 +71,13 @@ class App(customtkinter.CTk):
 
                 if current_item <= 12:
                     cor = "#FF4500"
-                    value = f"if Quad{button_number}: \n"
+                    value = f"se Quad{button_number} entao \n"
                     button_name = f"self.edit_button_{button_number}"
 
                     button_text = f"Quad {button_number} \n"
                 else:
                     cor = "#6495ED"
-                    value = f"\t print({current_sound}) \n"
+                    value = f"\tmostrar({current_sound}) \n"
                     current_sound += 1
                     button_name = f"self.edit_button_{button_number}"
 
@@ -128,11 +130,13 @@ class App(customtkinter.CTk):
 
     def insert_code(self, value):
         self.code.append(value)
+        self.create_new_frame(str(value))
 
     def generate_code(self):
         with open("src\games/codigo.txt", "w") as arquivo:
             for i in range(len(self.code)):
                 arquivo.write(self.code[i])
+
 
 if __name__ == "__main__":
     app = App()

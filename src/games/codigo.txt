@@ -1,2 +1,2 @@
-if Quad1: 
-	 print(0) 
+se Quad4 entao 
+	mostrar(2) 
