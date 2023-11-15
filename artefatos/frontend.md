@@ -33,3 +33,5 @@ Incluímos exemplos de análises tipográficas e de contraste para duas telas pr
 **Observação:** Durante a próxima sprint (Sprint 3), visamos melhorar ainda mais a acessibilidade da nossa interface. Atualmente, utilizamos TkInter, mas reconhecemos que há limitações em termos de acessibilidade, como leitores de tela e textos alternativos. Portanto, estamos migrando para o Electron (https://www.electronjs.org/pt/) para aprimorar significativamente a acessibilidade.
 
 Estamos comprometidos em garantir uma experiência inclusiva para todos os usuários e continuaremos a aprimorar nossa aplicação com base nos princípios de acessibilidade. Se houver mais sugestões ou áreas específicas de melhoria que devemos abordar, não hesite em fornecer feedback. Agradecemos o seu interesse e apoio contínuo.
+
+O código do Front-End para a Sprint 2, realizado utilizando TkInter pode ser encontrado em: [src/program](../src/program/).
