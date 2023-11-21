@@ -1,11 +1,14 @@
 import React from 'react';
 import ReactDOM from 'react-dom/client';
 import reportWebVitals from './reportWebVitals';
+import Header from './components/header/header';
+import CreateSession from './pages/Session/Create-session';
+import './App.css'
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   <React.StrictMode>
-    <div>oi</div>
+    <CreateSession />
   </React.StrictMode>
 );
 
