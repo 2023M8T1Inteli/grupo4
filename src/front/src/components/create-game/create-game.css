@@ -1,0 +1,26 @@
+.card-create {
+    width: 30%;
+    height: 90%;
+    border-radius: 30px;
+    border: solid #A1A1A1 1px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+}
+
+.card-create:hover {
+    transition: transform 0.3s ease-in-out;
+    transform: scale(1.1);
+}
+
+.card-create svg {
+    margin: 0;
+    padding: 0;
+}
+
+.card-create p {
+    color: #000000;
+    font-weight: 600;
+}

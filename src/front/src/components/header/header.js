@@ -1,5 +1,5 @@
 import React from 'react';
-import Profile from '../../assets/Profile';
+import Profile from '../svgs/Profile';
 import './header.css';
 
 class Header extends React.Component{
@@ -8,7 +8,7 @@ class Header extends React.Component{
             <div className="main-head">
                 <p>Menu</p>
                 <p>Jogos</p>
-                <p>Relatório</p>
+                <p>Relatórios</p>
                 <Profile />
             </div>
         )
