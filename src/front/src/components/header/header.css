@@ -1,0 +1,24 @@
+
+.main-head {
+    width: 100%;
+    height: 12%;
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    gap: 5%;
+    background-color: #A60D25;
+}
+
+p{
+    font-size: 24px;
+    font-weight: bold;
+    color: #FFFFFF;
+}
+
+.main-head svg, p{
+    cursor: pointer;
+}
+
+.main-head svg {
+    margin: 0 3rem;
+}
