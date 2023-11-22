@@ -1,14 +1,21 @@
 import React from 'react';
 import ReactDOM from 'react-dom/client';
+import {BrowserRouter, Routes, Route} from "react-router-dom";
 import reportWebVitals from './reportWebVitals';
 import CreateSession from './pages/Session/Create-session';
+import KidsProfile from './pages/Kid profile/kid-profile';
 import './App.css'
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 
 root.render(
   <React.StrictMode>
-    <CreateSession />
+    <BrowserRouter>
+      <Routes>
+        <Route path='Session' element={<CreateSession />}></Route>
+        <Route path='Profile' element={<KidsProfile />}></Route>
+      </Routes>
+    </BrowserRouter>
   </React.StrictMode>
 );
 
