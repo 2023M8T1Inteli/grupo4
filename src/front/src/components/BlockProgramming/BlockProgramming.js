@@ -1,15 +1,12 @@
 import React from "react";
-import DropDownItem from "../DropDownList/DropDownItem/DropDownItem";
+import DropDownList from "../DropDownList/DropdownList"; // Importe a lista de DropDownItem
 //styles
 import "./style.css";
 
-// exortando dela de Cart
-
 class BlockProgramming extends React.Component {
-
-    render (){
-        return(
-        <><div className="Container">
+    render() {
+        return (
+            <div className="Container">
                 <div className="Sidebar">
                     <div className="TitleSidebar">
                         <p className="TextSidebar">Edição</p>
@@ -17,15 +14,12 @@ class BlockProgramming extends React.Component {
                     <div className="Content">
                         <div className="ContentLeft"></div>
                         <div className="ContentRight">
-                            <DropDownItem />
-                            <DropDownItem />
-                            <DropDownItem />
-                            
-
+                            {/* Use a lista de DropDownItem aqui */}
+                            <DropDownList />
                         </div>
                     </div>
                 </div>
-            
+
                 <div className="BlockProgrammingSection">
                     <div className="Navbar">
                         <div className="TopNavbar">
@@ -35,15 +29,11 @@ class BlockProgramming extends React.Component {
                             <button className="NavbarBtn">Criar</button>
                             <button className="NavbarBtn">Iniciar</button>
                         </div>
-                        
                     </div>
 
-
-                    <div className="MainContent">
-
-                    </div>
+                    <div className="MainContent"></div>
                 </div>
-            </div></>
+            </div>
         );
     }
 }

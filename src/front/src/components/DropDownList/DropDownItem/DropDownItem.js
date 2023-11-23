@@ -15,14 +15,7 @@ class DropDownItem extends React.Component {
                 <p className="HeaderItemText">Lelis</p>
             </div>
             <div className="ContentItem">
-                <div className="Block"></div>
-                <div className="Block"></div>
-                <div className="Block"></div>
-                <div className="Block"></div>
-                <div className="Block"></div>
-                <div className="Block"></div>
-                <div className="Block"></div>
-                <div className="Block"></div>
+                
             </div>
         </div>
         </>

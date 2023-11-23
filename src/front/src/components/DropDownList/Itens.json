@@ -1,0 +1,15 @@
+{
+    "blocks" : {
+        "block1" : "if block1 is pressed",
+        "block2" : "if block2 is pressed",
+        "block3" : "if block3 is pressed",
+        "block4" : "if block1 is pressed",
+        "block5" : "if block2 is pressed"
+    },
+
+    "conditinals" : {
+        "if" : "se",
+        "else" : "senao"
+    }
+
+}
