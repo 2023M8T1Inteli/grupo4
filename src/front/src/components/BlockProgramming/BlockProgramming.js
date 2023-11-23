@@ -1,5 +1,5 @@
 import React from "react";
-
+import DropDownItem from "../DropDownList/DropDownItem/DropDownItem";
 //styles
 import "./style.css";
 
@@ -16,7 +16,13 @@ class BlockProgramming extends React.Component {
                     </div>
                     <div className="Content">
                         <div className="ContentLeft"></div>
-                        <div className="ContentRight"></div>
+                        <div className="ContentRight">
+                            <DropDownItem />
+                            <DropDownItem />
+                            <DropDownItem />
+                            
+
+                        </div>
                     </div>
                 </div>
             
