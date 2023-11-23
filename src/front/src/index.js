@@ -5,6 +5,7 @@ import reportWebVitals from './reportWebVitals';
 import CreateSession from './pages/Session/Create-session';
 import KidsProfile from './pages/Kid profile/kid-profile';
 import './App.css'
+import EditGame from './pages/editGame/editGame';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 
@@ -12,6 +13,7 @@ root.render(
   <React.StrictMode>
     <BrowserRouter>
       <Routes>
+      <Route path='EditGame' element={<EditGame />}></Route>
         <Route path='Session' element={<CreateSession />}></Route>
         <Route path='Profile' element={<KidsProfile />}></Route>
       </Routes>
