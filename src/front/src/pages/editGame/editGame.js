@@ -4,8 +4,8 @@ import React from "react";
 import "./style.css";
 
 // components
-import EditGameSidebar from "../../components/EditGameSidebar/editGameSidebar";
 import BlockProgramming from "../../components/BlockProgramming/BlockProgramming";
+import Header from '../../components/header/header'
 
 
 
@@ -15,7 +15,9 @@ class EditGame extends React.Component{
     render(){
         return(
         <>
+        <Header />
         <div className="Container">
+            
             <BlockProgramming />
         </div>
         </>
