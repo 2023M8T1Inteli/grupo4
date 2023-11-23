@@ -2,5 +2,6 @@
 .Container {
     margin: 0;
     padding: 0;
-    display: flex;
+    padding: 50px;
+    overflow: hidden;
 }

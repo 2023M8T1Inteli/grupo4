@@ -16,7 +16,6 @@ class EditGame extends React.Component{
         return(
         <>
         <div className="Container">
-            <EditGameSidebar />
             <BlockProgramming />
         </div>
         </>
