@@ -1,22 +1,25 @@
 import React from "react";
-import DropDownItem from "./DropDownItem/DropDownItem"; // Importe o componente DropDownItem
-import jsonData from "./Itens.json"; // Substitua pelo caminho real do seu arquivo JSON
+import DropDownItem from "./DropDownItem/DropDownItem";
+import jsonData from "./Itens.json";
+
 
 class DropDownList extends React.Component {
     render() {
-        const { blocks, conditionals } = jsonData;
-
         return (
             <div>
-                {Object.keys(blocks).map((blockKey) => (
+                {Object.entries(jsonData.blocks).map(([blockKey, blockValues]) => (
                     <DropDownItem key={blockKey}>
                         <div className="HeaderItem">
-                            <p className="HeaderItemText">{blocks[blockKey]}</p>
+                            <p className="HeaderItemText">{blockValues[0]}</p>
                         </div>
-                        <div className="ContentItem">
-                            {Array.from({ length: 8 }, (_, index) => (
-                                <div className="Block" key={index}></div>
-                            ))}
+                        <div className="showItem">
+                            <div className="ContentItem">
+                                {blockValues.slice(1).map((text, index) => (
+                                    <div className="Block" key={index}>
+                                        <p className="TextBlock">{text}</p>
+                                    </div>
+                                ))}
+                            </div>
                         </div>
                     </DropDownItem>
                 ))}

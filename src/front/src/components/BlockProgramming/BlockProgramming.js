@@ -12,7 +12,6 @@ class BlockProgramming extends React.Component {
                         <p className="TextSidebar">Edição</p>
                     </div>
                     <div className="Content">
-                        <div className="ContentLeft"></div>
                         <div className="ContentRight">
                             {/* Use a lista de DropDownItem aqui */}
                             <DropDownList />

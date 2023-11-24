@@ -1,24 +1,18 @@
 import React from "react";
-
-//styles
 import "./style.css";
 
-// exortando dela de Cart
-
 class DropDownItem extends React.Component {
+    render() {
+        const { children } = this.props; // Adicione esta linha para acessar as props
 
-    render (){
-        return(
-        <>
-        <div className="ContainerItem">
-            <div className="HeaderItem">
-                <p className="HeaderItemText">Lelis</p>
-            </div>
-            <div className="ContentItem">
-                
-            </div>
-        </div>
-        </>
+        return (
+            <>
+            
+                <div className="ContainerItem">
+                    {children} {/* Renderize as props aqui */}
+                </div>
+            
+            </>
         );
     }
 }

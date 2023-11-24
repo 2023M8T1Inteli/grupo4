@@ -9,13 +9,14 @@
     box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.3);
 }
 
-.ContentItem{
-    padding: 20px;
+.ContentItem {
     background-color: #fff;
     display: grid;
     grid-template-columns: repeat(2, 1fr);
-    grid-gap: 10px;
+    padding: 30px;
+
 }
+
 
 .HeaderItemText{
     text-align: center;
@@ -27,5 +28,15 @@
 .Block{
     height: 60px;
     width: 92px;
-    background-color: blue;
+    background-color: rgb(0, 174, 255);
+    padding: auto;
+}
+
+.TextBlock{
+    text-align: center;
+    font-size: 17px;
+}
+
+.showItem.visible {
+    display: grid;
 }
