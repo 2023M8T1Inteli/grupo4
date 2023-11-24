@@ -51,7 +51,7 @@ class BlockProgramming extends React.Component {
                         </div>
                         <div className="BottomNavbar">
                             <button className="NavbarBtn" onClick={this.handleCode}>
-                                Ver Código
+                                Criar
                             </button>
                             <button className="NavbarBtn">Iniciar</button>
                         </div>
