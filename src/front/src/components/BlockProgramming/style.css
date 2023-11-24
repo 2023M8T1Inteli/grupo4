@@ -96,4 +96,18 @@
     height: 56px;
     background-color: #777;
     margin: 0 auto 20px auto;
+    display: flex;
+}
+
+.Block{
+    height: 50px;
+    width: 92px;
+    background-color: rgb(0, 174, 255);
+    padding: auto;
+    border: 2px solid #111;
+}
+
+.TextBlock{
+    text-align: center;
+    font-size: 17px;
 }

@@ -4,20 +4,27 @@ import jsonData from "./Itens.json";
 
 
 class DropDownList extends React.Component {
+
+    handleBlockClick = (blockKey) => {
+        // Chame a função fornecida por props para informar ao pai qual bloco foi clicado
+        this.props.onBlockClick(blockKey);
+    };
+
     render() {
         return (
             <div>
+                
                 {Object.entries(jsonData.blocks).map(([blockKey, blockValues]) => (
-                    <DropDownItem key={blockKey}>
+                    <DropDownItem key={blockKey} onClick={() => this.handleBlockClick(blockKey)}>
                         <div className="HeaderItem">
                             <p className="HeaderItemText">{blockValues[0]}</p>
                         </div>
                         <div className="showItem">
                             <div className="ContentItem">
                                 {blockValues.slice(1).map((text, index) => (
-                                    <div className="Block" key={index}>
+                                    <button className="Block" key={index}>
                                         <p className="TextBlock">{text}</p>
-                                    </div>
+                                    </button>
                                 ))}
                             </div>
                         </div>

@@ -3,13 +3,13 @@ import "./style.css";
 
 class DropDownItem extends React.Component {
     render() {
-        const { children } = this.props; // Adicione esta linha para acessar as props
+        const { children } = this.props; 
 
         return (
             <>
             
                 <div className="ContainerItem">
-                    {children} {/* Renderize as props aqui */}
+                    {children}
                 </div>
             
             </>
