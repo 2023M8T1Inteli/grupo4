@@ -30,7 +30,14 @@ class BlockProgramming extends React.Component {
                         </div>
                     </div>
 
-                    <div className="MainContent"></div>
+                    <div className="MainContent">
+                        <div className="Code"></div>
+                        <div className="Code"></div>
+                        <div className="Code"></div>
+                        <div className="Code"></div>
+                        <div className="Code"></div>
+                        <div className="Code"></div>
+                    </div>
                 </div>
             </div>
         );
