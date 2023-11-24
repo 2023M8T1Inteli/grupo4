@@ -3,9 +3,11 @@ import ReactDOM from 'react-dom/client';
 import {BrowserRouter, Routes, Route} from "react-router-dom";
 import reportWebVitals from './reportWebVitals';
 import CreateSession from './pages/Session/Create-session';
-import KidsProfile from './pages/Kid profile/kid-profile';
-import './App.css'
+import KidsProfile from './pages/KidProfile/kid-profile';
+import Home from './pages/Home/home';
 import EditGame from './pages/editGame/editGame';
+
+import './App.css'
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 
@@ -13,7 +15,8 @@ root.render(
   <React.StrictMode>
     <BrowserRouter>
       <Routes>
-      <Route path='EditGame' element={<EditGame />}></Route>
+       <Route path='EditGame' element={<EditGame />}></Route>
+        <Route path='/' element={<Home />}></Route>
         <Route path='Session' element={<CreateSession />}></Route>
         <Route path='Profile' element={<KidsProfile />}></Route>
       </Routes>

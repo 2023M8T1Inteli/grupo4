@@ -1,6 +1,6 @@
 import React from "react";
-import AddIcon from "../svgs/Add";
-import "./create-game.css";
+import AddIcon from "../Svgs/Add";
+import "./create-game.css"
 
 class CreateGame extends React.Component{
     render(){

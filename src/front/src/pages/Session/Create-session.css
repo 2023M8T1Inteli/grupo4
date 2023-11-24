@@ -6,6 +6,10 @@
     align-items: center;
 }
 
+.main h1 {
+    margin-bottom: 2%;
+}
+
 .back-button {
     width: 100%;
 }
@@ -24,8 +28,7 @@
     margin-top: 0.1%;
 }
 
-input {
-    height: 80%;
+.setting-section input {
     border: 2px solid #A1A1A1;
     border-radius: 20px;
     font-size: 24px;
