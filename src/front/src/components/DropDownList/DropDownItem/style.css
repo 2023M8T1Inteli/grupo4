@@ -29,7 +29,8 @@
     height: 60px;
     width: 92px;
     background-color: rgb(0, 174, 255);
-    padding: auto;
+    text-align: center;
+    color: #fff;
 }
 
 .TextBlock{

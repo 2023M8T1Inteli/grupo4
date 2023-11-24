@@ -1,7 +1,9 @@
 {
     "blocks" : {
-        "conditionals" : ["ações", "pressionar", "soltar"],
+        "conditionals" : ["ações", "soltar", "pressionar"],
         "responses" : ["respostas", "tocar som", "mostrar imagem"],
-        "arquivos" : ["arquivos", "imagem", "audio"]
+        "blocos": ["quadrantes", "quadrante 1", "quadrante 2"],
+        "arquivos" : ["arquivos", "audio", "imagem"],
+        "mensagens" : ["mensagens", "escrever"]
     }
 }

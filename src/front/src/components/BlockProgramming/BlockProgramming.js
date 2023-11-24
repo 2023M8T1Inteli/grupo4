@@ -13,18 +13,21 @@ class BlockProgramming extends React.Component {
     }
 
     handleCreateBlock = (text) => {
-        // Atualiza a variável de estado code
+        const blockText = text.slice(1); // Remove o título da seção (índice 0)
+    
         this.setState((prevState) => ({
-            code: prevState.code + text,
+            code: prevState.code + blockText + "\n",
             blocks: [
                 ...prevState.blocks,
                 {
                     id: `custom_${Date.now()}`,
-                    text: text,
+                    text: text, // Mantenha o texto completo do bloco
                 },
             ],
         }));
     };
+    
+    
 
     handleCode = () => {
         console.log(this.state.code);
@@ -60,8 +63,8 @@ class BlockProgramming extends React.Component {
                     <div className="MainContent">
                         <div className="Code">
                             {this.state.blocks.map((block) => (
-                                <div className="Block" key={block.id}>
-                                    {block.text}
+                                <div className="BlockInserted" key={block.id}>
+                                    {block.text.slice(1)}
                                 </div>
                             ))}
                         </div>

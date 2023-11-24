@@ -6,7 +6,7 @@
 }
 
 .Sidebar {
-    height: 100vh;
+    height: 100%;
     width: 25vw;
 }
 
@@ -93,18 +93,20 @@
 
 .Code{
     width: 80%;
-    height: 56px;
+    height: 73px;
     background-color: #777;
     margin: 0 auto 20px auto;
     display: flex;
 }
 
-.Block{
+.BlockInserted{
     height: 50px;
     width: 92px;
     background-color: rgb(0, 174, 255);
-    padding: auto;
     border: 2px solid #111;
+    color: #fff;
+    text-align: center;
+    padding: 10px 0;
 }
 
 .TextBlock{
