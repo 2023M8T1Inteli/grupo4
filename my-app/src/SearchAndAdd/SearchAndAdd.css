@@ -1,0 +1,157 @@
+body {
+  font-family: Arial, Helvetica, sans-serif;
+}
+.search-add > .add {
+    border-radius: 50%;
+    background-color: #A60D25;
+    width: 40px;
+    height: 40px;
+    border: none;
+    cursor: pointer;
+}
+
+.search-add {
+    display: flex; 
+    justify-content: space-between; 
+    align-items: center;
+    padding: 10px;
+  }
+  
+  .search,
+  .add {
+    display: flex; 
+    align-items: center; 
+    margin: 0 100px; 
+    margin-top: 10px;
+  }
+
+  .add-button {
+    border-radius: 50%;
+    background-color: #A60D25;
+    width: 40px;
+    height: 40px;
+    border: none;
+    cursor: pointer;
+    color: white; 
+  }
+
+  .input-search {
+    border-radius: 25px;
+    border: 1px solid #94A2AB;
+    height: 30px;
+    width: 300px;
+    font-size: 14px;
+    text-align: left;
+    text-indent: 10px;
+  }
+  .search-button {
+    border: 50%;
+    background-color: transparent;
+    border: none;
+    cursor: pointer;
+  }
+
+  .search-icon {
+    height: 25px;
+    margin: 5px;
+  }
+
+  .addBtn {
+    height: 15px;
+  }
+  
+  /* Modal */
+
+.modal {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background-color: white;
+  padding: 20px;
+  border-radius: 8px;
+  z-index: 1000;
+  box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.3); /* Sombra para efeito de flutuação */
+}
+
+.overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5); /* Sobreposição escura para fundo */
+  z-index: 999;
+}
+
+
+.input-cadastro-paciente input {
+  margin-bottom: 10px;
+  padding: 8px;
+  border: 1px solid #94A2AB;
+  border-radius: 4px;
+  display: flex;
+  flex-direction: column;
+}
+
+.btn-cadastrar-paciente {
+  background-color: #A60D25;
+  color: #ffffff;
+  border-radius: 20%;
+}
+
+.input-cadastro-paciente input,
+.input-cadastro-paciente button {
+  margin-bottom: 10px;
+}
+
+.input-cadastro-paciente .idade,
+.input-cadastro-paciente .cidade {
+  display: inline-block;
+  width: calc(50% - 5px); /* Ajuste o valor conforme necessário */
+  margin-right: 5px; /* Espaço entre os inputs */
+}
+
+.input-cadastro-paciente .cidade{
+  margin-right: 5px; 
+}
+
+.input-cadastro-paciente button {
+  width: 50%; /* Garante que o botão ocupe a largura completa */
+  text-align: center; /* Centraliza o texto do botão */
+  border-radius: 25px;
+  height: 35px;
+  margin-top: 30px;
+}
+
+.input-cadastro-paciente .cadastrar-paciente {
+  display: flex;
+  justify-content: center; /* Alinha o botão no centro horizontal */
+}
+
+.nome, .diagnostico, .idade, .cidade {
+  margin-top: 20px;
+}
+
+.input-cadastro-paciente {
+  margin-top: 30px;
+}
+
+.close {
+  font-size: 30px; /* Tamanho da fonte */
+  width: 30px; /* Largura do símbolo */
+  height: 30px; /* Altura do símbolo */
+  line-height: 30px; /* Ajuste da linha para centralizar verticalmente */
+  cursor: pointer;
+  color: #A60D25;
+}
+
+.name > input {
+  width: 98%;
+}
+
+.diagnostico > input {
+  width: 98%;
+}
+
+
