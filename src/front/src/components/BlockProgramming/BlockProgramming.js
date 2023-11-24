@@ -8,18 +8,26 @@ class BlockProgramming extends React.Component {
         this.state = {
             selectedBlock: null,
             blocks: [],
+            code: "", // Adicione a variável code ao estado
         };
     }
 
     handleCreateBlock = (text) => {
-        const newBlock = {
-            id: `custom_${Date.now()}`,
-            text: text,
-        };
-
+        // Atualiza a variável de estado code
         this.setState((prevState) => ({
-            blocks: [...prevState.blocks, newBlock],
+            code: prevState.code + text,
+            blocks: [
+                ...prevState.blocks,
+                {
+                    id: `custom_${Date.now()}`,
+                    text: text,
+                },
+            ],
         }));
+    };
+
+    handleCode = () => {
+        console.log(this.state.code);
     };
 
     render() {
@@ -42,8 +50,8 @@ class BlockProgramming extends React.Component {
                             <p>Jogo 2</p>
                         </div>
                         <div className="BottomNavbar">
-                            <button className="NavbarBtn" onClick={this.handleCreateBlock}>
-                                Criar
+                            <button className="NavbarBtn" onClick={this.handleCode}>
+                                Ver Código
                             </button>
                             <button className="NavbarBtn">Iniciar</button>
                         </div>

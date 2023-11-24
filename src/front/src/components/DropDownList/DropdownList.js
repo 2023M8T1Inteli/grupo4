@@ -3,6 +3,7 @@ import DropDownItem from "./DropDownItem/DropDownItem";
 import jsonData from "./Itens.json";
 
 class DropDownList extends React.Component {
+
     handleBlockClick = (blockKey) => {
         const blockValues = jsonData.blocks[blockKey].slice(1);
 
