@@ -20,6 +20,11 @@ A proposta visa criar um ambiente terapêutico adaptado, oferecendo interação 
 
 ## 2. Trabalhos relacionados 
 
+Dentre os trabalhos correlatos, destaca-se a pesquisa conduzida por Schneider, Passerino e Oliveira (2005) intitulada "Compilador Educativo VERTO: Ambiente para Aprendizagem de Compiladores". Este estudo aborda a criação de um ambiente educativo inovador para o aprendizado de compiladores, apresentando o Compilador Educativo VERTO. O artigo destaca a importância desse ambiente na facilitação do entendimento dos princípios subjacentes aos compiladores, promovendo uma abordagem educacional eficaz nesse campo.
+
+Adicionalmente, no contexto da Tecnologia Assistiva, vale ressaltar o estudo de Petry et al. (2018), "Tecnologia Assistiva: Tapete Sensorial para Crianças Autistas", apresentado no XXVI Seminário de Iniciação Científica da UNIJUÍ. Esse trabalho fornece insights sobre a aplicação prática da tecnologia assistiva, especificamente um tapete sensorial, para crianças autistas, destacando a relevância dessas soluções inovadoras na promoção do desenvolvimento infantil.
+
+Essas referências são exemplos concretos de trabalhos relacionados que fortalecem a base teórica do projeto proposto, proporcionando uma compreensão mais aprofundada sobre a interseção entre tecnologia assistiva, compiladores e a inovação apresentada neste artigo científico.
 ## 3. Resultados 
 
 ## Referências 
