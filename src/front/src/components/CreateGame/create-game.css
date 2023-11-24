@@ -1,6 +1,6 @@
 .card-create {
     width: 30%;
-    height: 90%;
+    height: 80%;
     border-radius: 30px;
     border: solid #A1A1A1 1px;
     display: flex;
@@ -21,6 +21,7 @@
 }
 
 .card-create p {
+    font-size: 24px;
     color: #000000;
     font-weight: 600;
 }

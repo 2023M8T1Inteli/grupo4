@@ -1,17 +1,18 @@
 import React from 'react';
-import Header from '../../components/header/header'
-import Back from '../../components/svgs/Back';
-import CreateGame from '../../components/create-game/create-game';
-import SelectGame from '../../components/select-game/select';
-import './Create-session.css'
+import { useNavigate } from 'react-router-dom';
+import Header from '../../components/Header/header';
+import Back from '../../components/Svgs/Back';
+import CreateGame from '../../components/CreateGame/create-game';
+import SelectGame from '../../components/SelectGame/select';
+import './Create-session.css';
 
-class CreateSession extends React.Component{
-    render(){
-        return(
+class CreateSession extends React.Component {
+    render() {
+        return (
             <div className='main'>
                 <Header />
                 <div className='back-button'>
-                    <Back />
+                    <BackButton />
                 </div>
                 <div className='setting-section'>
                     <h1>Adicione um nome para sessão:</h1>
@@ -21,14 +22,26 @@ class CreateSession extends React.Component{
                     <h1>Escolha um jogo:</h1>
                     <div className='game-list'>
                         <CreateGame />
-                        <SelectGame buttonText="Jogo 1"/>
-                        <SelectGame buttonText="Jogo 2"/>
+                        <SelectGame buttonText="Jogo 1" />
+                        <SelectGame buttonText="Jogo 2" />
                     </div>
                 </div>
-            </div> 
-            
-        )
+            </div>
+        );
     }
 }
 
-export default CreateSession
+const BackButton = () => {
+    const navigate = useNavigate();
+
+    const handleBack = () => {
+        // Navigate to the "/" page when the back button is pressed
+        navigate('/');
+    };
+
+    return (
+        <Back onClick={handleBack} />
+    );
+};
+
+export default CreateSession;
