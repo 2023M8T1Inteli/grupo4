@@ -1,0 +1,116 @@
+.Container {
+    margin: 0;
+    padding: 0;
+    display: flex;
+    background-color: #c9c9c9;
+}
+
+.Sidebar {
+    height: 100%;
+    width: 25vw;
+}
+
+.TitleSidebar {
+    background-color: #a60d25;
+    width: 100%;
+    height: 50px;
+    border-radius: 20px 20px 0 0;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+}
+
+.TextSidebar {
+    color: #fff;
+    text-align: center;
+    font-family: arial;
+    padding-top: 13px;
+}
+
+.Content {
+    display: flex;
+    height: 100%;
+    overflow-y: auto;
+}
+
+
+
+.ContentRight {
+    background-color: #777;
+    width: 100%;
+    height: 100%;
+    
+    border: 1px solid #111;
+}
+
+
+.Navbar {
+    width: 75vw;
+    height: 90px;
+    display: flex;
+    flex-direction: column;
+}
+
+.TopNavbar {
+    height: 60%;
+    width: 100%;
+}
+
+.TopNavbar p {
+    color: #111;
+    text-align: end;
+    margin-right: 10px;
+}
+
+.BottomNavbar {
+    height: 40%;
+    width: 100%;
+    background-color: #a60d25;
+    padding: auto;
+    display: flex;
+}
+
+.NavbarBtn {
+    background-color: #fff;
+    color: #111;
+    border-radius: 30px;
+    height: 30px;
+    width: 60px;
+    border: none;
+}
+
+.NavbarBtn:hover {
+    background-color: #000000;
+    color: #ffffff;
+    cursor: pointer;
+}
+
+.MainContent{
+    height: 100%;
+    width: 100%;
+    background-color: #fff;
+    padding: 30px 0;
+
+}
+
+.Code{
+    width: 80%;
+    height: 73px;
+    background-color: #777;
+    margin: 0 auto 20px auto;
+    display: flex;
+}
+
+.BlockInserted{
+    height: 50px;
+    width: 92px;
+    background-color: rgb(0, 174, 255);
+    border: 2px solid #111;
+    color: #fff;
+    text-align: center;
+    padding: 10px 0;
+}
+
+.TextBlock{
+    text-align: center;
+    font-size: 15px;
+    padding: auto;
+}
