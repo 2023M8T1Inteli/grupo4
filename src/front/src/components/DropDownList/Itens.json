@@ -1,9 +1,8 @@
 {
     "blocks" : {
-        "conditionals" : ["ações", "soltar", "pressionar"],
-        "responses" : ["respostas", "tocar som", "mostrar imagem"],
-        "blocos": ["quadrantes", "quadrante 1", "quadrante 2"],
-        "arquivos" : ["arquivos", "audio", "imagem"],
-        "mensagens" : ["mensagens", "escrever"]
+        "Acoes" : ["ações", "Mostrar Imagem", "Tocar Som", "Pressionar", "Escrever Mensagem"],
+        "responses" : ["respostas", "Erro", "Acerto"],
+        "blocos": ["quadrantes", "Quadrante 1", "Quadrante 2", "Quadrante 3", "Quadrante 4", "Quadrante 5", "Quadrante 6", "Quadrante 7", "Quadrante 8", "Quadrante 9", "Quadrante 10", "Quadrante 11", "Quadrante 12"],
+        "arquivos" : ["arquivos", "audio", "imagem"]
     }
 }
