@@ -13,7 +13,7 @@ class BlockProgramming extends React.Component {
     }
 
     handleCreateBlock = (text) => {
-        const blockText = text.slice(1); // Remove o título da seção (índice 0)
+        const blockText = text[1]; 
     
         this.setState((prevState) => ({
             code: prevState.code + blockText + "\n",
@@ -26,8 +26,7 @@ class BlockProgramming extends React.Component {
             ],
         }));
     };
-    
-    
+
 
     handleCode = () => {
         console.log(this.state.code);
@@ -64,7 +63,7 @@ class BlockProgramming extends React.Component {
                         <div className="Code">
                             {this.state.blocks.map((block) => (
                                 <div className="BlockInserted" key={block.id}>
-                                    {block.text.slice(1)}
+                                    {block.text[0]}
                                 </div>
                             ))}
                         </div>
