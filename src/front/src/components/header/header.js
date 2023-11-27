@@ -1,10 +1,10 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import Profile from '../Svgs/Profile';
+import Profile from '../svgs/Profile';
 import AACD from '../../assets/AACD.png';
 import './header.css';
 
-class Header extends React.Component {
+class header extends React.Component {
     render() {
         return (
             <div className="main-head">
@@ -22,4 +22,4 @@ class Header extends React.Component {
     }
 }
 
-export default Header;
+export default header;

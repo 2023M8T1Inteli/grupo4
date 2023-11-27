@@ -1,7 +1,7 @@
 import React from 'react';
 import { useNavigate } from 'react-router-dom';
-import Header from '../../components/Header/header';
-import Back from '../../components/Svgs/Back';
+import Header from '../../components/header/header'
+import Back from '../../components/svgs/Back';
 import CreateGame from '../../components/CreateGame/create-game';
 import SelectGame from '../../components/SelectGame/select';
 import './Create-session.css';

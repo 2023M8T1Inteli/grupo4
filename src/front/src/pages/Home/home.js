@@ -1,5 +1,5 @@
 import "./home.css";
-import Header from '../../components/Header/header'
+import Header from '../../components/header/header'
 import SearchAndAdd from "../../components/SearchAndAdd/SearchAndAdd";
 import ChildrenList from "../../components/ChildrenList/ChildrenList";
 

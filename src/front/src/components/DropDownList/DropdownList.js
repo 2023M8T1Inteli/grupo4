@@ -16,8 +16,8 @@ class DropDownList extends React.Component {
             <div>
                 {Object.entries(jsonData.blocks).map(([blockKey, blockValues]) => (
                     <DropDownItem key={blockKey} onClick={() => this.handleBlockClick(blockKey)}>
-                        <div className="HeaderItem">
-                            <p className="HeaderItemText">{blockValues[0]}</p>
+                        <div className="headerItem">
+                            <p className="headerItemText">{blockValues[0]}</p>
                         </div>
                         <div className="showItem">
                             <div className="ContentItem">

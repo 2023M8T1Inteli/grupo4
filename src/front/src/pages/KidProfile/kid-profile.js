@@ -1,8 +1,8 @@
 import React from "react";
 import { useNavigate } from "react-router-dom";
 import "./kid-profile.css";
-import Header from '../../components/Header/header'
-import Back from '../../components/Svgs/Back';
+import Header from '../../components/header/header'
+import Back from '../../components/svgs/Back';
 import KidPhoto from '../../assets/kid-image.png';
 
 function KidsProfile() {

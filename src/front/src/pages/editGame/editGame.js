@@ -5,7 +5,7 @@ import "./style.css";
 
 // components
 import BlockProgramming from "../../components/BlockProgramming/BlockProgramming";
-import Header from '../../components/Header/header'
+import Header from '../../components/header/header'
 
 
 

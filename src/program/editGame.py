@@ -20,11 +20,11 @@ class App(customtkinter.CTk):
 
         file_path = os.path.dirname(os.path.realpath(__file__))
 
-        #Header
+        #header
         self.header = customtkinter.CTkFrame(self, height=60,  fg_color="#D51130", corner_radius=0)
         self.header.pack(fill='x')
 
-        #Botões do Header
+        #Botões do header
         self.frame1 = customtkinter.CTkButton(self.header, width=100, height=58, text="HOME", fg_color="transparent", hover_color="#333")
         self.frame1.grid(column=1)
         self.frame1.place(relx=0.6)
