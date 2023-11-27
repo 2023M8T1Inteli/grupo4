@@ -1,9 +1,9 @@
 {
     "blocks" : {
-        "Ações" : [["Mostrar Imagem", "mostrarImagem();"], ["Tocar Som", "tocarsom();"], ["Pressionar", "se Pressionar;"]],
-        "responses" : [["Acerto", "se" ], ["Erro", "senao"]],
-        "blocos": [["quadrante 1", "1"], ["quadrante 2", "2"], ["quadrante 3", "3"], ["quadrante 4", "4"], ["quadrante5()", "5"], ["quadrante 6", "6"], ["quadrante 7", "7"], ["quadrante 8", "8"], ["quadrante 9", "9"], ["quadrante 10", "10"], ["quadrante 11", "11"], ["quadrante 12", "12"]],
-        "arquivos" : [["audio", "audio()"], ["imagem", "imagem()"]],
-        "mensagens" : [["escrever", "escrever()"]]
+        "Ações" : [["Mostrar Imagem", "mostrarImagem("], ["Tocar Som", "tocarsom("], ["Pressionar", "resposta = "]],
+        "responses" : [["Acerto", "se quadrante == resposta entao: \n" ], ["Erro", "senao:"]],
+        "blocos": [["quadrante 1", "1; \n"], ["quadrante 2", "2; \n"], ["quadrante 3", "3; \n"], ["quadrante 4", "4; \n"], ["quadrante 5", "5; \n"], ["quadrante 6", "6 \n;"], ["quadrante 7", "7; \n"], ["quadrante 8", "8; \n"], ["quadrante 9", "9; \n"], ["quadrante 10", "10; \n"], ["quadrante 11", "11; \n"], ["quadrante 12", "12; \n"]],
+        "arquivos" : [["audio", "audio); \n"], ["imagem", "imagem); \n"]],
+        "mensagens" : [["escrever", "escrever();"]]
     }
 }

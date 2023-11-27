@@ -16,7 +16,7 @@ class BlockProgramming extends React.Component {
         const blockText = text[1]; 
     
         this.setState((prevState) => ({
-            code: prevState.code + blockText + "\n",
+            code: prevState.code + blockText,
             blocks: [
                 ...prevState.blocks,
                 {
