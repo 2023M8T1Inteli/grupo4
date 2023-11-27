@@ -1,20 +1,20 @@
 .children-list {
     display: flex;
     flex-direction: column;
-    align-items: center; /* Centraliza na horizontal */
+    align-items: center; 
     margin-top: 40px;
 }
 
 .children-list > div {
     margin-bottom: 10px; /* Espaçamento entre as divs */
-    margin-bottom: 20px; /* Espaçamento entre as divs */
-    border-radius: 20px; /* Bordas arredondadas */
-    border: 2px solid #ccc; /* Borda sólida */
+    margin-bottom: 20px; 
+    border-radius: 20px; 
+    border: 2px solid #ccc; 
     padding: 15px; /* Espaçamento interno */
     width: 1000px;
-    display: flex; /* Alinha itens dentro da div filha */
-    align-items: center; /* Alinha itens verticalmente */
-    justify-content: space-between; /* Espaço entre os itens */
+    display: flex; /* Alinha itens dentro da div */
+    align-items: center;
+    justify-content: space-between;
 }
 
 .children1, .children2, .children3, .children4 {

@@ -2,7 +2,6 @@ import React, { useState } from 'react';
 import "./SearchAndAdd.css";
 import SearchBtn from './img/searchBtn.png';
 import Add from './img/addIcon.png';
-// Importe aqui o componente do modal, ou crie um modal dentro deste arquivo
 
 const SearchAndAdd = () => {
   const [inputValue, setInputValue] = useState('');
@@ -13,9 +12,8 @@ const SearchAndAdd = () => {
   };
 
   const handleButtonClick = () => {
-    // Faça algo com o valor do input quando o botão for clicado
     console.log('Valor do input:', inputValue);
-    // Por enquanto, apenas limpando o campo de entrada após o clique do botão
+    // Limpa o campo de entrada após o clique no botão
     setInputValue('');
   };
 
@@ -30,16 +28,15 @@ const SearchAndAdd = () => {
   return (
     <div className="search-add">
       <div className='search'>
-        <input className='input-search'></input>
+        <input className='input-search' placeholder='Procurar'></input>
         <button className='search-button'><img src={SearchBtn} alt="Botão de procurar" className='search-icon'/></button>
-        
       </div>
       <div className='add'>
         <button onClick={openModal} className='add-button'><img src={Add} alt='Botão de adicionar paciente' className='addBtn'/></button>
       </div>
       {showModal && (
         <div>
-          {/* Sobreposição escura */}
+          {/* Sobreposição*/}
           <div className="overlay" onClick={closeModal}></div>
           {/* Modal */}
           <div className="modal">
