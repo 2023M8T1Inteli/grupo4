@@ -1,9 +1,9 @@
 {
     "blocks" : {
-        "conditionals" : ["ações", "soltar", "pressionar"],
-        "responses" : ["respostas", "tocar som", "mostrar imagem"],
-        "blocos": ["quadrantes", "quadrante 1", "quadrante 2"],
-        "arquivos" : ["arquivos", "audio", "imagem"],
-        "mensagens" : ["mensagens", "escrever"]
+        "Ações" : [["Mostrar Imagem", "mostrarImagem("], ["Tocar Som", "tocarsom("], ["Pressionar", "resposta = "]],
+        "responses" : [["Acerto", "se quadrante == resposta entao: \n" ], ["Erro", "senao:"]],
+        "blocos": [["quadrante 1", "1; \n"], ["quadrante 2", "2; \n"], ["quadrante 3", "3; \n"], ["quadrante 4", "4; \n"], ["quadrante 5", "5; \n"], ["quadrante 6", "6 \n;"], ["quadrante 7", "7; \n"], ["quadrante 8", "8; \n"], ["quadrante 9", "9; \n"], ["quadrante 10", "10; \n"], ["quadrante 11", "11; \n"], ["quadrante 12", "12; \n"]],
+        "arquivos" : [["audio", "audio); \n"], ["imagem", "imagem); \n"]],
+        "mensagens" : [["escrever", "escrever();"]]
     }
 }
