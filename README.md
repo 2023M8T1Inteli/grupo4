@@ -90,7 +90,7 @@ Preparamos um vídeo que irá auxiliar na compreensão da IDE: [Vídeo explicati
 
 * [SPRINT1](https://github.com/2023M8T1Inteli/grupo4/releases/tag/sprint1): Analisador léxico (versão 1), Entendimento do Negócio, Entendimento do Usuário e Arquitetura inicial
 * [SPRINT2](https://github.com/2023M8T1Inteli/grupo4/releases/tag/sprint2): Analisador léxico (versão 2), Analisador sintático (versão 1), IDE (versão 1), Artigo (versão 1)
-* SPRINT3: Analisador sintático (v2) e semântico (v1), IDE (v2) e Artigo (v2)
+* [SPRINT3](https://github.com/2023M8T1Inteli/grupo4/releases/tag/sprint3): Analisador sintático (v2) e semântico (v1), IDE (v2) e Artigo (v2)
 * SPRINT4: *descrição*
 * SPRINT5: *descrição*
 
