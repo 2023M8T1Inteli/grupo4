@@ -33,9 +33,58 @@ Este é um dos repositórios do projeto de alunos do Inteli em parceria com a AA
 
 *Descrição resumida do projeto*
 
-# Configuração de desenvolvimento
+# Configuração de Desenvolvimento
 
-*Procedimento para baixar e executar o código deste projeto.*
+Nossa aplicação é um executável baseado em Electron, e atualmente está em desenvolvimento. Contudo, é possível executar a aplicação desde que alguns recursos sejam instalados:
+
+## Pré-Requisitos
+
+### Node.js e npm
+
+Node.js é um ambiente de execução para JavaScript no lado do servidor. npm é o gerenciador de pacotes para JavaScript. Para instalar o Node.js e npm, siga estas etapas:
+
+1. **Baixar Node.js**: Visite o site oficial do Node.js em [https://nodejs.org/](https://nodejs.org/) e baixe o instalador apropriado para o seu sistema operacional.
+
+2. **Instalação**: Execute o instalador baixado e siga as instruções para instalar o Node.js e npm. A instalação do npm acompanha a do Node.js, então não é necessário instalar separadamente.
+
+3. **Verificação da Instalação**: Para verificar se o Node.js e npm foram instalados corretamente, abra um terminal e digite os seguintes comandos:
+
+   ```bash
+   node -v
+   npm -v
+   ```
+   Se a instalação estiver correta, os comandos acima retornarão as versões instaladas do Node.js e npm, respectivamente.
+
+### Python
+
+Python é uma linguagem de programação de alto nível, interpretada, de script, imperativa, orientada a objetos, funcional, de tipagem dinâmica e forte. É necessário para algumas dependências de desenvolvimento do Electron.
+
+1. **Baixar Python**: Acesse [https://www.python.org/downloads/](https://www.python.org/downloads/) e baixe a versão mais recente do Python para o seu sistema operacional.
+
+2. **Instalação**: Execute o instalador baixado. Durante a instalação, certifique-se de marcar a opção de "Adicionar Python ao PATH" para poder executar o Python a partir do terminal.
+
+3. **Verificação da Instalação**: Para verificar se o Python foi instalado corretamente, abra um terminal e digite o comando:
+
+   ```bash
+   python --version
+   ```
+   Este comando deve retornar a versão do Python instalada.
+
+## Como executar?
+
+Após a instalação dos pré-requisitos, você está pronto para configurar o ambiente de desenvolvimento para a aplicação Electron. Entre na pasta src/front e execute os seguintes comandos:
+
+```
+npm i 
+npm run start
+```
+
+Em outro terminal, no mesmo diretório execute:
+```
+npm run electron
+```
+
+Preparamos um vídeo que irá auxiliar na compreensão da IDE: [Vídeo explicativo](https://youtu.be/yobL9xKlTKs).
 
 # Releases
 
