@@ -1,4 +1,5 @@
 const { app, BrowserWindow, ipcMain } = require('electron')
+const { PythonShell } = require('python-shell'); 
 
 const path = require('path')
 const fs = require('fs');
@@ -31,10 +32,10 @@ function createWindow() {
             console.log("Jogo salvo com sucesso! " + filePath);
         });
 
-        let pyshell = new PythonShell('./qal/script.py');
+        let pyshell = new PythonShell('../qal/electron_script.py');
 
-        pyshell.send(gameName);
-
+        pyshell.send(gameName)
+        
         pyshell.on('message', function (message) {
             console.log(message);
         });

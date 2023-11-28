@@ -1,1 +1,2 @@
-mostrarImagem(mostrarImagem(
+mostrar(imagem); 
+tocar(audio); 
