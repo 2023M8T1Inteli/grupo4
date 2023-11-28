@@ -1,2 +1,6 @@
-mostrar(imagem); 
-tocar(audio); 
+mostrar(imagem) 
+var resposta = 1 
+se quadrante == resposta entao: 
+mostrar(imagem) 
+senao: 
+tocar(audio) 
