@@ -30,6 +30,7 @@ class BlockProgramming extends React.Component {
 
     handleCode = () => {
         console.log(this.state.code);
+        window.handAPI.sendCode(this.state.code);
     };
 
     render() {

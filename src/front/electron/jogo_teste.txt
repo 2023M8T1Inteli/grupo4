@@ -1,0 +1,4 @@
+mostrarImagem(imagem); 
+resposta = 8; 
+se quadrante == resposta entao: 
+tocarsom(audio); 
