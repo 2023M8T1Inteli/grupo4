@@ -1,6 +1,7 @@
 import React from "react";
 import DropDownList from "../DropDownList/DropdownList";
 import "./style.css";
+import { GoArrowLeft } from "react-icons/go";
 
 class BlockProgramming extends React.Component {
     constructor(props) {
@@ -36,37 +37,42 @@ class BlockProgramming extends React.Component {
     render() {
         return (
             <div className="Container">
-                <div className="Sidebar">
-                    <div className="TitleSidebar">
-                        <p className="TextSidebar">Edição</p>
-                    </div>
-                    <div className="Content">
-                        <div className="ContentRight">
-                            <DropDownList onCreateBlock={this.handleCreateBlock} />
-                        </div>
-                    </div>
+                <div className="IconContainer">
+                    <GoArrowLeft className="Icon"/>
                 </div>
-
-                <div className="BlockProgrammingSection">
-                    <div className="Navbar">
-                        <div className="TopNavbar">
-                            <p>Jogo 2</p>
+                <div className="ContentContainer">
+                    <div className="Sidebar">
+                        <div className="TitleSidebar">
+                            <p className="TextSidebar">Edição</p>
                         </div>
-                        <div className="BottomNavbar">
-                            <button className="NavbarBtn" onClick={this.handleCode}>
-                                Criar
-                            </button>
-                            <button className="NavbarBtn">Iniciar</button>
+                        <div className="Content">
+                            <div className="ContentRight">
+                                <DropDownList onCreateBlock={this.handleCreateBlock} />
+                            </div>
                         </div>
                     </div>
 
-                    <div className="MainContent">
-                        <div className="Code">
-                            {this.state.blocks.map((block) => (
-                                <div className="BlockInserted" key={block.id}>
-                                    {block.text[0]}
+                    <div className="BlockProgrammingSection">
+                        <div className="Navbar">
+                            <div className="BottomNavbar">
+                                <h1>Edite seu jogo: </h1>
+                                <div className="BottomNavbarBtns">
+                                    <button className="NavbarBtn" onClick={this.handleCode}>
+                                        Criar
+                                    </button>
+                                    <button className="NavbarBtn">Iniciar</button>
                                 </div>
-                            ))}
+                            </div>
+                        </div>
+
+                        <div className="MainContent">
+                            <div className="Code">
+                                {this.state.blocks.map((block) => (
+                                    <div className="BlockInserted" key={block.id}>
+                                        {block.text[0]}
+                                    </div>
+                                ))}
+                            </div>
                         </div>
                     </div>
                 </div>

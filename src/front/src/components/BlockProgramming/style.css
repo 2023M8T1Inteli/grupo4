@@ -1,21 +1,33 @@
 .Container {
     margin: 0;
-    padding: 0;
-    display: flex;
-    background-color: #c9c9c9;
+    padding: 20px;
 }
 
+.ContentContainer{
+    display: flex;
+    gap: 30px;
+}
+.IconContainer{
+    height: 20px;
+}
+.Icon{
+    font-size: 50px;
+}
 .Sidebar {
-    height: 100%;
+    height: 64vh;
     width: 25vw;
+    margin-top: 60px;
+    background-color: #F5F5F5;
+    border: 1px solid #111;
+    border-radius: 20px 20px 0 0;
 }
 
 .TitleSidebar {
     background-color: #a60d25;
     width: 100%;
     height: 50px;
-    border-radius: 20px 20px 0 0;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+    border-radius: 20px 20px 0 0;
 }
 
 .TextSidebar {
@@ -37,8 +49,6 @@
     background-color: #777;
     width: 100%;
     height: 100%;
-    
-    border: 1px solid #111;
 }
 
 
@@ -63,18 +73,20 @@
 .BottomNavbar {
     height: 40%;
     width: 100%;
-    background-color: #a60d25;
     padding: auto;
     display: flex;
+    justify-content: space-between;
+    align-items: center;
 }
 
 .NavbarBtn {
-    background-color: #fff;
-    color: #111;
+    background-color: #a60d25;
+    color: #fff;
     border-radius: 30px;
     height: 30px;
     width: 60px;
     border: none;
+    margin-left: 10px;
 }
 
 .NavbarBtn:hover {
@@ -88,7 +100,7 @@
     width: 100%;
     background-color: #fff;
     padding: 30px 0;
-
+    border: 1px solid #111;
 }
 
 .Code{
