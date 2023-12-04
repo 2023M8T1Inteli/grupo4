@@ -2,6 +2,10 @@ import React from "react";
 import DropDownList from "../DropDownList/DropdownList";
 import "./style.css";
 import { GoArrowLeft } from "react-icons/go";
+import { useNavigate } from 'react-router-dom';
+
+import { DndProvider } from 'react-dnd';
+import { HTML5Backend } from 'react-dnd-html5-backend';
 
 class BlockProgramming extends React.Component {
     constructor(props) {
@@ -28,17 +32,21 @@ class BlockProgramming extends React.Component {
         }));
     };
 
-
     handleCode = () => {
         console.log(this.state.code);
         window.handAPI.sendCode(this.state.code);
     };
 
+    backBtn = () => {
+        useNavigate('/Session');
+    };
+
     render() {
         return (
+            <DndProvider backend={HTML5Backend}>
             <div className="Container">
                 <div className="IconContainer">
-                    <GoArrowLeft className="Icon"/>
+                    <GoArrowLeft className="Icon" onClick={this.backBtn}/>
                 </div>
                 <div className="ContentContainer">
                     <div className="Sidebar">
@@ -77,6 +85,7 @@ class BlockProgramming extends React.Component {
                     </div>
                 </div>
             </div>
+            </DndProvider>
         );
     }
 }
