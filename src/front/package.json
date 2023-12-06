@@ -2,12 +2,17 @@
   "name": "front",
   "version": "0.1.0",
   "private": true,
-  "main": "electron/electron.js",
+  "main": "public/electron.js",
+  "homepage": "./",
+  "author": {
+    "name": "Aladdin - Grupo 4 - CC01M8"
+  },
+  "description": "Aladdin Application",
   "dependencies": {
     "@testing-library/jest-dom": "^5.17.0",
     "@testing-library/react": "^13.4.0",
     "@testing-library/user-event": "^13.5.0",
-    "electron": "^27.1.2",
+    "electron-is-dev": "^2.0.0",
     "python-shell": "^5.0.0",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
@@ -20,7 +25,21 @@
     "build": "react-scripts build",
     "test": "react-scripts test",
     "eject": "react-scripts eject",
-    "electron": "electron ."
+    "electron": "electron .",
+    "electron:package:win": "npm run build && electron-builder -w -c.extraMetadata.main=build/electron.js",
+    "electron:package:lin": "npm run build && electron-builder -m -c.extraMetadata.main=build/electron.js",
+    "electron:package:mac": "npm run build && electron-builder -l -c.extraMetadata.main=build/electron.js"
+  },
+  "build": {
+    "appId": ".com.aladdin.app",
+    "productName": "Aladdin Tapete",
+    "files": [
+      "build/**/*",
+      "node_modules/**/*"
+    ],
+    "directories": {
+      "buildResources": "/src/assets"
+    }
   },
   "eslintConfig": {
     "extends": [
@@ -39,5 +58,9 @@
       "last 1 firefox version",
       "last 1 safari version"
     ]
+  },
+  "devDependencies": {
+    "electron": "^28.0.0",
+    "electron-builder": "^24.9.1"
   }
 }

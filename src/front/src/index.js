@@ -1,6 +1,6 @@
 import React from 'react';
 import ReactDOM from 'react-dom/client';
-import {BrowserRouter, Routes, Route} from "react-router-dom";
+import {HashRouter, Routes, Route} from "react-router-dom";
 import reportWebVitals from './reportWebVitals';
 import CreateSession from './pages/Session/Create-session';
 import KidsProfile from './pages/KidProfile/kid-profile';
@@ -13,14 +13,14 @@ const root = ReactDOM.createRoot(document.getElementById('root'));
 
 root.render(
   <React.StrictMode>
-    <BrowserRouter>
+    <HashRouter>
       <Routes>
-       <Route path='EditGame' element={<EditGame />}></Route>
-        <Route path='/' element={<Home />}></Route>
-        <Route path='Session' element={<CreateSession />}></Route>
-        <Route path='Profile' element={<KidsProfile />}></Route>
+       <Route path='EditGame' Component={EditGame}></Route>
+        <Route path='/' exact Component={Home}></Route>
+        <Route path='Session' Component={CreateSession}></Route>
+        <Route path='Profile' Component={KidsProfile}></Route>
       </Routes>
-    </BrowserRouter>
+    </HashRouter>
   </React.StrictMode>
 );
 
