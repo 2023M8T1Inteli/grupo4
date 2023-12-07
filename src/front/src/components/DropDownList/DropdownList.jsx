@@ -24,7 +24,7 @@ class DropDownList extends Component {
     const { clientX, clientY } = event;
     const centerX = window.innerWidth / 2;
     const centerY = window.innerHeight / 2;
-    const areaSize = 100;
+    const areaSize = 600;
 
     // Verifica se o mouse está dentro da área específica
     const dentroDaArea = (
@@ -38,6 +38,18 @@ class DropDownList extends Component {
       mouseX: clientX,
       mouseY: clientY,
       pode: dentroDaArea,
+    });
+  };
+
+  handleStart = (e, data) => {
+    console.log("iniciou")
+  }
+  handleStop = (e, data) => {
+    // Redefine as coordenadas para a posição inicial ao soltar o bloco
+    console.log("parou")
+    this.setState({
+      mouseX: data.x,
+      mouseY: data.y,
     });
   };
 
@@ -62,9 +74,9 @@ class DropDownList extends Component {
                     enableUserSelectHack={true}
                     grid={[25, 25]}
                     scale={1}
-                    onStart={() => console.log("iniciou")}
+                    onStart={this.handleStart}
                     onDrag={(e, data) => console.log(data)}
-                    onStop={() => console.log("parou")}
+                    onStop={this.handleStop}  // Adiciona o evento onStop
                   >
                     <button
                       className="Block"
@@ -79,7 +91,7 @@ class DropDownList extends Component {
           </DropDownItem>
         ))}
         
-        <p>Posição do Mouse: {mouseX}, {mouseY}</p>
+        <p>Posição do Bloco: {mouseX}, {mouseY}</p>
         <p>pode: {pode.toString()}</p>
       </div>
     );
