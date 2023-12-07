@@ -1,4 +1,4 @@
-from expr import Binary, Grouping, Literal, Unary, Variable
+from expr import Binary, Grouping, Literal, Unary, Variable, Assign
 from stmt import Print, Var
 from token_type import TokenType
 from lexical_token import LexicalToken
@@ -26,9 +26,9 @@ class Parsing:
         return statements
 
     def _expression(self):
-        """expression → equality"""
+        """expression → assignment"""
 
-        return self._equality()
+        return self._assignment()
 
     def _declaration(self):
         """declaration → var_declaration | statement"""
@@ -71,6 +71,22 @@ class Parsing:
         """expression_statement → expression ";" """
         expr = self._expression()
         self._consume(TokenType.SEMICOLON, "Era esperado ';' após a expressão.")
+        return expr
+
+    def _assignment(self):
+        """assignment → IDENTIFIER "=" assignment | equality"""
+        expr = self._equality()
+
+        if self._match(TokenType.EQUAL):
+            equals = self._previous()
+            value = self._assignment()
+
+            if isinstance(expr, Variable):
+                name = expr.name
+                return Assign(name, value)
+
+            self._error(equals, "Era esperado um nome de variável.")
+
         return expr
 
     def _equality(self):

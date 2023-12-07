@@ -14,3 +14,10 @@ class Environment:
             return self._values[name.lexeme]
 
         raise RuntimeException(name, f"Variável não definida '{name.lexeme}'.")
+
+    def assign(self, name: LexicalToken, value):
+        if name.lexeme in self._values:
+            self._values[name.lexeme] = value
+            return
+
+        raise RuntimeException(name, f"Variável não definida '{name.lexeme}'.")

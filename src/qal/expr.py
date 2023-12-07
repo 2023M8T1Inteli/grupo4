@@ -5,6 +5,15 @@ class Expr:
     def accept(self, visitor):
         pass
 
+class Assign(Expr):
+    def __init__(self, name: LexicalToken, value: Any):
+        self.name = name
+        self.value = value
+
+    def accept(self, visitor):
+        return visitor.visit_assign_expr(self)
+
+
 class Binary(Expr):
     def __init__(self, left, operator: LexicalToken, right):
         self.left = left
@@ -49,6 +58,9 @@ class Variable(Expr):
 
 
 class Visitor:
+    def visit_assign_expr(self, expr: Assign):
+        pass
+
     def visit_binary_expr(self, expr: Binary):
         pass
 
