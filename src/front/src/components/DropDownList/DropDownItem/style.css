@@ -32,6 +32,8 @@
     text-align: center;
     color: #fff;
     margin-bottom: 15px;
+    position: relative;
+    z-index: 999;
 }
 
 .TextBlock{
