@@ -16,7 +16,8 @@ export class LoginService {
       return null; 
     }
 
-    const passwordMatch = this.comparePasswords(senha, terapeuta.senha);
+    const passwordMatch = await this.comparePasswords(senha, terapeuta.senha);
+
     if (!passwordMatch) {
       return null; 
     }
