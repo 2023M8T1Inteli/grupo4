@@ -1,27 +1,51 @@
-import React from "react";
+import React, { Component } from "react";
 import DropDownItem from "./DropDownItem/DropDownItem";
 import jsonData from "./Itens.json";
+import Draggable from 'react-draggable';
 
-import ReactDOM from 'react-dom';
-import Draggable, { DraggableCore } from 'react-draggable';
+class DropDownList extends Component {
+  constructor(props) {
+    super(props);
 
-class DropDownList extends React.Component {
+    this.state = {
+      mouseX: 0,
+      mouseY: 0,
+      pode: false,
+    };
+  }
 
-  handleBlockClick = (blockKey, pode) => {
-    if (pode){
-    this.props.onCreateBlock(blockKey);
+  handleBlockClick = (blockKey) => {
+    if (this.state.pode) {
+      this.props.onCreateBlock(blockKey);
     }
   };
 
-  eventLogger = (e, data) => {
-    console.log('Event: ', e);
-    console.log('Data: ', data);
+  handleMouseMove = (event) => {
+    const { clientX, clientY } = event;
+    const centerX = window.innerWidth / 2;
+    const centerY = window.innerHeight / 2;
+    const areaSize = 100;
+
+    // Verifica se o mouse está dentro da área específica
+    const dentroDaArea = (
+      clientX >= centerX - areaSize / 2 &&
+      clientX <= centerX + areaSize / 2 &&
+      clientY >= centerY - areaSize / 2 &&
+      clientY <= centerY + areaSize / 2
+    );
+
+    this.setState({
+      mouseX: clientX,
+      mouseY: clientY,
+      pode: dentroDaArea,
+    });
   };
 
   render() {
+    const { mouseX, mouseY, pode } = this.state;
+
     return (
-      <div>
-      
+      <div onMouseMove={this.handleMouseMove}>
         {Object.entries(jsonData.blocks).map(([blockKey, blockValues]) => (
           <DropDownItem key={blockKey} onClick={() => this.handleBlockClick(blockKey)}>
             <div className="headerItem">
@@ -31,31 +55,32 @@ class DropDownList extends React.Component {
               <div className="ContentItem">
                 {blockValues.map((text, index) => (
                   <Draggable
+                    key={index}
                     style={{ position: "absolute" }}
                     axis="both"
                     defaultPosition={{ x: 0, y: 0 }}
-                    enableUserSelectHack="true"
+                    enableUserSelectHack={true}
                     grid={[25, 25]}
                     scale={1}
                     onStart={() => console.log("iniciou")}
-                    onDrag={(e) => console.log(e)}
+                    onDrag={(e, data) => console.log(data)}
                     onStop={() => console.log("parou")}
                   >
                     <button
-                    className="Block"
-                    key={index}
-
-                    onClick={() => this.handleBlockClick(text, true)}
-                  >
-                    <p className="TextBlock">{text[0]}</p>
-                  </button>
+                      className="Block"
+                      onClick={() => this.handleBlockClick(text)}
+                    >
+                      <p className="TextBlock">{text[0]}</p>
+                    </button>
                   </Draggable>
-                  
                 ))}
               </div>
             </div>
           </DropDownItem>
         ))}
+        
+        <p>Posição do Mouse: {mouseX}, {mouseY}</p>
+        <p>pode: {pode.toString()}</p>
       </div>
     );
   }
