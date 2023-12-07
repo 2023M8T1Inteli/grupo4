@@ -13,10 +13,8 @@ class BlockProgramming extends React.Component {
         };
     }
 
-    handleCreateBlock = (text, pode) => {
+    handleCreateBlock = (text) => {
         const blockText = text[1]; 
-
-        if(pode){
     
         this.setState((prevState) => ({
             code: prevState.code + blockText,
@@ -28,8 +26,6 @@ class BlockProgramming extends React.Component {
                 },
             ],
         }));
-
-    }
     };
 
 
@@ -51,7 +47,7 @@ class BlockProgramming extends React.Component {
                         </div>
                         <div className="Content">
                             <div className="ContentRight">
-                                <DropDownList onCreateBlock={this.handleCreateBloc} />
+                                <DropDownList onCreateBlock={this.handleCreateBlock} />
                             </div>
                         </div>
                     </div>

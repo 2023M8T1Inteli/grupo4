@@ -33,26 +33,26 @@ class DropDownList extends React.Component {
                   
                   
                   <Draggable
-                  style={{ position: "absolute" }}
-                  axis="both"
-                  defaultPosition={{ x: 0, y: 0 }}
-                  enableUserSelectHack="true"
-                  grid={[25, 25]}
-                  scale={1}
-                  onStart={() => console.log("iniciou")}
-                  onDrag={(e) => console.log(e)}
-                  onStop={() => console.log("parou")}
-                >
-                  <div style={{ position: "relative" }}>
+                    style={{ position: "absolute" }}
+                    axis="both"
+                    defaultPosition={{ x: 0, y: 0 }}
+                    enableUserSelectHack="true"
+                    grid={[25, 25]}
+                    scale={1}
+                    onStart={() => console.log("iniciou")}
+                    onDrag={(e) => console.log(e)}
+                    onStop={() => console.log("parou")}
+        
+                  >
                     <button
-                      className="Block"
-                      key={index}
-                      onClick={() => this.handleBlockClick(text, false)}  // Adicionado o parâmetro "true"
-                    >
-                      <p className="TextBlock">{text[0]}</p>
-                    </button>
-                  </div>
-                </Draggable>
+                    className="Block"
+                    key={index}
+
+                    onClick={() => this.handleBlockClick(text, true)}
+                  >
+                    <p className="TextBlock">{text[0]}</p>
+                  </button>
+                  </Draggable>
                   
                 ))}
               </div>
