@@ -6,9 +6,10 @@ import { TerapeutasModule } from './terapeutas/terapeutas.module';
 import { JogosModule } from './jogos/jogos.module';
 import { SessoesModule } from './sessoes/sessoes.module';
 import { PacientesModule } from './pacientes/pacientes.module';
+import { LoginModule } from './login/login.module';
 
 @Module({
-  imports: [PrismaModule, TerapeutasModule, JogosModule, SessoesModule, PacientesModule],
+  imports: [PrismaModule, TerapeutasModule, JogosModule, SessoesModule, PacientesModule, LoginModule],
   controllers: [AppController],
   providers: [AppService],
 })
