@@ -30,8 +30,6 @@ class DropDownList extends React.Component {
             <div className="showItem">
               <div className="ContentItem">
                 {blockValues.map((text, index) => (
-                  
-                  
                   <Draggable
                     style={{ position: "absolute" }}
                     axis="both"
@@ -42,7 +40,6 @@ class DropDownList extends React.Component {
                     onStart={() => console.log("iniciou")}
                     onDrag={(e) => console.log(e)}
                     onStop={() => console.log("parou")}
-        
                   >
                     <button
                     className="Block"
