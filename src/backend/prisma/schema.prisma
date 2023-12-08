@@ -13,7 +13,7 @@ datasource db {
 model Terapeuta {
   id            String   @id @default(uuid())
   nome_completo String
-  email         String
+  email         String @unique
   senha         String
   jogos         Jogos[]
   sessoes       Sessoes[]

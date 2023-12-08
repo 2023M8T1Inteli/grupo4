@@ -15,12 +15,13 @@ const terapeutas_module_1 = require("./terapeutas/terapeutas.module");
 const jogos_module_1 = require("./jogos/jogos.module");
 const sessoes_module_1 = require("./sessoes/sessoes.module");
 const pacientes_module_1 = require("./pacientes/pacientes.module");
+const login_module_1 = require("./login/login.module");
 let AppModule = class AppModule {
 };
 exports.AppModule = AppModule;
 exports.AppModule = AppModule = __decorate([
     (0, common_1.Module)({
-        imports: [prisma_module_1.PrismaModule, terapeutas_module_1.TerapeutasModule, jogos_module_1.JogosModule, sessoes_module_1.SessoesModule, pacientes_module_1.PacientesModule],
+        imports: [prisma_module_1.PrismaModule, terapeutas_module_1.TerapeutasModule, jogos_module_1.JogosModule, sessoes_module_1.SessoesModule, pacientes_module_1.PacientesModule, login_module_1.LoginModule],
         controllers: [app_controller_1.AppController],
         providers: [app_service_1.AppService],
     })

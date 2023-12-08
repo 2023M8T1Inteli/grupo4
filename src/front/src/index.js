@@ -6,8 +6,10 @@ import CreateSession from './pages/Session/Create-session';
 import KidsProfile from './pages/KidProfile/kid-profile';
 import Home from './pages/Home/home';
 import EditGame from './pages/editGame/editGame';
+import Login from './pages/Login/Login';
+import './App.css';
 
-import './App.css'
+import'./App.css'
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 
@@ -15,8 +17,9 @@ root.render(
   <React.StrictMode>
     <HashRouter>
       <Routes>
-       <Route path='EditGame' Component={EditGame}></Route>
-        <Route path='/' exact Component={Home}></Route>
+        <Route path='/' element={Login}></Route>
+        <Route path='EditGame' Component={EditGame}></Route>
+        <Route path='Home' Component={Home}></Route>
         <Route path='Session' Component={CreateSession}></Route>
         <Route path='Profile' Component={KidsProfile}></Route>
       </Routes>
