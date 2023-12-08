@@ -36,7 +36,7 @@ const BackButton = () => {
 
     const handleBack = () => {
         // Navigate to the "/" page when the back button is pressed
-        navigate('/');
+        navigate('/Home');
     };
 
     return (

@@ -17,9 +17,9 @@ root.render(
   <React.StrictMode>
     <BrowserRouter>
       <Routes>
-        <Route path='Login' element={Login}></Route>
-       <Route path='EditGame' element={<EditGame />}></Route>
-        <Route path='/' element={<Home />}></Route>
+        <Route path='/' element={<Login  />}></Route>
+        <Route path='EditGame' element={<EditGame />}></Route>
+        <Route path='Home' element={<Home />}></Route>
         <Route path='Session' element={<CreateSession />}></Route>
         <Route path='Profile' element={<KidsProfile />}></Route>
       </Routes>
