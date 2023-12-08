@@ -17,7 +17,7 @@ root.render(
   <React.StrictMode>
     <HashRouter>
       <Routes>
-        <Route path='/' element={Login}></Route>
+        <Route path='/' Component={Login}></Route>
         <Route path='EditGame' Component={EditGame}></Route>
         <Route path='Home' Component={Home}></Route>
         <Route path='Session' Component={CreateSession}></Route>
