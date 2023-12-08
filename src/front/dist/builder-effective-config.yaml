@@ -1,0 +1,14 @@
+directories:
+  output: dist
+  buildResources: /src/assets
+files:
+  - filter:
+      - build/**/*
+      - build/**/*
+      - node_modules/**/*
+extraMetadata:
+  main: build/electron.js
+appId: .com.aladdin.app
+productName: Aladdin Tapete
+extends: react-cra
+electronVersion: 28.0.0
