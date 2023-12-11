@@ -1,5 +1,5 @@
 const { app, BrowserWindow, ipcMain } = require('electron')
-const { PythonShell } = require('python-shell'); 
+const { PythonShell } = require('python-shell');
 
 const isDev = require('electron-is-dev');
 const path = require('path');
@@ -21,8 +21,8 @@ function createWindow() {
     win.webContents.openDevTools()
 
     ipcMain.on('code', (event, code) => {
-        const gameName = "jogo_teste.txt"
-        const filePath = path.join(__dirname, '..', '..', 'games', `${gameName}`);
+        const joguinho = "jogo_teste.txt"
+        const filePath = path.join(__dirname, '..', '..', 'games', `${joguinho}`);
 
         fs.writeFile(filePath, code, 'utf-8', (err) => {
             if (err) {
@@ -35,8 +35,36 @@ function createWindow() {
 
         let pyshell = new PythonShell('../qal/electron_script.py');
 
-        pyshell.send(gameName)
-        
+        pyshell.on('message', function (message) {
+            console.log(message);
+        });
+
+        pyshell.end(function (err) {
+            if (err) {
+                throw err;
+            }
+            console.log('finished');
+
+            // Sending a response back to the renderer process
+            event.reply('code-reply', 'Message received successfully');
+        });
+    })
+
+    ipcMain.on('gameName', (event, gameName) => {
+        // const pqp = "jogo_teste.txt"
+        // const filePath = path.join(__dirname, '..', '..', 'games', `${pqp}`);
+
+        // fs.writeFile(filePath, code, 'utf-8', (err) => {
+        //     if (err) {
+        //         console.log(err);
+        //         return;
+        //     }
+
+        //     console.log("Jogo salvo com sucesso! " + filePath);
+        // });
+
+        let pyshell = new PythonShell('../games/game1.py');
+
         pyshell.on('message', function (message) {
             console.log(message);
         });
