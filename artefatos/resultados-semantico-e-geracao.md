@@ -31,7 +31,7 @@ Os códigos de teste fornecidos originalmente foram adaptados para que o analisa
 3. Inserção de "var" como palavra-chave para declaração de variáveis
 - Justificativa: não usar a palavra-chave "var" para declarar variáveis torna bastante complexo determinar se uma variável está sobrescrevendo outra em nível global ou se está sendo declarada localmente. Para evitar essa complexidade, optamos por usar a palavra-chave "var" para declarar variáveis. Isso também torna o código mais legível (um caso semelhante é o uso das palavras chave "global" e "nonlocal" na declaração de variáveis em Python para contornar esse mesmo problema).
 
-1. Simplificação das funções e laços
+4. Simplificação das funções e laços
 - Justificativa: para otimizar o output no terminal, optamos por simplificar algumas funções e laços. Isso facilita os testes e a visualização dos resultados.
 
 ### Exemplo 1
