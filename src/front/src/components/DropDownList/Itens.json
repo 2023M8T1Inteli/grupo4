@@ -1,7 +1,7 @@
 {
     "blocks" : {
         "Jogos" : [["advinhação", "","BlockGames"]],
-        "Ações" : [["Mostrar Imagem", "mostrar(", "BlockConditional"], ["Tocar Som", "tocar(","BlockConditional"], ["Pressionar", "var resposta = ", "BlockConditional"]],
+        "Ações" : [["se", "mostrar(", "BlockConditional"], ["Mostrar Imagem", "mostrar(", "BlockConditional"], ["Tocar Som", "tocar(","BlockConditional"], ["Pressionar", "var resposta = ", "BlockConditional"]],
         "responses" : [["Acerto", "se quadrante == resposta entao: \n", "BlockResponses" ], ["Erro", "senao: \n", "BlockResponses"]],
         "blocos": [["quadrante 1", "1 \n", "BlockCarpet"], ["quadrante 2", "2 \n", "BlockCarpet"], ["quadrante 3", "3; \n", "BlockCarpet"], ["quadrante 4", "4; \n", "BlockCarpet"], ["quadrante 5", "5; \n", "BlockCarpet"], ["quadrante 6", "6 \n;", "BlockCarpet"], ["quadrante 7", "7; \n", "BlockCarpet"], ["quadrante 8", "8; \n", "BlockCarpet"], ["quadrante 9", "9; \n", "BlockCarpet"], ["quadrante 10", "10; \n", "BlockCarpet"], ["quadrante 11", "11; \n", "BlockCarpet"], ["quadrante 12", "12; \n", "BlockCarpet"]],
         "arquivos" : [["audio", "audio) \n", "BlockFile"], ["imagem", "imagem) \n", "BlockFile"]],
