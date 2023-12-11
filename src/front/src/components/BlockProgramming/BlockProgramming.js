@@ -55,7 +55,6 @@ class BlockProgramming extends React.Component {
                     <div className="BlockProgrammingSection">
                         <div className="Navbar">
                             <div className="BottomNavbar">
-                                <h1>Edite seu jogo: </h1>
                                 <div className="BottomNavbarBtns">
                                     <button className="NavbarBtn" onClick={this.handleCode}>
                                         Criar
@@ -66,14 +65,19 @@ class BlockProgramming extends React.Component {
                         </div>
 
                         <div className="MainContent">
-                            <div className="Code">
-                                {this.state.blocks.map((block) => (
-                                    <div className="BlockInserted" key={block.id}>
-                                        {block.text[0]}
-                                    </div>
-                                ))}
+                            <div className="CodeType">
+                                <h1 className="CodeTypeText">Jogo de Advinhação</h1>
+
+                                <div className="Code">
+                                    {this.state.blocks.map((block) => (
+                                        <div className="BlockInserted" key={block.id}>
+                                            {block.text[0]}
+                                        </div>
+                                    ))}
+                                </div>
                             </div>
                         </div>
+                        
                     </div>
                 </div>
             </div>
