@@ -16,6 +16,7 @@ def main():
         output_dir,
         "Expr",
         [
+            "Assign   : name: LexicalToken, value: Any",
             "Binary   : left, operator: LexicalToken, right",
             "Grouping : expression",
             "Literal  : value: Any",
