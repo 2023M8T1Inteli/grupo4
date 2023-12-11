@@ -20,7 +20,7 @@ A proposta visa criar um ambiente terapêutico adaptado, oferecendo interação 
 
 ## 2. Trabalhos relacionados 
 
-Dentre os trabalhos correlatos, destaca-se a pesquisa conduzida por Ana Clara Gomes Nazari (2017) intitulada "TECNOLOGIA ASSISTIVA (TA): do conceito a legislação - discutindo a TA enquanto Política de Educação Inclusiva que contribui na formação e inclusão de pessoas com deficiência". O estudo aborda a temática da "Tecnologia Assistiva" (TA), que compreende dispositivos, técnicas e processos destinados a fornecer assistência ou reabilitação para pessoas com algum tipo de deficiência. O objetivo principal do artigo é apresentar o conceito de TA, suas categorias e discutir a legislação brasileira relacionada à Tecnologia Assistiva como uma política pública de educação inclusiva com os resultados das análises conduzidas por esse estudo podemos estimar o impacto que o projeto que está sendo conduzido pode gerar.
+Dentre os trabalhos correlatos, destaca-se a pesquisa conduzida por Ana Clara Gomes Nazari (2017) intitulada "TECNOLOGIA ASSISTIVA (TA): do conceito a legislação - discutindo a TA enquanto Política de Educação Inclusiva que contribui na formação e inclusão de pessoas com deficiência". O estudo aborda a temática da "Tecnologia Assistiva" (TA), que compreende dispositivos, técnicas e processos destinados a fornecer assistência ou reabilitação para pessoas com algum tipo de deficiência. O objetivo principal do artigo é apresentar o conceito de TA, suas categorias e discutir a legislação brasileira relacionada à Tecnologia Assistiva como uma política pública de educação inclusiva, com os resultados das análises conduzidas por esse estudo podemos estimar o impacto que o projeto que está sendo conduzido pode gerar.
 
 
 
