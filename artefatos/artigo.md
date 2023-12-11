@@ -20,9 +20,11 @@ A proposta visa criar um ambiente terapêutico adaptado, oferecendo interação 
 
 ## 2. Trabalhos relacionados 
 
-Dentre os trabalhos correlatos, destaca-se a pesquisa conduzida por Schneider, Passerino e Oliveira (2005) intitulada "Compilador Educativo VERTO: Ambiente para Aprendizagem de Compiladores". Este estudo aborda a criação de um ambiente educativo inovador para o aprendizado de compiladores, apresentando o Compilador Educativo VERTO. O artigo destaca a importância desse ambiente na facilitação do entendimento dos princípios subjacentes aos compiladores, promovendo uma abordagem educacional eficaz nesse campo.
+Dentre os trabalhos correlatos, destaca-se a pesquisa conduzida por Ana Clara Gomes Nazari (2017) intitulada "TECNOLOGIA ASSISTIVA (TA): do conceito a legislação - discutindo a TA enquanto Política de Educação Inclusiva que contribui na formação e inclusão de pessoas com deficiência". O estudo aborda a temática da "Tecnologia Assistiva" (TA), que compreende dispositivos, técnicas e processos destinados a fornecer assistência ou reabilitação para pessoas com algum tipo de deficiência. O objetivo principal do artigo é apresentar o conceito de TA, suas categorias e discutir a legislação brasileira relacionada à Tecnologia Assistiva como uma política pública de educação inclusiva com os resultados das análises conduzidas por esse estudo podemos estimar o impacto que o projeto que está sendo conduzido pode gerar.
 
-Adicionalmente, no contexto da Tecnologia Assistiva, vale ressaltar o estudo de Petry et al. (2018), "Tecnologia Assistiva: Tapete Sensorial para Crianças Autistas", apresentado no XXVI Seminário de Iniciação Científica da UNIJUÍ. Esse trabalho fornece insights sobre a aplicação prática da tecnologia assistiva, especificamente um tapete sensorial, para crianças autistas, destacando a relevância dessas soluções inovadoras na promoção do desenvolvimento infantil.
+
+
+Adicionalmente, no contexto da Tecnologia Assistiva, vale ressaltar o estudo de Yasmim Emília Zangerolami. (2018), "Tecnologia Assistiva: Tapete Sensorial para Crianças Autistas", apresentado no XXVI Seminário de Iniciação Científica da UNIJUÍ. Esse trabalho fornece insights sobre a aplicação prática da tecnologia assistiva, especificamente um tapete sensorial, para crianças autistas na faixa etária de 0 a 4 anos, destacando a relevância dessas soluções inovadoras na promoção do desenvolvimento infantil.
 
 Essas referências são exemplos concretos de trabalhos relacionados que fortalecem a base teórica do projeto proposto, proporcionando uma compreensão mais aprofundada sobre a interseção entre tecnologia assistiva, compiladores e a inovação apresentada neste artigo científico.
 ## 3. Resultados 
@@ -34,4 +36,5 @@ A Short History of Assistive Technology. Disponível em: <https://www.scanningpe
 
 ‌Compiladores - História - www.cadcobol.com.br. Disponível em: <https://www.cadcobol.com.br/compiladores_wikipedia_historia.htm>. Acesso em: 14 nov. 2023.
 
-‌Schneider, C. S., Passerino, L. M., & Oliveira, R. F. (2005). Compilador Educativo VERTO: ambiente para aprendizagem de compiladores. Novas Tecnologias na Educação CINTED-UFRGS, V. 3 Nº 2, Novembro, 1-9.
+NAZARI, Ana Clara Gomes; NAZARI, Juliano; GOMES, Maria Aldair. Tecnologia Assistiva (TA): do conceito à legislação - discutindo a TA enquanto Política de Educação Inclusiva que contribui na formação e inclusão de pessoas com deficiência.Disponível em:https://eventos.ufu.br/sites/eventos.ufu.br/files/documentos/tecnologia_assistiva_ta_-_do_conceito_a_legislacao.pdf
+
