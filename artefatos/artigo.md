@@ -22,28 +22,24 @@ Este artigo tem como objetivo explorar o desenvolvimento e a implementação des
 
 ## 2. Trabalhos relacionados 
 
-Dentre os trabalhos correlatos, destaca-se a pesquisa conduzida por Ana Clara Gomes Nazari (2017) intitulada "TECNOLOGIA ASSISTIVA (TA): do conceito a legislação - discutindo a TA enquanto Política de Educação Inclusiva que contribui na formação e inclusão de pessoas com deficiência". O estudo aborda a temática da "Tecnologia Assistiva" (TA), que compreende dispositivos, técnicas e processos destinados a fornecer assistência ou reabilitação para pessoas com algum tipo de deficiência. O objetivo principal do artigo é apresentar o conceito de TA, suas categorias e discutir a legislação brasileira relacionada à Tecnologia Assistiva como uma política pública de educação inclusiva, com os resultados das análises conduzidas por esse estudo podemos estimar o impacto que o projeto que está sendo conduzido pode gerar.
+Dentre os trabalhos correlatos, destaca-se a pesquisa conduzida por Nazari et al., (2017). O estudo aborda a temática da TA, que compreende dispositivos, técnicas e processos destinados a fornecer assistência ou reabilitação para pessoas com algum tipo de deficiência. O objetivo principal do artigo é apresentar o conceito de TA, suas categorias e discutir a legislação brasileira relacionada à Tecnologia Assistiva como uma política pública de educação inclusiva, com os resultados das análises conduzidas por esse estudo podemos estimar o impacto que o projeto que está sendo conduzido pode gerar.
 
-
-
-Adicionalmente, no contexto da Tecnologia Assistiva, vale ressaltar o estudo de Yasmim Emília Zangerolami. (2018), "Tecnologia Assistiva: Tapete Sensorial para Crianças Autistas", apresentado no XXVI Seminário de Iniciação Científica da UNIJUÍ. Esse trabalho fornece insights sobre a aplicação prática da tecnologia assistiva, especificamente um tapete sensorial, para crianças autistas na faixa etária de 0 a 4 anos, destacando a relevância dessas soluções inovadoras na promoção do desenvolvimento infantil.
+Adicionalmente, no contexto da Tecnologia Assistiva, vale ressaltar o estudo de Petry, Mafalda e Zangerolami (2018). Esse trabalho fornece insights sobre a aplicação prática da tecnologia assistiva, especificamente um tapete sensorial, para crianças autistas na faixa etária de 0 a 4 anos, destacando a relevância dessas soluções inovadoras na promoção do desenvolvimento infantil.
 
 Essas referências são exemplos concretos de trabalhos relacionados que fortalecem a base teórica do projeto proposto, proporcionando uma compreensão mais aprofundada sobre a interseção entre tecnologia assistiva, compiladores e a inovação apresentada neste artigo científico.
 
 ## 3. Resultados 
 
 ## Referências 
-Petry, J. R., Mafalda, C. G. O., Zangerolami, Y. E., Wiebbelling, G. D. S., Pereira, M. B., & Trost, B. E. (2018). Tecnologia Assistiva: Tapete Sensorial para Crianças Autistas. XXVI Seminário de Iniciação Científica. UNIJUÍ.
+Petry, J. R., Mafalda, C. G. O., Zangerolami, Y. E., Wiebbelling, G. D. S., Pereira, M. B., & Trost, B. E. (2018). TECNOLOGIA ASSISTIVA: TAPETE SENSORIAL PARA CRIANÇAS AUTISTAS. Salão do Conhecimento.
 
 ALVES, A. C. J.; EMMEL, M. L. G.; MATSUKURA, T. S. Formação e prática do terapeuta ocupacional que utiliza tecnologia assistiva como recurso terapêutico. Revista de Terapia Ocupacional da Universidade de São Paulo, São Paulo, v. 23, n. 1, p. 24-33, jan./abr. 2012.
 
 CALHEIROS, D. DOS S.; MENDES, E. G.; LOURENÇO, G. F. Considerações acerca da tecnologia assistiva no cenário educacional brasileiro. Revista Educação Especial, v. 31, n. 60, p. 229, 11 mar. 2018.
 
-‌Schneider, C. S., Passerino, L. M., & Oliveira, R. F. (2005). Compilador Educativo VERTO: ambiente para aprendizagem de compiladores. Novas Tecnologias na Educação CINTED-UFRGS, V. 3 Nº 2, Novembro, 1-9.
-
 ZILLI, F. REVISÃO SISTÊMICA DOS PROCEDIMENTOS DA TERAPIA OCUPACIONAL NA PARALISIA CEREBRAL. Revista Baiana de Terapia Ocupacional (inativa / apenas arquivo), v. 2, n. 1, 1 nov. 2013.
 
-NAZARI, Ana Clara Gomes; NAZARI, Juliano; GOMES, Maria Aldair. Tecnologia Assistiva (TA): do conceito à legislação - discutindo a TA enquanto Política de Educação Inclusiva que contribui na formação e inclusão de pessoas com deficiência.Disponível em:https://eventos.ufu.br/sites/eventos.ufu.br/files/documentos/tecnologia_assistiva_ta_-_do_conceito_a_legislacao.pdf
+Nazari, A. C. G., Nazari, J., & Gomes, M. A. (2017). Tecnologia Assistiva (TA): do conceito a legislação–discutindo a TA enquanto política de educação inclusiva que contribui na formação e inclusão de pessoas com deficiência. In V CONGRESSO DE PSICOPEDAGOGIA ESCOLAR EI ENCONTRO DE PESQUISADORES EM PSICOPEDAGOGIA ESCOLAR (pp. 1-16).
 
 NOSCHANG, L. F. et al. Portugol Studio: Uma IDE para Iniciantes em Programação. Disponível em: <https://sol.sbc.org.br/index.php/wei/article/view/10954>. Acesso em: 11 dez. 2023.
 
