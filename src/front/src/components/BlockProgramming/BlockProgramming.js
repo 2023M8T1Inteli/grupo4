@@ -34,6 +34,11 @@ class BlockProgramming extends React.Component {
         window.handAPI.sendCode(this.state.code);
     };
 
+    initGame = () => {
+        console.log("initGame");
+        window.initGame.initGame("Jogo2");
+    }
+
     render() {
         return (
             <div className="Container">
@@ -59,7 +64,7 @@ class BlockProgramming extends React.Component {
                                     <button className="NavbarBtn" onClick={this.handleCode}>
                                         Criar
                                     </button>
-                                    <button className="NavbarBtn">Iniciar</button>
+                                    <button className="NavbarBtn" onClick={this.initGame} >Iniciar</button>
                                 </div>
                             </div>
                         </div>
