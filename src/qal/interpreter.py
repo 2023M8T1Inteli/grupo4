@@ -128,6 +128,9 @@ class Interpreter(
         elif expr.operator.type == TokenType.PERCENT:
             self._check_numbers_operands(expr.operator, left, right)
             return int(left) % int(right)
+        elif expr.operator.type == TokenType.CARET:
+            self._check_numbers_operands(expr.operator, left, right)
+            return int(left) ** int(right)
 
         # Não deveria chegar aqui
         return None

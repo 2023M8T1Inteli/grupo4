@@ -1,5 +1,5 @@
-se abc <> xyz entao
-inicio
-    x=(verdade)
-    y= ler ( )
-fim
+var a=5;
+var b=9;
+var c = (3+a)*b/2;
+imprime c;
+imprime a%4;

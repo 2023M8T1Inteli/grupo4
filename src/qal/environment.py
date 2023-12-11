@@ -3,7 +3,8 @@ from runtime_exception import RuntimeException
 
 
 class Environment:
-    def __init__(self):
+    def __init__(self, enclosing=None):
+        self.enclosing = enclosing
         self._values = {}
 
     def define(self, name: str, value):

@@ -131,7 +131,7 @@ class Parsing:
         """factor → unary ( ( "/" | "*" ) unary )*"""
         expr = self._unary()
 
-        while self._match(TokenType.SLASH, TokenType.STAR, TokenType.PERCENT):
+        while self._match(TokenType.SLASH, TokenType.STAR, TokenType.PERCENT, TokenType.CARET):
             operator = self._previous()
             right = self._unary()
             expr = Binary(expr, operator, right)
