@@ -42,3 +42,57 @@
 .showItem.visible {
     display: grid;
 }
+
+.BlockGames{
+    height: 60px;
+    width: 92px;
+    background-color: rgb(255, 106, 0);
+    text-align: center;
+    color: #fff;
+    margin-bottom: 15px;
+}
+
+.BlockConditional{
+    height: 60px;
+    width: 92px;
+    background-color: rgb(255, 191, 0);
+    text-align: center;
+    color: #fff;
+    margin-bottom: 15px;
+}
+
+.BlockResponses{
+    height: 60px;
+    width: 92px;
+    background-color: rgb(30, 211, 39);
+    text-align: center;
+    color: #fff;
+    margin-bottom: 15px;
+}
+
+.BlockCarpet{
+    height: 60px;
+    width: 92px;
+    background-color: rgb(189, 25, 244);
+    text-align: center;
+    color: #fff;
+    margin-bottom: 15px;
+}
+
+.BlockFile{
+    height: 60px;
+    width: 92px;
+    background-color: rgb(142, 142, 142);
+    text-align: center;
+    color: #fff;
+    margin-bottom: 15px;
+}
+
+.BlockMessages{
+    height: 60px;
+    width: 92px;
+    background-color: rgb(255, 0, 0);
+    text-align: center;
+    color: #fff;
+    margin-bottom: 15px;
+}
