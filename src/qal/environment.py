@@ -3,7 +3,8 @@ from runtime_exception import RuntimeException
 
 
 class Environment:
-    def __init__(self):
+    def __init__(self, enclosing=None):
+        self.enclosing = enclosing
         self._values = {}
 
     def define(self, name: str, value):
@@ -12,5 +13,12 @@ class Environment:
     def get(self, name: LexicalToken):
         if name.lexeme in self._values:
             return self._values[name.lexeme]
+
+        raise RuntimeException(name, f"Variável não definida '{name.lexeme}'.")
+
+    def assign(self, name: LexicalToken, value):
+        if name.lexeme in self._values:
+            self._values[name.lexeme] = value
+            return
 
         raise RuntimeException(name, f"Variável não definida '{name.lexeme}'.")
