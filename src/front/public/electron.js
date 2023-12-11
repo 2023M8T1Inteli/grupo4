@@ -21,8 +21,8 @@ function createWindow() {
     win.webContents.openDevTools()
 
     ipcMain.on('code', (event, code) => {
-        const joguinho = "jogo_teste.txt"
-        const filePath = path.join(__dirname, '..', '..', 'games', `${joguinho}`);
+        const nomeJogo = "jogo_teste.txt"
+        const filePath = path.join(__dirname, '..', '..', 'games', `${nomeJogo}`);
 
         fs.writeFile(filePath, code, 'utf-8', (err) => {
             if (err) {
@@ -51,18 +51,6 @@ function createWindow() {
     })
 
     ipcMain.on('gameName', (event, gameName) => {
-        // const pqp = "jogo_teste.txt"
-        // const filePath = path.join(__dirname, '..', '..', 'games', `${pqp}`);
-
-        // fs.writeFile(filePath, code, 'utf-8', (err) => {
-        //     if (err) {
-        //         console.log(err);
-        //         return;
-        //     }
-
-        //     console.log("Jogo salvo com sucesso! " + filePath);
-        // });
-
         let pyshell = new PythonShell('../games/game1.py');
 
         pyshell.on('message', function (message) {
