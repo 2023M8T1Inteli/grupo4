@@ -81,6 +81,11 @@ class Interpreter(
         self._environment.define(stmt.name.lexeme, value)
         return None
 
+    def visit_assign_expr(self, expr: expr.Assign):
+        value = self._evaluate(expr.value)
+        self._environment.assign(expr.name, value)
+        return value
+
     def visit_binary_expr(self, expr: expr.Binary):
         left = self._evaluate(expr.left)
         right = self._evaluate(expr.right)
@@ -123,6 +128,9 @@ class Interpreter(
         elif expr.operator.type == TokenType.PERCENT:
             self._check_numbers_operands(expr.operator, left, right)
             return int(left) % int(right)
+        elif expr.operator.type == TokenType.CARET:
+            self._check_numbers_operands(expr.operator, left, right)
+            return int(left) ** int(right)
 
         # Não deveria chegar aqui
         return None

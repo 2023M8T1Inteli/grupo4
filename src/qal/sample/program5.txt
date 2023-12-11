@@ -1,12 +1,9 @@
-programa :
-inicio
-    programas = verdade
-    verdades = 0
-    se entao inicio
-      ses = verdades
-      programas = ler()
-      x = ler_varios(11, 4, 1)
-    fim
+var a;
+var b = "4, 3, 1";
+imprime a;
+imprime b;
 
-
-fim.
+imprime 2;
+var j = 10;
+var x = 1+2^3^5;
+imprime x % 20;

@@ -10,28 +10,38 @@ Este artigo aborda o desenvolvimento de um compilador e um Ambiente de Desenvolv
 
 ## 1. Introdução 
 
-A Tecnologia Assistiva (TA) desempenha um papel crucial na melhoria da qualidade de vida e autonomia de indivíduos com desordens neurológicas, oferecendo uma variedade de sistemas e serviços projetados para atender às necessidades específicas dessas pessoas. Este artigo explora a evolução da TA ao longo da história, destacando sua importância na promoção da inclusão, autonomia e dignidade para aqueles que enfrentam desafios diversos.
+A Terapia Ocupacional desempenha um papel crucial na reabilitação de pacientes com paralisia cerebral, conforme descrito em Zilli (2013). De acordo com este artigo,  esta terapia foca no desenvolvimento e melhoria da funcionalidade e independência do paciente em atividades diárias. Ela proporciona benefícios significativos, como a melhoria da coordenação motora, o aumento da independência, a promoção da inclusão social e a melhoria da qualidade de vida. Os terapeutas ocupacionais (TO) utilizam uma variedade de técnicas e estratégias para ajudar os pacientes a superar limitações físicas e cognitivas, dentre elas a tecnologia assistiva (TA).
 
-Paralelamente, os compiladores e ambientes de desenvolvimento têm desempenhado um papel fundamental na evolução da programação, permitindo a tradução eficiente de códigos-fonte de linguagens de alto nível para linguagens de baixo nível. Assim como a TA, a história dos compiladores reflete a inovação em resposta às necessidades humanas e impulsiona avanços na tecnologia da informação.
+O trabalho de Alves, Emmel e Matsukura (2012) e Calheiros, Mendes e Lourenço (2018) discutem a evolução da terapia ocupacional no Brasil, destacando o atraso na adoção de tecnologias assistivas em comparação com países da América do Norte e Europa. Esse atraso é atribuído a fatores como escassez de recursos financeiros, limitações no financiamento público e privado, e falta de conhecimento técnico entre profissionais de reabilitação. 
 
-Este artigo apresenta um projeto inovador que combina um tapete sensorial conectado via Greg Maker com a implementação de um compilador e uma IDE, direcionado especificamente para a estimulação de pessoas com leves desordens neurológicas. O tapete sensorial é uma ferramenta projetada para auxiliar no desenvolvimento de crianças com desordens neurológicas, proporcionando estímulos físicos e cognitivos.
+Tecnologia Assistiva, conforme descrito no trabalho de Bersch (2008), refere-se ao conjunto de recursos e serviços que ajudam a melhorar a funcionalidade e a independência de pessoas com deficiência ou mobilidade reduzida. Segundo o artigo, a importância dessa tecnologia reside na sua capacidade de promover a inclusão social, aumentar a autonomia e a qualidade de vida, facilitando o acesso a atividades cotidianas e contribuindo para uma maior participação na sociedade. A Tecnologia Assistiva engloba desde dispositivos simples até sistemas tecnológicos avançados, adaptados às necessidades individuais de cada pessoa.
 
-A proposta visa criar um ambiente terapêutico adaptado, oferecendo interação e estimulação sensorial personalizada. O tapete sensorial, aliado ao compilador e à IDE, busca aprimorar o desempenho ocupacional e facilitar atividades cotidianas. Este artigo delineia de maneira abrangente o escopo do projeto, objetivos, benefícios esperados e materiais de estudo associados, proporcionando uma visão detalhada do desenvolvimento deste dispositivo de tecnologia assistiva inovador. Assim, a interseção entre a história da TA, a evolução dos compiladores e o projeto proposto reforça o papel transformador da tecnologia na promoção de soluções inclusivas e adaptativas para comunidades diversas.
+O artigo apresenta uma colaboração inovadora entre a AACD e o Inteli, visando superar essas barreiras na implementação de tecnologia assistiva, por meio de um projeto que visa simplificar o trabalho do TO nas atividades com pacientes com leves desordens neurológicas. 
+
+O projeto desenvolvido utiliza tapetes sensoriais conectados através do Greg Maker — um kit de criatividade que possibilitando a invenção de novos objetos a partir de materiais cotidianos — integrando-os a uma plataforma de desenvolvimento intuitiva que permite a criação e execução de jogos, criados pela TO. O uso de tapete sensorial, e a IDE, é especificamente projetado para estimular pessoas com leves desordens neurológicas, contribuindo para a adoção de soluções de TA efornecendo alternativas OpenSource para outras iniciativas. 
+
+Este artigo tem como objetivo explorar o desenvolvimento e a implementação desse projeto terapêutico adaptativo, delineando seu escopo, objetivos, benefícios esperados e materiais de estudo associados. Ao fazer isso, busca-se destacar o papel transformador da tecnologia desenvolvida na promoção de soluções inclusivas e adaptativas para comunidades diversas.
 
 ## 2. Trabalhos relacionados 
 
-Dentre os trabalhos correlatos, destaca-se a pesquisa conduzida por Schneider, Passerino e Oliveira (2005) intitulada "Compilador Educativo VERTO: Ambiente para Aprendizagem de Compiladores". Este estudo aborda a criação de um ambiente educativo inovador para o aprendizado de compiladores, apresentando o Compilador Educativo VERTO. O artigo destaca a importância desse ambiente na facilitação do entendimento dos princípios subjacentes aos compiladores, promovendo uma abordagem educacional eficaz nesse campo.
+Dentre os trabalhos correlatos, destaca-se a pesquisa conduzida por Nazari et al., (2017). O estudo aborda a temática da TA, que compreende dispositivos, técnicas e processos destinados a fornecer assistência ou reabilitação para pessoas com algum tipo de deficiência. O objetivo principal do artigo é apresentar o conceito de TA, suas categorias e discutir a legislação brasileira relacionada à Tecnologia Assistiva como uma política pública de educação inclusiva, com os resultados das análises conduzidas por esse estudo podemos estimar o impacto que o projeto que está sendo conduzido pode gerar.
 
-Adicionalmente, no contexto da Tecnologia Assistiva, vale ressaltar o estudo de Petry et al. (2018), "Tecnologia Assistiva: Tapete Sensorial para Crianças Autistas", apresentado no XXVI Seminário de Iniciação Científica da UNIJUÍ. Esse trabalho fornece insights sobre a aplicação prática da tecnologia assistiva, especificamente um tapete sensorial, para crianças autistas, destacando a relevância dessas soluções inovadoras na promoção do desenvolvimento infantil.
+Adicionalmente, no contexto da Tecnologia Assistiva, vale ressaltar o estudo de Petry, Mafalda e Zangerolami (2018). Esse trabalho fornece insights sobre a aplicação prática da tecnologia assistiva, especificamente um tapete sensorial, para crianças autistas na faixa etária de 0 a 4 anos, destacando a relevância dessas soluções inovadoras na promoção do desenvolvimento infantil.
 
 Essas referências são exemplos concretos de trabalhos relacionados que fortalecem a base teórica do projeto proposto, proporcionando uma compreensão mais aprofundada sobre a interseção entre tecnologia assistiva, compiladores e a inovação apresentada neste artigo científico.
+
 ## 3. Resultados 
 
 ## Referências 
-Petry, J. R., Mafalda, C. G. O., Zangerolami, Y. E., Wiebbelling, G. D. S., Pereira, M. B., & Trost, B. E. (2018). Tecnologia Assistiva: Tapete Sensorial para Crianças Autistas. XXVI Seminário de Iniciação Científica. UNIJUÍ.
+Petry, J. R., Mafalda, C. G. O., Zangerolami, Y. E., Wiebbelling, G. D. S., Pereira, M. B., & Trost, B. E. (2018). TECNOLOGIA ASSISTIVA: TAPETE SENSORIAL PARA CRIANÇAS AUTISTAS. Salão do Conhecimento.
 
-A Short History of Assistive Technology. Disponível em: <https://www.scanningpens.blog/news/2022/11/10/a-short-history-of-assistive-technology>.
+Alves, A. C. J., Emmel, M. L. G., & Matsukura, T. S. (2012). Formação e prática do terapeuta ocupacional que utiliza tecnologia assistiva como recurso terapêutico. Revista de Terapia Ocupacional da Universidade de São Paulo, 23(1), 24-33.
 
-‌Compiladores - História - www.cadcobol.com.br. Disponível em: <https://www.cadcobol.com.br/compiladores_wikipedia_historia.htm>. Acesso em: 14 nov. 2023.
+dos Santos Calheiros, D., Mendes, E. G., & Lourenço, G. F. (2018). Considerações acerca da tecnologia assistiva no cenário educacional brasileiro. Revista Educação Especial, 31(60), 229-244.
 
-‌Schneider, C. S., Passerino, L. M., & Oliveira, R. F. (2005). Compilador Educativo VERTO: ambiente para aprendizagem de compiladores. Novas Tecnologias na Educação CINTED-UFRGS, V. 3 Nº 2, Novembro, 1-9.
+Zilli, F. (2013). Revisão sistêmica dos procedimentos da terapia ocupacional na paralisia cerebral. Revista Baiana de Terapia Ocupacional (inativa/apenas arquivo), 2(1).
+
+Bersch, R. (2008). Introdução à tecnologia assistiva. Porto Alegre: CEDI, 21.
+
+Nazari, A. C. G., Nazari, J., & Gomes, M. A. (2017). Tecnologia Assistiva (TA): do conceito a legislação–discutindo a TA enquanto política de educação inclusiva que contribui na formação e inclusão de pessoas com deficiência. In V CONGRESSO DE PSICOPEDAGOGIA ESCOLAR EI ENCONTRO DE PESQUISADORES EM PSICOPEDAGOGIA ESCOLAR (pp. 1-16).
+
