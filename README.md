@@ -84,6 +84,8 @@ Com o Python já instalado em sua máquina, basta abrir um terminal e digitar o 
 
 ## Como executar?
 
+### Aplicação Electron 
+
 Após a instalação dos pré-requisitos, você está pronto para configurar o ambiente de desenvolvimento para a aplicação Electron. Entre na pasta src/front e execute os seguintes comandos:
 
 ```
@@ -97,6 +99,16 @@ npm run electron
 ```
 
 Preparamos um vídeo que irá auxiliar na compreensão da IDE: [Vídeo explicativo](https://youtu.be/yobL9xKlTKs).
+
+### Backend NestJS
+
+Entre na pasta src/backend e execute:
+
+```
+npm run start
+```
+
+Estamos utilizando o [Swagger](https://swagger.io/) para documentar nosso backend, e você pode acessá-lo através: http://localhost:8080/api
 
 # Releases
 
