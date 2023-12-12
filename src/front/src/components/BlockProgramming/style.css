@@ -1,21 +1,34 @@
 .Container {
     margin: 0;
-    padding: 0;
-    display: flex;
-    background-color: #c9c9c9;
+    padding: 0 20px;
+    height: 100%;
 }
 
+.ContentContainer{
+    display: flex;
+    gap: 30px;
+}
+.IconContainer{
+    height: 20px;
+    padding: 20px 0 0 0;
+}
+.Icon{
+    font-size: 50px;
+}
 .Sidebar {
-    height: 100%;
+    height: 70vh;
     width: 25vw;
+    margin-top: 60px;
+    background-color: #F5F5F5;
+    border-radius: 20px 20px 0 0;
 }
 
 .TitleSidebar {
     background-color: #a60d25;
     width: 100%;
     height: 50px;
-    border-radius: 20px 20px 0 0;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+    border-radius: 20px 20px 0 0;
 }
 
 .TextSidebar {
@@ -37,8 +50,6 @@
     background-color: #777;
     width: 100%;
     height: 100%;
-    
-    border: 1px solid #111;
 }
 
 
@@ -63,18 +74,20 @@
 .BottomNavbar {
     height: 40%;
     width: 100%;
-    background-color: #a60d25;
     padding: auto;
     display: flex;
+    justify-content: space-between;
+    align-items: center;
 }
 
 .NavbarBtn {
-    background-color: #fff;
-    color: #111;
+    background-color: #a60d25;
+    color: #fff;
     border-radius: 30px;
     height: 30px;
     width: 60px;
     border: none;
+    margin-left: 10px;
 }
 
 .NavbarBtn:hover {
@@ -84,23 +97,33 @@
 }
 
 .MainContent{
-    height: 100%;
+    height: 70vh;
     width: 100%;
     background-color: #fff;
-    padding: 30px 0;
-
 }
 
+.CodeType{
+    height: 100%;
+    width: 100%;
+    background-color: #1c72a4;
+    margin: 0 auto 20px auto;
+    padding: 0px 0 15px 15px;
+    border-radius: 10px;
+}
+.CodeTypeText{
+    padding: 10px 0;
+    color: white;
+}
 .Code{
-    width: 80%;
-    height: 73px;
-    background-color: #777;
+    width: 100%;
+    height: 85%;
+    background-color: #ffffff;
     margin: 0 auto 20px auto;
     display: flex;
 }
 
 .BlockInserted{
-    height: 50px;
+    height: 70px;
     width: 92px;
     background-color: rgb(0, 174, 255);
     border: 2px solid #111;
@@ -114,3 +137,4 @@
     font-size: 15px;
     padding: auto;
 }
+

@@ -70,6 +70,18 @@ Python é uma linguagem de programação de alto nível, interpretada, de script
    ```
    Este comando deve retornar a versão do Python instalada.
 
+### Pygame
+
+O Pygame é uma biblioteca Python Voltada para o desenvolvimento de games e interfaces gráficas. É uma aplicação que, assim como a sua linguagem base, possui não apenas um funcionamento simples, mas também uma instalação em pouquíssimos passos.
+
+Com o Python já instalado em sua máquina, basta abrir um terminal e digitar o seguinte comando:
+
+   ```bash
+   python -m pip install -U pygame
+   ```
+   Se a instalação estiver correta, os comandos acima retornarão mensagens indicando que o Pygame foi instalado ou atualizado com sucesso.
+
+
 ## Como executar?
 
 Após a instalação dos pré-requisitos, você está pronto para configurar o ambiente de desenvolvimento para a aplicação Electron. Entre na pasta src/front e execute os seguintes comandos:
