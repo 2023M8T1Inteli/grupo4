@@ -1,0 +1,899 @@
+{
+	"tables": {
+		"fc6957b4-6ad6-4176-9953-18e783864007": {
+			"id": "fc6957b4-6ad6-4176-9953-18e783864007",
+			"visible": true,
+			"name": "Terapeuta",
+			"desc": "",
+			"estimatedSize": "",
+			"cols": [
+				{
+					"id": "bcd99540-a12d-4f0e-8fc3-51ab54ce3b42",
+					"name": "id",
+					"datatype": "uuid",
+					"param": "",
+					"pk": true,
+					"nn": true,
+					"list": false,
+					"comment": "",
+					"defaultvalue": "",
+					"data": "",
+					"after": "",
+					"collation": null,
+					"pg": {
+						"generatedIdentity": "no",
+						"generated": "",
+						"storage": "",
+						"compression": ""
+					},
+					"estimatedSize": ""
+				},
+				{
+					"id": "3efbd1b7-42c7-4d98-9ace-11413e0a4d9b",
+					"name": "nome_completo",
+					"datatype": "varchar",
+					"param": "",
+					"pk": false,
+					"nn": true,
+					"list": false,
+					"comment": "",
+					"defaultvalue": "",
+					"data": "",
+					"after": "",
+					"collation": null,
+					"pg": {
+						"generatedIdentity": "no",
+						"generated": "",
+						"storage": "",
+						"compression": ""
+					},
+					"estimatedSize": ""
+				},
+				{
+					"id": "bda9298e-3531-4233-90d5-8ddac371fac1",
+					"name": "email",
+					"datatype": "varchar",
+					"param": "",
+					"pk": false,
+					"nn": true,
+					"list": false,
+					"comment": "",
+					"defaultvalue": "",
+					"data": "",
+					"after": "",
+					"collation": null,
+					"pg": {
+						"generatedIdentity": "no",
+						"generated": "",
+						"storage": "",
+						"compression": ""
+					},
+					"estimatedSize": ""
+				},
+				{
+					"id": "8cc116e6-774d-445e-85e8-f4c10a95d4f9",
+					"name": "senha",
+					"datatype": "varchar",
+					"param": "",
+					"pk": false,
+					"nn": true,
+					"list": false,
+					"comment": "",
+					"defaultvalue": "",
+					"data": "",
+					"after": "",
+					"collation": null,
+					"pg": {
+						"generatedIdentity": "no",
+						"generated": "",
+						"storage": "",
+						"compression": ""
+					},
+					"estimatedSize": ""
+				}
+			],
+			"relations": [
+				"58c910be-950b-49e4-b255-0cdb199f7ad7",
+				"86a00f13-ff9b-4bd1-87dc-963001336443"
+			],
+			"lines": [],
+			"keys": [
+				{
+					"id": "100ba0b6-1010-4a63-8284-de91e1d994cf",
+					"name": "Terapeuta_pkey",
+					"isPk": true,
+					"cols": [
+						{
+							"id": "adf44a6b-1426-485b-9f58-c9e3c0566840",
+							"colid": "bcd99540-a12d-4f0e-8fc3-51ab54ce3b42"
+						}
+					]
+				}
+			],
+			"indexes": [],
+			"embeddable": false,
+			"generate": true,
+			"generateCustomCode": true,
+			"customCode": "",
+			"beforeScript": "",
+			"afterScript": "",
+			"objectType": "table",
+			"pg": {
+				"rowsecurity": false,
+				"schema": "",
+				"tablespace": "",
+				"inherits": "",
+				"storageParameters": "",
+				"partition": "",
+				"partitionNames": []
+			}
+		},
+		"c6c6f875-f8d6-4ee8-ad81-f75386f4c7fb": {
+			"id": "c6c6f875-f8d6-4ee8-ad81-f75386f4c7fb",
+			"visible": true,
+			"name": "Paciente",
+			"desc": "",
+			"estimatedSize": "",
+			"cols": [
+				{
+					"id": "9d71d2e5-435f-47e1-aea6-5d1e2b2531bf",
+					"name": "id",
+					"datatype": "uuid",
+					"param": "",
+					"pk": true,
+					"nn": true,
+					"list": false,
+					"comment": "",
+					"defaultvalue": "",
+					"data": "",
+					"after": "",
+					"collation": null,
+					"pg": {
+						"generatedIdentity": "no",
+						"generated": "",
+						"storage": "",
+						"compression": ""
+					},
+					"estimatedSize": ""
+				},
+				{
+					"id": "23bc1bf9-2cb1-421f-9778-72735030284e",
+					"name": "nome_completo",
+					"datatype": "integer",
+					"param": "",
+					"pk": false,
+					"nn": true,
+					"list": false,
+					"comment": "",
+					"defaultvalue": "",
+					"data": "",
+					"after": "",
+					"collation": null,
+					"pg": {
+						"generatedIdentity": "no",
+						"generated": "",
+						"storage": "",
+						"compression": ""
+					},
+					"estimatedSize": ""
+				},
+				{
+					"id": "a03f37d8-72a6-4952-9dac-1595feed05a1",
+					"name": "data_de_nascimento",
+					"datatype": "date",
+					"param": "",
+					"pk": false,
+					"nn": false,
+					"list": false,
+					"comment": "",
+					"defaultvalue": "",
+					"data": "",
+					"after": "",
+					"collation": null,
+					"pg": {
+						"generatedIdentity": "no",
+						"generated": "",
+						"storage": "",
+						"compression": ""
+					},
+					"estimatedSize": ""
+				},
+				{
+					"id": "6a700a22-8e29-4ef4-a745-51cafc79b0e5",
+					"name": "nome_responsavel",
+					"datatype": "varchar",
+					"param": "",
+					"pk": false,
+					"nn": true,
+					"list": false,
+					"comment": "",
+					"defaultvalue": "",
+					"data": "",
+					"after": "",
+					"collation": null,
+					"pg": {
+						"generatedIdentity": "no",
+						"generated": "",
+						"storage": "",
+						"compression": ""
+					},
+					"estimatedSize": ""
+				},
+				{
+					"id": "6628221d-83f7-4497-a2c8-8d9dd8aeb193",
+					"name": "contato_responsavel",
+					"datatype": "varchar",
+					"param": "",
+					"pk": false,
+					"nn": true,
+					"list": false,
+					"comment": "",
+					"defaultvalue": "",
+					"data": "",
+					"after": "",
+					"collation": null,
+					"pg": {
+						"generatedIdentity": "no",
+						"generated": "",
+						"storage": "",
+						"compression": ""
+					},
+					"estimatedSize": ""
+				},
+				{
+					"id": "aca84ab4-8f6e-4d1d-80f6-276b09536509",
+					"name": "ficha_medica",
+					"datatype": "varchar",
+					"param": "",
+					"pk": false,
+					"nn": false,
+					"list": false,
+					"comment": "",
+					"defaultvalue": "",
+					"data": "",
+					"after": "",
+					"collation": null,
+					"pg": {
+						"generatedIdentity": "no",
+						"generated": "",
+						"storage": "",
+						"compression": ""
+					},
+					"estimatedSize": ""
+				}
+			],
+			"relations": [
+				"b7ae3238-b2c5-4498-bb24-aba079a940aa"
+			],
+			"lines": [],
+			"keys": [
+				{
+					"id": "0d517107-fe50-4b4d-9ee9-4e348e2093be",
+					"name": "Paciente_pkey",
+					"isPk": true,
+					"cols": [
+						{
+							"id": "72301c61-5c55-4d09-bbbc-aedde35194f3",
+							"colid": "9d71d2e5-435f-47e1-aea6-5d1e2b2531bf"
+						}
+					]
+				}
+			],
+			"indexes": [],
+			"embeddable": false,
+			"generate": true,
+			"generateCustomCode": true,
+			"customCode": "",
+			"beforeScript": "",
+			"afterScript": "",
+			"objectType": "table",
+			"pg": {
+				"rowsecurity": false,
+				"schema": "",
+				"tablespace": "",
+				"inherits": "",
+				"storageParameters": "",
+				"partition": "",
+				"partitionNames": []
+			}
+		},
+		"f00b6afb-011f-44a3-9769-c3a375bac3e5": {
+			"id": "f00b6afb-011f-44a3-9769-c3a375bac3e5",
+			"visible": true,
+			"name": "Sessões",
+			"desc": "",
+			"estimatedSize": "",
+			"cols": [
+				{
+					"id": "dd9f0fc0-a3a9-4947-9d8e-a3dc0aecb875",
+					"name": "id",
+					"datatype": "uuid",
+					"param": "",
+					"pk": true,
+					"nn": true,
+					"list": false,
+					"comment": "",
+					"defaultvalue": "",
+					"data": "",
+					"after": "",
+					"collation": null,
+					"pg": {
+						"generatedIdentity": "no",
+						"generated": "",
+						"storage": "",
+						"compression": ""
+					},
+					"estimatedSize": ""
+				},
+				{
+					"id": "edab7011-0096-497e-bc29-92bbf3fdf9cb",
+					"name": "Paciente_id",
+					"datatype": "uuid",
+					"param": "",
+					"pk": false,
+					"nn": true,
+					"list": false,
+					"comment": "",
+					"defaultvalue": "",
+					"data": "",
+					"after": "",
+					"collation": null,
+					"pg": {
+						"generatedIdentity": "no",
+						"generated": "",
+						"storage": "",
+						"compression": ""
+					},
+					"estimatedSize": "",
+					"fk": true
+				},
+				{
+					"id": "b3781824-ae17-431b-ab23-9cab23e6b816",
+					"name": "Terapeuta_id",
+					"datatype": "uuid",
+					"param": "",
+					"pk": false,
+					"nn": true,
+					"list": false,
+					"comment": "",
+					"defaultvalue": "",
+					"data": "",
+					"after": "",
+					"collation": null,
+					"pg": {
+						"generatedIdentity": "no",
+						"generated": "",
+						"storage": "",
+						"compression": ""
+					},
+					"estimatedSize": "",
+					"fk": true
+				},
+				{
+					"id": "a6093c33-60b9-433b-a5b0-1f21c8597778",
+					"name": "data",
+					"datatype": "date",
+					"param": "",
+					"pk": false,
+					"nn": true,
+					"list": false,
+					"comment": "",
+					"defaultvalue": "",
+					"data": "",
+					"after": "",
+					"collation": null,
+					"pg": {
+						"generatedIdentity": "no",
+						"generated": "",
+						"storage": "",
+						"compression": ""
+					},
+					"estimatedSize": ""
+				},
+				{
+					"id": "d8ba178b-6be1-42f0-8230-ca4279305051",
+					"name": "Jogos_id",
+					"datatype": "integer",
+					"param": "",
+					"pk": false,
+					"nn": true,
+					"list": false,
+					"comment": "",
+					"defaultvalue": "",
+					"data": "",
+					"after": "",
+					"collation": null,
+					"pg": {
+						"generatedIdentity": "no",
+						"generated": "",
+						"storage": "",
+						"compression": ""
+					},
+					"estimatedSize": "",
+					"fk": true
+				}
+			],
+			"relations": [
+				"b7ae3238-b2c5-4498-bb24-aba079a940aa",
+				"58c910be-950b-49e4-b255-0cdb199f7ad7",
+				"ea150ef3-d28d-4c85-9832-56a738e1816b"
+			],
+			"lines": [],
+			"keys": [
+				{
+					"id": "0f5a1c99-fec4-4a38-ac66-6b45ca5521fa",
+					"name": "Sessões_pkey",
+					"isPk": true,
+					"cols": [
+						{
+							"id": "06efa596-7a6d-4f2e-8fc2-03cded6d97cd",
+							"colid": "dd9f0fc0-a3a9-4947-9d8e-a3dc0aecb875"
+						}
+					]
+				}
+			],
+			"indexes": [],
+			"embeddable": false,
+			"generate": true,
+			"generateCustomCode": true,
+			"customCode": "",
+			"beforeScript": "",
+			"afterScript": "",
+			"objectType": "table",
+			"pg": {
+				"rowsecurity": false,
+				"schema": "",
+				"tablespace": "",
+				"inherits": "",
+				"storageParameters": "",
+				"partition": "",
+				"partitionNames": []
+			}
+		},
+		"6fd28bba-c19a-4bc0-b5c9-dd7fa0f5c9f2": {
+			"id": "6fd28bba-c19a-4bc0-b5c9-dd7fa0f5c9f2",
+			"visible": true,
+			"name": "Jogos",
+			"desc": "",
+			"estimatedSize": "",
+			"cols": [
+				{
+					"id": "a4c7f067-22f3-4383-85ad-e6df7c791dde",
+					"name": "id",
+					"datatype": "integer",
+					"param": "",
+					"pk": true,
+					"nn": true,
+					"list": false,
+					"comment": "",
+					"defaultvalue": "",
+					"data": "",
+					"after": "",
+					"collation": null,
+					"pg": {
+						"generatedIdentity": "no",
+						"generated": "",
+						"storage": "",
+						"compression": ""
+					},
+					"estimatedSize": ""
+				},
+				{
+					"id": "2edcbeea-fd52-4503-bf0e-e62cc598bf9d",
+					"name": "nome_jogo",
+					"datatype": "uuid",
+					"param": "",
+					"pk": false,
+					"nn": false,
+					"list": false,
+					"comment": "",
+					"defaultvalue": "",
+					"data": "",
+					"after": "",
+					"collation": null,
+					"pg": {
+						"generatedIdentity": "no",
+						"generated": "",
+						"storage": "",
+						"compression": ""
+					},
+					"estimatedSize": ""
+				},
+				{
+					"id": "45e54610-2650-4d60-9145-b33a43d08df3",
+					"name": "data_criacao",
+					"datatype": "date",
+					"param": "",
+					"pk": false,
+					"nn": false,
+					"list": false,
+					"comment": "",
+					"defaultvalue": "",
+					"data": "",
+					"after": "",
+					"collation": null,
+					"pg": {
+						"generatedIdentity": "no",
+						"generated": "",
+						"storage": "",
+						"compression": ""
+					},
+					"estimatedSize": ""
+				},
+				{
+					"id": "7c930706-ba74-447e-b770-129740a998b4",
+					"name": "publico",
+					"datatype": "boolean",
+					"param": "",
+					"pk": false,
+					"nn": false,
+					"list": false,
+					"comment": "",
+					"defaultvalue": "",
+					"data": "",
+					"after": "",
+					"collation": null,
+					"pg": {
+						"generatedIdentity": "no",
+						"generated": "",
+						"storage": "",
+						"compression": ""
+					},
+					"estimatedSize": ""
+				},
+				{
+					"id": "bdf12a76-de95-42e7-987d-f7440cb5bd19",
+					"name": "arquivo",
+					"datatype": "varchar",
+					"param": "",
+					"pk": false,
+					"nn": false,
+					"list": false,
+					"comment": "",
+					"defaultvalue": "",
+					"data": "",
+					"after": "",
+					"collation": null,
+					"pg": {
+						"generatedIdentity": "no",
+						"generated": "",
+						"storage": "",
+						"compression": ""
+					},
+					"estimatedSize": ""
+				},
+				{
+					"id": "0ee20c3c-8805-4231-a92b-5800579bff41",
+					"name": "criador",
+					"datatype": "uuid",
+					"param": "",
+					"pk": false,
+					"nn": true,
+					"list": false,
+					"comment": "",
+					"defaultvalue": "",
+					"data": "",
+					"after": "",
+					"collation": null,
+					"pg": {
+						"generatedIdentity": "no",
+						"generated": "",
+						"storage": "",
+						"compression": ""
+					},
+					"estimatedSize": "",
+					"fk": true
+				}
+			],
+			"relations": [
+				"86a00f13-ff9b-4bd1-87dc-963001336443",
+				"ea150ef3-d28d-4c85-9832-56a738e1816b"
+			],
+			"lines": [],
+			"keys": [
+				{
+					"id": "2d8ab45b-043a-4bfe-81b9-6cfae0596185",
+					"name": "Jogos_pkey",
+					"isPk": true,
+					"cols": [
+						{
+							"id": "5a314a48-aa3c-4025-857d-cb2aac16db1b",
+							"colid": "a4c7f067-22f3-4383-85ad-e6df7c791dde"
+						}
+					]
+				}
+			],
+			"indexes": [],
+			"embeddable": false,
+			"generate": true,
+			"generateCustomCode": true,
+			"customCode": "",
+			"beforeScript": "",
+			"afterScript": "",
+			"objectType": "table",
+			"pg": {
+				"rowsecurity": false,
+				"schema": "",
+				"tablespace": "",
+				"inherits": "",
+				"storageParameters": "",
+				"partition": "",
+				"partitionNames": []
+			}
+		}
+	},
+	"relations": {
+		"b7ae3238-b2c5-4498-bb24-aba079a940aa": {
+			"id": "b7ae3238-b2c5-4498-bb24-aba079a940aa",
+			"visible": true,
+			"name": "Sessões_Paciente_id_fkey",
+			"desc": "",
+			"type": "identifying",
+			"parent_key": "0d517107-fe50-4b4d-9ee9-4e348e2093be",
+			"parent": "c6c6f875-f8d6-4ee8-ad81-f75386f4c7fb",
+			"child": "f00b6afb-011f-44a3-9769-c3a375bac3e5",
+			"c_mp": "true",
+			"c_mch": "true",
+			"c_p": "one",
+			"c_ch": "many",
+			"c_cp": "",
+			"c_cch": "",
+			"cols": [
+				{
+					"id": "30946bdf-2150-420e-981d-d28f04a6eb21",
+					"parentcol": "9d71d2e5-435f-47e1-aea6-5d1e2b2531bf",
+					"childcol": "edab7011-0096-497e-bc29-92bbf3fdf9cb"
+				}
+			],
+			"generate": true,
+			"generateCustomCode": true,
+			"customCode": "",
+			"relationColor": "transparent"
+		},
+		"58c910be-950b-49e4-b255-0cdb199f7ad7": {
+			"id": "58c910be-950b-49e4-b255-0cdb199f7ad7",
+			"visible": true,
+			"name": "Sessões_Terapeuta_id_fkey",
+			"desc": "",
+			"type": "identifying",
+			"parent_key": "100ba0b6-1010-4a63-8284-de91e1d994cf",
+			"parent": "fc6957b4-6ad6-4176-9953-18e783864007",
+			"child": "f00b6afb-011f-44a3-9769-c3a375bac3e5",
+			"c_mp": "true",
+			"c_mch": "true",
+			"c_p": "one",
+			"c_ch": "many",
+			"c_cp": "",
+			"c_cch": "",
+			"cols": [
+				{
+					"id": "0c74b8be-34e1-4dff-a100-22a3c587c2ba",
+					"parentcol": "bcd99540-a12d-4f0e-8fc3-51ab54ce3b42",
+					"childcol": "b3781824-ae17-431b-ab23-9cab23e6b816"
+				}
+			],
+			"generate": true,
+			"generateCustomCode": true,
+			"customCode": "",
+			"relationColor": "transparent"
+		},
+		"86a00f13-ff9b-4bd1-87dc-963001336443": {
+			"id": "86a00f13-ff9b-4bd1-87dc-963001336443",
+			"visible": true,
+			"name": "Jogos_criador_fkey",
+			"desc": "",
+			"type": "identifying",
+			"parent_key": "100ba0b6-1010-4a63-8284-de91e1d994cf",
+			"parent": "fc6957b4-6ad6-4176-9953-18e783864007",
+			"child": "6fd28bba-c19a-4bc0-b5c9-dd7fa0f5c9f2",
+			"c_mp": "true",
+			"c_mch": "true",
+			"c_p": "one",
+			"c_ch": "many",
+			"c_cp": "",
+			"c_cch": "",
+			"cols": [
+				{
+					"id": "c9a09c36-321a-4cb6-b361-a18b3fb19cf2",
+					"parentcol": "bcd99540-a12d-4f0e-8fc3-51ab54ce3b42",
+					"childcol": "0ee20c3c-8805-4231-a92b-5800579bff41"
+				}
+			],
+			"generate": true,
+			"generateCustomCode": true,
+			"customCode": "",
+			"relationColor": "transparent"
+		},
+		"ea150ef3-d28d-4c85-9832-56a738e1816b": {
+			"id": "ea150ef3-d28d-4c85-9832-56a738e1816b",
+			"visible": true,
+			"name": "Sessões_Jogos_id_fkey",
+			"desc": "",
+			"type": "identifying",
+			"parent_key": "2d8ab45b-043a-4bfe-81b9-6cfae0596185",
+			"parent": "6fd28bba-c19a-4bc0-b5c9-dd7fa0f5c9f2",
+			"child": "f00b6afb-011f-44a3-9769-c3a375bac3e5",
+			"c_mp": "true",
+			"c_mch": "true",
+			"c_p": "one",
+			"c_ch": "many",
+			"c_cp": "",
+			"c_cch": "",
+			"cols": [
+				{
+					"id": "b612fc9f-9e95-4eeb-8c54-679f78274a0c",
+					"parentcol": "a4c7f067-22f3-4383-85ad-e6df7c791dde",
+					"childcol": "d8ba178b-6be1-42f0-8230-ca4279305051"
+				}
+			],
+			"generate": true,
+			"generateCustomCode": true,
+			"customCode": "",
+			"relationColor": "transparent"
+		}
+	},
+	"notes": {},
+	"lines": {},
+	"model": {
+		"name": "Tapete mágico",
+		"id": "0b906574-7e58-4956-8166-8da0671cf571",
+		"activeDiagram": "4b5ab18b-f045-4178-85d3-084cb52e60e8",
+		"desc": "",
+		"path": "",
+		"type": "PG",
+		"version": 1,
+		"parentTableInFkCols": true,
+		"caseConvention": "under",
+		"replaceSpace": "_",
+		"color": "transparent",
+		"sideSelections": true,
+		"isDirty": true,
+		"storedin": {
+			"major": 7,
+			"minor": 5,
+			"extra": 0
+		},
+		"laststoredin": {
+			"major": 7,
+			"minor": 5,
+			"extra": 0
+		},
+		"writeFileParam": false,
+		"authorName": "",
+		"companyDetails": "",
+		"companyUrl": "",
+		"def_coltopk": true,
+		"pg": {
+			"schema": ""
+		},
+		"sqlSettings": {
+			"wrapLines": true,
+			"wrapOffset": 80,
+			"indent": true,
+			"indentationString": "spaces",
+			"indentationSize": 2,
+			"limitItemsOnLine": true,
+			"maxListItemsOnLine": 3,
+			"statementDelimiter": ";",
+			"routineDelimiter": ";",
+			"keywordCase": "upper",
+			"identiferCase": "original",
+			"includeSchema": "always",
+			"quotation": "if_needed",
+			"includeGeneratedNames": "always"
+		},
+		"nameAutoGeneration": {
+			"keys": true,
+			"indexes": true,
+			"relations": true
+		}
+	},
+	"otherObjects": {},
+	"diagrams": {
+		"4b5ab18b-f045-4178-85d3-084cb52e60e8": {
+			"name": "Main Diagram",
+			"description": "",
+			"id": "4b5ab18b-f045-4178-85d3-084cb52e60e8",
+			"keysgraphics": true,
+			"linegraphics": "detailed",
+			"zoom": 0.9,
+			"background": "transparent",
+			"lineColor": "transparent",
+			"isOpen": true,
+			"main": true,
+			"diagramItems": {
+				"fc6957b4-6ad6-4176-9953-18e783864007": {
+					"referencedItemId": "fc6957b4-6ad6-4176-9953-18e783864007",
+					"x": 105,
+					"y": 301,
+					"gHeight": 99,
+					"gWidth": 231,
+					"color": "#ffffff",
+					"background": "#03a9f4",
+					"resized": false,
+					"autoExpand": true,
+					"backgroundOpacity": "10",
+					"collapsed": false
+				},
+				"c6c6f875-f8d6-4ee8-ad81-f75386f4c7fb": {
+					"referencedItemId": "c6c6f875-f8d6-4ee8-ad81-f75386f4c7fb",
+					"x": 102,
+					"y": 459,
+					"gHeight": 135,
+					"gWidth": 256,
+					"color": "#ffffff",
+					"background": "#03a9f4",
+					"resized": false,
+					"autoExpand": true,
+					"backgroundOpacity": "10",
+					"collapsed": false
+				},
+				"f00b6afb-011f-44a3-9769-c3a375bac3e5": {
+					"referencedItemId": "f00b6afb-011f-44a3-9769-c3a375bac3e5",
+					"x": 550,
+					"y": 268,
+					"gHeight": 117,
+					"gWidth": 198,
+					"color": "#ffffff",
+					"background": "#03a9f4",
+					"resized": false,
+					"autoExpand": true,
+					"backgroundOpacity": "10",
+					"collapsed": false
+				},
+				"6fd28bba-c19a-4bc0-b5c9-dd7fa0f5c9f2": {
+					"referencedItemId": "6fd28bba-c19a-4bc0-b5c9-dd7fa0f5c9f2",
+					"x": 130,
+					"y": 120,
+					"gHeight": 135,
+					"gWidth": 195,
+					"color": "#ffffff",
+					"background": "#03a9f4",
+					"resized": false,
+					"autoExpand": true,
+					"backgroundOpacity": "10",
+					"collapsed": false
+				}
+			},
+			"scroll": {
+				"x": 0,
+				"y": 0
+			},
+			"type": "erd",
+			"showHorizontal": true,
+			"showDescriptions": true,
+			"showIndicators": true,
+			"showProgress": true,
+			"lineWidth": "2",
+			"boxSize": "0",
+			"showIndicatorCaptions": true,
+			"showEstimatedSize": false,
+			"showSchemaContainer": true,
+			"showEmbeddedInParents": true,
+			"showCardinalityCaptions": true,
+			"showColumns": true,
+			"showColumnDataTypes": true,
+			"showSampleData": false,
+			"showTableIndexes": true,
+			"showTableDescriptions": false,
+			"showRelations": true,
+			"backgroundImage": "na",
+			"descriptionsColor": "transparent",
+			"embeddedSpacing": "2",
+			"showMainIcon": true,
+			"showLabels": true
+		}
+	},
+	"order": [
+		"6fd28bba-c19a-4bc0-b5c9-dd7fa0f5c9f2",
+		"c6c6f875-f8d6-4ee8-ad81-f75386f4c7fb",
+		"f00b6afb-011f-44a3-9769-c3a375bac3e5",
+		"fc6957b4-6ad6-4176-9953-18e783864007",
+		"b7ae3238-b2c5-4498-bb24-aba079a940aa",
+		"58c910be-950b-49e4-b255-0cdb199f7ad7",
+		"86a00f13-ff9b-4bd1-87dc-963001336443",
+		"ea150ef3-d28d-4c85-9832-56a738e1816b"
+	],
+	"collapsedTreeItems": [],
+	"reverseStats": {}
+}
