@@ -24,13 +24,13 @@ Este artigo tem como objetivo explorar o desenvolvimento e a implementação des
 
 ## 2. Trabalhos relacionados 
 
-Dentre os trabalhos correlatos, destaca-se a pesquisa conduzida por Nazari et al. (2017). O estudo aborda a temática da TA, que compreende dispositivos, técnicas e processos destinados a fornecer assistência ou reabilitação para pessoas com algum tipo de deficiência. O objetivo principal do artigo é apresentar o conceito de TA, suas categorias e discutir a legislação brasileira relacionada à Tecnologia Assistiva como uma política pública de educação inclusiva, com os resultados das análises conduzidas por esse estudo podemos estimar o impacto que o projeto que está sendo conduzido pode gerar.
+Dentre os trabalhos correlatos, destaca-se a pesquisa conduzida por Nazari et al., (2017). O estudo aborda a temática da TA, que compreende dispositivos, técnicas e processos destinados a fornecer assistência ou reabilitação para pessoas com algum tipo de deficiência. O objetivo principal do artigo é apresentar o conceito de TA, suas categorias e discutir a legislação brasileira relacionada à Tecnologia Assistiva como uma política pública de educação inclusiva, com os resultados das análises conduzidas por esse estudo podemos estimar o impacto que o projeto que está sendo conduzido pode gerar.
 
 Adicionalmente, no contexto da Tecnologia Assistiva, vale ressaltar o estudo de Petry, Mafalda e Zangerolami (2018). Esse trabalho fornece insights sobre a aplicação prática da tecnologia assistiva, especificamente um tapete sensorial, para crianças autistas na faixa etária de 0 a 4 anos, destacando a relevância dessas soluções inovadoras na promoção do desenvolvimento infantil.
 
 Dentre os trabalhos citados no nosso projeto, a revisão sistemática dos procedimentos da Terapia Ocupacional na Paralisia Cerebral (ZILLI, F. 2013) tem o objetivo de elucidar os benefícios gerados pela Terapia Ocupacional na reabilitação de pacientes acometidos pela paralisia cerebral, bem como revisar conceitos da patologia; coletar dados e referências utilizadas como intervenção pelos terapeutas ocupacionais, explanando os possíveis benefícios gerados pela inclusão do mesmo na reabilitação desta clientela. Sendo assim, uma pesquisa relevante para o projeto, levando em conta esse artigo, é possível observar a importância do objeto de estudo do projeto.
 
-O estudo de Noschang et al. (2014), fornece uma base teórica fundamental para o objeto de estudo deste projeto, especialmente ao considerar a dificuldade que uma pessoa leiga na área de tecnologia pode enfrentar ao tentar criar uma IDE didática e concisa.
+O estudo de Noschang et al., (2014), fornece uma base teórica fundamental para o objeto de estudo deste projeto, especialmente ao considerar a dificuldade que uma pessoa leiga na área de tecnologia pode enfrentar ao tentar criar uma IDE didática e concisa.
 
 Essas referências são exemplos concretos de trabalhos relacionados que fortalecem a base teórica do projeto proposto, proporcionando uma compreensão mais aprofundada sobre a interseção entre tecnologia assistiva, compiladores e a inovação apresentada neste artigo científico.
 
@@ -54,7 +54,7 @@ CALHEIROS, D. dos S.; MENDES, E. G.; LOURENÇO, G. F. Considerações acerca da 
 
 Nazari, A. C. G., Nazari, J., & Gomes, M. A. (2017). Tecnologia Assistiva (TA): do conceito a legislação–discutindo a TA enquanto política de educação inclusiva que contribui na formação e inclusão de pessoas com deficiência. In V CONGRESSO DE PSICOPEDAGOGIA ESCOLAR EI ENCONTRO DE PESQUISADORES EM PSICOPEDAGOGIA ESCOLAR (pp. 1-16). Acesso em 12 dez. 2023.
 
-NOSCHANG, F. L. et al. Portugol Studio: Uma IDE para Iniciantes em Programação, 2014. Disponível em: https://sol.sbc.org.br/index.php/wei/article/view/10954/10824. Acesso em: 8 dez. 2023.
+NOSCHANG, F. L. et al., Portugol Studio: Uma IDE para Iniciantes em Programação, 2014. Disponível em: https://sol.sbc.org.br/index.php/wei/article/view/10954/10824. Acesso em: 8 dez. 2023.
 
 PETRY, J. R.; MAFALDA, C. G. O.; ZANGEROLAMI, Y. E.; WIEBBELLING, G. D. S.; PEREIRA, M. B.; TROST, B. E. TECNOLOGIA ASSISTIVA: TAPETE SENSORIAL PARA CRIANÇAS AUTISTAS. Salão do Conhecimento, [S. l.], v. 4, n. 4, 2018. Disponível em: https://publicacoeseventos.unijui.edu.br/index.php/salaoconhecimento/article/view/10476. Acesso em: 9 dez. 2023.
 
