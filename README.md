@@ -127,7 +127,7 @@ Para modelar o Banco de Dados, utilizamos o Luna Modeler, e para provisionamento
 * [SPRINT1](https://github.com/2023M8T1Inteli/grupo4/releases/tag/sprint1): Analisador léxico (versão 1), Entendimento do Negócio, Entendimento do Usuário e Arquitetura inicial
 * [SPRINT2](https://github.com/2023M8T1Inteli/grupo4/releases/tag/sprint2): Analisador léxico (versão 2), Analisador sintático (versão 1), IDE (versão 1), Artigo (versão 1)
 * [SPRINT3](https://github.com/2023M8T1Inteli/grupo4/releases/tag/sprint3): Analisador sintático (v2) e semântico (v1), IDE (v2) e Artigo (v2)
-* SPRINT4: *descrição*
+* [SPRINT4](https://github.com/2023M8T1Inteli/grupo4/releases/tag/sprint4): Analisador sintático (v3), semântico (v2), Gerador de código(v1), IDE (v3) e Artigo (v3)
 * SPRINT5: *descrição*
 
 ## 📋 Licença/License
