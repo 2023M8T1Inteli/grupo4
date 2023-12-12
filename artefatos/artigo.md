@@ -28,6 +28,11 @@ Dentre os trabalhos correlatos, destaca-se a pesquisa conduzida por Nazari et al
 
 Adicionalmente, no contexto da Tecnologia Assistiva, vale ressaltar o estudo de Petry, Mafalda e Zangerolami (2018). Esse trabalho fornece insights sobre a aplicação prática da tecnologia assistiva, especificamente um tapete sensorial, para crianças autistas na faixa etária de 0 a 4 anos, destacando a relevância dessas soluções inovadoras na promoção do desenvolvimento infantil.
 
+Dentre os trabalhos citados no nosso projeto, a revisão sistemática dos procedimentos da Terapia Ocupacional na Paralisia Cerebral (ZILLI, F. 2013) tem o objetivo de elucidar os benefícios gerados pela Terapia Ocupacional na reabilitação de pacientes acometidos pela paralisia cerebral, bem como revisar conceitos da patologia; coletar dados e referências utilizadas como intervenção pelos terapeutas ocupacionais, explanando os possíveis benefícios gerados pela inclusão do mesmo na reabilitação desta clientela. Sendo assim, uma pesquisa relevante para o projeto, levando em conta esse artigo, é possível observar a importância do objeto de estudo do projeto.
+
+Levando em conta o estudo citado, 'Portugol Studio: Uma IDE para Iniciantes em Programação' (NOSCHANG, L. F. et al. 2014) é onde pode ser encontrada uma base teórica relacionada com o objeto de estudo do projeto. Considerando a dificuldade de uma pessoa leiga na área de tecnologia em criar uma IDE didática e concisa, é fundamental.
+
+
 Essas referências são exemplos concretos de trabalhos relacionados que fortalecem a base teórica do projeto proposto, proporcionando uma compreensão mais aprofundada sobre a interseção entre tecnologia assistiva, compiladores e a inovação apresentada neste artigo científico.
 
 ## 3. Resultados 
