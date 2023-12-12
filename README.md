@@ -68,7 +68,7 @@ Python é uma linguagem de programação de alto nível, interpretada, de script
    ```bash
    python --version
    ```
-   Este comando deve retornar a versão do Python instalada.
+Este comando deve retornar a versão do Python instalada.
 
 ### Pygame
 
@@ -98,7 +98,11 @@ Em outro terminal, no mesmo diretório execute:
 npm run electron
 ```
 
-Preparamos um vídeo que irá auxiliar na compreensão da IDE: [Vídeo explicativo](https://youtu.be/yobL9xKlTKs).
+Preparamos uma série de vídeos para auxiliar na compreensão da IDE: 
+
+**[Vídeo explicativo - Sprint 4](https://youtu.be/iK3Q7XnJ2D8)**.
+
+_[Vídeo explicativo - Sprint 3](https://youtu.be/yobL9xKlTKs)._
 
 ### Backend NestJS
 
@@ -109,6 +113,14 @@ npm run start
 ```
 
 Estamos utilizando o [Swagger](https://swagger.io/) para documentar nosso backend, e você pode acessá-lo através: http://localhost:8080/api
+
+[Vídeo demonstrativo - Backend - Sprint 4](https://youtu.be/6Q9Tx7d2HvI)
+
+Para modelar o Banco de Dados, utilizamos o Luna Modeler, e para provisionamento de um banco de dados PostgreSQL, empregamos os serviços do Amazon RDS. Os arquivos do Luna Modeler, bem como uma imagem de referência, estão disponíveis em:
+
+[artefatos/img/Diagrama_Luna_Monder_Arquivo.dmm](./artefatos/img/Diagrama_Luna_Monder_Arquivo.dmm)
+
+[artefatos/img/Diagrama_Luna_Mondeler.png](./artefatos/img/Diagrama_Luna_Mondeler.png)
 
 # Releases
 
