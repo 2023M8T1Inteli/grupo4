@@ -1,6 +1,6 @@
 {
     "blocks" : {
-        "Condicionais" : [["se", "mostrar(", "BlockConditional"], ["e", "mostrar(", "BlockConditional"], ["ou", "mostrar(", "BlockConditional"], ["se não", "mostrar(", "BlockConditional"]],
+        "Condicionais" : [["se", "mostrar(", "BlockConditional"], ["e", "mostrar(", "BlockConditional"], ["ou", "mostrar(", "BlockConditionalEntao"], ["se não", "mostrar(", "BlockConditional"], ["então", "mostrar(", "BlockConditionalEntao"]],
         "respostas" : [["Acerto", "se quadrante == resposta entao: \n", "BlockResponses" ], ["Erro", "senao: \n", "BlockResponses"]],
         "blocos": [["Pressionar", "var resposta = ", "BlockCarpet"]],
         "feedbacks" : [["escrever", "imprime 1 + 1;", "BlockMessages"],  ["Mostrar Imagem", "mostrar(", "BlockMessages"], ["Tocar Som", "tocar(","BlockMessages"]]
