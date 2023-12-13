@@ -70,7 +70,7 @@ class BlockProgramming extends React.Component {
 
                                 <div className="Code">
                                     {this.state.blocks.map((block) => (
-                                        <div className="BlockInserted" key={block.id}>
+                                        <div className={block.text[2]} key={block.id}>
                                             {block.text[0]}
                                         </div>
                                     ))}
