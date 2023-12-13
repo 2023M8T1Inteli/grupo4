@@ -70,8 +70,11 @@ class BlockProgramming extends React.Component {
 
                                 <div className="Code">
                                     {this.state.blocks.map((block) => (
-                                        <div className={block.text[2]} key={block.id}>
-                                            {block.text[0]}
+                                        <div className="CreatedBlock">
+                                        <div className={`${block.text[2]}Created`} key={block.id}>
+                                            <p>{block.text[0]}</p>
+                                            <input type="number" id="tentacles" name="tentacles" min="1" max="16" />
+                                        </div>
                                         </div>
                                     ))}
                                 </div>
