@@ -13,14 +13,16 @@ const app_service_1 = require("./app.service");
 const prisma_module_1 = require("./prisma/prisma.module");
 const terapeutas_module_1 = require("./terapeutas/terapeutas.module");
 const login_module_1 = require("./login/login.module");
+const jogos_module_1 = require("./jogos/jogos.module");
+const s3_service_1 = require("./s3/s3.service");
 let AppModule = class AppModule {
 };
 exports.AppModule = AppModule;
 exports.AppModule = AppModule = __decorate([
     (0, common_1.Module)({
-        imports: [prisma_module_1.PrismaModule, terapeutas_module_1.TerapeutasModule, login_module_1.LoginModule],
+        imports: [prisma_module_1.PrismaModule, terapeutas_module_1.TerapeutasModule, login_module_1.LoginModule, jogos_module_1.JogosModule],
         controllers: [app_controller_1.AppController],
-        providers: [app_service_1.AppService],
+        providers: [app_service_1.AppService, s3_service_1.S3Service],
     })
 ], AppModule);
 //# sourceMappingURL=app.module.js.map
