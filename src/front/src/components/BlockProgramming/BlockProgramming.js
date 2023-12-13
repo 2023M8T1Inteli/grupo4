@@ -28,6 +28,13 @@ class BlockProgramming extends React.Component {
         }));
     };
 
+    handleRemoveBlock = (id) => {
+        this.setState((prevState) => ({
+        code: prevState.code.replace(prevState.blocks.find((block) => block.id === id).text[1], ''),
+        blocks: prevState.blocks.filter((block) => block.id !== id),
+        }));
+    };
+
 
     handleCode = () => {
         console.log(this.state.code);
@@ -70,12 +77,12 @@ class BlockProgramming extends React.Component {
 
                                 <div className="Code">
                                     {this.state.blocks.map((block) => (
-                                            <div className={`CreatedBlock ${block.text[2]}`}>
-                                                <button>x</button>
-                                                <div className={`${block.text[2]}Created`} key={block.id}>
+                                            <div className={`CreatedBlock ${block.text[2]}`} id={block.id}>
+                                                <button onClick={() => this.handleRemoveBlock(block.id)}>x</button>
+                                                <div className={`${block.text[2]}Created`}>
                                                     <div className="buttonContent">
                                                         <p>{block.text[0]}</p>
-                                                        <input type="number" id="tentacles" name="tentacles" min="1" max="16" />
+                                                        <input type="number" name="tentacles" min="1" max="16" />
                                                     </div>
                                                 </div>
                                             </div>
@@ -83,7 +90,6 @@ class BlockProgramming extends React.Component {
                                 </div>
                             </div>
                         </div>
-                        
                     </div>
                 </div>
             </div>
