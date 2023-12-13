@@ -1,1 +1,6 @@
-export class CreateJogoDto {}
+export class CreateJogoDto {
+		nomeJogo: string;
+		emailCriador: string;
+		publico: string;
+		url: string;
+}

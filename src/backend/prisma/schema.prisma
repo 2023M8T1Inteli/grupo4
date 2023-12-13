@@ -36,10 +36,9 @@ model Jogos {
   data_edicao   DateTime @updatedAt 
   publico       Boolean
   arquivo       String?
-  criador       String   
+  criador       Terapeuta? @relation(fields: [criadorId], references: [id])   
+  criadorId    String?
   sessoes       Sessoes[]
-
-  Terapeuta Terapeuta @relation(fields: [criador], references: [id])
 }
 
 model Sessoes {

@@ -1,15 +1,31 @@
 import { Injectable } from '@nestjs/common';
 import { CreateJogoDto } from './dto/create-jogo.dto';
 import { UpdateJogoDto } from './dto/update-jogo.dto';
+import { PrismaService } from '../prisma/prisma.service';
 
 @Injectable()
 export class JogosService {
-  create(createJogoDto: CreateJogoDto, file: any ) {
-    return 'This action adds a new jogo';
+  constructor (private prisma: PrismaService) {}
+  create(createJogoDto: CreateJogoDto) {
+    return this.prisma.jogos.create({
+      data: {
+        nome_jogo: createJogoDto.nomeJogo,
+        publico: createJogoDto.publico == "true" ? true : false,
+        arquivo: createJogoDto.url,
+        criador : { connect: { email: createJogoDto.emailCriador } }
+      }
+    }) ;
   }
 
-  findAll() {
-    return `This action returns all jogos`;
+  findAll(email: string) {
+    return this.prisma.jogos.findMany({
+      where: {
+        OR: [
+          { publico: true },
+          { criador: { email: email} }
+        ]
+      },
+    });
   }
 
   findOne(id: number) {

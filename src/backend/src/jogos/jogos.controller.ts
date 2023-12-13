@@ -10,17 +10,27 @@ export class JogosController {
 
   constructor(private readonly jogosService: JogosService, private readonly s3service: S3Service) {}
 
-  @Post()
+  @Post('create')
   @UseInterceptors(FileInterceptor('file'))
-  create(@UploadedFile() file, @Body() body) {
+  async create(@UploadedFile() file, @Body() body) {
     console.log(file); // Aqui você acessa o arquivo Python
     console.log(body.nome); // Aqui você acessa o JSON enviado pelo front-end
-    return this.s3service.uploadFile(file, 'jogos');
+    const url = await this.s3service.uploadFile(file, "tapete-magico-aladdin");
+
+    const data = {
+      nomeJogo: body.nomeJogo,
+      emailCriador: body.emailCriador,
+      publico: body.publico.toLowerCase(),
+      url: url,
+    }
+    
+    return this.jogosService.create(data);
   }
 
-  @Get()
-  findAll() {
-    return this.jogosService.findAll();
+  @Post()
+  findAll(@Body() body) {
+    console.log(body.email)
+    return this.jogosService.findAll(body.email);
   }
 
   @Get(':id')

@@ -23,13 +23,21 @@ let JogosController = class JogosController {
         this.jogosService = jogosService;
         this.s3service = s3service;
     }
-    create(file, body) {
+    async create(file, body) {
         console.log(file);
         console.log(body.nome);
-        return this.s3service.uploadFile(file, 'jogos');
+        const url = await this.s3service.uploadFile(file, "tapete-magico-aladdin");
+        const data = {
+            nomeJogo: body.nomeJogo,
+            emailCriador: body.emailCriador,
+            publico: body.publico.toLowerCase(),
+            url: url,
+        };
+        return this.jogosService.create(data);
     }
-    findAll() {
-        return this.jogosService.findAll();
+    findAll(body) {
+        console.log(body.email);
+        return this.jogosService.findAll(body.email);
     }
     findOne(id) {
         return this.jogosService.findOne(+id);
@@ -43,18 +51,19 @@ let JogosController = class JogosController {
 };
 exports.JogosController = JogosController;
 __decorate([
-    (0, common_1.Post)(),
+    (0, common_1.Post)('create'),
     (0, common_1.UseInterceptors)((0, platform_express_1.FileInterceptor)('file')),
     __param(0, (0, common_1.UploadedFile)()),
     __param(1, (0, common_1.Body)()),
     __metadata("design:type", Function),
     __metadata("design:paramtypes", [Object, Object]),
-    __metadata("design:returntype", void 0)
+    __metadata("design:returntype", Promise)
 ], JogosController.prototype, "create", null);
 __decorate([
-    (0, common_1.Get)(),
+    (0, common_1.Post)(),
+    __param(0, (0, common_1.Body)()),
     __metadata("design:type", Function),
-    __metadata("design:paramtypes", []),
+    __metadata("design:paramtypes", [Object]),
     __metadata("design:returntype", void 0)
 ], JogosController.prototype, "findAll", null);
 __decorate([

@@ -23,13 +23,15 @@ let S3Service = class S3Service {
     }
     async uploadFile(file, bucket) {
         const { originalname, buffer } = file;
-        console.log(process.env.AWS_ACCESS_KEY_ID);
         const uploadResult = await this.s3.upload({
-            Bucket: "tapete-magico-aladdin",
+            Bucket: bucket,
             Key: originalname,
             Body: buffer,
         }).promise();
-        return uploadResult;
+        return this.getFileUrl(uploadResult.Key, bucket);
+    }
+    getFileUrl(key, bucket) {
+        return `https://${bucket}.s3.${process.env.AWS_REGION}.amazonaws.com/${encodeURIComponent(key)}`;
     }
 };
 exports.S3Service = S3Service;

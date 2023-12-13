@@ -17,9 +17,8 @@ export class S3Service {
   private s3 = new AWS.S3();
 
   async uploadFile(file: Express.Multer.File, bucket: string) {
-		bucket = "apete-magico-aladdin"
     const { originalname, buffer } = file;
-		console.log(process.env.AWS_ACCESS_KEY_ID);
+
     const uploadResult = await this.s3.upload({
       Bucket: bucket,
       Key: originalname,

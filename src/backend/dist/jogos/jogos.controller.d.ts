@@ -5,8 +5,24 @@ export declare class JogosController {
     private readonly jogosService;
     private readonly s3service;
     constructor(jogosService: JogosService, s3service: S3Service);
-    create(file: any, body: any): Promise<import("aws-sdk/clients/s3").ManagedUpload.SendData>;
-    findAll(): string;
+    create(file: any, body: any): Promise<{
+        id: number;
+        nome_jogo: string;
+        data_criacao: Date;
+        data_edicao: Date;
+        publico: boolean;
+        arquivo: string;
+        criadorId: string;
+    }>;
+    findAll(body: any): import(".prisma/client").Prisma.PrismaPromise<{
+        id: number;
+        nome_jogo: string;
+        data_criacao: Date;
+        data_edicao: Date;
+        publico: boolean;
+        arquivo: string;
+        criadorId: string;
+    }[]>;
     findOne(id: string): string;
     update(id: string, updateJogoDto: UpdateJogoDto): string;
     remove(id: string): string;
