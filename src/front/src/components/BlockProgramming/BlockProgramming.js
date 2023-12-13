@@ -66,16 +66,19 @@ class BlockProgramming extends React.Component {
 
                         <div className="MainContent">
                             <div className="CodeType">
-                                <h1 className="CodeTypeText">Jogo de Advinhação</h1>
+                                <h1 className="CodeTypeText">Jogo de Adivinhação</h1>
 
                                 <div className="Code">
                                     {this.state.blocks.map((block) => (
-                                        <div className="CreatedBlock">
-                                        <div className={`${block.text[2]}Created`} key={block.id}>
-                                            <p>{block.text[0]}</p>
-                                            <input type="number" id="tentacles" name="tentacles" min="1" max="16" />
-                                        </div>
-                                        </div>
+                                            <div className={`CreatedBlock ${block.text[2]}`}>
+                                                <button>x</button>
+                                                <div className={`${block.text[2]}Created`} key={block.id}>
+                                                    <div className="buttonContent">
+                                                        <p>{block.text[0]}</p>
+                                                        <input type="number" id="tentacles" name="tentacles" min="1" max="16" />
+                                                    </div>
+                                                </div>
+                                            </div>
                                     ))}
                                 </div>
                             </div>
