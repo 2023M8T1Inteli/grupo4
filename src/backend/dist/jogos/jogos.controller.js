@@ -42,6 +42,18 @@ let JogosController = class JogosController {
     findOne(id) {
         return this.jogosService.findOne(+id);
     }
+    async downloadFile(bucket, key, res) {
+        try {
+            const file = await this.s3service.getFileStream(bucket, key);
+            res.setHeader('Content-Type', file.ContentType);
+            res.setHeader('Content-Disposition', `attachment; filename=${key}`);
+            res.setHeader('Content-Length', file.ContentLength.toString());
+            res.send(file.Body);
+        }
+        catch (error) {
+            res.status(common_1.HttpStatus.INTERNAL_SERVER_ERROR).json({ message: error.message });
+        }
+    }
     update(id, updateJogoDto) {
         return this.jogosService.update(+id, updateJogoDto);
     }
@@ -73,6 +85,15 @@ __decorate([
     __metadata("design:paramtypes", [String]),
     __metadata("design:returntype", void 0)
 ], JogosController.prototype, "findOne", null);
+__decorate([
+    (0, common_1.Get)(':bucket/:key'),
+    __param(0, (0, common_1.Param)('bucket')),
+    __param(1, (0, common_1.Param)('key')),
+    __param(2, (0, common_1.Res)()),
+    __metadata("design:type", Function),
+    __metadata("design:paramtypes", [String, String, Object]),
+    __metadata("design:returntype", Promise)
+], JogosController.prototype, "downloadFile", null);
 __decorate([
     (0, common_1.Patch)(':id'),
     __param(0, (0, common_1.Param)('id')),

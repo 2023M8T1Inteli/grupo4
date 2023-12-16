@@ -1,4 +1,4 @@
-import { Controller, Get, Post, Body, Patch, Param, Delete, UseInterceptors, UploadedFile, UploadedFiles, Req } from '@nestjs/common';
+import { Controller, Get, Post, Body, Patch, Param, Delete, UseInterceptors, UploadedFile, UploadedFiles, Req, Res, HttpStatus } from '@nestjs/common';
 import { JogosService } from './jogos.service';
 import { S3Service } from '../s3/s3.service';
 import { CreateJogoDto } from './dto/create-jogo.dto';
@@ -36,6 +36,21 @@ export class JogosController {
   @Get(':id')
   findOne(@Param('id') id: string) {
     return this.jogosService.findOne(+id);
+  }
+
+  @Get(':bucket/:key')
+  async downloadFile(@Param('bucket') bucket: string, @Param('key') key: string, @Res() res) {
+    try {
+      const file = await this.s3service.getFileStream(bucket, key);
+
+      res.setHeader('Content-Type', file.ContentType);
+      res.setHeader('Content-Disposition', `attachment; filename=${key}`);
+      res.setHeader('Content-Length', file.ContentLength.toString());
+
+      res.send(file.Body);
+    } catch (error) {
+      res.status(HttpStatus.INTERNAL_SERVER_ERROR).json({ message: error.message });
+    }
   }
 
   @Patch(':id')

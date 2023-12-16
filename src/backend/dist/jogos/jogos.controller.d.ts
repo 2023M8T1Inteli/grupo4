@@ -24,6 +24,7 @@ export declare class JogosController {
         criadorId: string;
     }[]>;
     findOne(id: string): string;
+    downloadFile(bucket: string, key: string, res: any): Promise<void>;
     update(id: string, updateJogoDto: UpdateJogoDto): string;
     remove(id: string): string;
 }

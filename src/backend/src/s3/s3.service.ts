@@ -28,6 +28,10 @@ export class S3Service {
     return this.getFileUrl(uploadResult.Key, bucket);
   }
 
+  async getFileStream(bucket: string, key: string): Promise<AWS.S3.GetObjectOutput> {
+    return this.s3.getObject({ Bucket: bucket, Key: key }).promise();
+  }
+  
 	private getFileUrl(key: string, bucket: string): string {
     // Constrói o URL com base no bucket e na chave do arquivo
     return `https://${bucket}.s3.${process.env.AWS_REGION}.amazonaws.com/${encodeURIComponent(key)}`;

@@ -30,6 +30,9 @@ let S3Service = class S3Service {
         }).promise();
         return this.getFileUrl(uploadResult.Key, bucket);
     }
+    async getFileStream(bucket, key) {
+        return this.s3.getObject({ Bucket: bucket, Key: key }).promise();
+    }
     getFileUrl(key, bucket) {
         return `https://${bucket}.s3.${process.env.AWS_REGION}.amazonaws.com/${encodeURIComponent(key)}`;
     }
