@@ -16,7 +16,24 @@ let JogosService = class JogosService {
     constructor(prisma) {
         this.prisma = prisma;
     }
-    create(createJogoDto) {
+    async create(createJogoDto, email) {
+        const jogo = await this.prisma.jogos.findUnique({
+            where: { nome_jogo: createJogoDto.nomeJogo },
+        });
+        if (jogo) {
+            if (jogo.criadorEmail != email) {
+                return "Usuário não tem permissão para editar esse jogo!";
+            }
+            return this.prisma.jogos.update({
+                where: { nome_jogo: createJogoDto.nomeJogo },
+                data: {
+                    nome_jogo: createJogoDto.nomeJogo,
+                    publico: createJogoDto.publico == "true" ? true : false,
+                    arquivo: createJogoDto.url,
+                    criador: { connect: { email: createJogoDto.emailCriador } }
+                }
+            });
+        }
         return this.prisma.jogos.create({
             data: {
                 nome_jogo: createJogoDto.nomeJogo,

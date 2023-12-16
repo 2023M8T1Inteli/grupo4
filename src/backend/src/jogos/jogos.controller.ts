@@ -24,7 +24,7 @@ export class JogosController {
       url: url,
     }
     
-    return this.jogosService.create(data);
+    return this.jogosService.create(data, body.email);
   }
 
   @Post()

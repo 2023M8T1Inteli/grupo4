@@ -31,13 +31,13 @@ model Paciente {
 
 model Jogos {
   id            Int      @id @default(autoincrement())
-  nome_jogo     String   
+  nome_jogo     String   @unique
   data_criacao  DateTime @default(now())
   data_edicao   DateTime @updatedAt 
   publico       Boolean
   arquivo       String?
-  criador       Terapeuta? @relation(fields: [criadorId], references: [id])   
-  criadorId    String?
+  criador       Terapeuta? @relation(fields: [criadorEmail], references: [email])   
+  criadorEmail    String?
   sessoes       Sessoes[]
 }
 

@@ -33,7 +33,7 @@ let JogosController = class JogosController {
             publico: body.publico.toLowerCase(),
             url: url,
         };
-        return this.jogosService.create(data);
+        return this.jogosService.create(data, body.email);
     }
     findAll(body) {
         console.log(body.email);

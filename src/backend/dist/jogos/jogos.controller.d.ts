@@ -12,8 +12,8 @@ export declare class JogosController {
         data_edicao: Date;
         publico: boolean;
         arquivo: string;
-        criadorId: string;
-    }>;
+        criadorEmail: string;
+    } | "Usuário não tem permissão para editar esse jogo!">;
     findAll(body: any): import(".prisma/client").Prisma.PrismaPromise<{
         id: number;
         nome_jogo: string;
@@ -21,7 +21,7 @@ export declare class JogosController {
         data_edicao: Date;
         publico: boolean;
         arquivo: string;
-        criadorId: string;
+        criadorEmail: string;
     }[]>;
     findOne(id: string): string;
     downloadFile(bucket: string, key: string, res: any): Promise<void>;
