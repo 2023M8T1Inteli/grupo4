@@ -49,7 +49,9 @@ export class JogosService {
   }
 
   findOne(id: number) {
-    return `This action returns a #${id} jogo`;
+    return this.prisma.jogos.findUnique({
+      where: { id: id },
+      });
   }
 
   update(id: number, updateJogoDto: UpdateJogoDto) {

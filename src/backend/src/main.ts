@@ -9,7 +9,7 @@ async function bootstrap() {
   const config = new DocumentBuilder()
     .setTitle('Tapete Mágico')
     .setDescription('Solução acessível de jogos para terapia ocupacional')
-    .setVersion('1.0')
+    .setVersion('2.0')
     .build();
 
   const document = SwaggerModule.createDocument(app, config);

@@ -11,7 +11,7 @@ datasource db {
 }
 
 model Terapeuta {
-  id            String   @id @default(uuid())
+  id            String   @id @default(uuid()) @unique
   nome_completo String
   email         String @unique
   senha         String
@@ -20,9 +20,9 @@ model Terapeuta {
 }
 
 model Paciente {
-  id                 String   @id @default(uuid())
+  id                 String   @id @default(uuid()) @unique
   nome_completo      String
-  data_de_nascimento DateTime?
+  data_de_nascimento String 
   nome_responsavel   String
   contato_responsavel String
   ficha_medica       String?
@@ -43,12 +43,12 @@ model Jogos {
 
 model Sessoes {
   id            String   @id @default(uuid())
-  Paciente_id   String
-  Terapeuta_id  String
+  paciente_id   String?
+  terapeuta_email  String?
   data          DateTime
-  Jogos_id      Int
+  jogos_id      Int
 
-  Paciente  Paciente @relation(fields: [Paciente_id], references: [id])
-  Terapeuta Terapeuta @relation(fields: [Terapeuta_id], references: [id])
-  Jogos     Jogos    @relation(fields: [Jogos_id], references: [id])
+  Paciente  Paciente? @relation(fields: [paciente_id], references: [id])
+  Terapeuta Terapeuta? @relation(fields: [terapeuta_email], references: [email])
+  Jogos     Jogos    @relation(fields: [jogos_id], references: [id])
 }

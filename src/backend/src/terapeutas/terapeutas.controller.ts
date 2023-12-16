@@ -22,13 +22,13 @@ export class TerapeutasController {
     return this.terapeutasService.findOne(id);
   }
 
-  @Patch(':id')
-  update(@Param('id') id: string, @Body() updateTerapeutaDto: UpdateTerapeutaDto) {
-    return this.terapeutasService.update(id, updateTerapeutaDto);
-  }
+  // @Patch(':id')
+  // update(@Param('id') id: string, @Body() updateTerapeutaDto: UpdateTerapeutaDto) {
+  //   return this.terapeutasService.update(id, updateTerapeutaDto);
+  // }
 
-  @Delete(':id')
-  remove(@Param('id') id: string) {
-    return this.terapeutasService.remove(id);
-  }
+  // @Delete(':id')
+  // remove(@Param('id') id: string) {
+  //   return this.terapeutasService.remove(id);
+  // }
 }

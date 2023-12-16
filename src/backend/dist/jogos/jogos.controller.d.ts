@@ -1,6 +1,6 @@
 import { JogosService } from './jogos.service';
 import { S3Service } from '../s3/s3.service';
-import { UpdateJogoDto } from './dto/update-jogo.dto';
+import { FindJogoDto } from './dto/find-jogo.dto';
 export declare class JogosController {
     private readonly jogosService;
     private readonly s3service;
@@ -14,7 +14,7 @@ export declare class JogosController {
         arquivo: string;
         criadorEmail: string;
     } | "Usuário não tem permissão para editar esse jogo!">;
-    findAll(body: any): import(".prisma/client").Prisma.PrismaPromise<{
+    findAll(body: FindJogoDto): import(".prisma/client").Prisma.PrismaPromise<{
         id: number;
         nome_jogo: string;
         data_criacao: Date;
@@ -23,8 +23,14 @@ export declare class JogosController {
         arquivo: string;
         criadorEmail: string;
     }[]>;
-    findOne(id: string): string;
+    findOne(id: string): import(".prisma/client").Prisma.Prisma__JogosClient<{
+        id: number;
+        nome_jogo: string;
+        data_criacao: Date;
+        data_edicao: Date;
+        publico: boolean;
+        arquivo: string;
+        criadorEmail: string;
+    }, null, import("@prisma/client/runtime/library").DefaultArgs>;
     downloadFile(bucket: string, key: string, res: any): Promise<void>;
-    update(id: string, updateJogoDto: UpdateJogoDto): string;
-    remove(id: string): string;
 }

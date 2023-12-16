@@ -1,7 +1,7 @@
 import { Controller, Get, Post, Body, Patch, Param, Delete, UseInterceptors, UploadedFile, UploadedFiles, Req, Res, HttpStatus } from '@nestjs/common';
 import { JogosService } from './jogos.service';
 import { S3Service } from '../s3/s3.service';
-import { CreateJogoDto } from './dto/create-jogo.dto';
+import { FindJogoDto } from './dto/find-jogo.dto';
 import { UpdateJogoDto } from './dto/update-jogo.dto';
 import { FileInterceptor } from '@nestjs/platform-express';
 
@@ -28,7 +28,7 @@ export class JogosController {
   }
 
   @Post()
-  findAll(@Body() body) {
+  findAll(@Body() body: FindJogoDto) {
     console.log(body.email)
     return this.jogosService.findAll(body.email);
   }
@@ -53,13 +53,13 @@ export class JogosController {
     }
   }
 
-  @Patch(':id')
-  update(@Param('id') id: string, @Body() updateJogoDto: UpdateJogoDto) {
-    return this.jogosService.update(+id, updateJogoDto);
-  }
+  // @Patch(':id')
+  // update(@Param('id') id: string, @Body() updateJogoDto: UpdateJogoDto) {
+  //   return this.jogosService.update(+id, updateJogoDto);
+  // }
 
-  @Delete(':id')
-  remove(@Param('id') id: string) {
-    return this.jogosService.remove(+id);
-  }
+  // @Delete(':id')
+  // remove(@Param('id') id: string) {
+  //   return this.jogosService.remove(+id);
+  // }
 }
