@@ -113,6 +113,11 @@ class Interpreter(
         self._environment.define(stmt.name.lexeme, value)
         return None
 
+    def visit_while_stmt(self, stmt: stmt.While):
+        while self._is_truthy(self._evaluate(stmt.condition)):
+            self._execute(stmt.body)
+        return None
+
     def visit_assign_expr(self, expr: expr.Assign):
         value = self._evaluate(expr.value)
         self._environment.assign(expr.name, value)

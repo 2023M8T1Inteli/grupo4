@@ -1,5 +1,5 @@
 from expr import Binary, Grouping, Literal, Unary, Variable, Assign, Logical
-from stmt import Print, Var, Block, If
+from stmt import Print, Var, Block, If, While
 from token_type import TokenType
 from lexical_token import LexicalToken
 from ast_printer import AstPrinter
@@ -42,12 +42,15 @@ class Parsing:
             return None
 
     def _statement(self):
-        """statement → expression_statement | print_statement"""
+        """statement → expression_statement | if_statement | print_statement | while_statement | block"""
         if self._match(TokenType.SE):
             return self._if_statement()
 
         if self._match(TokenType.PRINT):
             return self._print_statement()
+
+        if self._match(TokenType.ENQUANTO):
+            return self._while_statement()
 
         if self._match(TokenType.LBLOCK):
             return Block(self._block())
@@ -86,6 +89,15 @@ class Parsing:
         )
         return Var(name, initializer)
 
+    def _while_statement(self):
+        """while_statement → "enquanto" expression "faca" statement"""
+        condition = self._expression()
+        self._consume(TokenType.FACA, "Era esperado 'faca' após a condição.")
+
+        body = self._statement()
+
+        return While(condition, body)
+
     def _expression_statement(self):
         """expression_statement → expression ";" """
         expr = self._expression()
@@ -100,6 +112,10 @@ class Parsing:
             statements.append(self._declaration())
 
         self._consume(TokenType.RBLOCK, "Era esperado 'fim' após o bloco.")
+
+        # Erro se bloco estiver vazio
+        if len(statements) == 0:
+            raise self._error(self._peek(), "Um bloco vazio não é permitido.")
 
         return statements
 
@@ -183,7 +199,9 @@ class Parsing:
         """factor → unary ( ( "/" | "*" ) unary )*"""
         expr = self._unary()
 
-        while self._match(TokenType.SLASH, TokenType.STAR, TokenType.PERCENT, TokenType.CARET):
+        while self._match(
+            TokenType.SLASH, TokenType.STAR, TokenType.PERCENT, TokenType.CARET
+        ):
             operator = self._previous()
             right = self._unary()
             expr = Binary(expr, operator, right)

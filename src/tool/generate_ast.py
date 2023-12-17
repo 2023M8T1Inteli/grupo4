@@ -35,6 +35,7 @@ def main():
             "If         : condition, then_branch, else_branch",
             "Print      : expression",
             "Var        : name: LexicalToken, initializer",
+            "While      : condition: Expr, body: Stmt",
         ],
     )
 

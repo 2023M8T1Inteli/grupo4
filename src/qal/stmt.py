@@ -1,4 +1,5 @@
 from typing import Any
+from expr import Expr
 from lexical_token import LexicalToken
 
 class Stmt:
@@ -48,6 +49,15 @@ class Var(Stmt):
         return visitor.visit_var_stmt(self)
 
 
+class While(Stmt):
+    def __init__(self, condition: Expr, body: Stmt):
+        self.condition = condition
+        self.body = body
+
+    def accept(self, visitor):
+        return visitor.visit_while_stmt(self)
+
+
 class Visitor:
     def visit_block_stmt(self, stmt: Block):
         pass
@@ -62,5 +72,8 @@ class Visitor:
         pass
 
     def visit_var_stmt(self, stmt: Var):
+        pass
+
+    def visit_while_stmt(self, stmt: While):
         pass
 

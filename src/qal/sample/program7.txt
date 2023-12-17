@@ -1,0 +1,8 @@
+/* Teste de Laço While */
+
+var i = 1;
+enquanto i <= 10 faca
+inicio
+    imprime i;
+    i = i + 1;
+fim

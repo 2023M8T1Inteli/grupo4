@@ -1,4 +1,5 @@
-var i=0;
+var i = 0;
 enquanto i <= 10 faca
 inicio
+
 fim
