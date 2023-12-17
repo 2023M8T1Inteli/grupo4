@@ -1,9 +1,14 @@
-var a;
-var b = "4, 3, 1";
-imprime a;
-imprime b;
-
-imprime 2;
-var j = 10;
-var x = 1+2^3^5;
-imprime x % 20;
+var a = ler();
+var b = ler_varios(4, 3, 1);
+se b e (a <> 5) entao
+inicio
+    mostrar(2);
+    var j = 10;
+    enquanto j >= 1 faca
+    inicio
+        mostrar_tocar((j*2) % 5, j);
+        j=j-1;
+    fim
+fim
+var x=1+2^3^5;
+esperar(x % 20);

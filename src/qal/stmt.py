@@ -1,5 +1,4 @@
 from typing import Any
-from expr import Expr
 from lexical_token import LexicalToken
 
 class Stmt:
@@ -50,7 +49,7 @@ class Var(Stmt):
 
 
 class While(Stmt):
-    def __init__(self, condition: Expr, body: Stmt):
+    def __init__(self, condition, body: Stmt):
         self.condition = condition
         self.body = body
 

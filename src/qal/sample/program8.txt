@@ -1,0 +1,8 @@
+/* Teste das Funcoes */
+
+var numero = ler();
+var multiplos_numeros = ler_varios(1, 2, 3);
+mostrar(4);
+tocar(5);
+mostrar_tocar(6, 7);
+esperar(8);
