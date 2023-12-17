@@ -1,4 +1,4 @@
-from expr import Binary, Grouping, Literal, Unary, Variable, Assign, Logical
+from expr import Binary, Grouping, Literal, Unary, Variable, Assign, Logical, Command
 from stmt import Print, Var, Block, If, While
 from token_type import TokenType
 from lexical_token import LexicalToken
@@ -120,8 +120,8 @@ class Parsing:
         return statements
 
     def _assignment(self):
-        """assignment → IDENTIFIER "=" assignment | or"""
-        expr = self._or()
+        """assignment → IDENTIFIER "=" assignment | command"""
+        expr = self._command()
 
         if self._match(TokenType.EQUAL):
             equals = self._previous()
@@ -134,6 +134,26 @@ class Parsing:
             self._error(equals, "Era esperado um nome de variável.")
 
         return expr
+
+    def _command(self):
+        """command → COMANDO "(" ( expression ( "," expression )* )? ")" | or"""
+        if self._match(TokenType.COMANDO):
+            name = self._previous()
+            self._consume(TokenType.LPAR, "Era esperado um '(' após o nome do comando.")
+            arguments = []
+
+            if not self._check(TokenType.RPAR):
+                value = self._expression()
+                arguments.append(value)
+                while self._match(TokenType.COMMA):
+                    value = self._expression()
+                    arguments.append(value)
+
+            self._consume(TokenType.RPAR, "Era esperado um ')' após os argumentos.")
+
+            return Command(name, arguments)
+
+        return self._or()
 
     def _or(self):
         """or → and ( "ou" and )*"""

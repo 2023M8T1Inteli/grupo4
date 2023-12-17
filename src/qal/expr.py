@@ -24,6 +24,15 @@ class Binary(Expr):
         return visitor.visit_binary_expr(self)
 
 
+class Command(Expr):
+    def __init__(self, name: LexicalToken, arguments):
+        self.name = name
+        self.arguments = arguments
+
+    def accept(self, visitor):
+        return visitor.visit_command_expr(self)
+
+
 class Grouping(Expr):
     def __init__(self, expression):
         self.expression = expression
@@ -72,6 +81,9 @@ class Visitor:
         pass
 
     def visit_binary_expr(self, expr: Binary):
+        pass
+
+    def visit_command_expr(self, expr: Command):
         pass
 
     def visit_grouping_expr(self, expr: Grouping):

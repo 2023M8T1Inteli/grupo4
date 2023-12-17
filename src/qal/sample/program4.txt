@@ -1,5 +1,5 @@
-var a=5;
-var b=9;
+var a = 5;
+var b = 9;
 var c = (3+a)*b/2;
-imprime c;
-imprime a%4;
+esperar(c);
+tocar(a%4);

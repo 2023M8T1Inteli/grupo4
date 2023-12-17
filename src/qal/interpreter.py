@@ -23,6 +23,54 @@ class Interpreter(
     def visit_literal_expr(self, expr: expr.Literal):
         return expr.value
 
+    def visit_command_expr(self, expr: expr.Command):
+        if expr.name.lexeme == "ler":
+            """
+            Função bloqueante que recebe 1 parâmetro inteiro.
+            Retorna um inteiro indicando qual quadrante do tapete foi clicado.
+            Sugestão: usar algum padrão do tipo: 11, 12, 13, 21, 22, 23, etc, onde o primeiro dígito indica a linha e o segundo a coluna.
+            """
+            return int(input())
+        elif expr.name.lexeme == "ler_varios":
+            """
+            Função bloqueante que recebe 3 parâmetros inteiros.
+            Retorna verdade (true) se o quadrante quad foi clicado qtd vezes, ou falso (false) caso contrário.
+            Caso o parâmetro tol seja um valor maior que zero, são tolerados tol cliques em qualquer outro quadrante
+            (supondo uma situação em que o paciente erre o quadrante durante a interação com o tapete).
+            """
+            for argument in expr.arguments:
+                print(int(argument.value))
+            return True
+        elif expr.name.lexeme == "mostrar":
+            """
+            Função que recebe um inteiro (e.g. cod) como parâmetro e exibe a imagem contida no arquivo (e.g. “cod.jpg”).
+            """
+            print("mostrar()", "cod = ", self._evaluate(expr.arguments[0]))
+            return None
+        elif expr.name.lexeme == "tocar":
+            """
+            Função que recebe um inteiro (e.g. cod) como parâmetro e reproduz o som contido no arquivo (e.g. “cod.wav”).
+            """
+            print("tocar()", "cod = ", self._evaluate(expr.arguments[0]))
+            return None
+        elif expr.name.lexeme == "mostrar_tocar":
+            """
+            Função que recebe dois inteiros cod_img (código da imagem) e cod_aud (código do áudio) como parâmetros. Exibe e toca ao mesmo tempo a imagem “cod_img.jpg” e o áudio “cod_aud.mp3”.
+            """
+            print(
+                "mostrar_tocar()",
+                "cod_img = ",
+                self._evaluate(expr.arguments[0]),
+                "cod_aud = ",
+                self._evaluate(expr.arguments[1]),
+            )
+        elif expr.name.lexeme == "esperar":
+            """
+            Função que recebe um inteiro t como parâmetro e bloqueia a execução do programa em t milissegundos.
+            """
+            print("esperar()", "t = ", self._evaluate(expr.arguments[0]))
+            return None
+
     def visit_logical_expr(self, expr: expr.Logical):
         left = self._evaluate(expr.left)
 
