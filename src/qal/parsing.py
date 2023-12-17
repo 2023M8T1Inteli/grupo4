@@ -1,5 +1,5 @@
 from expr import Binary, Grouping, Literal, Unary, Variable, Assign
-from stmt import Print, Var
+from stmt import Print, Var, Block
 from token_type import TokenType
 from lexical_token import LexicalToken
 from ast_printer import AstPrinter
@@ -46,6 +46,9 @@ class Parsing:
         if self._match(TokenType.PRINT):
             return self._print_statement()
 
+        if self._match(TokenType.LBLOCK):
+            return Block(self._block())
+
         return self._expression_statement()
 
     def _print_statement(self):
@@ -72,6 +75,17 @@ class Parsing:
         expr = self._expression()
         self._consume(TokenType.SEMICOLON, "Era esperado ';' após a expressão.")
         return expr
+
+    def _block(self):
+        """block → "inicio" declaration "fim" """
+        statements = []
+
+        while not self._check(TokenType.RBLOCK) and not self._is_at_end():
+            statements.append(self._declaration())
+
+        self._consume(TokenType.RBLOCK, "Era esperado 'fim' após o bloco.")
+
+        return statements
 
     def _assignment(self):
         """assignment → IDENTIFIER "=" assignment | equality"""
@@ -169,7 +183,7 @@ class Parsing:
         raise self._error(self._peek(), "Era esperada uma expressão.")
 
     def _match(self, *types):
-        """Verifica se o token atual é de algum dos tipos especificados."""
+        """Verifica se o token atual é de algum dos tipos especificados. Avança para o próximo token se for."""
         for token_type in types:
             if self._check(token_type):
                 self._advance()
@@ -177,7 +191,7 @@ class Parsing:
         return False
 
     def _consume(self, token_type, message):
-        """Consome o token atual se for do tipo especificado."""
+        """Consome o token atual (avança para o próximo token) se for do tipo especificado. Caso contrário, reporta um erro de parse."""
         if self._check(token_type):
             return self._advance()
         raise self._error(self._peek(), message)

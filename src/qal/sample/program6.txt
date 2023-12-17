@@ -1,0 +1,21 @@
+/* TESTANDO ESCOPO */
+
+var a = "a global";
+var b = "b global";
+var c = "c global";
+inicio
+  var a = "a externo";
+  var b = "b externo";
+  inicio
+    var a = "a interno";
+    imprime a; // a interno
+    imprime b; // b externo
+    imprime c; // c global
+  fim
+  imprime a; // a externo
+  imprime b; // b externo
+  imprime c; // c global
+fim
+imprime a; // a global
+imprime b; // b global
+imprime c; // c global
