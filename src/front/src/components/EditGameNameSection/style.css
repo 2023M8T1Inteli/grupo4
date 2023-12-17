@@ -40,7 +40,7 @@
 }
 
 .codeName .EditName button:hover {
-    background-color: #e92542;
+    background-color: #45a522;
     transition: 0.2s;
     cursor: pointer;
 }
