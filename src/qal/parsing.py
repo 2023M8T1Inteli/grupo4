@@ -1,5 +1,5 @@
-from expr import Binary, Grouping, Literal, Unary, Variable, Assign
-from stmt import Print, Var, Block
+from expr import Binary, Grouping, Literal, Unary, Variable, Assign, Logical
+from stmt import Print, Var, Block, If
 from token_type import TokenType
 from lexical_token import LexicalToken
 from ast_printer import AstPrinter
@@ -43,6 +43,9 @@ class Parsing:
 
     def _statement(self):
         """statement → expression_statement | print_statement"""
+        if self._match(TokenType.SE):
+            return self._if_statement()
+
         if self._match(TokenType.PRINT):
             return self._print_statement()
 
@@ -50,6 +53,19 @@ class Parsing:
             return Block(self._block())
 
         return self._expression_statement()
+
+    def _if_statement(self):
+        """if_statement → "se" expression "entao" statement ( "senao" statement )?"""
+        condition = self._expression()
+        self._consume(TokenType.ENTAO, "Era esperado 'entao' após a condição.")
+
+        then_branch = self._statement()
+
+        else_branch = None
+        if self._match(TokenType.SENAO):
+            else_branch = self._statement()
+
+        return If(condition, then_branch, else_branch)
 
     def _print_statement(self):
         """print_statement → "print" expression ";" """
@@ -88,8 +104,8 @@ class Parsing:
         return statements
 
     def _assignment(self):
-        """assignment → IDENTIFIER "=" assignment | equality"""
-        expr = self._equality()
+        """assignment → IDENTIFIER "=" assignment | or"""
+        expr = self._or()
 
         if self._match(TokenType.EQUAL):
             equals = self._previous()
@@ -100,6 +116,28 @@ class Parsing:
                 return Assign(name, value)
 
             self._error(equals, "Era esperado um nome de variável.")
+
+        return expr
+
+    def _or(self):
+        """or → and ( "ou" and )*"""
+        expr = self._and()
+
+        while self._match(TokenType.OU):
+            operator = self._previous()
+            right = self._and()
+            expr = Logical(expr, operator, right)
+
+        return expr
+
+    def _and(self):
+        """and → equality ( "e" equality )*"""
+        expr = self._equality()
+
+        while self._match(TokenType.E):
+            operator = self._previous()
+            right = self._equality()
+            expr = Logical(expr, operator, right)
 
         return expr
 
