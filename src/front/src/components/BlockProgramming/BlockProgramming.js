@@ -4,6 +4,7 @@ import "./style.css";
 import { GoArrowLeft } from "react-icons/go";
 
 import EditGameName from "../EditGameNameSection/EditNameGame";
+import EditGameVisibility from "../EditGameVisibility/EditGameVisibility";
 
 class BlockProgramming extends React.Component {
     constructor(props) {
@@ -80,7 +81,10 @@ class BlockProgramming extends React.Component {
 
                         <div className="MainContent">
                             <div className="CodeType">
-                                <EditGameName />
+                                <div className="ProgSectionHeader">
+                                    <EditGameName />
+                                    <EditGameVisibility />
+                                </div>
 
                                 <div className="Code">
                                     {this.state.blocks.map((block) => (
