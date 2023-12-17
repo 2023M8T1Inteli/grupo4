@@ -1,6 +1,6 @@
 import React from "react";
 import "./style.css";
-import { MdEdit } from "react-icons/md";
+import { MdEdit, MdOutlineCancel } from "react-icons/md";
 
 class EditGameName extends React.Component {
     constructor(props) {
@@ -8,13 +8,15 @@ class EditGameName extends React.Component {
         this.state = {
             isEditing: false,
             inputValue: "",
-            codeTypeText: "Jogo de Adivinhação"
+            codeTypeText: "Jogo de Adivinhação",
+            isCancelIcon: false
         };
     }
 
     handleIconBtnClick = () => {
         this.setState((prevState) => ({
-            isEditing: !prevState.isEditing
+            isEditing: !prevState.isEditing,
+            isCancelIcon: !prevState.isEditing
         }));
     };
 
@@ -25,12 +27,13 @@ class EditGameName extends React.Component {
     handleSaveClick = () => {
         this.setState((prevState) => ({
             isEditing: false,
-            codeTypeText: prevState.inputValue
+            codeTypeText: prevState.inputValue,
+            isCancelIcon: false
         }));
     };
 
     render() {
-        const { isEditing, inputValue, codeTypeText } = this.state;
+        const { isEditing, inputValue, codeTypeText, isCancelIcon } = this.state;
 
         return (
             <>
@@ -42,14 +45,16 @@ class EditGameName extends React.Component {
                                     value={inputValue}
                                     onChange={this.handleInputChange}
                                 />
-                                <button onClick={this.handleSaveClick}>Salvar</button>
+                                <button onClick={this.handleSaveClick}>
+                                        Salvar
+                                </button>
                             </div>
                         ) : (
                             <h1 className="CodeTypeText">{codeTypeText}</h1>
                         )}
                     </div>
                     <button className="IconBtn" onClick={this.handleIconBtnClick}>
-                        <MdEdit className="Icon" />
+                        {isCancelIcon ? <MdOutlineCancel className="IconClose" /> : <MdEdit className="Icon" />}
                     </button>
                 </div>
             </>

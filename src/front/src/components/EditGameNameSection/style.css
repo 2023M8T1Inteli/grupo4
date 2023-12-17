@@ -27,6 +27,7 @@
     width: 500px;
     border-radius: 10px 0 0 10px;
     border: none;
+    font-size: 25px;
 }
 
 .codeName .EditName button {
@@ -61,4 +62,12 @@
     color: #fff;
     font-size: 40px;
     padding: 2px;
+}
+.IconClose{
+    background-color: #fff;
+    font-size: 40px;
+    border-radius: 50%;
+}
+.IconClose:hover{
+    background-color: #e92542;
 }
