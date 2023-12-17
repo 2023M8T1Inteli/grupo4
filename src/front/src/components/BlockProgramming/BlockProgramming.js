@@ -3,6 +3,8 @@ import DropDownList from "../DropDownList/DropdownList";
 import "./style.css";
 import { GoArrowLeft } from "react-icons/go";
 
+import EditGameName from "../EditGameNameSection/EditNameGame";
+
 class BlockProgramming extends React.Component {
     constructor(props) {
         super(props);
@@ -78,7 +80,7 @@ class BlockProgramming extends React.Component {
 
                         <div className="MainContent">
                             <div className="CodeType">
-                                <h1 className="CodeTypeText">Jogo de Adivinhação</h1>
+                                <EditGameName />
 
                                 <div className="Code">
                                     {this.state.blocks.map((block) => (
