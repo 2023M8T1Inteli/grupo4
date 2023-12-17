@@ -1,4 +1,4 @@
-/* TESTANDO ESCOPO */
+/* Teste de Escopo */
 
 var a = "a global";
 var b = "b global";

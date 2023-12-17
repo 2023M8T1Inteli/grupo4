@@ -1,5 +1,5 @@
-from expr import Binary, Grouping, Literal, Unary, Variable, Assign
-from stmt import Print, Var, Block
+from expr import Binary, Grouping, Literal, Unary, Variable, Assign, Logical
+from stmt import Print, Var, Block, If, While
 from token_type import TokenType
 from lexical_token import LexicalToken
 from ast_printer import AstPrinter
@@ -42,14 +42,33 @@ class Parsing:
             return None
 
     def _statement(self):
-        """statement → expression_statement | print_statement"""
+        """statement → expression_statement | if_statement | print_statement | while_statement | block"""
+        if self._match(TokenType.SE):
+            return self._if_statement()
+
         if self._match(TokenType.PRINT):
             return self._print_statement()
+
+        if self._match(TokenType.ENQUANTO):
+            return self._while_statement()
 
         if self._match(TokenType.LBLOCK):
             return Block(self._block())
 
         return self._expression_statement()
+
+    def _if_statement(self):
+        """if_statement → "se" expression "entao" statement ( "senao" statement )?"""
+        condition = self._expression()
+        self._consume(TokenType.ENTAO, "Era esperado 'entao' após a condição.")
+
+        then_branch = self._statement()
+
+        else_branch = None
+        if self._match(TokenType.SENAO):
+            else_branch = self._statement()
+
+        return If(condition, then_branch, else_branch)
 
     def _print_statement(self):
         """print_statement → "print" expression ";" """
@@ -70,6 +89,15 @@ class Parsing:
         )
         return Var(name, initializer)
 
+    def _while_statement(self):
+        """while_statement → "enquanto" expression "faca" statement"""
+        condition = self._expression()
+        self._consume(TokenType.FACA, "Era esperado 'faca' após a condição.")
+
+        body = self._statement()
+
+        return While(condition, body)
+
     def _expression_statement(self):
         """expression_statement → expression ";" """
         expr = self._expression()
@@ -85,11 +113,15 @@ class Parsing:
 
         self._consume(TokenType.RBLOCK, "Era esperado 'fim' após o bloco.")
 
+        # Erro se bloco estiver vazio
+        if len(statements) == 0:
+            raise self._error(self._peek(), "Um bloco vazio não é permitido.")
+
         return statements
 
     def _assignment(self):
-        """assignment → IDENTIFIER "=" assignment | equality"""
-        expr = self._equality()
+        """assignment → IDENTIFIER "=" assignment | or"""
+        expr = self._or()
 
         if self._match(TokenType.EQUAL):
             equals = self._previous()
@@ -100,6 +132,28 @@ class Parsing:
                 return Assign(name, value)
 
             self._error(equals, "Era esperado um nome de variável.")
+
+        return expr
+
+    def _or(self):
+        """or → and ( "ou" and )*"""
+        expr = self._and()
+
+        while self._match(TokenType.OU):
+            operator = self._previous()
+            right = self._and()
+            expr = Logical(expr, operator, right)
+
+        return expr
+
+    def _and(self):
+        """and → equality ( "e" equality )*"""
+        expr = self._equality()
+
+        while self._match(TokenType.E):
+            operator = self._previous()
+            right = self._equality()
+            expr = Logical(expr, operator, right)
 
         return expr
 
@@ -145,7 +199,9 @@ class Parsing:
         """factor → unary ( ( "/" | "*" ) unary )*"""
         expr = self._unary()
 
-        while self._match(TokenType.SLASH, TokenType.STAR, TokenType.PERCENT, TokenType.CARET):
+        while self._match(
+            TokenType.SLASH, TokenType.STAR, TokenType.PERCENT, TokenType.CARET
+        ):
             operator = self._previous()
             right = self._unary()
             expr = Binary(expr, operator, right)

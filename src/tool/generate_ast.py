@@ -20,6 +20,7 @@ def main():
             "Binary   : left, operator: LexicalToken, right",
             "Grouping : expression",
             "Literal  : value: Any",
+            "Logical  : left, operator: LexicalToken, right",
             "Unary    : operator: LexicalToken, right",
             "Variable : name: LexicalToken",
         ],
@@ -31,8 +32,10 @@ def main():
         [
             "Block      : statements",
             "Expression : expression",
+            "If         : condition, then_branch, else_branch",
             "Print      : expression",
             "Var        : name: LexicalToken, initializer",
+            "While      : condition: Expr, body: Stmt",
         ],
     )
 

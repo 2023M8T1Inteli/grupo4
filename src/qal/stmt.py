@@ -1,4 +1,5 @@
 from typing import Any
+from expr import Expr
 from lexical_token import LexicalToken
 
 class Stmt:
@@ -21,6 +22,16 @@ class Expression(Stmt):
         return visitor.visit_expression_stmt(self)
 
 
+class If(Stmt):
+    def __init__(self, condition, then_branch, else_branch):
+        self.condition = condition
+        self.then_branch = then_branch
+        self.else_branch = else_branch
+
+    def accept(self, visitor):
+        return visitor.visit_if_stmt(self)
+
+
 class Print(Stmt):
     def __init__(self, expression):
         self.expression = expression
@@ -38,6 +49,15 @@ class Var(Stmt):
         return visitor.visit_var_stmt(self)
 
 
+class While(Stmt):
+    def __init__(self, condition: Expr, body: Stmt):
+        self.condition = condition
+        self.body = body
+
+    def accept(self, visitor):
+        return visitor.visit_while_stmt(self)
+
+
 class Visitor:
     def visit_block_stmt(self, stmt: Block):
         pass
@@ -45,9 +65,15 @@ class Visitor:
     def visit_expression_stmt(self, stmt: Expression):
         pass
 
+    def visit_if_stmt(self, stmt: If):
+        pass
+
     def visit_print_stmt(self, stmt: Print):
         pass
 
     def visit_var_stmt(self, stmt: Var):
+        pass
+
+    def visit_while_stmt(self, stmt: While):
         pass
 
