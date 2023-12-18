@@ -152,6 +152,7 @@ class BlockProgramming extends React.Component {
                                 <div className="Code">
                                 {this.state.blocks.map((block) => (
                                     <div key={block.id} className={`CreatedBlock ${block.text[2]}`} id={block.id}>
+                                        <button onClick={() => this.handleRemoveBlock(block.id)}>x</button>
                                         <div className={`${block.text[2]}Created`}>
                                             {block.text[0] === "Imagem" ? (
                                                 <div className="buttonContent" id="buttonContent-p">
