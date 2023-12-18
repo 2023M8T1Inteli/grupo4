@@ -7,3 +7,7 @@ contextBridge.exposeInMainWorld('handAPI', {
 contextBridge.exposeInMainWorld('initGame', {
     initGame: (gameName) => ipcRenderer.send('gameName', gameName)
 })
+
+contextBridge.exposeInMainWorld('inputFile', {
+    inputImage: () => ipcRenderer.invoke('uploadImage')
+})
