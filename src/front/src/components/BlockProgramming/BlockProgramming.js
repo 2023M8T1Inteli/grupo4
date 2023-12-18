@@ -3,6 +3,9 @@ import DropDownList from "../DropDownList/DropdownList";
 import "./style.css";
 import { GoArrowLeft } from "react-icons/go";
 
+import EditGameName from "../EditGameNameSection/EditNameGame";
+import EditGameVisibility from "../EditGameVisibility/EditGameVisibility";
+
 class BlockProgramming extends React.Component {
     constructor(props) {
         super(props);
@@ -10,23 +13,55 @@ class BlockProgramming extends React.Component {
             selectedBlock: null,
             blocks: [],
             code: "", // Adicione a variável code ao estado
+            imagePath: "", // Add the 'imagePath' variable to the state
         };
     }
 
-    handleCreateBlock = (text) => {
-        const blockText = text[1]; 
+    handleCreateBlock = async (text) => {
+        console.log("Handling block creation:", text);
+        const blockTextTest = text[0];
+        const blockText = text[1];
     
-        this.setState((prevState) => ({
-            code: prevState.code + blockText,
-            blocks: [
-                ...prevState.blocks,
-                {
-                    id: `custom_${Date.now()}`,
-                    text: text, // Mantenha o texto completo do bloco
-                },
-            ],
-        }));
+        if (blockTextTest === "Imagem") {
+            try {
+                const result = await window.inputFile.inputImage();
+                console.log(result);
+    
+                const { filePath, originalPath } = result;
+                console.log("File saved successfully:", filePath);
+    
+                // Update the state with the new image block after saving the image
+                this.setState((prevState) => ({
+                    imagePath: filePath,
+                    blocks: [
+                        ...prevState.blocks,
+                        {
+                            id: `custom_${Date.now()}`,
+                            text: ["Imagem", filePath, "imagem"],
+                        },
+                    ],
+                }), () => {
+                    console.log("Image saved successfully:", this.state.imagePath);
+                    console.log("BlockText: ", this.state.blocks);
+                });
+    
+            } catch (error) {
+                console.error("Error saving image:", error);
+            }
+        } else {
+            this.setState((prevState) => ({
+                code: prevState.code + blockText,
+                blocks: [
+                    ...prevState.blocks,
+                    {
+                        id: `custom_${Date.now()}`,
+                        text: text,
+                    },
+                ],
+            }));
+        }
     };
+    
 
     handleRemoveBlock = (id) => {
         this.setState((prevState) => ({
@@ -40,6 +75,37 @@ class BlockProgramming extends React.Component {
         console.log(this.state.code);
         window.handAPI.sendCode(this.state.code);
     };
+
+    handleSaveImage = async () => {
+        console.log("Saving image...");
+    
+        try {
+            const result = await window.inputFile.inputImage();
+            console.log(result);
+    
+            const { filePath, originalPath } = result;
+            console.log("File saved successfully:", filePath);
+    
+            this.setState((prevState) => ({
+                imagePath: filePath,
+                blocks: [
+                    ...prevState.blocks,
+                    {
+                        id: `custom_${Date.now()}`,
+                        text: ["Imagem", filePath, "imagem"], // Update with the image path
+                    },
+                ],
+            }), () => {
+                console.log("Image saved successfully:", this.state.imagePath);
+                console.log("BlockText: ", this.state.blocks);
+            });
+    
+            // You can perform additional operations or update the code accordingly
+        } catch (error) {
+            console.error("Error saving image:", error);
+        }
+    };
+    
 
     initGame = () => {
         console.log("initGame");
@@ -78,20 +144,30 @@ class BlockProgramming extends React.Component {
 
                         <div className="MainContent">
                             <div className="CodeType">
-                                <h1 className="CodeTypeText">Jogo de Adivinhação</h1>
+                                <div className="ProgSectionHeader">
+                                    <EditGameName />
+                                    <EditGameVisibility />
+                                </div>
 
                                 <div className="Code">
-                                    {this.state.blocks.map((block) => (
-                                            <div className={`CreatedBlock ${block.text[2]}`} id={block.id}>
-                                                <button onClick={() => this.handleRemoveBlock(block.id)}>x</button>
-                                                <div className={`${block.text[2]}Created`}>
-                                                    <div className="buttonContent">
-                                                        <p>{block.text[0]}</p>
-                                                        <input type="number" name="tentacles" min="1" max="16" />
-                                                    </div>
+                                {this.state.blocks.map((block) => (
+                                    <div key={block.id} className={`CreatedBlock ${block.text[2]}`} id={block.id}>
+                                        <button onClick={() => this.handleRemoveBlock(block.id)}>x</button>
+                                        <div className={`${block.text[2]}Created`}>
+                                            {block.text[0] === "Imagem" ? (
+                                                <div className="buttonContent" id="buttonContent-p">
+                                                    <p id="img-p">{block.text[0]}</p>,
+                                                    <img id="image-block" src={block.text[1]} alt="Imagem" />
                                                 </div>
-                                            </div>
-                                    ))}
+                                            ) : (
+                                                <div className="buttonContent">
+                                                    <p>{block.text[0]}</p>
+                                                    <input type="number" name="tentacles" min="1" max="16" />
+                                                </div>
+                                            )}
+                                        </div>
+                                    </div>
+                                ))}
                                 </div>
                             </div>
                         </div>
