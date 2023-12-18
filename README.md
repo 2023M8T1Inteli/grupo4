@@ -12,13 +12,11 @@
 
 Este é um dos repositórios do projeto de alunos do Inteli em parceria com a AACD no 2º semestre de 2023. Este projeto está sendo desenvolvido por alunos do Módulo 8 do curso de Ciência da Computação.
 
-> Se você é um dos alunos que faz parte deste grupo, veja as [instruções para os alunos](./instrucoes_para_alunos/LEIAME_aluno.md).
-
-# Projeto: Tapete Mágico
+# Projeto: Tapete sensorial para apoiar pessoas com leves desordens neurológicas e sem alteração/restrição sensorial em atividades do cotidiano
 
 # Grupo: Aladdin
 
-# Integrantes:
+## Integrantes:
 
 * [André Lessa](https://www.linkedin.com/in/andrelessajr/)
 * [Gabriel Carneiro](https://www.linkedin.com/in/gabecarneiro/)
@@ -31,7 +29,7 @@ Este é um dos repositórios do projeto de alunos do Inteli em parceria com a AA
 
 # Descrição
 
-*Descrição resumida do projeto*
+O projeto foca no desenvolvimento de uma Interface de Desenvolvimento de Software (IDE) para um sistema embarcado. Esse sistema é direcionado a um tapete sensorial, projetado para auxiliar pessoas com leves desordens neurológicas e sem alterações sensoriais em atividades cotidianas. O tapete sensorial, interligado ao dispositivo denominado Greg Maker, é um recurso adaptado que permite a estimulação tátil e proprioceptiva, integrando os sistemas nervosos central e periférico, melhorando assim respostas motoras funcionais e desempenhos ocupacionais.
 
 # Configuração de Desenvolvimento
 
@@ -128,10 +126,10 @@ Para modelar o Banco de Dados, utilizamos o Luna Modeler, e para provisionamento
 * [SPRINT2](https://github.com/2023M8T1Inteli/grupo4/releases/tag/sprint2): Analisador léxico (versão 2), Analisador sintático (versão 1), IDE (versão 1), Artigo (versão 1)
 * [SPRINT3](https://github.com/2023M8T1Inteli/grupo4/releases/tag/sprint3): Analisador sintático (v2) e semântico (v1), IDE (v2) e Artigo (v2)
 * [SPRINT4](https://github.com/2023M8T1Inteli/grupo4/releases/tag/sprint4): Analisador sintático (v3), semântico (v2), Gerador de código(v1), IDE (v3) e Artigo (v3)
-* SPRINT5: *descrição*
+* SPRINT5: Analisadores léxico, sintático e semântico (versões finais), Refinamento da IDE, Artigo (versão final) e Organização do GitHub
 
 ## 📋 Licença/License
 
 <img style="height:22px!important;margin-left:3px;vertical-align:text-bottom;" src="https://mirrors.creativecommons.org/presskit/icons/cc.svg?ref=chooser-v1"><img style="height:22px!important;margin-left:3px;vertical-align:text-bottom;" src="https://mirrors.creativecommons.org/presskit/icons/by.svg?ref=chooser-v1"><p xmlns:cc="http://creativecommons.org/ns#" xmlns:dct="http://purl.org/dc/terms/">
 
-<a property="dct:title" rel="cc:attributionURL">Grupo</a> by <a rel="cc:attributionURL dct:creator" property="cc:attributionName">Inteli, Estudante 1, Estudante 2, Estudante 3, Estudante 4, Estudante 5, Estudante 6</a> is licensed under <a href="https://creativecommons.org/licenses/by/4.0/?ref=chooser-v1" rel="license noopener noreferrer" style="display:inline-block;">Attribution 4.0 International</a>.</p>
+<a property="dct:title" rel="cc:attributionURL">Grupo</a> by <a rel="cc:attributionURL dct:creator" property="cc:attributionName">Inteli, André Lessa, Gabriel Carneiro, Leandro Custódio, Sarah Ribeiro, Stefano Butori, Vinicius Souza, Yasmin Rocha</a> is licensed under <a href="https://creativecommons.org/licenses/by/4.0/?ref=chooser-v1" rel="license noopener noreferrer" style="display:inline-block;">Attribution 4.0 International</a>.</p>
