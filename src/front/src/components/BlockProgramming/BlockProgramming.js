@@ -2,7 +2,6 @@ import React from "react";
 import DropDownList from "../DropDownList/DropdownList";
 import "./style.css";
 import { GoArrowLeft } from "react-icons/go";
-
 import EditGameName from "../EditGameNameSection/EditNameGame";
 import EditGameVisibility from "../EditGameVisibility/EditGameVisibility";
 
