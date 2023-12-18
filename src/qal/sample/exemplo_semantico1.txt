@@ -1,5 +1,6 @@
 var valor = ler();
 se valor >= 10 entao
 inicio
-  x=x+1;
+  var x=x+1;
+  mostrar(x);
 fim
