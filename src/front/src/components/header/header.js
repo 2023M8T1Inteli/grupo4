@@ -12,9 +12,9 @@ class header extends React.Component {
                     <img src={AACD} alt="logo AACD" className="logo" />
                 </span>
                 <div className='option-nav-bar'>
-                    <Link to="/">Menu</Link>
-                    <Link to="/Session">Jogos</Link>
-                    <Link to="/Reports">Relatórios</Link>
+                    <Link to="/" className='linkText'>Menu</Link>
+                    <Link to="/Session" className='linkText'>Jogos</Link>
+                    <Link to="/Reports" className='linkText'>Relatórios</Link>
                 </div>
                 <Profile />
             </div>
