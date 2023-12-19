@@ -21,10 +21,13 @@ class DropDownList extends React.Component {
                             <div className="ContentItem">
                                 {blockValues.map((text, index) => (
                                     <button
-                                        className={text[2]}
+                                        className={`InputBlock ${text[2]}`}
                                         key={index}
                                         
-                                        onClick={() => this.handleBlockClick(text)}
+                                        onClick={() => {
+                                            const blockType = text[0] === "Imagem" ? "imagem" : text;
+                                            this.handleBlockClick(text)
+                                        }}
                                     >
                                         <p className="TextBlock">{text[0]}</p>
                                     </button>

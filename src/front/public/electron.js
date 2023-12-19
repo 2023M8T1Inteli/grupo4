@@ -1,9 +1,66 @@
-const { app, BrowserWindow, ipcMain } = require('electron')
+const { app, BrowserWindow, ipcMain, dialog } = require('electron')
 const { PythonShell } = require('python-shell');
 
 const isDev = require('electron-is-dev');
 const path = require('path');
 const fs = require('fs');
+
+async function handleImageUpload() {
+    try {
+        const { canceled, filePaths } = await dialog.showOpenDialog({title:"Image Filter" ,filters: [{ name: 'Images', extensions: ['jpg', 'png', 'gif']}], properties: ['openFile'] });
+
+        if (canceled) {
+            throw new Error('File selection canceled');
+        }
+
+        const filePath = filePaths[0];
+        const destinationPath = path.join(__dirname, '..', '..', 'games', 'img');
+
+        // Use fs.promises.copyFile to handle asynchronous copying
+        fs.cpSync(filePath, path.join(destinationPath, path.basename(filePath)));
+
+        console.log('Image copied successfully!');
+
+        return {
+            filePath: path.join(destinationPath, path.basename(filePath)),
+            originalPath: filePath,
+        };
+    } catch (error) {
+        console.error(error);
+        throw error;
+    }
+}
+
+async function handleAudioUpload() {
+    try {
+        const { canceled, filePaths } = await dialog.showOpenDialog({
+            title: "Audio Filter",
+            filters: [{ name: 'Audio Files', extensions: ['mp3', 'wav', 'ogg'] }],
+            properties: ['openFile']
+        });
+
+        if (canceled) {
+            throw new Error('File selection canceled');
+        }
+
+        const filePath = filePaths[0];
+        const destinationPath = path.join(__dirname, '..', '..', 'games', 'audio');
+
+        // Use fs.promises.copyFile to handle asynchronous copying
+        fs.cpSync(filePath, path.join(destinationPath, path.basename(filePath)));
+
+        console.log('Audio copied successfully!');
+
+        return {
+            filePath: path.join(destinationPath, path.basename(filePath)),
+            originalPath: filePath,
+        };
+    } catch (error) {
+        console.error(error);
+        throw error;
+    }
+}
+
 
 function createWindow() {
 
@@ -67,12 +124,14 @@ function createWindow() {
             event.reply('code-reply', 'Message received successfully');
         });
     })
-
+        
     win.loadURL(isDev ? 'http://localhost:3000/' : `file://${path.join(__dirname, "../build/index.html")}`)
 
     win.focus();
-
-
 }
 
-app.whenReady().then(createWindow)
+app.whenReady().then(() => {
+    ipcMain.handle('uploadImage', handleImageUpload);
+    ipcMain.handle('uploadAudio', handleAudioUpload);
+    createWindow();
+});
