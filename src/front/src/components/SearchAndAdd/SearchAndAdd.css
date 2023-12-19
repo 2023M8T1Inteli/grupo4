@@ -12,17 +12,19 @@ body {
 
 .search-add {
     display: flex; 
-    justify-content: space-between; 
+    justify-content: space-between;
     align-items: center;
+    width: 75%;
     padding: 10px;
+    margin-left: 12%;
   }
   
   .search,
   .add {
     display: flex; 
     align-items: center; 
-    margin: 0 100px; 
-    margin-top: 10px;
+    margin: 0 100px;
+    margin-top: 50px; 
   }
 
   .add-button {
@@ -38,12 +40,14 @@ body {
   .input-search {
     border-radius: 25px;
     border: 1px solid #94A2AB;
-    height: 30px;
-    width: 300px;
+    height: 40px;
+    width: 400px;
     font-size: 14px;
     text-align: left;
     text-indent: 10px;
+    padding: 0 10px;
   }
+
   .search-button {
     border: 50%;
     background-color: transparent;
@@ -87,7 +91,7 @@ body {
 
 .input-cadastro-paciente input {
   margin-bottom: 10px;
-  padding: 8px;
+  padding: 10px;
   border: 1px solid #94A2AB;
   border-radius: 4px;
   display: flex;

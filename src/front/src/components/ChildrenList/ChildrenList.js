@@ -19,12 +19,34 @@ function ChildrenList() {
 
     return (
       <div className='children-list'>
-        <div className='children1'>
+        <div className='children' onClick={handleKidProfile}>
+          <div className='children-info-list'>
             <img src={Perfil} className='img-paciente'/>
-            <h3 onClick={handleKidProfile}>Paciente 1</h3>
-            <button className='init-session' onClick={handleInitSession}>Iniciar sessão</button>
+            <p className='text-comp bold'>Paciente 1</p>
+          </div>
+          <div className='pointer'>
+            <p className='init-session text-comp bold pointer'><label className='simple-text pointer'>Próxima sessão: </label> Hoje as 10h</p>
+          </div>  
         </div>
-        <div className='children2'>
+        <div className='children' onClick={handleKidProfile}>
+          <div className='children-info-list'>
+            <img src={Perfil} className='img-paciente'/>
+            <p className='text-comp bold'>Paciente 1</p>
+          </div>
+          <div>
+            <p className='init-session text-comp bold'><label className='simple-text'>Próxima sessão: </label> Hoje as 10h</p>
+          </div>  
+        </div>
+        <div className='children' onClick={handleKidProfile}>
+          <div className='children-info-list'>
+            <img src={Perfil} className='img-paciente'/>
+            <p className='text-comp bold'>Paciente 1</p>
+          </div>
+          <div>
+            <p className='init-session text-comp bold'><label className='simple-text'>Próxima sessão: </label> Hoje as 10h</p>
+          </div>  
+        </div>
+        {/* <div className='children2'>
             <img src={Perfil} className='img-paciente'/>
             <h3 onClick={handleKidProfile}>Paciente 2</h3>
             <button onClick={handleInitSession}>Iniciar sessão</button>
@@ -38,7 +60,7 @@ function ChildrenList() {
             <img src={Perfil} className='img-paciente'/>
             <h3 onClick={handleKidProfile}>Paciente 4</h3>
             <button onClick={handleInitSession}>Iniciar sessão</button>
-        </div>
+        </div> */}
         
       </div>
     );
