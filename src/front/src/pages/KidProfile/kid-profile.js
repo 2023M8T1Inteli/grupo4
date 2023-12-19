@@ -46,6 +46,9 @@ function KidsProfile() {
                                 <button className="start-session-btn1" id="oi" onClick={handleInitSession}><FaRegEdit /></button>
                                 <button className="start-session-btn2" onClick={handleInitSession}><CiPlay1 /></button>
                             </div>
+                            <div className="link">
+                                <a href="#/createSession">Agendar uma nova sessão</a>
+                            </div>
                         </div>
 
                         <div>
