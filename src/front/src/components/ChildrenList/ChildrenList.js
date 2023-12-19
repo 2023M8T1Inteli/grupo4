@@ -41,14 +41,14 @@ function ChildrenList() {
     return (
       <div className='children-list'>
         {children.map((child) => (
-        <a key={child.id} onClick={() => handleKidProfile(child.id)}>
-          <div className='children1'>
-            <img src={Perfil} className='img-paciente'/>
-            <h3>{child.nome_completo}</h3>
-            <button className='init-session' onClick={handleInitSession}>Iniciar sessão</button>
-          </div>
-          
-        </a>
+          <a key={child.id} onClick={() => handleKidProfile(child.id)}>
+            <div className='children'>
+              <img src={Perfil} className='img-paciente'/>
+              <h3>{child.nome_completo}</h3>
+              <button className='init-session' onClick={handleInitSession}>Iniciar sessão</button>
+            </div>
+            
+          </a>
       ))}
       </div>
     );

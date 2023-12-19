@@ -8,7 +8,7 @@ import KidPhoto from '../../assets/kid-image.png';
 
 function KidsProfile() {
     const navigate = useNavigate();
-    const [children, setChildren] = useState([]);
+    const [child, setChild] = useState([]);
     const { id } = useParams(); // Obtém o id da rota
 
 
@@ -18,13 +18,13 @@ function KidsProfile() {
     };
 
     useEffect(() => {
-        async function fetchChildren() {
+        async function fetchChild() {
           try {
             const response = await fetch(`http://localhost:8080/pacientes/${id}`);
             if (response.ok) {  
               const data = await response.json();
               console.log(data)
-              setChildren(data); // Define os produtos no estado
+              setChild(data); // Define os produtos no estado
             } else {
               console.error('Erro ao buscar produtos:', response.statusText);
             }
@@ -34,13 +34,11 @@ function KidsProfile() {
           }
         }
     
-        fetchChildren();
+        fetchChild();
       }, []);
 
     return (
         <div className="main-kid-profile">
-            {children.map((child) => (
-            <a key={child.id}>
                 <Header />
             <div className='back-button'>
                 <BackButton />
@@ -49,12 +47,12 @@ function KidsProfile() {
                 <div className="informations">
                     <div className="general-info">
                         <img src={KidPhoto} alt="Imagem de perfil na barra de navegação: Informações de perfil" />
-                        <h1>{child.name}</h1>
+                        <h1>{child.nome_completo}</h1>
                     </div>
                     <div className="specif-info">
-                        <div className="info"><p className="bold">Cidade:</p><p className="normal">São Paulo</p></div>
-                        <div className="info"><p className="bold">Idade:</p><p className="normal">5</p></div>
-                        <div className="info"><p className="bold">Diagnóstico:</p><p className="normal">Diplegia</p></div>
+                        <div className="info"><p className="bold">Responsável:</p><p className="normal">{child.nome_responsavel}</p></div>
+                        <div className="info"><p className="bold">Idade:</p><p className="normal">{child.idade}</p></div>
+                        <div className="info"><p className="bold">Diagnóstico:</p><p className="normal">{child.ficha_medica}</p></div>
                     </div>
                 </div>
                 <div className="button-options">
@@ -64,9 +62,6 @@ function KidsProfile() {
                 </div>
             </div>
           
-            </a>
-            ))}
-            
         </div>
     );
 }

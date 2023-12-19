@@ -6,21 +6,22 @@
 }
 
 .children-list > div {
-    margin-bottom: 10px; /* Espaçamento entre as divs */
-    margin-bottom: 20px; /* Espaçamento entre as divs */
-    border-radius: 20px; /* Bordas arredondadas */
-    border: 2px solid #ccc; /* Borda sólida */
-    padding: 15px; /* Espaçamento interno */
     width: 1000px;
     display: flex; /* Alinha itens dentro da div filha */
     align-items: center; /* Alinha itens verticalmente */
     justify-content: center; /* Espaço entre os itens */
 }
 
-.children1, .children2, .children3, .children4 {
+.children {
     display: flex;
     align-items: center;
     gap: 100px;
+    border: 2px solid #ccc; /* Borda sólida */
+    width: 800px;
+    padding: 15px; /* Espaçamento interno */
+    border-radius: 20px; /* Bordas arredondadas */
+    margin-bottom: 20px; /* Espaçamento entre as divs */
+
 }
 
 .children-list button {
@@ -32,27 +33,13 @@
 }
 
 h3 {
-    font-size: 16px;
+    font-size: 20px;
     font-weight: 500;
     cursor: pointer;
+    margin-left: 100px;
 }
 
-.children1 > img {
-    width: 40px;
-    height: 40px;
-}
-
-.children2 > img {
-    width: 40px;
-    height: 40px;
-}
-
-.children3 > img {
-    width: 40px;
-    height: 40px;
-}
-
-.children4 > img {
+.children > img {
     width: 40px;
     height: 40px;
 }
