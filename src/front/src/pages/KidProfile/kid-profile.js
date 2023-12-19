@@ -4,6 +4,8 @@ import "./kid-profile.css";
 import Header from '../../components/header/header'
 import Back from '../../components/svgs/Back';
 import KidPhoto from '../../assets/kid-image.png';
+import { CiPlay1 } from "react-icons/ci";
+import { FaRegEdit } from "react-icons/fa";
 
 function KidsProfile() {
     const navigate = useNavigate();
@@ -26,15 +28,34 @@ function KidsProfile() {
                         <h1>Maria Luíza</h1>
                     </div>
                     <div className="specif-info">
-                        <div className="info"><p className="bold">Cidade:</p><p className="normal">São Paulo</p></div>
+                        <div className="info"><p className="bold">Responsável:</p><p className="normal">Goya</p></div>
+                        <div className="info"><p className="bold">Contato:</p><p className="normal">(11) 92643-7145</p></div>
                         <div className="info"><p className="bold">Idade:</p><p className="normal">5</p></div>
-                        <div className="info"><p className="bold">Diagnóstico:</p><p className="normal">Diplegia</p></div>
+                        <div className="info"><p className="bold">Diagnostico:</p><p className="normal">Diplegia</p></div>
                     </div>
                 </div>
                 <div className="button-options">
-                    <button id="oi" onClick={handleInitSession}>Iniciar sessão</button>
+                    <div className="button-options-content">
+                        <div>
+                            <h1>Quer Iniciar Uma Sessão?</h1>
+                            <div className="start-session-btn">
+                                <div className="start-session-btn-label">
+                                    <h1>Jogo teste</h1>
+                                    <p>20/12/2023 - <span>10:20</span></p>
+                                </div>
+                                <button className="start-session-btn1" id="oi" onClick={handleInitSession}><FaRegEdit /></button>
+                                <button className="start-session-btn2" onClick={handleInitSession}><CiPlay1 /></button>
+                            </div>
+                            <div className="link">
+                                <a href="#/createSession">Agendar uma nova sessão</a>
+                            </div>
+                        </div>
 
-                    <button id="teste">Relatórios</button>
+                        <div>
+                            <h1>Quer visualizar o progresso do seu paciente?</h1>
+                            <button id="teste">Relatórios</button>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
@@ -45,7 +66,6 @@ const BackButton = () => {
     const navigate = useNavigate();
 
     const handleBack = () => {
-        // Navigate to the "/" page when the back button is pressed
         navigate('/Home');
     };
 
