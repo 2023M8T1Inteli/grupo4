@@ -14,13 +14,12 @@ class BlockProgramming extends React.Component {
             name: "",
             base: `import pygame\nimport sys\nfrom pygame.locals import *\npygame.init()\nscreen = pygame.display.set_mode((960, 540))\nscreen.fill((255, 255, 255))\npygame.display.set_caption("Jogo")\nrunning = True\nfont_title = pygame.font.Font(None, 50)\nfont_text = pygame.font.Font(None, 36)\nclock = pygame.time.Clock()
 while True:
-    # Seu código Python continua aqui...\n
-    for event in pygame.event.get():\n
-        if event.type == pygame.QUIT:
-            pygame.quit()
-            exit()
-        elif event.type == pygame.KEYDOWN:\n
-    `, 
+\t# Seu código Python continua aqui...\n
+\tfor event in pygame.event.get():\n
+\t\tif event.type == pygame.QUIT:
+\t\t\tpygame.quit()
+\t\t\texit()
+\t\telif event.type == pygame.KEYDOWN:\n`, 
             code: "",// Adicione a variável code ao estado
             imagePath: "", // Add the 'imagePath' variable to the state
         };       
@@ -88,12 +87,12 @@ while True:
             }
         } else {
             this.setState((prevState) => ({
-                code: prevState.code + blockText,
                 blocks: [
                     ...prevState.blocks,
                     {
                         id: `custom_${Date.now()}`,
                         text: text,
+                        indentLevel: this.determinarIndentLevel(text[0], prevState.blocks),
                     },
                 ],
             }), () => {
@@ -102,9 +101,41 @@ while True:
         }
     };
     
+    determinarIndentLevel = (tipoBloco, blocosExistentes) => {
+        const ultimoBloco = blocosExistentes[blocosExistentes.length - 1];
+    
+        if (tipoBloco === "então") {
+            // Incrementa a indentação para blocos 'se' e 'se não'
+            return blocosExistentes.length > 0 ? ultimoBloco.indentLevel + 1 : 1;
+        } else if (tipoBloco === "Acerto" || tipoBloco === "Erro") {
+            // Mantém a indentação do último bloco 'se' ou 'se não'
+            const ultimoCond = [...blocosExistentes].reverse().find(bloco => bloco.text[0] === "então" || bloco.text[0] === "se não");
+            return ultimoCond ? ultimoCond.indentLevel : 0;
+        } else {
+            // Para outros blocos, ajusta a indentação com base no último bloco
+            if (ultimoBloco && (ultimoBloco.text[0] === "Acerto" || ultimoBloco.text[0] === "Erro")) {
+                return 3;
+            } else if (ultimoBloco && ultimoBloco.text[0] === "se não") {
+                return ultimoBloco.indentLevel + 1;
+            }
+        }
+    
+        // Por padrão, mantém a indentação do bloco anterior
+        return blocosExistentes.length > 0 ? ultimoBloco.indentLevel : 3;
+    };
+    
+    
+    
+    
+    
+
     rebuildCodeFromBlocks = () => {
-        const newCode = this.state.base + this.state.blocks.map(block => block.text[1]).join("");
-        this.setState({ code: newCode });
+        const newCode = this.state.blocks.map(block => {
+            const tabs = "\t".repeat(block.indentLevel);
+            return tabs + block.text[1];
+        }).join("");
+
+        this.setState({ code: this.state.base + newCode });
     };
     
 
@@ -284,7 +315,7 @@ while True:
                                                 ) : (
                                                     <div className="buttonContent">
                                                         <p>{block.text[0]}</p>
-                                                        <input type="number" name="tentacles" min="1" max="16" />
+                                                        <input type="number" name="tentacles" min="1" max="16" onChange={(e) => this.handleInputChange(block.id, e.target.value)}/>
                                                     </div>
                                                 )}
                                             </div>

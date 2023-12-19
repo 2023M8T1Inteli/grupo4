@@ -1,21 +1,21 @@
 {
     "blocks": {
       "Condicionais": [
-        ["se", "      if", "BlockConditional"],
+        ["se", "if", "BlockConditional"],
         ["e", " and ", "BlockConditional"],
         ["ou", " or ", "BlockConditional"],
-        ["se não", "      else:\n", "BlockConditional"],
+        ["se não", "else:\n", "BlockConditional"],
         ["então", ":\n", "BlockConditional"]
       ],
       "respostas": [
-        ["Acerto", "  se quadrante == resposta entao: \n", "BlockResponses"],
-        ["Erro", "senao: \n", "BlockResponses"]
+        ["Acerto", "ACERTOU\n", "BlockResponses"],
+        ["Erro", "ERROU\n", "BlockResponses"]
       ],
       "blocos": [["Pressionar", " event.key == ", "BlockCarpet"]],
       "feedbacks": [
         ["escrever", "imprime 1 + 1;", "BlockMessages"],
-        ["Mostrar Imagem", "mostrar(", "BlockMessages"],
-        ["Tocar Som", "tocar(", "BlockMessages"],
+        ["Mostrar Imagem", "mostrar(\n", "BlockMessages"],
+        ["Tocar Som", "tocar(\n", "BlockMessages"],
         ["Imagem", "mostrarImagem(", "BlockMessages"],
         ["Áudio", "tocarAudio(", "BlockMessages"]
       ]
