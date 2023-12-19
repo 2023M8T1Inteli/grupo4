@@ -31,6 +31,37 @@ async function handleImageUpload() {
     }
 }
 
+async function handleAudioUpload() {
+    try {
+        const { canceled, filePaths } = await dialog.showOpenDialog({
+            title: "Audio Filter",
+            filters: [{ name: 'Audio Files', extensions: ['mp3', 'wav', 'ogg'] }],
+            properties: ['openFile']
+        });
+
+        if (canceled) {
+            throw new Error('File selection canceled');
+        }
+
+        const filePath = filePaths[0];
+        const destinationPath = path.join(__dirname, '..', '..', 'games', 'audio');
+
+        // Use fs.promises.copyFile to handle asynchronous copying
+        fs.cpSync(filePath, path.join(destinationPath, path.basename(filePath)));
+
+        console.log('Audio copied successfully!');
+
+        return {
+            filePath: path.join(destinationPath, path.basename(filePath)),
+            originalPath: filePath,
+        };
+    } catch (error) {
+        console.error(error);
+        throw error;
+    }
+}
+
+
 function createWindow() {
 
     let win = new BrowserWindow({
@@ -101,5 +132,6 @@ function createWindow() {
 
 app.whenReady().then(() => {
     ipcMain.handle('uploadImage', handleImageUpload);
+    ipcMain.handle('uploadAudio', handleAudioUpload);
     createWindow();
 });

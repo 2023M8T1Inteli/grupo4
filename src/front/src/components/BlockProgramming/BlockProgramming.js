@@ -21,7 +21,8 @@ class BlockProgramming extends React.Component {
         console.log("Handling block creation:", text);
         const blockTextTest = text[0];
         const blockText = text[1];
-    
+        console.log("BlockText: ", blockTextTest);
+
         if (blockTextTest === "Imagem") {
             try {
                 const result = await window.inputFile.inputImage();
@@ -47,6 +48,34 @@ class BlockProgramming extends React.Component {
     
             } catch (error) {
                 console.error("Error saving image:", error);
+            }
+        }
+        
+        else if (blockTextTest === "Áudio") {
+            try {
+                const result = await window.inputFile.inputAudio();
+                console.log(result);
+
+                const { filePath, originalPath } = result;
+                console.log("File saved successfully:", filePath);
+
+                // Update the state with the new audio block after saving the audio
+                this.setState((prevState) => ({
+                    audioPath: filePath,
+                    blocks: [
+                        ...prevState.blocks,
+                        {
+                            id: `custom_${Date.now()}`,
+                            text: ["Áudio", filePath, "áudio"],
+                        },
+                    ],
+                }), () => {
+                    console.log("Audio saved successfully:", this.state.audioPath);
+                    console.log("BlockText: ", this.state.blocks);
+                });
+
+            } catch (error) {
+                console.error("Error saving audio:", error);
             }
         } else {
             this.setState((prevState) => ({
@@ -105,7 +134,41 @@ class BlockProgramming extends React.Component {
             console.error("Error saving image:", error);
         }
     };
+
+    handleSaveAudio = async () => {
+        console.log("Saving audio...");
+
+        try {
+            const result = await window.inputFile.inputAudio();
+            console.log(result);
+
+            const { filePath, originalPath } = result;
+            console.log("File saved successfully:", filePath);
+
+            this.setState((prevState) => ({
+                audioPath: filePath,
+                blocks: [
+                    ...prevState.blocks,
+                    {
+                        id: `custom_${Date.now()}`,
+                        text: ["Áudio", filePath, "áudio"], // Update with the audio path
+                    },
+                ],
+            }), () => {
+                console.log("Audio saved successfully:", this.state.audioPath);
+                console.log("BlockText: ", this.state.blocks);
+            });
+
+            // You can perform additional operations or update the code accordingly
+        } catch (error) {
+            console.error("Error saving audio:", error);
+        }
+    };
     
+    getFileName = (filePath) => {
+        const parts = filePath.split('\\')
+        return parts[parts.length - 1];
+    };
 
     initGame = () => {
         console.log("initGame");
@@ -150,24 +213,32 @@ class BlockProgramming extends React.Component {
                                 </div>
 
                                 <div className="Code">
-                                {this.state.blocks.map((block) => (
-                                    <div key={block.id} className={`CreatedBlock ${block.text[2]}`} id={block.id}>
-                                        <button onClick={() => this.handleRemoveBlock(block.id)}>x</button>
-                                        <div className={`${block.text[2]}Created`}>
-                                            {block.text[0] === "Imagem" ? (
-                                                <div className="buttonContent" id="buttonContent-p">
-                                                    <p id="img-p">{block.text[0]}</p>,
-                                                    <img id="image-block" src={block.text[1]} alt="Imagem" />
-                                                </div>
-                                            ) : (
-                                                <div className="buttonContent">
-                                                    <p>{block.text[0]}</p>
-                                                    <input type="number" name="tentacles" min="1" max="16" />
-                                                </div>
-                                            )}
+                                    {this.state.blocks.map((block) => (
+                                        <div key={block.id} className={`CreatedBlock ${block.text[2]}`} id={block.id}>
+                                            <button onClick={() => this.handleRemoveBlock(block.id)}>x</button>
+                                            <div className={`${block.text[2]}Created`}>
+                                                {block.text[0] === "Imagem" ? (
+                                                    <div className="buttonContent" id="buttonContent-p">
+                                                        <p id="img-p">{block.text[0]}</p>
+                                                        <img id="image-block" src={block.text[1]} alt="Imagem" />
+                                                    </div>
+                                                ) : block.text[0] === "Áudio" ? (
+                                                    <div className="buttonContent" id="buttonContent-p">
+                                                        <p id="img-p">{this.getFileName(block.text[1])}</p>
+                                                        <audio id="audio-block" controls>
+                                                            <source src={block.text[1]} type="audio/mp3" />
+                                                            Your browser does not support the audio element.
+                                                        </audio>
+                                                    </div>
+                                                ) : (
+                                                    <div className="buttonContent">
+                                                        <p>{block.text[0]}</p>
+                                                        <input type="number" name="tentacles" min="1" max="16" />
+                                                    </div>
+                                                )}
+                                            </div>
                                         </div>
-                                    </div>
-                                ))}
+                                    ))}
                                 </div>
                             </div>
                         </div>

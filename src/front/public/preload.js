@@ -9,5 +9,6 @@ contextBridge.exposeInMainWorld('initGame', {
 })
 
 contextBridge.exposeInMainWorld('inputFile', {
-    inputImage: () => ipcRenderer.invoke('uploadImage')
+    inputImage: () => ipcRenderer.invoke('uploadImage'),
+    inputAudio: () => ipcRenderer.invoke('uploadAudio')
 })
