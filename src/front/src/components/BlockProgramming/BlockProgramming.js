@@ -103,7 +103,7 @@ class BlockProgramming extends React.Component {
                     ...prevState.blocks,
                     {
                         id: `custom_${Date.now()}`,
-                        text: ["Mostrar Imagem", `screen.blit(image${prevState.contadorImagens + 1}, image_rect${prevState.contadorImagens + 1})`, "BlockMessages"],
+                        text: ["Mostrar Imagem", `screen.blit(image${prevState.contadorImagens + 1}, image_rect${prevState.contadorImagens + 1})\n`, "BlockMessages"],
                         indentLevel: this.determinarIndentLevel(text[0], prevState.blocks),
                     },
                 ],
@@ -148,20 +148,21 @@ class BlockProgramming extends React.Component {
         // Por padrão, mantém a indentação do bloco anterior
         return blocosExistentes.length > 0 ? ultimoBloco.indentLevel : 2;
     };
-    
-    
-    
-    
-    
 
     rebuildCodeFromBlocks = () => {
         const newCode = this.state.blocks.map(block => {
+            // Verifica se o bloco é do tipo "Imagem" ou "Áudio"
+            if (block.text[0] === "Imagem" || block.text[0] === "Áudio") {
+                return ''; // Não adiciona nada ao código para esses tipos de blocos
+            }
+    
             const tabs = "    ".repeat(block.indentLevel);
             return tabs + block.text[1];
         }).join("");
     
         this.setState({ code: this.state.imports + this.state.vars + this.state.base + newCode + "\n    pygame.display.update()\n"});
-    };    
+    };
+      
     
 
     handleInputChange = (blockId, inputValue) => {
@@ -208,7 +209,7 @@ class BlockProgramming extends React.Component {
 
     handleCode = () => {
         console.log(this.state.code);
-        //console.log(this.state.blocks);
+        console.log(this.state.blocks);
         //console.log(this.state.vars)
         //window.handAPI.sendCode(this.state.code);
     };
