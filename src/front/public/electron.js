@@ -7,7 +7,7 @@ const fs = require('fs');
 
 async function handleImageUpload() {
     try {
-        const { canceled, filePaths } = await dialog.showOpenDialog({ properties: ['openFile'] });
+        const { canceled, filePaths } = await dialog.showOpenDialog({title:"Image Filter" ,filters: [{ name: 'Images', extensions: ['jpg', 'png', 'gif']}], properties: ['openFile'] });
 
         if (canceled) {
             throw new Error('File selection canceled');
@@ -30,6 +30,37 @@ async function handleImageUpload() {
         throw error;
     }
 }
+
+async function handleAudioUpload() {
+    try {
+        const { canceled, filePaths } = await dialog.showOpenDialog({
+            title: "Audio Filter",
+            filters: [{ name: 'Audio Files', extensions: ['mp3', 'wav', 'ogg'] }],
+            properties: ['openFile']
+        });
+
+        if (canceled) {
+            throw new Error('File selection canceled');
+        }
+
+        const filePath = filePaths[0];
+        const destinationPath = path.join(__dirname, '..', '..', 'games', 'audio');
+
+        // Use fs.promises.copyFile to handle asynchronous copying
+        fs.cpSync(filePath, path.join(destinationPath, path.basename(filePath)));
+
+        console.log('Audio copied successfully!');
+
+        return {
+            filePath: path.join(destinationPath, path.basename(filePath)),
+            originalPath: filePath,
+        };
+    } catch (error) {
+        console.error(error);
+        throw error;
+    }
+}
+
 
 function createWindow() {
 
@@ -101,5 +132,6 @@ function createWindow() {
 
 app.whenReady().then(() => {
     ipcMain.handle('uploadImage', handleImageUpload);
+    ipcMain.handle('uploadAudio', handleAudioUpload);
     createWindow();
 });

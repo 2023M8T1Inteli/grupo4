@@ -5,53 +5,49 @@
     margin-top: 40px;
 }
 
-.children-list > div {
-    margin-bottom: 10px; /* Espaçamento entre as divs */
-    margin-bottom: 20px; /* Espaçamento entre as divs */
+.children {
+    margin-bottom:20px; /* Espaçamento entre as divs */
     border-radius: 20px; /* Bordas arredondadas */
     border: 2px solid #ccc; /* Borda sólida */
     padding: 15px; /* Espaçamento interno */
-    width: 1000px;
+    width: 60%;
+    height: 100px;
     display: flex; /* Alinha itens dentro da div filha */
     align-items: center; /* Alinha itens verticalmente */
-    justify-content: space-between; /* Espaço entre os itens */
+    justify-content: space-between;
+    overflow: hidden; /* Hide content that overflows the box */
+    transition: transform 0.3s ease; /* Add transition for height change */
+    cursor: pointer;
 }
 
-.children1, .children2, .children3, .children4 {
+.children:hover {
+    transform: scale(1.1); /* Adjust the scaling factor as needed */ /* Adjust the expanded height as needed */
+}
+
+.children-info-list {
     display: flex;
     align-items: center;
+    width: 50%;
+    height: 100%;
+    gap: 5%;
 }
 
-.children-list button {
-    background-color: transparent;
-    color: #A60D25;
-    border: none;
+.text-comp {
+    font-size: 20px;
+}
+
+.bold {
+    font-weight: 800;
+}
+
+.simple-text {
+    font-weight: 400;
+}
+
+.img-paciente {
+    height: 80%;
+}
+
+.pointer {
     cursor: pointer;
-    font-weight: bold;
-}
-
-h3 {
-    font-size: 16px;
-    font-weight: 500;
-    cursor: pointer;
-}
-
-.children1 > img {
-    width: 40px;
-    height: 40px;
-}
-
-.children2 > img {
-    width: 40px;
-    height: 40px;
-}
-
-.children3 > img {
-    width: 40px;
-    height: 40px;
-}
-
-.children4 > img {
-    width: 40px;
-    height: 40px;
 }

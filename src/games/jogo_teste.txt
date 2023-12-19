@@ -1,0 +1,1 @@
+mostrar(var resposta = mostrar(mostrar(mostrar(imprime 1 + 1;
