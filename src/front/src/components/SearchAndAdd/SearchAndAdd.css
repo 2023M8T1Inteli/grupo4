@@ -102,6 +102,7 @@ body {
   background-color: #A60D25;
   color: #ffffff;
   border-radius: 20%;
+  cursor: pointer;
 }
 
 .input-cadastro-paciente input,
@@ -110,7 +111,7 @@ body {
 }
 
 .input-cadastro-paciente .idade,
-.input-cadastro-paciente .cidade {
+.input-cadastro-paciente .contato {
   display: inline-block;
   width: calc(50% - 5px); /* Ajuste o valor conforme necessário */
   margin-right: 5px; /* Espaço entre os inputs */
@@ -155,6 +156,10 @@ body {
 }
 
 .diagnostico > input {
+  width: 98%;
+}
+
+.responsavel > input {
   width: 98%;
 }
 
