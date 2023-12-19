@@ -7,7 +7,7 @@ const fs = require('fs');
 
 async function handleImageUpload() {
     try {
-        const { canceled, filePaths } = await dialog.showOpenDialog({ properties: ['openFile'] });
+        const { canceled, filePaths } = await dialog.showOpenDialog({title:"Image Filter" ,filters: [{ name: 'Images', extensions: ['jpg', 'png', 'gif']}], properties: ['openFile'] });
 
         if (canceled) {
             throw new Error('File selection canceled');

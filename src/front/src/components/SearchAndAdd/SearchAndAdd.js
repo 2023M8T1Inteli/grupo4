@@ -32,7 +32,6 @@ const SearchAndAdd = () => {
       <div className='search'>
         <input className='input-search' placeholder='Procurar'></input>
         <button className='search-button'><img src={SearchBtn} alt="Botão de procurar" className='search-icon'/></button>
-        
       </div>
       <div className='add'>
         <button onClick={openModal} className='add-button'><img src={Add} alt='Botão de adicionar paciente' className='addBtn'/></button>
