@@ -265,7 +265,6 @@ while True:
                                 </div>
 
                                 <div className="Code">
-<<<<<<< Updated upstream
                                     {this.state.blocks.map((block) => (
                                         <div key={block.id} className={`CreatedBlock ${block.text[2]}`} id={block.id}>
                                             <button onClick={() => this.handleRemoveBlock(block.id)}>x</button>
@@ -290,30 +289,6 @@ while True:
                                                     </div>
                                                 )}
                                             </div>
-=======
-                                {this.state.blocks.map((block) => (
-                                    <div key={block.id} className={`CreatedBlock ${block.text[2]}`} id={block.id}>
-                                        <button onClick={() => this.handleRemoveBlock(block.id)}>x</button>
-                                        <div className={`${block.text[2]}Created`}>
-                                            {block.text[0] === "Imagem" ? (
-                                                <div className="buttonContent" id="buttonContent-p">
-                                                    <p id="img-p">{block.text[0]}</p>,
-                                                    <img id="image-block" src={block.text[1]} alt="Imagem" />
-                                                </div>
-                                            ) : (
-                                                <div className="buttonContent">
-                                                    <p>{block.text[0]}</p>
-                                                    <input 
-                                                        type="number" 
-                                                        name="tentacles" 
-                                                        min="1" 
-                                                        max="16" 
-                                                        onChange={(e) => this.handleInputChange(block.id, e.target.value)}
-                                                    />
-
-                                                </div>
-                                            )}
->>>>>>> Stashed changes
                                         </div>
                                     ))}
                                 </div>
