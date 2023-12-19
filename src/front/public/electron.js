@@ -90,21 +90,7 @@ function createWindow() {
             console.log("Jogo salvo com sucesso! " + filePath);
         });
 
-        let pyshell = new PythonShell('../qal/electron_script.py');
-
-        pyshell.on('message', function (message) {
-            console.log(message);
-        });
-
-        pyshell.end(function (err) {
-            if (err) {
-                throw err;
-            }
-            console.log('finished');
-
-            // Sending a response back to the renderer process
-            event.reply('code-reply', 'Message received successfully');
-        });
+        console.log('eu te odeio pocoyo')
     })
 
     ipcMain.on('gameName', (event, gameName) => {
