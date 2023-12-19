@@ -22,7 +22,8 @@ class BlockProgramming extends React.Component {
             code: "",// Adicione a variável code ao estado
             imagePath: "",
             vars: "", 
-            contadorImagens: 0, // Add the 'imagePath' variable to the state
+            contadorImagens: 0,
+            contadorSons: 0, // Add the 'imagePath' variable to the state
         };       
     }
 
@@ -33,6 +34,12 @@ class BlockProgramming extends React.Component {
         }));
     }
     
+    createSoundVars = (variable, path) => {
+        const newVars = `sound_path${variable} = pygame.mixer.Sound(r'${path}')\n`;
+        this.setState(prevState => ({
+            vars: prevState.vars + newVars
+        }));
+    }
 
     handleCreateBlock = async (text) => {
         console.log("Handling block creation:", text);
@@ -71,10 +78,8 @@ class BlockProgramming extends React.Component {
         else if (blockTextTest === "Áudio") {
             try {
                 const result = await window.inputFile.inputAudio();
-                console.log(result);
-
+                this.createSoundVars(this.state.contadorSons, result.filePath);
                 const { filePath, originalPath } = result;
-                console.log("File saved successfully:", filePath);
                 
                 // Update the state with the new audio block after saving the audio
                 this.setState((prevState) => ({
@@ -83,11 +88,12 @@ class BlockProgramming extends React.Component {
                         ...prevState.blocks,
                         {
                             id: `custom_${Date.now()}`,
-                            text: ["Áudio", filePath, "áudio"],
+                            text: ["Áudio", '\n', "áudio"],
                             indentLevel: this.determinarIndentLevel(text[0], prevState.blocks), // Adiciona indentLevel
                         },
                     ],
                 }), () => {
+                    this.rebuildCodeFromBlocks();
                     //console.log("Audio saved successfully:", this.state.audioPath);
                     //console.log("BlockText: ", this.state.blocks);
                 });
@@ -104,6 +110,22 @@ class BlockProgramming extends React.Component {
                     {
                         id: `custom_${Date.now()}`,
                         text: ["Mostrar Imagem", `screen.blit(image${prevState.contadorImagens + 1}, image_rect${prevState.contadorImagens + 1})`, "BlockMessages"],
+                        indentLevel: this.determinarIndentLevel(text[0], prevState.blocks),
+                    },
+                ],
+            }), () => {
+                this.rebuildCodeFromBlocks();
+            });
+        } 
+        
+        else if (blockTextTest == "Tocar Som") {
+            this.setState((prevState) => ({
+                contadorImagens: prevState.contadorSons + 1,
+                blocks: [
+                    ...prevState.blocks,
+                    {
+                        id: `custom_${Date.now()}`,
+                        text: ["Tocar Som", `pygame.mixer.Sound.play(sound_path${prevState.contadorSons})`, "BlockMessages"],
                         indentLevel: this.determinarIndentLevel(text[0], prevState.blocks),
                     },
                 ],
