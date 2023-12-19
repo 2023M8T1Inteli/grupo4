@@ -44,6 +44,51 @@ Desse modo, compreende-se o papel crucial que o compilador exerce, porém, para 
 
 Em virtude disso, o desenvolvimento e a implementação da aplicação desktop revela um avanço tecnológico na maneira como a terapia é conduzida para pacientes com paralisia cerebral. Ao personalizar atividades, promover interações mais significativas e garantir acessibilidade sanando a necessidade de cada indivíduo, não apenas facilita o trabalho do profissional de TO, mas também abre portas para uma reabilitação mais eficaz e inclusiva. Os resultados obtidos com a aplicação refletem não apenas a eficiência técnica, mas, acima de tudo, através de testes diretos de usabilidade que verificaram as principais funcionalidades que correspondem ao alcance do propósito, fazendo jus em aumentar a qualidade de vida e o progresso dos pacientes atendidos.
 
+## 4. Materiais e Métodos
+
+Desenvolvimento do Compilador
+O desenvolvimento do compilador para a Tecnologia Assistiva (TA) baseou-se na linguagem de programação Python. O Python foi escolhido por sua versatilidade e facilidade de integração com outros componentes do projeto. O compilador desempenha um papel crucial na conversão de instruções escritas em termos de programação para um formato executável, permitindo a interação entre hardware e software.
+
+### 4.1.1 Linguagem de Programação
+O compilador foi implementado utilizando a linguagem de programação Python. A escolha desta linguagem foi motivada pela sua sintaxe clara e concisa, facilitando a criação de um compilador eficiente e de fácil manutenção.
+
+### 4.1.2 Greg Maker e Conexão com o Tapete Sensorial
+O compilador foi projetado para se comunicar eficientemente com o Greg Maker, um kit de criatividade utilizado para conectar o tapete sensorial ao sistema. A integração permite que o compilador receba entradas do tapete sensorial, possibilitando a criação de respostas personalizadas para pacientes com leves desordens neurológicas.
+
+### 4.1.3 Compilação e Formato Executável
+O processo de compilação transforma o código-fonte escrito pelos terapeutas ocupacionais em um formato executável compatível com o sistema operacional Microsoft Windows. Essa abordagem visa garantir a acessibilidade e a facilidade de uso para os usuários finais.
+
+### 4.2 Ambiente de Desenvolvimento Integrado (IDE)
+A IDE foi desenvolvida com o objetivo de proporcionar um ambiente inovador para a terapia assistiva, permitindo a criação e execução de jogos personalizados pelos terapeutas ocupacionais.
+
+### 4.2.1 Framework Electron
+A aplicação desktop foi construída utilizando o framework Electron, que facilita o desenvolvimento de aplicações desktop multiplataforma. Esse framework permite a combinação de tecnologias e linguagens de programação para criar uma interface intuitiva e funcional.
+
+### 4.2.2 React.js e Programação em Blocos
+O React.js foi adotado para criar componentes visuais e funcionais da aplicação desktop. A programação em blocos foi implementada para simplificar o processo de criação de atividades jogáveis, permitindo que terapeutas ocupacionais desenvolvam jogos sem a necessidade de conhecimento avançado em programação.
+
+### 4.2.3 Conexão com o Tapete Sensorial
+A IDE mantém uma conexão contínua com o tapete sensorial, garantindo que as atividades criadas pelos terapeutas ocupacionais sejam adequadamente vinculadas aos estímulos físicos recebidos pelo tapete sensorial. Isso contribui para a personalização das atividades de acordo com as necessidades individuais dos pacientes.
+
+### 4.3 Testes e Usabilidade
+#### 4.3.1 Avaliação de Usabilidade
+Para validar a eficácia da aplicação, foram conduzidos testes de usabilidade com terapeutas ocupacionais e pacientes com leves desordens neurológicas. A avaliação de usabilidade incluiu a verificação da facilidade de navegação na aplicação, a compreensão da programação em blocos e a interação eficaz com o tapete sensorial.
+
+#### 4.3.2 Resultados Obtidos
+Os resultados dos testes de usabilidade refletiram não apenas a eficiência técnica da aplicação, mas também a capacidade de proporcionar uma experiência de terapia assistiva significativa. Os testes diretos de usabilidade focaram nas principais funcionalidades, incluindo a criação de atividades personalizadas, a interação com o tapete sensorial e a mensuração do desempenho dos pacientes.
+
+### 4.4 Considerações Éticas
+#### 4.4.1 Consentimento Informado
+Antes de conduzir os testes com pacientes, foi obtido o consentimento informado de todos os participantes, garantindo que estivessem cientes dos objetivos do projeto e dos procedimentos envolvidos.
+
+#### 4.4.2 Privacidade e Dados Sensíveis
+Foram implementadas medidas rigorosas para garantir a privacidade e segurança dos dados dos pacientes. Qualquer informação sensível coletada durante os testes foi devidamente protegida e tratada com confidencialidade.
+
+
+### 4.5 Conclusão da Seção de Materiais e Métodos
+
+A seção de Materiais e Métodos descreveu o processo de desenvolvimento do compilador, da IDE e a realização de testes de usabilidade. Considerações éticas foram cuidadosamente abordadas, garantindo a integridade do estudo. Limitações foram reconhecidas, abrindo caminho para futuras pesquisas. O projeto demonstra inovação ao integrar tecnologia assistiva de forma personalizada para estimular pacientes com leves desordens neurológicas e musculares.
+
 ## Referências 
 
 ALVES, A. C. J.; EMMEL, M. L. G.; MATSUKURA, T. S. Formação e prática do terapeuta ocupacional que utiliza tecnologia assistiva como recurso terapêutico. Revista de Terapia Ocupacional da Universidade de São Paulo, [S. l.], v. 23, n. 1, p. 24-33, 2012. DOI: 10.11606/issn.2238-6149.v23i1p24-33. Disponível em: https://www.revistas.usp.br/rto/article/view/46909. Acesso em: 12 dez. 2023.
