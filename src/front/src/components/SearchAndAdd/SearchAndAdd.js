@@ -74,11 +74,9 @@ const SearchAndAdd = () => {
 
   return (
     <div className="search-add">
-      <div className="search">
-        <input className="input-search" />
-        <button className="search-button">
-          <img src={SearchBtn} alt="Botão de procurar" className="search-icon" />
-        </button>
+      <div className='search'>
+        <input className='input-search' placeholder='Procurar'></input>
+        <button className='search-button'><img src={SearchBtn} alt="Botão de procurar" className='search-icon'/></button>
       </div>
       <div className="add">
         <button onClick={openModal} className="add-button">

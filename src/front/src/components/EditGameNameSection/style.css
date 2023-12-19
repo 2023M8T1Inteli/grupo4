@@ -1,0 +1,73 @@
+.container {
+    display: flex;
+    align-items: center;
+}
+
+.codeName {
+    display: flex;
+    flex-direction: column;
+}
+
+.codeName.editing .CodeTypeText {
+    display: none;
+}
+
+.codeName .EditName {
+    display: none;
+    margin: 9px auto;
+}
+
+.codeName.editing .EditName {
+    display: flex;
+    flex-direction: row;
+}
+
+.codeName .EditName input {
+    height: 40px;
+    width: 500px;
+    border-radius: 10px 0 0 10px;
+    border: none;
+    font-size: 25px;
+}
+
+.codeName .EditName button {
+    background-color: #333;
+    color: #fff;
+    height: 40px;
+    width: 60px;
+    border: none;
+    border-radius: 0 10px 10px 0;
+}
+
+.codeName .EditName button:hover {
+    background-color: #45a522;
+    transition: 0.2s;
+    cursor: pointer;
+}
+
+.IconBtn {
+    margin-left: 20px;
+    background-color: transparent;
+    border: none;
+    border-radius: 50%;
+}
+
+.IconBtn:hover {
+    cursor: pointer;
+    background-color: #333;
+    transition: 0.2s;
+}
+
+.Icon {
+    color: #fff;
+    font-size: 40px;
+    padding: 2px;
+}
+.IconClose{
+    background-color: #fff;
+    font-size: 40px;
+    border-radius: 50%;
+}
+.IconClose:hover{
+    background-color: #e92542;
+}

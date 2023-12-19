@@ -1,0 +1,35 @@
+.container{
+    margin-right: 10px;
+}
+.visibilityBtn{
+    color: #fff;
+    display: flex;
+    border: none;
+    background-color: transparent;
+}
+
+.visibilityBtnText{
+    border: 2px solid #fff;
+    padding: 10px;
+    font-size: 20px;
+    border-radius: 10px 0 0 10px;
+    max-height: 46px;
+}
+.visibilityBtnIcon{
+    border: 2px solid #fff;
+    padding: 10px;
+    font-size: 20px;
+    border-radius: 0 10px 10px 0;
+    max-height: 46px;
+}
+
+.visibilityBtn:hover .visibilityBtnIcon {
+    transition: .5s;
+    cursor: pointer;
+}
+
+.visibilityBtn:hover .visibilityBtnText {
+    background-color: #333;
+    transition: .5s;
+    cursor: pointer;
+}

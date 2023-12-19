@@ -1,8 +1,24 @@
 {
-    "blocks" : {
-        "Condicionais" : [["se", "mostrar(", "BlockConditional"], ["e", "mostrar(", "BlockConditional"], ["ou", "mostrar(", "BlockConditional"], ["se não", "mostrar(", "BlockConditional"], ["então", "mostrar(", "BlockConditional"]],
-        "respostas" : [["Acerto", "se quadrante == resposta entao: \n", "BlockResponses" ], ["Erro", "senao: \n", "BlockResponses"]],
-        "blocos": [["Pressionar", "var resposta = ", "BlockCarpet"]],
-        "feedbacks" : [["escrever", "imprime 1 + 1;", "BlockMessages"],  ["Mostrar Imagem", "mostrar(", "BlockMessages"], ["Tocar Som", "tocar(","BlockMessages"]]
+    "blocks": {
+      "Condicionais": [
+        ["se", "      if", "BlockConditional"],
+        ["e", " and ", "BlockConditional"],
+        ["ou", " or ", "BlockConditional"],
+        ["se não", "      else:\n", "BlockConditional"],
+        ["então", ":\n", "BlockConditional"]
+      ],
+      "respostas": [
+        ["Acerto", "  se quadrante == resposta entao: \n", "BlockResponses"],
+        ["Erro", "senao: \n", "BlockResponses"]
+      ],
+      "blocos": [["Pressionar", " event.key == ", "BlockCarpet"]],
+      "feedbacks": [
+        ["escrever", "imprime 1 + 1;", "BlockMessages"],
+        ["Mostrar Imagem", "mostrar(", "BlockMessages"],
+        ["Tocar Som", "tocar(", "BlockMessages"],
+        ["Imagem", "mostrarImagem(", "BlockMessages"],
+        ["Áudio", "tocarAudio(", "BlockMessages"]
+      ]
     }
-}
+  }
+  

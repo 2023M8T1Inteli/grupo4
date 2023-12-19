@@ -8,6 +8,7 @@ import Home from './pages/Home/home.js';
 import EditGame from './pages/editGame/editGame.js';
 import Login from './pages/Login/Login.js';
 import './App.css';
+import createSessionPage from './pages/createSession/createSession';
 
 import'./App.css'
 
@@ -22,6 +23,7 @@ root.render(
         <Route path='Home' Component={Home}></Route>
         <Route path='Session' Component={CreateSession}></Route>
         <Route path='Profile/:id' Component={KidsProfile}></Route>
+        <Route path='createSession' Component={createSessionPage}></Route>
       </Routes>
     </HashRouter>
   </React.StrictMode>

@@ -6,35 +6,35 @@
     overflow-y: auto; /* Adicione rolagem vertical conforme necessário */
 }
 
-.children-list > div {
-    width: 1000px;
-    display: flex; /* Alinha itens dentro da div filha */
-    align-items: center; /* Alinha itens verticalmente */
-    justify-content: center; /* Espaço entre os itens */
-    overflow-y: auto; /* Adicione rolagem vertical conforme necessário */
-
-    
-}
 
 .children {
+    margin-bottom:20px; /* Espaçamento entre as divs */
+    border-radius: 20px; /* Bordas arredondadas */
+    border: 2px solid #ccc; /* Borda sólida */
+    padding: 15px; /* Espaçamento interno */
+    width: 60%;
+    height: 100px;
+    display: flex; /* Alinha itens dentro da div filha */
+    align-items: center; /* Alinha itens verticalmente */
+    justify-content: space-between;
+    overflow: hidden; /* Hide content that overflows the box */
+    transition: transform 0.3s ease; /* Add transition for height change */
+    cursor: pointer;
+}
+
+.children:hover {
+    transform: scale(1.1); /* Adjust the scaling factor as needed */ /* Adjust the expanded height as needed */
+
+}
+
+.children-info-list {
     display: flex;
     align-items: center;
-    gap: 100px;
-    border: 2px solid #ccc; /* Borda sólida */
-    width: 800px;
-    padding: 15px; /* Espaçamento interno */
-    border-radius: 20px; /* Bordas arredondadas */
-    margin-bottom: 20px; /* Espaçamento entre as divs */
-
+    width: 50%;
+    height: 100%;
+    gap: 5%;
 }
 
-.children-list button {
-    background-color: transparent;
-    color: #A60D25;
-    border: none;
-    cursor: pointer;
-    font-weight: bold;
-}
 
 h3 {
     font-size: 20px;
@@ -47,3 +47,23 @@ h3 {
     width: 40px;
     height: 40px;
 }
+.text-comp {
+    font-size: 20px;
+}
+
+.bold {
+    font-weight: 800;
+}
+
+.simple-text {
+    font-weight: 400;
+}
+
+.img-paciente {
+    height: 80%;
+}
+
+.pointer {
+    cursor: pointer;
+}
+
