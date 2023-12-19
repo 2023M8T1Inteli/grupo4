@@ -12,14 +12,6 @@ export declare class SessoesController {
         jogos_id: number;
     }, never, import("@prisma/client/runtime/library").DefaultArgs>;
     findAll(body: FindSessaoDto): import(".prisma/client").Prisma.PrismaPromise<({
-        Paciente: {
-            id: string;
-            nome_completo: string;
-            data_de_nascimento: string;
-            nome_responsavel: string;
-            contato_responsavel: string;
-            ficha_medica: string;
-        };
         Jogos: {
             id: number;
             nome_jogo: string;
@@ -28,6 +20,14 @@ export declare class SessoesController {
             publico: boolean;
             arquivo: string;
             criadorEmail: string;
+        };
+        Paciente: {
+            id: string;
+            nome_completo: string;
+            data_de_nascimento: string;
+            nome_responsavel: string;
+            contato_responsavel: string;
+            ficha_medica: string;
         };
     } & {
         id: string;
@@ -37,14 +37,6 @@ export declare class SessoesController {
         jogos_id: number;
     })[]>;
     findOne(id: string): import(".prisma/client").Prisma.Prisma__SessoesClient<{
-        Paciente: {
-            id: string;
-            nome_completo: string;
-            data_de_nascimento: string;
-            nome_responsavel: string;
-            contato_responsavel: string;
-            ficha_medica: string;
-        };
         Jogos: {
             id: number;
             nome_jogo: string;
@@ -53,6 +45,14 @@ export declare class SessoesController {
             publico: boolean;
             arquivo: string;
             criadorEmail: string;
+        };
+        Paciente: {
+            id: string;
+            nome_completo: string;
+            data_de_nascimento: string;
+            nome_responsavel: string;
+            contato_responsavel: string;
+            ficha_medica: string;
         };
     } & {
         id: string;

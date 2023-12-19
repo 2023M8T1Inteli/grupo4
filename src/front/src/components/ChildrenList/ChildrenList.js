@@ -1,9 +1,12 @@
 import React from 'react';
+import { useEffect, useState } from 'react';
 import "./ChildrenList.css";
-import Perfil from '../../assets/Perfil.png';
+import Perfil from '../../assets/perfil.png';
 import { useNavigate } from 'react-router-dom';
 
 function ChildrenList() {
+
+  const [children, setChildren] = useState([]);
 
   const navigate = useNavigate();
 
@@ -12,13 +15,32 @@ function ChildrenList() {
         navigate('/Session');
     };
 
-    const handleKidProfile = () => {
-      // Navigate to the "/Session" screen when the button is clicked
-      navigate('/Profile');
+    const handleKidProfile = (childId) => {
+      navigate(`/Profile/${childId}`);
   };
 
+  useEffect(() => {
+    async function fetchChildrens() {
+      try {
+        const response = await fetch(`http://localhost:8080/pacientes`);
+        if (response.ok) {
+          const data = await response.json();
+          console.log(data)
+          setChildren(data); // Define os produtos no estado
+        } else {
+          console.error('Erro ao buscar produtos:', response.statusText);
+        }
+      } catch (error) {
+        console.error('Erro na requisição:', error);
+      }
+    }
+
+    fetchChildrens();
+  }, []);
+  
     return (
       <div className='children-list'>
+
         <div className='children' onClick={handleKidProfile}>
           <div className='children-info-list'>
             <img src={Perfil} className='img-paciente'/>
@@ -61,7 +83,6 @@ function ChildrenList() {
             <h3 onClick={handleKidProfile}>Paciente 4</h3>
             <button onClick={handleInitSession}>Iniciar sessão</button>
         </div> */}
-        
       </div>
     );
   }
