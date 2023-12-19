@@ -78,7 +78,7 @@ function createWindow() {
     win.webContents.openDevTools()
 
     ipcMain.on('code', (event, code) => {
-        const nomeJogo = "jogo_teste.txt"
+        const nomeJogo = "jogo_teste.py"
         const filePath = path.join(__dirname, '..', '..', 'games', `${nomeJogo}`);
 
         fs.writeFile(filePath, code, 'utf-8', (err) => {

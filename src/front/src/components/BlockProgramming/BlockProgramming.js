@@ -55,13 +55,12 @@ class BlockProgramming extends React.Component {
                         ...prevState.blocks,
                         {
                             id: `custom_${Date.now()}`,
-                            text: ["Imagem", filePath, "imagem"],
+                            text: ["Imagem", '\n', "imagem"],
+                            indentLevel: this.determinarIndentLevel(text[0], prevState.blocks), // Adiciona indentLevel
                         },
                     ],
                 }), () => {
                     this.rebuildCodeFromBlocks();
-                    //console.log("Image saved successfully:", this.state.imagePath);
-                    //console.log("BlockText: ", this.state.blocks);
                 });
     
             } catch (error) {
@@ -85,6 +84,7 @@ class BlockProgramming extends React.Component {
                         {
                             id: `custom_${Date.now()}`,
                             text: ["Áudio", filePath, "áudio"],
+                            indentLevel: this.determinarIndentLevel(text[0], prevState.blocks), // Adiciona indentLevel
                         },
                     ],
                 }), () => {
@@ -103,7 +103,7 @@ class BlockProgramming extends React.Component {
                     ...prevState.blocks,
                     {
                         id: `custom_${Date.now()}`,
-                        text: ["Mostrar Imagem", `screen.blit(image${prevState.contadorImagens + 1}, image_rect${prevState.contadorImagens + 1})\n`, "BlockMessages"],
+                        text: ["Mostrar Imagem", `screen.blit(image${prevState.contadorImagens + 1}, image_rect${prevState.contadorImagens + 1})`, "BlockMessages"],
                         indentLevel: this.determinarIndentLevel(text[0], prevState.blocks),
                     },
                 ],
@@ -131,30 +131,31 @@ class BlockProgramming extends React.Component {
     
         if (tipoBloco === "então") {
             // Incrementa a indentação para blocos 'se' e 'se não'
-            return blocosExistentes.length > 0 ? ultimoBloco.indentLevel + 1 : 1;
+            return blocosExistentes.length > 0 ? ultimoBloco.indentLevel + 2 : 1;
         } else if (tipoBloco === "Acerto" || tipoBloco === "Erro") {
             // Mantém a indentação do último bloco 'se' ou 'se não'
             const ultimoCond = [...blocosExistentes].reverse().find(bloco => bloco.text[0] === "então" || bloco.text[0] === "se não");
             return ultimoCond ? ultimoCond.indentLevel : 0;
         } else {
             // Para outros blocos, ajusta a indentação com base no último bloco
-            if (ultimoBloco && (ultimoBloco.text[0] === "Acerto" || ultimoBloco.text[0] === "Erro")) {
+            if (ultimoBloco && (ultimoBloco.text[0] === "Acerto")) {
                 return 3;
             } else if (ultimoBloco && ultimoBloco.text[0] === "se não") {
                 return ultimoBloco.indentLevel + 1;
-            }
+            } 
         }
     
         // Por padrão, mantém a indentação do bloco anterior
         return blocosExistentes.length > 0 ? ultimoBloco.indentLevel : 2;
     };
-
+    
+    
+    
     rebuildCodeFromBlocks = () => {
         const newCode = this.state.blocks.map(block => {
-            // Verifica se o bloco é do tipo "Imagem" ou "Áudio"
-            if (block.text[0] === "Imagem" || block.text[0] === "Áudio") {
-                return ''; // Não adiciona nada ao código para esses tipos de blocos
-            }
+            // if (block.text[0] === "Imagem" || block.text[0] === "Áudio") {
+            //     return ''; // Ignora blocos de Imagem e Áudio na geração do código
+            // }
     
             const tabs = "    ".repeat(block.indentLevel);
             return tabs + block.text[1];
@@ -162,7 +163,7 @@ class BlockProgramming extends React.Component {
     
         this.setState({ code: this.state.imports + this.state.vars + this.state.base + newCode + "\n    pygame.display.update()\n"});
     };
-      
+    
     
 
     handleInputChange = (blockId, inputValue) => {

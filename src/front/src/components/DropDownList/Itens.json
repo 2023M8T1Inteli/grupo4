@@ -13,7 +13,7 @@
       ],
       "blocos": [["Pressionar", " event.key == ", "BlockCarpet"]],
       "feedbacks": [
-        ["escrever", "screen.blit;", "BlockMessages"],
+        ["escrever", "screen.blit;\n", "BlockMessages"],
         ["Mostrar Imagem", "screen.blit(", "BlockMessages"],
         ["Tocar Som", "tocar(\n", "BlockMessages"],
         ["Imagem", "mostrarImagem(", "BlockMessages"],
