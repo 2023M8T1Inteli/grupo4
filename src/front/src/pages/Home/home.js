@@ -2,6 +2,7 @@ import "./home.css";
 import Header from '../../components/header/header'
 import SearchAndAdd from "../../components/SearchAndAdd/SearchAndAdd";
 import ChildrenList from "../../components/ChildrenList/ChildrenList";
+import React from "react";
 
 function Home() {
   return (

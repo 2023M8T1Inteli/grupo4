@@ -1,12 +1,12 @@
 import React from 'react';
 import ReactDOM from 'react-dom/client';
 import {HashRouter, Routes, Route} from "react-router-dom";
-import reportWebVitals from './reportWebVitals';
-import CreateSession from './pages/Session/Create-session';
-import KidsProfile from './pages/KidProfile/kid-profile';
-import Home from './pages/Home/home';
-import EditGame from './pages/editGame/editGame';
-import Login from './pages/Login/Login';
+import reportWebVitals from './reportWebVitals.js';
+import CreateSession from './pages/Session/Create-session.js';
+import KidsProfile from './pages/KidProfile/kid-profile.js';
+import Home from './pages/Home/home.js';
+import EditGame from './pages/editGame/editGame.js';
+import Login from './pages/Login/Login.js';
 import './App.css';
 
 import'./App.css'
@@ -21,7 +21,7 @@ root.render(
         <Route path='EditGame' Component={EditGame}></Route>
         <Route path='Home' Component={Home}></Route>
         <Route path='Session' Component={CreateSession}></Route>
-        <Route path='Profile' Component={KidsProfile}></Route>
+        <Route path='Profile/:id' Component={KidsProfile}></Route>
       </Routes>
     </HashRouter>
   </React.StrictMode>

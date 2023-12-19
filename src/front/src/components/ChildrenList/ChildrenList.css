@@ -14,12 +14,13 @@
     width: 1000px;
     display: flex; /* Alinha itens dentro da div filha */
     align-items: center; /* Alinha itens verticalmente */
-    justify-content: space-between; /* Espaço entre os itens */
+    justify-content: center; /* Espaço entre os itens */
 }
 
 .children1, .children2, .children3, .children4 {
     display: flex;
     align-items: center;
+    gap: 100px;
 }
 
 .children-list button {
