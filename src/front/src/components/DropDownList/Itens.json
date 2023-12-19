@@ -1,17 +1,17 @@
 {
     "blocks": {
       "Condicionais": [
-        ["se", "mostrar(", "BlockConditional"],
-        ["e", "mostrar(", "BlockConditional"],
-        ["ou", "mostrar(", "BlockConditional"],
-        ["se não", "mostrar(", "BlockConditional"],
-        ["então", "mostrar(", "BlockConditional"]
+        ["se", "      if", "BlockConditional"],
+        ["e", " and ", "BlockConditional"],
+        ["ou", " or ", "BlockConditional"],
+        ["se não", "      else:\n", "BlockConditional"],
+        ["então", ":\n", "BlockConditional"]
       ],
       "respostas": [
-        ["Acerto", "se quadrante == resposta entao: \n", "BlockResponses"],
+        ["Acerto", "  se quadrante == resposta entao: \n", "BlockResponses"],
         ["Erro", "senao: \n", "BlockResponses"]
       ],
-      "blocos": [["Pressionar", "var resposta = ", "BlockCarpet"]],
+      "blocos": [["Pressionar", " event.key == ", "BlockCarpet"]],
       "feedbacks": [
         ["escrever", "imprime 1 + 1;", "BlockMessages"],
         ["Mostrar Imagem", "mostrar(", "BlockMessages"],
