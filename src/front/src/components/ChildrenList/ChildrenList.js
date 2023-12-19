@@ -7,6 +7,8 @@ import { useNavigate } from 'react-router-dom';
 function ChildrenList() {
 
   const [children, setChildren] = useState([]);
+  const [isModalOpen, setIsModalOpen] = useState(false);
+
 
   const navigate = useNavigate();
 
@@ -20,27 +22,27 @@ function ChildrenList() {
   };
 
   useEffect(() => {
-    async function fetchChildrens() {
-      try {
-        const response = await fetch(`http://localhost:8080/pacientes`);
-        if (response.ok) {
-          const data = await response.json();
-          console.log(data)
-          setChildren(data); // Define os produtos no estado
-        } else {
-          console.error('Erro ao buscar produtos:', response.statusText);
-        }
-      } catch (error) {
-        console.error('Erro na requisição:', error);
-      }
-    }
-
     fetchChildrens();
   }, []);
+
+  async function fetchChildrens() {
+    try {
+      const response = await fetch(`http://localhost:8080/pacientes`);
+      if (response.ok) {
+        const data = await response.json();
+        console.log(data)
+        setChildren(data); // Define os produtos no estado
+      } else {
+        console.error('Erro ao buscar produtos:', response.statusText);
+      }
+    } catch (error) {
+      console.error('Erro na requisição:', error);
+    }
+  }
   
     return (
       <div className='children-list'>
-        {children.map((child) => (
+        {children.map((child) => (  
           <a key={child.id} onClick={() => handleKidProfile(child.id)}>
             {/* <div className='children'>
               <img src={Perfil} className='img-paciente'/>
@@ -59,7 +61,6 @@ function ChildrenList() {
             </div>
           </a>
       ))}
-        
       </div>
     );
   }

@@ -4,6 +4,7 @@
     display: flex;
     flex-direction: column;
     align-items: center;
+    overflow-y: auto; /* Adicione rolagem vertical conforme necessário */
 }
 
 .main h1 {
@@ -49,4 +50,71 @@
     height: 100%;
     width: 100%;
     justify-content: space-evenly;
+}
+
+.game-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr); /* 3 colunas com tamanhos iguais */
+    gap: 16px; /* Espaço entre os itens na grade */
+    width: 100%;
+  }
+
+  .card-select {
+    width: 80%;
+    height: 130%;
+    border-radius: 30px;
+    border: solid #A1A1A1 1px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+}
+
+.card-select:hover {
+    transition: transform 0.3s ease-in-out;
+    transform: scale(1.1);
+}
+
+.button-div {
+    width: 100%;
+    display: flex;
+    justify-content: flex-end;
+    padding-right: 8%;
+    margin: 5% 0;
+    height: 20%;
+}
+
+.button-div button {
+    width: 30%;
+    font-size: 18px;
+    font-weight: bold;
+    background-color: #A60D25;
+    flex-shrink: 0;
+    border-radius: 50px;
+    color: #FFF;
+    cursor: pointer;
+    height: 50%;
+}
+
+.play-div {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    height: 80%;
+}
+
+.card-select img {
+    margin: 0;
+    padding: 0;
+}
+
+.card-select p {
+    font-size: 24px;
+    color: #000000;
+    font-weight: 600;
+}
+
+.name{
+    margin-top: 10px;
 }
