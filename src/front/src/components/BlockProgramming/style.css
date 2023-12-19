@@ -8,16 +8,19 @@
     display: flex;
     gap: 30px;
 }
+
 .IconContainer{
     height: 20px;
     padding: 20px 0 0 0;
 }
+
 .Icon{
     font-size: 50px;
 }
+
 .Sidebar {
     height: 70vh;
-    width: 25vw;
+    width: 20vw;
     margin-top: 60px;
     background-color: #F5F5F5;
     border-radius: 20px 20px 0 0;
@@ -42,13 +45,13 @@
     display: flex;
     height: 100%;
     overflow-y: auto;
+    overflow-x: hidden;
+    max-width: 20vw;
 }
-
-
 
 .ContentRight {
     background-color: #777;
-    width: 100%;
+    width: 20vw;
     height: 100%;
 }
 
