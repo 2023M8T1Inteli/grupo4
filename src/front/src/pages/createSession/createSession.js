@@ -20,7 +20,7 @@ class createSessionPage extends React.Component{
         <>
         <Header />
         <div className="Container">
-            <div className="Content">
+            <div className="Contentsession">
                 <div className="ContentSections">
                     <div className="InputBox">
                     <h1>Nome do paciente</h1>
