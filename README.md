@@ -84,7 +84,7 @@ Com o Python já instalado em sua máquina, basta abrir um terminal e digitar o 
 
 ### Aplicação Electron 
 
-Após a instalação dos pré-requisitos, você está pronto para configurar o ambiente de desenvolvimento para a aplicação Electron. Entre na pasta src/front e execute os seguintes comandos:
+Após a instalação dos pré-requisitos, você está pronto para configurar o ambiente de desenvolvimento para a aplicação Electron. Entre na pasta src/ide/front e execute os seguintes comandos:
 
 ```
 npm i 
@@ -102,7 +102,7 @@ Preparamos uma série de vídeos para auxiliar na compreensão da IDE:
 
 ### Backend NestJS
 
-Entre na pasta src/backend e execute:
+Entre na pasta src/ide/backend e execute:
 
 ```
 npm run start
@@ -117,6 +117,30 @@ Para modelar o Banco de Dados, utilizamos o Luna Modeler, e para provisionamento
 [artefatos/img/Diagrama_Luna_Monder_Arquivo.dmm](./artefatos/img/Diagrama_Luna_Monder_Arquivo.dmm)
 
 [artefatos/img/Diagrama_Luna_Mondeler.png](./artefatos/img/Diagrama_Luna_Mondeler.png)
+
+### Gerar executável
+
+Para gerar a versão do executável da aplicação, é necessário entrar na pasta src/ide/front e executar os seguintes comandos:
+
+```
+npm run build
+
+npm run electron:package:Nome_do_sistema
+
+```
+A versão do executável será gerada na pasta chamada 'dist' dentro de front. Para garantir o funcionamento da aplicação, siga os passos adicionais abaixo:
+
+1- Copie a pasta 'games' do diretório 'ide' e cole na pasta 'dist'.
+<br />
+2 - Copie as pastas 'qal' e 'tool' do diretório 'compilador' e cole no diretório 'dist'.
+
+Após concluir essas etapas, você poderá utilizar o executável que estará dentro da pasta dist.
+
+**Observação 1:** Se estiver utilizando o Windows, substitua Nome_do_sistema por 'win'
+<br />
+**Observação 2:** Se estiver utilizando o Linux, substitua Nome_do_sistema por 'lin'.
+<br />
+**Observação 3:** Se estiver utilizando o macOS, substitua Nome_do_sistema por 'mac'.
 
 # Releases
 
