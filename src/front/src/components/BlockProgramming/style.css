@@ -269,6 +269,10 @@
     background-color: rgb(255, 0, 0);
 }
 
+.BlockMessagesText{
+    background-color: rgb(255, 0, 0);
+}
+
 #img-p {
     color: #000000;
     font-size: 12px;
@@ -289,7 +293,23 @@
     max-height: 50%;
 }
 
-#audio-block {
+.audio-block {
     max-width: 100px;
     max-height: 50px;
+}
+
+.textInputSection{
+    display: none;
+}
+
+.BlockMessagesText .textInputSection{
+    display: block;
+}
+
+.textInput{
+    background-color: #eaeaea;
+    height: 40px;
+    border: none;
+    border-radius: 10px;
+    font-size: 20px;
 }

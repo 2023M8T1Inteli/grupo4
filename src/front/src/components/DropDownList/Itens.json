@@ -17,7 +17,8 @@
         ["Mostrar Imagem", "screen.blit(", "BlockMessages"],
         ["Tocar Som", "tocar(\n", "BlockMessages"],
         ["Imagem", "mostrarImagem(", "BlockMessages"],
-        ["Áudio", "tocarAudio(", "BlockMessages"]
+        ["Áudio", "tocarAudio(", "BlockMessages"],
+        ["Texto", "escreverTexto(", "BlockMessagesText"]
       ]
     }
   }

@@ -391,6 +391,9 @@ class BlockProgramming extends React.Component {
                                                         <input type="number" name="tentacles" min="1" max="16" onChange={(e) => this.handleInputChange(block.id, e.target.value)}/>
                                                     </div>
                                                 )}
+                                                <div className="textInputSection">
+                                                    <input className="textInput" />
+                                                </div>
                                             </div>
                                         </div>
                                     ))}
