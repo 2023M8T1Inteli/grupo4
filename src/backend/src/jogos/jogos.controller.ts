@@ -11,38 +11,41 @@ export class JogosController {
   constructor(private readonly jogosService: JogosService, private readonly s3service: S3Service) {}
 
   @Post('create')
-  @UseInterceptors(FilesInterceptor('files', 2))
+  @UseInterceptors(FilesInterceptor('files'))
   async create(@UploadedFiles() files, @Body() body) {
-    console.log(files[0]); // Primeiro arquivo
-    console.log(files[1]); // Segundo arquivo
+    let urlPython = "";
+    let urlJson = "";
 
-    // Decidir qual arquivo é o Python e qual é o JSON, por exemplo, pela extensão
-    let filePython, fileJson;
-    files.forEach(file => {
-        if (file.originalname.endsWith('.py')) {
-            filePython = file;
-        } else if (file.originalname.endsWith('.json')) {
-            fileJson = file;
-        }
-    });
+    if (files && files.length) {
+      // Decidir qual arquivo é o Python e qual é o JSON, por exemplo, pela extensão
+      let filePython, fileJson;
+      files.forEach(file => {
+          if (file.originalname.endsWith('.py')) {
+              filePython = file;
+          } else if (file.originalname.endsWith('.json')) {
+              fileJson = file;
+          }
+      });
 
-    if (!filePython || !fileJson) {
-        // Tratar erro, caso um dos arquivos não esteja presente
+      if (filePython) {
+          urlPython = await this.s3service.uploadFile(filePython, "tapete-magico-aladdin");
+      }
+      if (fileJson) {
+          urlJson = await this.s3service.uploadFile(fileJson, "tapete-magico-aladdin");
+      }
     }
-
-    const urlPython = await this.s3service.uploadFile(filePython, "tapete-magico-aladdin");
-    const urlJson = await this.s3service.uploadFile(fileJson, "tapete-magico-aladdin");
-
+    
     const data = {
       nomeJogo: body.nomeJogo,
       emailCriador: body.emailCriador,
       publico: body.publico.toLowerCase(),
-      url: urlPython,
-      urlJson: urlJson
+      url: urlPython, // URL do arquivo Python ou string vazia se não foi enviado
+      urlJson: urlJson // URL do arquivo JSON ou string vazia se não foi enviado
     }
     
-    return this.jogosService.create(data, body.email);
+    return this.jogosService.create(data, body.emailCriador);
   }
+
 
   @Post()
   findAll(@Body() body: FindJogoDto) {

@@ -79,58 +79,45 @@ function createWindow() {
     win.webContents.openDevTools()
 
     ipcMain.on('code', async (event, code, json, data) => {
-        const nomeJogo = data.name + ".py"
+        const nomeJogo = data.name + ".py";
         const filePathJogo = path.join(__dirname, '..', '..', 'games', `${nomeJogo}`);
-
-        const nomeJSON = data.name + ".json"
-        const filePath = path.join(__dirname, '..', '..', 'games', 'json', `${nomeJogo}`);
-        fs.writeFile(filePathJogo, code, 'utf-8', (err) => {
-            if (err) {
-                console.log(err);
-                return;
-            }
-
-            console.log("Jogo salvo com sucesso! " + filePath);
-        });
-
-        fs.writeFile(filePath, json, 'utf-8', (err) => {
-            if (err) {
-                console.log(err);
-                return;
-            }
-
-            console.log("JSON salvo com sucesso! " + filePath);
-        });
-
-
-        // Preparar o formulário de dados
-        const formData = new FormData();
-        formData.append('files', fs.createReadStream(filePathJogo), nomeJogo);
-        formData.append('files', fs.createReadStream(filePath), nomeJSON);
-        formData.append('nomeJogo', data.name);
-        formData.append('emailCriador', data.emailCriador);
-        formData.append('publico', data.publico);
-
-        // Configurar o header do formulário
-        const formHeaders = formData.getHeaders();
-
+    
+        const nomeJSON = data.name + ".json";
+        const filePathJSON = path.join(__dirname, '..', '..', 'games', 'json', `${nomeJSON}`);
+    
+        // Salvar os arquivos de forma assíncrona
         try {
+            await fs.promises.writeFile(filePathJogo, code, 'utf-8');
+            await fs.promises.writeFile(filePathJSON, json, 'utf-8');
+    
+            console.log("Arquivos salvos com sucesso!");
+    
+            // Preparar o formulário de dados
+            const formData = new FormData();
+            formData.append('files', fs.createReadStream(filePathJogo), nomeJogo);
+            formData.append('files', fs.createReadStream(filePathJSON), nomeJSON);
+            formData.append('nomeJogo', data.name);
+            formData.append('emailCriador', data.emailCriador);
+            formData.append('publico', data.publico);
+    
+            // Configurar o header do formulário
+            const formHeaders = formData.getHeaders();
+    
             // Enviar a requisição
             const response = await axios.post('http://localhost:8080/jogos/create', formData, {
                 headers: {
                     ...formHeaders,
                 },
             });
-
-            // Tratar a resposta da requisição aqui
+    
             console.log(response.data);
         } catch (error) {
             console.error(error);
         }
-    })
-
+    });
+    
     ipcMain.on('gameName', (event, gameName) => {
-        let pyshell = new PythonShell('../games/game1.py');
+        let pyshell = new PythonShell(`../games/${gameName}.py`);
 
         pyshell.on('message', function (message) {
             console.log(message);

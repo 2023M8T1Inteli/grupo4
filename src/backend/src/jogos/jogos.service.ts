@@ -10,9 +10,10 @@ export class JogosService {
     const jogo = await this.prisma.jogos.findUnique({
       where: { nome_jogo: createJogoDto.nomeJogo },
     });
-    
+    console.log(jogo)
     if (jogo) {
       if (jogo.criadorEmail != email) {
+        console.log(jogo.criadorEmail, email)
         return "Usuário não tem permissão para editar esse jogo!";
       }
       
