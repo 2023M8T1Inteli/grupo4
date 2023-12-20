@@ -2,8 +2,6 @@
     "blocks": {
       "Condicionais": [
         ["se", "\n        if event.type == pygame.KEYDOWN:\n            if", "BlockConditional"],
-        ["e", " and ", "BlockConditional"],
-        ["ou", " or ", "BlockConditional"],
         ["se não", "else:\n", "BlockConditional"],
         ["então", ":\n", "BlockConditional"]
       ],
