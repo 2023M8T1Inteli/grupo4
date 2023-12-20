@@ -1,8 +1,9 @@
 import React, { useState, useEffect } from 'react';
-import { Alert, AlertTitle } from '@mui/material';
 import './SearchAndAdd.css';
 import SearchBtn from './img/searchBtn.png';
 import Add from './img/addIcon.png';
+import { useNavigate } from 'react-router-dom'; // Importe o useHistory para fazer o redirecionamento
+
 
 const SearchAndAdd = () => {
   const [inputValue, setInputValue] = useState('');
@@ -14,6 +15,8 @@ const SearchAndAdd = () => {
   const [data_de_nascimento, setAge] = useState('');
   const [nome_responsavel, setResponsavel] = useState('');
   const [contato_responsavel, setContato] = useState('');
+  const navigate = useNavigate();
+
 
   const handleInputChange = (event) => {
     setInputValue(event.target.value);
@@ -48,11 +51,9 @@ const SearchAndAdd = () => {
       });
 
       if (response.ok) {
-        <Alert severity="success">
-        <AlertTitle>Success</AlertTitle>
-        This is a success alert — <strong>check it out!</strong>
-        </Alert>
-
+        window.alert('Paciente cadastrado com sucesso!'); // Usando window.alert para exibir um alerta nativo do navegador
+        closeModal()
+        window.location.reload();
       } else {
         setError('Registration failed. Please try again.');
       }
@@ -120,12 +121,6 @@ const SearchAndAdd = () => {
               </div>
             </div>
           </div>
-        </div>
-      )}
-      {showSuccessFeedback && (
-        <div className="success-feedback">
-          <p>Salvo com sucesso!</p>
-          {/* Adicione estilos ou animações conforme necessário */}
         </div>
       )}
     </div>

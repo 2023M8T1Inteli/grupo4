@@ -1,0 +1,64 @@
+.ContainerSuccessModal{
+    height: 100vh;
+    width: 100vw;
+    margin: 0;
+    position: absolute;
+    z-index: 1;
+    background-color: rgba(0, 0, 0, 0.733);
+    display: none;
+}
+.messageContainer{
+    height: 80%;
+    width: 40%;
+    background-color: #fff;
+    margin: auto;
+    display: flex;
+    flex-direction: column;
+    padding: auto;
+    border-radius: 20px;
+    border: 8px solid rgb(25, 25, 25);
+}
+
+.SuccessMainContent{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 15% 0;
+}
+
+.SuccessIcon{
+    font-size: 150px;
+    color: green;
+    align-self: center;
+}
+
+.SuccessLabel{
+    color: green;
+    align-self: center;
+    font-size: 50px;
+}
+
+.CloseModalSuccess {
+    color: black;
+    font-size: 50px;
+    background-color: transparent;
+    border: none;
+    width: 60px;
+    margin-left: auto; /* Isso empurra a div para a direita */
+}
+
+.CloseModalSuccess:hover {
+    color: red;
+    transition: .5s;
+    cursor: pointer;
+}
+
+.visible {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.hidden {
+    display: none;
+}
