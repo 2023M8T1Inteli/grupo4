@@ -85,32 +85,23 @@ function createWindow() {
         const nomeJSON = data.name + ".json";
         const filePathJSON = path.join(__dirname, '..', '..', 'games', 'json', `${nomeJSON}`);
     
-        // Salvar os arquivos de forma assíncrona
         try {
             await fs.promises.writeFile(filePathJogo, code, 'utf-8');
             await fs.promises.writeFile(filePathJSON, json, 'utf-8');
+            console.log(fs.createReadStream(filePathJogo), nomeJogo);
+            // const formData = new FormData();
+            // formData.append('files', fs.createReadStream(filePathJogo), nomeJogo);
+            // formData.append('files', fs.createReadStream(filePathJSON), nomeJSON);
+            // formData.append('nomeJogo', data.name);
+            // formData.append('emailCriador', data.emailCriador);
+            // formData.append('publico', data.publico);
     
-            console.log("Arquivos salvos com sucesso!");
+            // const response = await axios.post('http://localhost:8080/jogos/create', formData, {
+            //     headers: formData.getHeaders(),
+            // });
     
-            // Preparar o formulário de dados
-            const formData = new FormData();
-            formData.append('files', fs.createReadStream(filePathJogo), nomeJogo);
-            formData.append('files', fs.createReadStream(filePathJSON), nomeJSON);
-            formData.append('nomeJogo', data.name);
-            formData.append('emailCriador', data.emailCriador);
-            formData.append('publico', data.publico);
-    
-            // Configurar o header do formulário
-            const formHeaders = formData.getHeaders();
-    
-            // Enviar a requisição
-            const response = await axios.post('http://localhost:8080/jogos/create', formData, {
-                headers: {
-                    ...formHeaders,
-                },
-            });
-    
-            console.log(response.data);
+            // console.log(response.data);
+            alert("Jogo criado com sucesso!")
         } catch (error) {
             console.error(error);
         }

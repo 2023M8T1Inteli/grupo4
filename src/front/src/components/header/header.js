@@ -17,7 +17,7 @@ class header extends React.Component {
                 <div className='option-nav-bar'>
                     <Link to="/Home" className='linkText'>Menu</Link>
                     <Link to="/Session" className='linkText'>Jogos</Link>
-                    <Link to="/Reports" className='linkText'>Relatórios</Link>
+                    {/* <!--<Link to="/Reports" className='linkText'>Relatórios</Link>--> */}
                 </div>
                 <Profile />
             </div>

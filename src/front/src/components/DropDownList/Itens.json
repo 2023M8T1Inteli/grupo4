@@ -6,8 +6,8 @@
         ["então", ":\n", "BlockConditional"]
       ],
       "respostas": [
-        ["Acerto", "ACERTOU\n", "BlockResponses"],
-        ["Erro", "ERROU\n", "BlockResponses"]
+        ["Acerto", "\n", "BlockResponses"],
+        ["Erro", "\n", "BlockResponses"]
       ],
       "blocos": [["Pressionar", " event.key == ", "BlockCarpet"]],
       "feedbacks": [

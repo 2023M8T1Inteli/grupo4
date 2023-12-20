@@ -1,7 +1,7 @@
 import React from 'react';
 import { useEffect, useState } from 'react';
 import "./ChildrenList.css";
-import Perfil from '../../assets/perfil.png';
+import Perfil from '../../assets/Perfil.png';
 import { useNavigate } from 'react-router-dom';
 
 function ChildrenList() { 
