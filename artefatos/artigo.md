@@ -61,6 +61,20 @@ Desse modo, compreende-se o papel crucial que o compilador exerce, porém, para 
 
 Em virtude disso, o desenvolvimento e a implementação da aplicação desktop revela um avanço tecnológico na maneira como a terapia é conduzida para pacientes com paralisia cerebral. Ao personalizar atividades, promover interações mais significativas e garantir acessibilidade sanando a necessidade de cada indivíduo, não apenas facilita o trabalho do profissional de TO, mas também abre portas para uma reabilitação mais eficaz e inclusiva. Os resultados obtidos com a aplicação refletem não apenas a eficiência técnica, mas, acima de tudo, através de testes diretos de usabilidade que verificaram as principais funcionalidades que correspondem ao alcance do propósito, fazendo jus em aumentar a qualidade de vida e o progresso dos pacientes atendidos.
 
+## 4. Conclusão
+
+
+Este trabalho teve como objetivo analisar o desenvolvimento de um compilador e de um Ambiente de Desenvolvimento Integrado (IDE) dedicados à Tecnologia Assistiva (TA), visando resolver um problema identificado pela AACD: a estimular pessoas que enfrentam leves desordens neurológicas com uso de tecnolgia. Sendo, desenvolvida uma IDE para personalização das sessões terapêuticas, criando um compilador, e utilizando o Gregmaker para facilitar a comunicação entre o tapete e a plataforma.
+
+Através deste artigo, compreendemos a escassez e o alto custo de ferramentas de tecnologias assistivas. Destacamos a possibilidade de inovação ao oferecer uma solução acessível e de fácil uso para terapeutas ocupacionais, abrangendo uma faixa etária de crianças que, devido às limitações de adaptação dessas tecnologias, não têm contato com as mesmas. Isso propicia uma terapia mais eficiente e acessível.
+
+A plataforma desenvolvida tem como objetivo facilitar o uso do compilador e do tapete sensorial, garantindo que a terapeuta ocupacional, mesmo com baixo nível de conhecimento em tecnologias, consiga utilizar essas ferramentas para elaborar uma sessão de terapia personalizada para o paciente. Foram implementadas funções específicas para facilitar o uso diário dessas ferramentas.
+
+Em resumo, o tapete sensorial, a IDE (Ambiente de Desenvolvimento Integrado) e a plataforma destacam a criação de tecnologias acessíveis e eficazes, contribuindo para a reabilitação de pacientes e atendendo a públicos que atualmente não têm acesso à tecnologia, além de permitir uma maior personalização para terapeutas ocupacionais.
+
+Portanto, recomenda-se, em trabalhos futuros, o aprimoramento da IDE, com a adição de novas funcionalidades integráveis a outros sistemas embarcados, visando expandir essas soluções para públicos com diversas desordens neurológicas.
+
+
 ## Referências 
 
 ALVES, A. C. J.; EMMEL, M. L. G.; MATSUKURA, T. S. Formação e prática do terapeuta ocupacional que utiliza tecnologia assistiva como recurso terapêutico. Revista de Terapia Ocupacional da Universidade de São Paulo, [S. l.], v. 23, n. 1, p. 24-33, 2012. DOI: 10.11606/issn.2238-6149.v23i1p24-33. Disponível em: https://www.revistas.usp.br/rto/article/view/46909. Acesso em: 12 dez. 2023.
