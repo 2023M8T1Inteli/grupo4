@@ -6,17 +6,20 @@ import { useNavigate } from 'react-router-dom';
 
 function ChildrenList() { 
 
+  // Estado que armazena a lista de crianças
   const [children, setChildren] = useState([]);
+  // Estado que controla a visibilidade do modal
   const [isModalOpen, setIsModalOpen] = useState(false);
 
-
+  // Hook de navegação do React Router
   const navigate = useNavigate();
 
+    // Função para navegar para a tela de sessão
     const handleInitSession = () => {
-        // Navigate to the "/Session" screen when the button is clicked
         navigate('/Session');
     };
 
+    // Função para navegar para o perfil de uma criança específica
     const handleKidProfile = (childId) => {
       navigate(`/Profile/${childId}`);
   };
@@ -25,6 +28,7 @@ function ChildrenList() {
     fetchChildrens();
   }, []);
 
+  // Função assíncrona para buscar as crianças da API
   async function fetchChildrens() {
     try {
       const response = await fetch(`http://localhost:8080/pacientes`);
@@ -40,6 +44,7 @@ function ChildrenList() {
     }
   }
 
+  // Função para encontrar a data da próxima sessão para uma criança
   const findNextSessionDate = (sessions) => {
     const upcomingSessions = sessions.filter(session => new Date(session.data) > new Date());
     if (upcomingSessions.length > 0) {

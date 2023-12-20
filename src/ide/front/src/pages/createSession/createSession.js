@@ -17,6 +17,7 @@ import Header from '../../components/header/header'
 // exortando tela de editGame
 function CreateSessionPage() {
 
+    // Estados
     const [children, setChildren] = useState([]);
     const [selectedPatient, setSelectedPatient] = useState({});
     const [selectedDate, setSelectedDate] = useState('');
@@ -27,43 +28,20 @@ function CreateSessionPage() {
     const navigate = useNavigate();
 
 
-
+    // Efeito useEffect para carregar pacientes e jogos ao montar a página
     useEffect(() => {
         fetchChildrens();
         handleRegister();
         fetchGames();
       }, []);
 
+      // Função para registrar uma nova sessão
       const handleRegister = async () => {
         if (!selectedPatient || !selectedGame) {
             console.error('Selected patient or game is not defined');
             return;
           }
         try {
-
-            // if (createNewGame) {
-            //     // Se criar um novo jogo estiver selecionado
-            //     const token = localStorage.getItem('token');
-            //     const newGameResponse = await fetch('http://localhost:8080/jogos', {
-            //       method: 'POST',
-            //       headers: {
-            //         'Content-Type': 'application/json',
-            //         'email': `${token}`
-            //       },
-            //       body: JSON.stringify({
-            //         // Se necessário, adicione dados para a criação do jogo
-            //       }),
-            //     });
-        
-            //     if (newGameResponse.ok) {
-            //       const newGameData = await newGameResponse.json();
-            //       setSelectedGame(newGameData.id); // Define o novo jogo como selecionado
-            //       navigate('/nova-rota'); // Substitua '/nova-rota' pelo caminho para a nova tela
-            //     } else {
-            //       setError('Failed to create a new game. Please try again.');
-            //       return;
-            //     }
-            //   }
 
             console.log(typeof selectedGame)
 
@@ -95,7 +73,7 @@ function CreateSessionPage() {
         }
       };
     
-    
+    // Função para buscar a lista de pacientes 
       async function fetchChildrens() {
         try {
           const response = await fetch(`http://localhost:8080/pacientes`);
@@ -111,6 +89,7 @@ function CreateSessionPage() {
         }
       }
 
+      // Função para buscar a lista de jogos
       async function fetchGames() {
         try {
             

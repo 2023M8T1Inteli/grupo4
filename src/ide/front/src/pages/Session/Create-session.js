@@ -8,16 +8,18 @@ import Block from "../../assets/Block.png";
 import './Create-session.css';
 
 function CreateSession() {
-
+        // Função de navegação para transição de páginas
         const navigate = useNavigate();
+        // Estado para armazenar a lista de jogos disponíveis
         const [games, setGames] = useState([]);
 
+         // Função para navegar para a tela de edição de jogo quando o botão é clicado
         const handleEditGame = (gameId) => {
-            // Navigate to the "/Session" screen when the button is clicked
             navigate(`/EditGame/${gameId}`);
 
         };
 
+        // Efeito useEffect para buscar a lista de jogos ao montar a página
         useEffect(() => {
             async function fetchGames() {
               try {

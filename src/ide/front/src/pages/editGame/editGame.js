@@ -13,12 +13,11 @@ import Header from '../../components/header/header'
 
 // exortando tela de editGame
 function EditGame() {
-
+    // Estados
     const [game, setGame] = useState('');
     const { id } = useParams(); // Obtém o id da rota
 
-
-
+    // Efeito useEffect para buscar os detalhes do jogo ao montar a página
     useEffect(() => {
         async function fetchGame() {
           try {
@@ -26,7 +25,7 @@ function EditGame() {
             if (response.ok) {  
               const data = await response.json();
               console.log(data)
-              setGame(data); // Define os produtos no estado
+              setGame(data); // Define os detalhes do jogo no estado
             } else {
               console.error('Erro ao buscar produtos:', response.statusText);
             }

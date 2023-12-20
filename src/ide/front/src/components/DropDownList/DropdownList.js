@@ -4,14 +4,15 @@ import jsonData from "./Itens.json";
 
 class DropDownList extends React.Component {
 
+    // Manipula o clique em um bloco, chamando a função fornecida por props
     handleBlockClick = (blockKey) => {
-        // Chame a função fornecida por props para criar um bloco no pai
         this.props.onCreateBlock(blockKey);
     };
 
     render() {
         return (
             <div>
+                {/*Criar seção de blocos com base no json data*/}
                 {Object.entries(jsonData.blocks).map(([blockKey, blockValues]) => (
                     <DropDownItem key={blockKey} onClick={() => this.handleBlockClick(blockKey)}>
                         <div className="headerItem">

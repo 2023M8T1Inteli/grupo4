@@ -9,16 +9,19 @@ import { CiPlay1 } from "react-icons/ci";
 import { FaRegEdit } from "react-icons/fa";
 
 function KidsProfile() {
+    // Função de navegação para transição de páginas
     const navigate = useNavigate();
+    // Estado para armazenar as informações da criança
     const [child, setChild] = useState([]);
-    const { id } = useParams(); // Obtém o id da rota
+    // Obtém o id da rota para buscar as informações específicas da criança
+    const { id } = useParams(); 
 
-
+     // Função para navegar para a tela de sessão quando o botão é clicado
     const handleInitSession = () => {
-        // Navigate to the "/Session" screen when the button is clicked
         navigate('/Session');
     };
 
+    // Efeito useEffect para buscar as informações da criança ao montar a página
     useEffect(() => {
         async function fetchChild() {
           try {
@@ -26,7 +29,7 @@ function KidsProfile() {
             if (response.ok) {  
               const data = await response.json();
               console.log(data)
-              setChild(data); // Define os produtos no estado
+              setChild(data); // Define as informações da criança no estado
             } else {
               console.error('Erro ao buscar produtos:', response.statusText);
             }

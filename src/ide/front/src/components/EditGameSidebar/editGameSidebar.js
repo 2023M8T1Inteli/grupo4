@@ -3,7 +3,6 @@ import React from "react";
 //styles
 import "./style.css";
 
-// exortando dela de Cart
 class EditGameSidebar extends React.Component {
     render() {
         return (
