@@ -249,26 +249,16 @@ class BlockProgramming extends React.Component {
         console.log(this.state.code);
         console.log(this.state.blocks);
         //console.log(this.state.vars)
-        window.handAPI.sendCode(this.state.code);
-    };
-
-    saveBlocksState = () => {
-        const serializedState = JSON.stringify(this.state.blocks);
-        localStorage.setItem('blocksState', serializedState);
-    };
-    
-    loadBlocksState = () => {
-        const serializedState = localStorage.getItem('blocksState');
-        if (serializedState) {
-            const blocksState = JSON.parse(serializedState);
-            this.setState({ blocks: blocksState });
-    
-            // Reconstruir o código com base nos blocos carregados
-            const reconstructedCode = blocksState.map(block => block.text[1]).join('');
-            this.setState({ code: reconstructedCode });
+        const data = {
+            "name": "Jogo2",
+            "emailCriador": "rafa@aacd.com",
+            "publico": "true"
+            // pegar os dados que preciso mandar pra rota (Sarinha <3)
         }
+        const serializedState = JSON.stringify(this.state.blocks);
+        window.handAPI.sendCode(this.state.code, serializedState, data);
     };
-        
+    
     handleSaveImage = async () => {
         console.log("Saving image...");
     
@@ -361,15 +351,9 @@ class BlockProgramming extends React.Component {
                             <div className="BottomNavbar">
                                 <div className="BottomNavbarBtns">
                                     <button className="NavbarBtn" onClick={this.handleCode}>
-                                        Criar
+                                        SALVAR
                                     </button>
                                     <button className="NavbarBtn" onClick={this.initGame} >Iniciar</button>
-                                    <button className="NavbarBtn" onClick={this.saveBlocksState}>
-                                        Salvar
-                                    </button>
-                                    <button className="NavbarBtn" onClick={this.loadBlocksState}>
-                                        Carregar
-                                    </button>
 
                                 </div>
                             </div>
