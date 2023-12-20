@@ -55,7 +55,7 @@ function KidsProfile() {
                         <div className="info"><p className="bold">Responsável:</p><p className="normal">{child.nome_responsavel}</p></div>
                         <div className="info"><p className="bold">Idade:</p><p className="normal">{child.idade}</p></div>
                         <div className="info"><p className="bold">Diagnóstico:</p><p className="normal">{child.ficha_medica}</p></div>
-                        <div className="info"><p className="bold">Contato:</p><p className="normal">(11) 92643-7145</p></div>    
+                        <div className="info"><p className="bold">Contato:</p><p className="normal">{child.contato_responsavel}</p></div>    
                     </div>
                 </div>
                 <div className="button-options">

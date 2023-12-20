@@ -1,6 +1,9 @@
 import React from "react";
 import { useEffect, useState } from 'react';
+import {View, Alert} from 'react';
 import { useNavigate } from 'react-router-dom'; // Importe o useHistory para fazer o redirecionamento
+import Back from '../../components/svgs/Back';
+
 
 
 //styles
@@ -15,71 +18,73 @@ import Header from '../../components/header/header'
 function CreateSessionPage() {
 
     const [children, setChildren] = useState([]);
-    const [selectedPatient, setSelectedPatient] = useState('');
+    const [selectedPatient, setSelectedPatient] = useState({});
     const [selectedDate, setSelectedDate] = useState('');
-    const [selectedGame, setSelectedGame] = useState('');
+    const [selectedGame, setSelectedGame] = useState();
     const [error, setError] = useState('');
     const [games, setGames] = useState([]);
     const [createNewGame, setCreateNewGame] = useState(false); // Novo estado para controlar a criação de um novo jogo
     const navigate = useNavigate();
 
 
+
     useEffect(() => {
         fetchChildrens();
         handleRegister();
         fetchGames();
-
       }, []);
 
       const handleRegister = async () => {
-        if (error !== '') {
-          return;
-        }
-    
+        if (!selectedPatient || !selectedGame) {
+            console.error('Selected patient or game is not defined');
+            return;
+          }
         try {
 
-            if (createNewGame) {
-                // Se criar um novo jogo estiver selecionado
-                const token = localStorage.getItem('token');
-                const newGameResponse = await fetch('http://localhost:8080/jogos', {
-                  method: 'POST',
-                  headers: {
-                    'Content-Type': 'application/json',
-                    'email': `${token}`
-                  },
-                  body: JSON.stringify({
-                    // Se necessário, adicione dados para a criação do jogo
-                  }),
-                });
+            // if (createNewGame) {
+            //     // Se criar um novo jogo estiver selecionado
+            //     const token = localStorage.getItem('token');
+            //     const newGameResponse = await fetch('http://localhost:8080/jogos', {
+            //       method: 'POST',
+            //       headers: {
+            //         'Content-Type': 'application/json',
+            //         'email': `${token}`
+            //       },
+            //       body: JSON.stringify({
+            //         // Se necessário, adicione dados para a criação do jogo
+            //       }),
+            //     });
         
-                if (newGameResponse.ok) {
-                  const newGameData = await newGameResponse.json();
-                  setSelectedGame(newGameData.id); // Define o novo jogo como selecionado
-                  navigate('/nova-rota'); // Substitua '/nova-rota' pelo caminho para a nova tela
-                } else {
-                  setError('Failed to create a new game. Please try again.');
-                  return;
-                }
-              }
+            //     if (newGameResponse.ok) {
+            //       const newGameData = await newGameResponse.json();
+            //       setSelectedGame(newGameData.id); // Define o novo jogo como selecionado
+            //       navigate('/nova-rota'); // Substitua '/nova-rota' pelo caminho para a nova tela
+            //     } else {
+            //       setError('Failed to create a new game. Please try again.');
+            //       return;
+            //     }
+            //   }
+
+            console.log(typeof selectedGame)
 
             const token = localStorage.getItem( 'token'); // Substitua 'seuToken' pelo nome da chave em que o token está armazenado
-            const response = await fetch(`http://localhost:8080/sessoes`, {
+            const response = await fetch(`http://localhost:8080/sessoes/create`, {
             method: 'POST',
             headers: {
-              'Content-Type': 'application/json',
-              'email': `${token}`
+              'Content-Type': 'application/json'
             },
             body: JSON.stringify({
                 paciente_id: selectedPatient,
                 terapeuta_email: `${token}`,
-                data: selectedDate,
-                email: `${token}`
+                data: `${selectedDate}`,
+                jogo_id: parseInt(selectedGame)
             }),
           });
     
           if (response.ok) {
-            const responseBody = await response.json();
-            console.log(responseBody)
+            window.alert('Sessão criada com sucesso'); // Usando window.alert para exibir um alerta nativo do navegador
+            navigate('/Session');
+
    
           } else {
             setError('Registration failed. Please try again.');
@@ -96,7 +101,7 @@ function CreateSessionPage() {
           const response = await fetch(`http://localhost:8080/pacientes`);
           if (response.ok) {
             const data = await response.json();
-            console.log(data)
+            // console.log(data)
             setChildren(data); // Define os produtos no estado
           } else {
             console.error('Erro ao buscar produtos:', response.statusText);
@@ -120,7 +125,7 @@ function CreateSessionPage() {
           if (response.ok) {
             const data = await response.json();
             console.log(games)
-            console.log(games.nome_jogo)
+            console.log(games.data_criacao)
             setGames(data);
           } else {
             console.error('Erro ao buscar jogos:', response.statusText);
@@ -133,8 +138,12 @@ function CreateSessionPage() {
     
       return (
         <>
-          <Header />
+        <div className="main">
+        <Header />        
           <div className="Container">
+          <div className='back-button'>
+                <BackButton />
+        </div>  
             <div className="Contentsession">
               <div className="ContentSections">
                 <div className="InputBox">
@@ -144,9 +153,9 @@ function CreateSessionPage() {
                     value={selectedPatient}
                     onChange={(e) => setSelectedPatient(e.target.value)}
                   >
-                    {/* <option value="" disabled>
+                    <option value="">
                       Selecione um paciente
-                    </option> */}
+                    </option>
                     {children.map((child) => (
                       <option key={child.id} value={child.id}>
                         {child.nome_completo}
@@ -161,10 +170,13 @@ function CreateSessionPage() {
                   <select
                     className="input"
                     value={selectedGame}
-                    onChange={(e) => setSelectedGame(e.target.value)}
+                    onChange={(e) => setSelectedGame(parseInt(e.target.value))}
                   >
-                    <option value="" disabled>
-                      Selecione um paciente
+                    <option value="">
+                      Selecione um jogo
+                    </option>
+                    <option value={createNewGame}>
+                      Criar Jogo
                     </option>
                     {games.map((game) => (
                       <option key={game.id} value={game.id}>
@@ -172,14 +184,6 @@ function CreateSessionPage() {
                       </option>
                     ))}
                   </select>
-                  <label>
-                    <input
-                    type="checkbox"
-                    checked={createNewGame}
-                    onChange={() => setCreateNewGame(!createNewGame)}
-                    />
-                    Criar Novo Jogo
-                </label>
                 </div>
               </div>
               <div className="ContentSection2">
@@ -198,8 +202,22 @@ function CreateSessionPage() {
               </div>
             </div>
           </div>
+            
+
+        </div>
         </>
       );
     }
+    const BackButton = () => {
+        const navigate = useNavigate();
+        const handleBack = () => {
+            // Navigate to the "/" page when the back button is pressed
+            navigate('/Home');
+        };
+    
+        return (
+            <Back onClick={handleBack} />
+        );
+    };
 
 export default CreateSessionPage

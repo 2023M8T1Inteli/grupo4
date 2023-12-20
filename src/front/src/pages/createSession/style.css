@@ -1,6 +1,12 @@
+.main{
+    display: flex;
+    overflow-y: auto; /* Adicione rolagem vertical conforme necessário */
+}
+
+
+
 .Contentsession{
     width: 70vw;
-    margin: auto;
     display: flex;
     flex-direction: column;
 }
@@ -24,7 +30,7 @@
     display: flex;
     font-size: 9px;
     margin: auto;
-    margin-bottom: 40px;
+    margin-bottom: 10px;
     justify-content: space-between;
 }
 
@@ -66,4 +72,13 @@
     height: 40px;
     border-radius: 15px;
     border: 1px solid #A1A1A1;
+}
+
+.back-button {
+    width: 100%;
+}
+
+.back-button svg {
+    margin: 0;
+    cursor: pointer;
 }

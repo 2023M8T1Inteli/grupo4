@@ -1,10 +1,10 @@
 import React from 'react';
 import { useEffect, useState } from 'react';
 import "./ChildrenList.css";
-import Perfil from '../../assets/Perfil.png';
+import Perfil from '../../assets/perfil.png';
 import { useNavigate } from 'react-router-dom';
 
-function ChildrenList() {
+function ChildrenList() { 
 
   const [children, setChildren] = useState([]);
   const [isModalOpen, setIsModalOpen] = useState(false);
@@ -39,16 +39,22 @@ function ChildrenList() {
       console.error('Erro na requisição:', error);
     }
   }
+
+  const findNextSessionDate = (sessions) => {
+    const upcomingSessions = sessions.filter(session => new Date(session.data) > new Date());
+    if (upcomingSessions.length > 0) {
+      const nextSession = upcomingSessions.reduce((min, session) =>
+        new Date(session.data) < new Date(min.data) ? session : min
+      );
+      return nextSession.data;
+    }
+    return "Nenhuma sessão agendada";
+  };
   
     return (
       <div className='children-list'>
         {children.map((child) => (  
           <a key={child.id} onClick={() => handleKidProfile(child.id)}>
-            {/* <div className='children'>
-              <img src={Perfil} className='img-paciente'/>
-              <h3>{child.nome_completo}</h3>
-              <button className='init-session' onClick={handleInitSession}>Iniciar sessão</button>
-            </div> */}
 
             <div className='children'>
               <div className='children-info-list'>
@@ -56,7 +62,7 @@ function ChildrenList() {
                 <p className='text-comp bold'>{child.nome_completo}</p>
               </div>
               <div className='pointer'>
-                <p className='init-session text-comp bold pointer'><label className='simple-text pointer'>Próxima sessão: </label> Hoje as 10h</p>
+                <p className='init-session text-comp bold pointer'><label className='simple-text pointer'>Próxima sessão: </label>  {findNextSessionDate(child.sessoes)}</p>
               </div>  
             </div>
           </a>

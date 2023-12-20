@@ -19,7 +19,7 @@ root.render(
     <HashRouter>
       <Routes>
         <Route path='/' Component={Login}></Route>
-        <Route path='EditGame' Component={EditGame}></Route>
+        <Route path='EditGame/:id' Component={EditGame}></Route>
         <Route path='Home' Component={Home}></Route>
         <Route path='Session' Component={CreateSession}></Route>
         <Route path='Profile/:id' Component={KidsProfile}></Route>

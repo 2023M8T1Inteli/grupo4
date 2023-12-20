@@ -8,7 +8,7 @@ export declare class SessoesService {
         id: string;
         paciente_id: string;
         terapeuta_email: string;
-        data: Date;
+        data: string;
         jogos_id: number;
     }, never, import("@prisma/client/runtime/library").DefaultArgs>;
     findAll(email: string): import(".prisma/client").Prisma.PrismaPromise<({
@@ -19,6 +19,7 @@ export declare class SessoesService {
             data_edicao: Date;
             publico: boolean;
             arquivo: string;
+            json: string;
             criadorEmail: string;
         };
         Paciente: {
@@ -33,7 +34,7 @@ export declare class SessoesService {
         id: string;
         paciente_id: string;
         terapeuta_email: string;
-        data: Date;
+        data: string;
         jogos_id: number;
     })[]>;
     findOne(id: string): import(".prisma/client").Prisma.Prisma__SessoesClient<{
@@ -44,6 +45,7 @@ export declare class SessoesService {
             data_edicao: Date;
             publico: boolean;
             arquivo: string;
+            json: string;
             criadorEmail: string;
         };
         Paciente: {
@@ -58,7 +60,7 @@ export declare class SessoesService {
         id: string;
         paciente_id: string;
         terapeuta_email: string;
-        data: Date;
+        data: string;
         jogos_id: number;
     }, null, import("@prisma/client/runtime/library").DefaultArgs>;
     update(id: number, updateSessoeDto: UpdateSessoeDto): string;

@@ -24,7 +24,7 @@ __decorate([
 ], CreateSessoeDto.prototype, "terapeuta_email", void 0);
 __decorate([
     (0, swagger_1.ApiProperty)(),
-    __metadata("design:type", Date)
+    __metadata("design:type", String)
 ], CreateSessoeDto.prototype, "data", void 0);
 __decorate([
     (0, swagger_1.ApiProperty)(),

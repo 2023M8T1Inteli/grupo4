@@ -51,10 +51,14 @@ function Login() {
     navigate('Home');
     } else {
     setError('Authentication failed. Please check your credentials.');
+    window.alert('Authentication failed. Please check your credentials.'); // Usando window.alert para exibir um alerta nativo do navegador
+
     }
   } catch (error) {
     console.error('Error during authentication:', error);
     setError('An error occurred during authentication. Please try again later.');
+    window.alert(error); // Usando window.alert para exibir um alerta nativo do navegador
+
   }
   };
 

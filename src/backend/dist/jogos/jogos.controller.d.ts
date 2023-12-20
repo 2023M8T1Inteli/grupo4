@@ -13,6 +13,7 @@ export declare class JogosController {
         data_edicao: Date;
         publico: boolean;
         arquivo: string;
+        json: string;
         criadorEmail: string;
     } | "Usuário não tem permissão para editar esse jogo!">;
     findAll(body: FindJogoDto): import(".prisma/client").Prisma.PrismaPromise<{
@@ -22,6 +23,7 @@ export declare class JogosController {
         data_edicao: Date;
         publico: boolean;
         arquivo: string;
+        json: string;
         criadorEmail: string;
     }[]>;
     findOne(id: string): import(".prisma/client").Prisma.Prisma__JogosClient<{
@@ -31,6 +33,7 @@ export declare class JogosController {
         data_edicao: Date;
         publico: boolean;
         arquivo: string;
+        json: string;
         criadorEmail: string;
     }, null, import("@prisma/client/runtime/library").DefaultArgs>;
     downloadFile(bucket: string, key: string, res: any): Promise<void>;
@@ -41,6 +44,7 @@ export declare class JogosController {
         data_edicao: Date;
         publico: boolean;
         arquivo: string;
+        json: string;
         criadorEmail: string;
     } | "Usuário não tem permissão para editar esse jogo!">;
 }
