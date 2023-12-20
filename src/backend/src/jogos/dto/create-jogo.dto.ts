@@ -3,4 +3,5 @@ export class CreateJogoDto {
 		emailCriador: string;
 		publico: string;
 		url: string;
+		urlJson: string;
 }

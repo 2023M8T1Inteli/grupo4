@@ -22,6 +22,7 @@ export class JogosService {
           nome_jogo: createJogoDto.nomeJogo,
           publico: createJogoDto.publico == "true" ? true : false,
           arquivo: createJogoDto.url,
+          json: createJogoDto.urlJson,
           criador : { connect: { email: createJogoDto.emailCriador } }
         } 
       });
