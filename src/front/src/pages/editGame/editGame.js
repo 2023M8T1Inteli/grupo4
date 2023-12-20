@@ -43,7 +43,7 @@ function EditGame() {
         <>
         <Header />
         <div className="Container">      
-            <BlockProgramming />
+          <BlockProgramming gameData={game} />
         </div>
         </>
     );

@@ -7,10 +7,11 @@ class EditGameName extends React.Component {
         super(props);
         this.state = {
             isEditing: false,
-            inputValue: "",
-            codeTypeText: "Jogo de Adivinhação",
+            inputValue: this.props.nome_jogo || "", // Inicializa com o nome do jogo, se disponível
+            codeTypeText: this.props.nome_jogo || "",
             isCancelIcon: false
         };
+        console.log(this.props.nome_jogo);
     }
 
     handleIconBtnClick = () => {

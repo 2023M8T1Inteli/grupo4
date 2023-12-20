@@ -6,15 +6,16 @@ export declare class JogosController {
     private readonly jogosService;
     private readonly s3service;
     constructor(jogosService: JogosService, s3service: S3Service);
-    create(files: any, body: any): Promise<{
+    create(files: any, body: any): Promise<"Usuário não tem permissão para editar esse jogo!" | {
         id: number;
         nome_jogo: string;
         data_criacao: Date;
         data_edicao: Date;
         publico: boolean;
         arquivo: string;
+        json: string;
         criadorEmail: string;
-    } | "Usuário não tem permissão para editar esse jogo!">;
+    }>;
     findAll(body: FindJogoDto): import(".prisma/client").Prisma.PrismaPromise<{
         id: number;
         nome_jogo: string;
@@ -22,6 +23,7 @@ export declare class JogosController {
         data_edicao: Date;
         publico: boolean;
         arquivo: string;
+        json: string;
         criadorEmail: string;
     }[]>;
     findOne(id: string): import(".prisma/client").Prisma.Prisma__JogosClient<{
@@ -31,16 +33,18 @@ export declare class JogosController {
         data_edicao: Date;
         publico: boolean;
         arquivo: string;
+        json: string;
         criadorEmail: string;
     }, null, import("@prisma/client/runtime/library").DefaultArgs>;
     downloadFile(bucket: string, key: string, res: any): Promise<void>;
-    update(id: string, updateJogoDto: UpdateJogoDto): Promise<{
+    update(id: string, updateJogoDto: UpdateJogoDto): Promise<"Usuário não tem permissão para editar esse jogo!" | {
         id: number;
         nome_jogo: string;
         data_criacao: Date;
         data_edicao: Date;
         publico: boolean;
         arquivo: string;
+        json: string;
         criadorEmail: string;
-    } | "Usuário não tem permissão para editar esse jogo!">;
+    }>;
 }

@@ -20,8 +20,10 @@ let JogosService = class JogosService {
         const jogo = await this.prisma.jogos.findUnique({
             where: { nome_jogo: createJogoDto.nomeJogo },
         });
+        console.log(jogo);
         if (jogo) {
             if (jogo.criadorEmail != email) {
+                console.log(jogo.criadorEmail, email);
                 return "Usuário não tem permissão para editar esse jogo!";
             }
             return this.prisma.jogos.update({
@@ -30,6 +32,7 @@ let JogosService = class JogosService {
                     nome_jogo: createJogoDto.nomeJogo,
                     publico: createJogoDto.publico == "true" ? true : false,
                     arquivo: createJogoDto.url,
+                    json: createJogoDto.urlJson,
                     criador: { connect: { email: createJogoDto.emailCriador } }
                 }
             });

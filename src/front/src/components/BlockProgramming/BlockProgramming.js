@@ -25,6 +25,7 @@ class BlockProgramming extends React.Component {
             contadorImagens: 0,
             contadorSons: 0, // Add the 'imagePath' variable to the state
         };       
+        console.log(this.props.gameData);
     }
 
     createVars = (variable, path) => {
@@ -250,9 +251,9 @@ class BlockProgramming extends React.Component {
         console.log(this.state.blocks);
         //console.log(this.state.vars)
         const data = {
-            "name": "Jogo2",
-            "emailCriador": "rafa@aacd.com",
-            "publico": "true"
+            "name": this.props.gameData.nome_jogo,
+            "emailCriador": this.props.gameData.criadorEmail,
+            "publico": this.props.gameData.publico,
             // pegar os dados que preciso mandar pra rota (Sarinha <3)
         }
         const serializedState = JSON.stringify(this.state.blocks);
@@ -325,7 +326,7 @@ class BlockProgramming extends React.Component {
 
     initGame = () => {
         console.log("initGame");
-        window.initGame.initGame("Jogo2");
+        window.initGame.initGame(this.props.gameData.nome_jogo);
     }
 
     render() {
@@ -362,7 +363,7 @@ class BlockProgramming extends React.Component {
                         <div className="MainContent">
                             <div className="CodeType">
                                 <div className="ProgSectionHeader">
-                                    <EditGameName />
+                                    <EditGameName nome_jogo={this.props.gameData.nome_jogo} />
                                     <EditGameVisibility />
                                 </div>
 
