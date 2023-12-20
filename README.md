@@ -148,7 +148,7 @@ Após concluir essas etapas, você poderá utilizar o executável que estará de
 * [SPRINT2](https://github.com/2023M8T1Inteli/grupo4/releases/tag/sprint2): Analisador léxico (versão 2), Analisador sintático (versão 1), IDE (versão 1), Artigo (versão 1)
 * [SPRINT3](https://github.com/2023M8T1Inteli/grupo4/releases/tag/sprint3): Analisador sintático (v2) e semântico (v1), IDE (v2) e Artigo (v2)
 * [SPRINT4](https://github.com/2023M8T1Inteli/grupo4/releases/tag/sprint4): Analisador sintático (v3), semântico (v2), Gerador de código(v1), IDE (v3) e Artigo (v3)
-* SPRINT5: Analisadores léxico, sintático e semântico (versões finais), Refinamento da IDE, Artigo (versão final) e Organização do GitHub
+* [SPRINT5](https://github.com/2023M8T1Inteli/grupo4/releases/tag/sprint5): Analisadores léxico, sintático e semântico (versões finais), Refinamento da IDE, Artigo (versão final) e Organização do GitHub
 
 ## 📋 Licença/License
 
