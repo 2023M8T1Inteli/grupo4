@@ -7,6 +7,7 @@
   .App {
     background: white;
     height: 100vh;
+    overflow-y: auto; /* Adicione rolagem vertical conforme necessário */
   }
   
   

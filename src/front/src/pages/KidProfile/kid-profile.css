@@ -9,6 +9,7 @@
 .main-kid-profile .back-button {
     width: 100%;
     margin-top: 3rem;
+    margin-left: 50px;
 }
 
 .back-button svg {
@@ -105,6 +106,7 @@
 .button-options-content .link{
     text-align: center;
     margin-top: 20px;
+    
 }
 .button-options-content button{
     width: 100%;
@@ -123,6 +125,7 @@
     font-size: 15px;
 }
 .start-session-btn{
+    margin-top: 20px;
     width: 100%;
     background-color: #D9D9D9;
     height: 70px;
@@ -163,4 +166,8 @@
     background-color: #f9f9f9;
     color: #05D364;
     font-size: 40px;
+}
+
+.progress{
+    margin-top: 20px;
 }

@@ -77,7 +77,7 @@ function KidsProfile() {
 
                         <div>
                             <h1>Quer visualizar o progresso do seu paciente?</h1>
-                            <button id="teste">Relatórios</button>
+                            <button className="progress" id="teste">Relatórios</button>
                         </div>
                     </div>
                 </div>

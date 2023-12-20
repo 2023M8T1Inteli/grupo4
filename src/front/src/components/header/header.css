@@ -17,6 +17,7 @@
 
 .linkText{
     color: #fff;
+    font-size: 20px;
 }
 
 .logo {
@@ -31,10 +32,6 @@ a {
     text-decoration: none;
     position: relative;
     transition: color 0.3s ease, border-bottom 0.3s ease;
-}
-
-a:hover {
-    color: #FFFFFF; /* Change to the desired hover color */
 }
 
 a::after {
