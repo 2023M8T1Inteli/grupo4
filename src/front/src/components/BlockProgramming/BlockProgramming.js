@@ -220,6 +220,21 @@ class BlockProgramming extends React.Component {
         });
     };
     
+    handleInputTextChange = (blockId, inputValue) => {
+        this.setState(prevState => ({
+            blocks: prevState.blocks.map(block => {
+                if (block.id === blockId && block.text[0] === "Texto") {
+                    // Substitui o texto do bloco pelo valor do input
+                    return { ...block, text: ["Texto", `escreverTexto('${inputValue}')`, "BlockMessagesText"] };
+                }
+                return block;
+            }),
+        }), () => {
+            this.rebuildCodeFromBlocks(); // Reconstruir o código após atualizar os blocos
+        });
+    };
+    
+
     handleRemoveBlock = (id) => {
         this.setState((prevState) => ({
             code: prevState.code.replace(prevState.blocks.find((block) => block.id === id).text[1], ''),
@@ -392,7 +407,7 @@ class BlockProgramming extends React.Component {
                                                     </div>
                                                 )}
                                                 <div className="textInputSection">
-                                                    <input className="textInput" />
+                                                    <input className="textInput" onChange={(e) => this.handleInputTextChange(block.id, e.target.value)} />
                                                 </div>
                                             </div>
                                         </div>
