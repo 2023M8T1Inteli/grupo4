@@ -36,6 +36,7 @@ model Jogos {
   data_edicao   DateTime @updatedAt 
   publico       Boolean
   arquivo       String?
+  json          String?
   criador       Terapeuta? @relation(fields: [criadorEmail], references: [email])   
   criadorEmail    String?
   sessoes       Sessoes[]
@@ -45,7 +46,7 @@ model Sessoes {
   id            String   @id @default(uuid())
   paciente_id   String?
   terapeuta_email  String?
-  data          DateTime
+  data          String
   jogos_id      Int
 
   Paciente  Paciente? @relation(fields: [paciente_id], references: [id])

@@ -17,21 +17,34 @@ const common_1 = require("@nestjs/common");
 const jogos_service_1 = require("./jogos.service");
 const s3_service_1 = require("../s3/s3.service");
 const find_jogo_dto_1 = require("./dto/find-jogo.dto");
+const update_jogo_dto_1 = require("./dto/update-jogo.dto");
 const platform_express_1 = require("@nestjs/platform-express");
 let JogosController = class JogosController {
     constructor(jogosService, s3service) {
         this.jogosService = jogosService;
         this.s3service = s3service;
     }
-    async create(file, body) {
-        console.log(file);
-        console.log(body.nome);
-        const url = await this.s3service.uploadFile(file, "tapete-magico-aladdin");
+    async create(files, body) {
+        console.log(files[0]);
+        console.log(files[1]);
+        let filePython, fileJson;
+        files.forEach(file => {
+            if (file.originalname.endsWith('.py')) {
+                filePython = file;
+            }
+            else if (file.originalname.endsWith('.json')) {
+                fileJson = file;
+            }
+        });
+        if (!filePython || !fileJson) {
+        }
+        const urlPython = await this.s3service.uploadFile(filePython, "tapete-magico-aladdin");
+        const urlJson = await this.s3service.uploadFile(fileJson, "tapete-magico-aladdin");
         const data = {
             nomeJogo: body.nomeJogo,
             emailCriador: body.emailCriador,
             publico: body.publico.toLowerCase(),
-            url: url,
+            url: urlPython,
         };
         return this.jogosService.create(data, body.email);
     }
@@ -54,12 +67,15 @@ let JogosController = class JogosController {
             res.status(common_1.HttpStatus.INTERNAL_SERVER_ERROR).json({ message: error.message });
         }
     }
+    async update(id, updateJogoDto) {
+        return this.jogosService.update(+id, updateJogoDto);
+    }
 };
 exports.JogosController = JogosController;
 __decorate([
     (0, common_1.Post)('create'),
-    (0, common_1.UseInterceptors)((0, platform_express_1.FileInterceptor)('file')),
-    __param(0, (0, common_1.UploadedFile)()),
+    (0, common_1.UseInterceptors)((0, platform_express_1.FilesInterceptor)('files', 2)),
+    __param(0, (0, common_1.UploadedFiles)()),
     __param(1, (0, common_1.Body)()),
     __metadata("design:type", Function),
     __metadata("design:paramtypes", [Object, Object]),
@@ -88,6 +104,14 @@ __decorate([
     __metadata("design:paramtypes", [String, String, Object]),
     __metadata("design:returntype", Promise)
 ], JogosController.prototype, "downloadFile", null);
+__decorate([
+    (0, common_1.Patch)(':id'),
+    __param(0, (0, common_1.Param)('id')),
+    __param(1, (0, common_1.Body)()),
+    __metadata("design:type", Function),
+    __metadata("design:paramtypes", [String, update_jogo_dto_1.UpdateJogoDto]),
+    __metadata("design:returntype", Promise)
+], JogosController.prototype, "update", null);
 exports.JogosController = JogosController = __decorate([
     (0, common_1.Controller)('jogos'),
     __metadata("design:paramtypes", [jogos_service_1.JogosService, s3_service_1.S3Service])

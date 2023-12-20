@@ -31,6 +31,14 @@ export declare class JogosService {
         arquivo: string;
         criadorEmail: string;
     }, null, import("@prisma/client/runtime/library").DefaultArgs>;
-    update(id: number, updateJogoDto: UpdateJogoDto): string;
+    update(id: number, updateJogoDto: UpdateJogoDto): Promise<{
+        id: number;
+        nome_jogo: string;
+        data_criacao: Date;
+        data_edicao: Date;
+        publico: boolean;
+        arquivo: string;
+        criadorEmail: string;
+    } | "Usuário não tem permissão para editar esse jogo!">;
     remove(id: number): string;
 }
