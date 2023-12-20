@@ -24,7 +24,7 @@ export class JogosService {
           arquivo: createJogoDto.url,
           criador : { connect: { email: createJogoDto.emailCriador } }
         } 
-      }) ;
+      });
     }
 
     return this.prisma.jogos.create({
@@ -34,7 +34,7 @@ export class JogosService {
         arquivo: createJogoDto.url,
         criador : { connect: { email: createJogoDto.emailCriador } }
       }
-    }) ;
+    });
   }
 
   findAll(email: string) {
