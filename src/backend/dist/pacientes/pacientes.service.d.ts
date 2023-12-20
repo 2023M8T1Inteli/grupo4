@@ -16,7 +16,7 @@ export declare class PacientesService {
             id: string;
             paciente_id: string;
             terapeuta_email: string;
-            data: Date;
+            data: string;
             jogos_id: number;
         }[];
     } & {

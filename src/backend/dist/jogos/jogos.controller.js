@@ -45,6 +45,7 @@ let JogosController = class JogosController {
             emailCriador: body.emailCriador,
             publico: body.publico.toLowerCase(),
             url: urlPython,
+            urlJson: urlJson
         };
         return this.jogosService.create(data, body.email);
     }
