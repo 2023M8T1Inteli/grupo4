@@ -13,10 +13,6 @@ function Login() {
   const [Senha, setSenha] = useState('');
 
   
-  // const handleInitHome = () => {
-  //   // Navigate to the "/Session" screen when the button is clicked
-  //   navigate('/Home');
-  // };
 
 	
     
@@ -25,7 +21,7 @@ function Login() {
     return;
   }
 
-  // Substitua esta parte com a chamada à API de autenticação
+  // chamada à API de autenticação
   try {
     const response = await fetch(`http://localhost:8080/login`, {
     method: 'POST',

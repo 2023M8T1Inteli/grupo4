@@ -7,10 +7,11 @@ class SuccessModal extends React.Component {
     constructor(props) {
         super(props);
         this.state = {
-            isOpen: true // Inicialmente, o modal está aberto
+            isOpen: true
         };
     }
 
+    // função de esconder / mostrar modal
     handleCloseModal = () => {
         this.setState({ isOpen: false });
     };

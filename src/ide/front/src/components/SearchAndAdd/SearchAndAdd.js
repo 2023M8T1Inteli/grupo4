@@ -18,14 +18,17 @@ const SearchAndAdd = () => {
   const navigate = useNavigate();
 
 
+  // Manipula a mudança no input de pesquisa
   const handleInputChange = (event) => {
     setInputValue(event.target.value);
   };
 
+  // Abre o modal de adição de paciente
   const openModal = () => {
     setShowModal(true);
   };
 
+  // Fecha o modal de adição de paciente
   const closeModal = () => {
     setShowModal(false);
   };
@@ -36,6 +39,7 @@ const SearchAndAdd = () => {
     }
 
     try {
+      // Realiza uma solicitação POST para cadastrar um novo paciente
       const response = await fetch(`http://localhost:8080/pacientes`, {
         method: 'POST',
         headers: {
@@ -63,6 +67,7 @@ const SearchAndAdd = () => {
     }
   };
 
+  // Efeito useEffect para esconder o feedback de sucesso após alguns segundos
   useEffect(() => {
     if (showSuccessFeedback) {
       const timeoutId = setTimeout(() => {

@@ -19,15 +19,16 @@ class BlockProgramming extends React.Component {
         if event.type == pygame.QUIT:
             pygame.quit()
             exit()\n`, 
-            code: "",// Adicione a variável code ao estado
+            code: "",
             imagePath: "",
             vars: "", 
             contadorImagens: 0,
-            contadorSons: 0, // Add the 'imagePath' variable to the state
+            contadorSons: 0, 
         };       
         console.log(this.props.gameData);
     }
 
+    // Criação de variáveis para imagens
     createVars = (variable, path) => {
         const newVars = `image_path${variable} = r'${path}'\nimage${variable} = pygame.image.load(image_path${variable}).convert()\nimage${variable} = pygame.transform.scale(image${variable}, (550, 300))\nimage_rect${variable} = image${variable}.get_rect(center=screen.get_rect().center)\n`;
         this.setState(prevState => ({
@@ -35,6 +36,7 @@ class BlockProgramming extends React.Component {
         }));
     }
     
+    // Criação de variáveis para sons
     createSoundVars = (variable, path) => {
         const newVars = `sound_path${variable} = pygame.mixer.Sound(r'${path}')\n`;
         this.setState(prevState => ({
@@ -42,6 +44,7 @@ class BlockProgramming extends React.Component {
         }));
     }
 
+    // Manipulação de criação de blocos na seção de block programming
     handleCreateBlock = async (text) => {
         console.log("Handling block creation:", text);
         const blockTextTest = text[0];
@@ -149,6 +152,7 @@ class BlockProgramming extends React.Component {
         }
     };
     
+    // determinar numero de espações de cada linha do codigo gerado
     determinarIndentLevel = (tipoBloco, blocosExistentes) => {
         const ultimoBloco = blocosExistentes[blocosExistentes.length - 1];
     
@@ -173,12 +177,9 @@ class BlockProgramming extends React.Component {
     };
     
     
-    
+    // carregar o código que foi salvo
     rebuildCodeFromBlocks = () => {
         const newCode = this.state.blocks.map(block => {
-            // if (block.text[0] === "Imagem" || block.text[0] === "Áudio") {
-            //     return ''; // Ignora blocos de Imagem e Áudio na geração do código
-            // }
     
             const tabs = "    ".repeat(block.indentLevel);
             return tabs + block.text[1];
@@ -189,6 +190,7 @@ class BlockProgramming extends React.Component {
     
     
 
+    // Manipulação de entradas de teclado
     handleInputChange = (blockId, inputValue) => {
         const keyMappings = {
             1: "pygame.K_UP",
@@ -236,6 +238,7 @@ class BlockProgramming extends React.Component {
     };
     
 
+    // função remover bloco
     handleRemoveBlock = (id) => {
         this.setState((prevState) => ({
             code: prevState.code.replace(prevState.blocks.find((block) => block.id === id).text[1], ''),
@@ -245,16 +248,15 @@ class BlockProgramming extends React.Component {
         });
     };
 
-
+    // função criar código
     handleCode = () => {
         console.log(this.state.code);
         console.log(this.state.blocks);
-        //console.log(this.state.vars)
         const data = {
             "name": this.props.gameData.nome_jogo,
             "emailCriador": this.props.gameData.criadorEmail,
             "publico": this.props.gameData.publico,
-            // pegar os dados que preciso mandar pra rota (Sarinha <3)
+            // pegar os dados que preciso mandar pra rota 
         }
         const serializedState = JSON.stringify(this.state.blocks);
         window.handAPI.sendCode(this.state.code, serializedState, data);
@@ -268,7 +270,6 @@ class BlockProgramming extends React.Component {
             console.log(result);
     
             const { filePath, originalPath } = result;
-            //console.log("File saved successfully:", filePath);
     
             this.setState((prevState) => ({
                 blocks: [
@@ -279,16 +280,15 @@ class BlockProgramming extends React.Component {
                     },
                 ],
             }), () => {
-                //console.log("Image saved successfully:", this.state.imagePath);
                 console.log("BlockText: ", this.state.blocks);
             });
     
-            // You can perform additional operations or update the code accordingly
         } catch (error) {
             console.error("Error saving image:", error);
         }
     };
 
+    // salvar audio
     handleSaveAudio = async () => {
         console.log("Saving audio...");
 
@@ -305,25 +305,25 @@ class BlockProgramming extends React.Component {
                     ...prevState.blocks,
                     {
                         id: `custom_${Date.now()}`,
-                        text: ["Áudio", filePath, "áudio"], // Update with the audio path
+                        text: ["Áudio", filePath, "áudio"], 
                     },
                 ],
             }), () => {
                 console.log("Audio saved successfully:", this.state.audioPath);
                 console.log("BlockText: ", this.state.blocks);
             });
-
-            // You can perform additional operations or update the code accordingly
         } catch (error) {
             console.error("Error saving audio:", error);
         }
     };
     
+    // pegar caminho do file
     getFileName = (filePath) => {
         const parts = filePath.split('\\')
         return parts[parts.length - 1];
     };
 
+    // iniciar jogo
     initGame = () => {
         console.log("initGame");
         window.initGame.initGame(this.props.gameData.nome_jogo);

@@ -14,6 +14,7 @@ class EditGameName extends React.Component {
         console.log(this.props.nome_jogo);
     }
 
+    // Manipula o clique no ícone de editar/cancelar
     handleIconBtnClick = () => {
         this.setState((prevState) => ({
             isEditing: !prevState.isEditing,
@@ -21,10 +22,12 @@ class EditGameName extends React.Component {
         }));
     };
 
+    // Manipula a mudança no input de edição
     handleInputChange = (e) => {
         this.setState({ inputValue: e.target.value });
     };
 
+    // Manipula o clique no botão de salvar
     handleSaveClick = () => {
         this.setState((prevState) => ({
             isEditing: false,
