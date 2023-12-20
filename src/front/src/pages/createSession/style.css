@@ -9,7 +9,7 @@
     display: flex;
     flex-direction: column;
     align-items: center;
-    margin: 110px 0;
+    margin: 50px 0;
 }
 
 .Contentsession .ContentSections .InputBox{
@@ -37,6 +37,7 @@
 }
 
 .Contentsession .ContentSections .InputBox input{
+    margin-top: 5px;
     width: 100%;
     height: 40px;
     border-radius: 15px;
@@ -57,4 +58,12 @@
     cursor: pointer;
     background-color: #9c0a20;
     transition: .3s;
+}
+
+.input{
+    margin-top: 15px;
+    width: 100%;
+    height: 40px;
+    border-radius: 15px;
+    border: 1px solid #A1A1A1;
 }

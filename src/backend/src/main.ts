@@ -19,7 +19,7 @@ async function bootstrap() {
   app.enableCors({
     origin: '*', // This allows requests from any origin, you can specify domains if needed
     methods: 'GET,HEAD,PUT,PATCH,POST,DELETE', // Allowed HTTP methods
-    allowedHeaders: 'Content-Type, Accept', // Allowed HTTP headers
+    allowedHeaders: ['Content-Type, Accept', 'email'], // Allowed HTTP headers
   });
 
 

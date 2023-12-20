@@ -1,9 +1,8 @@
 import React from 'react';
 import { useNavigate } from 'react-router-dom';
 import Header from '../../components/header/header'
-import Back from '../../components/svgs/Back';
 import CreateGame from '../../components/CreateGame/create-game';
-import SelectGame from '../../components/SelectGame/select';
+import Back from '../../components/svgs/Back';
 import { useEffect, useState } from "react";
 import Block from "../../assets/Block.png";
 import './Create-session.css';
