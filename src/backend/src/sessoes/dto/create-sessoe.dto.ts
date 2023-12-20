@@ -8,7 +8,7 @@ export class CreateSessoeDto {
 	terapeuta_email: string; 
 
 	@ApiProperty()
-	data: Date;
+	data: string;
 
 	@ApiProperty()
 	jogo_id: number;

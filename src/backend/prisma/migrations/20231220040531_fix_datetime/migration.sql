@@ -1,0 +1,2 @@
+-- AlterTable
+ALTER TABLE "Sessoes" ALTER COLUMN "data" SET DATA TYPE TEXT;
