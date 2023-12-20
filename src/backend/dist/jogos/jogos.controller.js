@@ -17,6 +17,7 @@ const common_1 = require("@nestjs/common");
 const jogos_service_1 = require("./jogos.service");
 const s3_service_1 = require("../s3/s3.service");
 const find_jogo_dto_1 = require("./dto/find-jogo.dto");
+const update_jogo_dto_1 = require("./dto/update-jogo.dto");
 const platform_express_1 = require("@nestjs/platform-express");
 let JogosController = class JogosController {
     constructor(jogosService, s3service) {
@@ -54,6 +55,9 @@ let JogosController = class JogosController {
             res.status(common_1.HttpStatus.INTERNAL_SERVER_ERROR).json({ message: error.message });
         }
     }
+    async update(id, updateJogoDto) {
+        return this.jogosService.update(+id, updateJogoDto);
+    }
 };
 exports.JogosController = JogosController;
 __decorate([
@@ -88,6 +92,14 @@ __decorate([
     __metadata("design:paramtypes", [String, String, Object]),
     __metadata("design:returntype", Promise)
 ], JogosController.prototype, "downloadFile", null);
+__decorate([
+    (0, common_1.Patch)(':id'),
+    __param(0, (0, common_1.Param)('id')),
+    __param(1, (0, common_1.Body)()),
+    __metadata("design:type", Function),
+    __metadata("design:paramtypes", [String, update_jogo_dto_1.UpdateJogoDto]),
+    __metadata("design:returntype", Promise)
+], JogosController.prototype, "update", null);
 exports.JogosController = JogosController = __decorate([
     (0, common_1.Controller)('jogos'),
     __metadata("design:paramtypes", [jogos_service_1.JogosService, s3_service_1.S3Service])

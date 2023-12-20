@@ -53,10 +53,10 @@ export class JogosController {
     }
   }
 
-  // @Patch(':id')
-  // update(@Param('id') id: string, @Body() updateJogoDto: UpdateJogoDto) {
-  //   return this.jogosService.update(+id, updateJogoDto);
-  // }
+  @Patch(':id')
+  async update(@Param('id') id: string, @Body() updateJogoDto: UpdateJogoDto) {
+    return this.jogosService.update(+id, updateJogoDto);
+  }
 
   // @Delete(':id')
   // remove(@Param('id') id: string) {
