@@ -98,9 +98,7 @@ npm run electron
 
 Preparamos uma série de vídeos para auxiliar na compreensão da IDE: 
 
-**[Vídeo explicativo - Sprint 4](https://youtu.be/iK3Q7XnJ2D8)**.
-
-_[Vídeo explicativo - Sprint 3](https://youtu.be/yobL9xKlTKs)._
+**[Vídeo explicativo - Sprint 5](https://youtu.be/tJKouexjaWM)**.
 
 ### Backend NestJS
 
