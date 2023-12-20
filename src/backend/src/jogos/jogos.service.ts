@@ -22,9 +22,10 @@ export class JogosService {
           nome_jogo: createJogoDto.nomeJogo,
           publico: createJogoDto.publico == "true" ? true : false,
           arquivo: createJogoDto.url,
+          json: createJogoDto.urlJson,
           criador : { connect: { email: createJogoDto.emailCriador } }
         } 
-      }) ;
+      });
     }
 
     return this.prisma.jogos.create({
@@ -34,7 +35,7 @@ export class JogosService {
         arquivo: createJogoDto.url,
         criador : { connect: { email: createJogoDto.emailCriador } }
       }
-    }) ;
+    });
   }
 
   findAll(email: string) {
@@ -54,8 +55,23 @@ export class JogosService {
       });
   }
 
-  update(id: number, updateJogoDto: UpdateJogoDto) {
-    return `This action updates a #${id} jogo`;
+  async update(id: number, updateJogoDto: UpdateJogoDto) {
+    const jogo = await this.prisma.jogos.findUnique({where: { id: id }});
+    if (jogo.criadorEmail != updateJogoDto.email) {
+      return "Usuário não tem permissão para editar esse jogo!";
+    }
+
+    if (updateJogoDto.nomeJogo) {
+      return this.prisma.jogos.update({
+        where: { id: id },
+        data: { nome_jogo: updateJogoDto.nomeJogo }
+      });
+    }
+
+    return this.prisma.jogos.update({
+      where: { id: id },
+      data: { publico: updateJogoDto.publico == "true" ? true : false }
+    });
   }
 
   remove(id: number) {
