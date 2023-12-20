@@ -11,12 +11,10 @@
       ],
       "blocos": [["Pressionar", " event.key == ", "BlockCarpet"]],
       "feedbacks": [
-        ["escrever", "screen.blit;\n", "BlockMessages"],
         ["Mostrar Imagem", "screen.blit(", "BlockMessages"],
         ["Tocar Som", "tocar(\n", "BlockMessages"],
         ["Imagem", "mostrarImagem(", "BlockMessages"],
-        ["Áudio", "tocarAudio(", "BlockMessages"],
-        ["Texto", "escreverTexto(", "BlockMessagesText"]
+        ["Áudio", "tocarAudio(", "BlockMessages"]
       ]
     }
   }
