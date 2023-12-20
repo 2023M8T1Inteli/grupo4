@@ -12,18 +12,33 @@ class BlockProgramming extends React.Component {
             selectedBlock: null,
             blocks: [],
             name: "",
-            base: `import pygame\nimport sys\nfrom pygame.locals import *\npygame.init()\nscreen = pygame.display.set_mode((960, 540))\nscreen.fill((255, 255, 255))\npygame.display.set_caption("Jogo")\nrunning = True\nfont_title = pygame.font.Font(None, 50)\nfont_text = pygame.font.Font(None, 36)\nclock = pygame.time.Clock()
-while True:
+            imports: `import pygame\nimport sys\nfrom pygame.locals import *\npygame.init()\nscreen = pygame.display.set_mode((960, 540))\nscreen.fill((255, 255, 255))\npygame.display.set_caption("Jogo")\nrunning = True\nfont_title = pygame.font.Font(None, 50)\nfont_text = pygame.font.Font(None, 36)\nclock = pygame.time.Clock()\n`,
+            base: `while True:
     # Seu código Python continua aqui...\n
     for event in pygame.event.get():\n
         if event.type == pygame.QUIT:
             pygame.quit()
-            exit()
-        elif event.type == pygame.KEYDOWN:\n
-    `, 
+            exit()\n`, 
             code: "",// Adicione a variável code ao estado
-            imagePath: "", // Add the 'imagePath' variable to the state
+            imagePath: "",
+            vars: "", 
+            contadorImagens: 0,
+            contadorSons: 0, // Add the 'imagePath' variable to the state
         };       
+    }
+
+    createVars = (variable, path) => {
+        const newVars = `image_path${variable} = r'${path}'\nimage${variable} = pygame.image.load(image_path${variable}).convert()\nimage${variable} = pygame.transform.scale(image${variable}, (550, 300))\nimage_rect${variable} = image${variable}.get_rect(center=screen.get_rect().center)\n`;
+        this.setState(prevState => ({
+            vars: prevState.vars + newVars
+        }));
+    }
+    
+    createSoundVars = (variable, path) => {
+        const newVars = `sound_path${variable} = pygame.mixer.Sound(r'${path}')\n`;
+        this.setState(prevState => ({
+            vars: prevState.vars + newVars
+        }));
     }
 
     handleCreateBlock = async (text) => {
@@ -31,28 +46,28 @@ while True:
         const blockTextTest = text[0];
         const blockText = text[1];
         console.log("BlockText: ", blockTextTest);
-
+        
         if (blockTextTest === "Imagem") {
+
             try {
                 const result = await window.inputFile.inputImage();
                 console.log(result);
     
                 const { filePath, originalPath } = result;
-                console.log("File saved successfully:", filePath);
-    
+                //console.log("File saved successfully:", filePath);
+                this.createVars(this.state.contadorImagens, filePath);
                 // Update the state with the new image block after saving the image
                 this.setState((prevState) => ({
-                    imagePath: filePath,
                     blocks: [
                         ...prevState.blocks,
                         {
                             id: `custom_${Date.now()}`,
-                            text: ["Imagem", filePath, "imagem"],
+                            text: ["Imagem", '\n', "imagem"],
+                            indentLevel: this.determinarIndentLevel(text[0], prevState.blocks), // Adiciona indentLevel
                         },
                     ],
                 }), () => {
-                    console.log("Image saved successfully:", this.state.imagePath);
-                    console.log("BlockText: ", this.state.blocks);
+                    this.rebuildCodeFromBlocks();
                 });
     
             } catch (error) {
@@ -63,11 +78,9 @@ while True:
         else if (blockTextTest === "Áudio") {
             try {
                 const result = await window.inputFile.inputAudio();
-                console.log(result);
-
+                this.createSoundVars(this.state.contadorSons, result.filePath);
                 const { filePath, originalPath } = result;
-                console.log("File saved successfully:", filePath);
-
+                
                 // Update the state with the new audio block after saving the audio
                 this.setState((prevState) => ({
                     audioPath: filePath,
@@ -75,25 +88,58 @@ while True:
                         ...prevState.blocks,
                         {
                             id: `custom_${Date.now()}`,
-                            text: ["Áudio", filePath, "áudio"],
+                            text: ["Áudio", '\n', "áudio"],
+                            indentLevel: this.determinarIndentLevel(text[0], prevState.blocks), // Adiciona indentLevel
                         },
                     ],
                 }), () => {
-                    console.log("Audio saved successfully:", this.state.audioPath);
-                    console.log("BlockText: ", this.state.blocks);
+                    this.rebuildCodeFromBlocks();
+                    //console.log("Audio saved successfully:", this.state.audioPath);
+                    //console.log("BlockText: ", this.state.blocks);
                 });
 
             } catch (error) {
                 console.error("Error saving audio:", error);
             }
+        } 
+        else if (blockTextTest == "Mostrar Imagem") {
+            this.setState((prevState) => ({
+                contadorImagens: prevState.contadorImagens + 1,
+                blocks: [
+                    ...prevState.blocks,
+                    {
+                        id: `custom_${Date.now()}`,
+                        text: ["Mostrar Imagem", `screen.blit(image${prevState.contadorImagens + 1}, image_rect${prevState.contadorImagens + 1})`, "BlockMessages"],
+                        indentLevel: this.determinarIndentLevel(text[0], prevState.blocks),
+                    },
+                ],
+            }), () => {
+                this.rebuildCodeFromBlocks();
+            });
+        } 
+        
+        else if (blockTextTest == "Tocar Som") {
+            this.setState((prevState) => ({
+                contadorImagens: prevState.contadorSons + 1,
+                blocks: [
+                    ...prevState.blocks,
+                    {
+                        id: `custom_${Date.now()}`,
+                        text: ["Tocar Som", `pygame.mixer.Sound.play(sound_path${prevState.contadorSons})`, "BlockMessages"],
+                        indentLevel: this.determinarIndentLevel(text[0], prevState.blocks),
+                    },
+                ],
+            }), () => {
+                this.rebuildCodeFromBlocks();
+            });
         } else {
             this.setState((prevState) => ({
-                code: prevState.code + blockText,
                 blocks: [
                     ...prevState.blocks,
                     {
                         id: `custom_${Date.now()}`,
                         text: text,
+                        indentLevel: this.determinarIndentLevel(text[0], prevState.blocks),
                     },
                 ],
             }), () => {
@@ -102,10 +148,44 @@ while True:
         }
     };
     
-    rebuildCodeFromBlocks = () => {
-        const newCode = this.state.base + this.state.blocks.map(block => block.text[1]).join("");
-        this.setState({ code: newCode });
+    determinarIndentLevel = (tipoBloco, blocosExistentes) => {
+        const ultimoBloco = blocosExistentes[blocosExistentes.length - 1];
+    
+        if (tipoBloco === "então") {
+            // Incrementa a indentação para blocos 'se' e 'se não'
+            return blocosExistentes.length > 0 ? ultimoBloco.indentLevel + 2 : 1;
+        } else if (tipoBloco === "Acerto" || tipoBloco === "Erro") {
+            // Mantém a indentação do último bloco 'se' ou 'se não'
+            const ultimoCond = [...blocosExistentes].reverse().find(bloco => bloco.text[0] === "então" || bloco.text[0] === "se não");
+            return ultimoCond ? ultimoCond.indentLevel : 0;
+        } else {
+            // Para outros blocos, ajusta a indentação com base no último bloco
+            if (ultimoBloco && (ultimoBloco.text[0] === "Acerto")) {
+                return 3;
+            } else if (ultimoBloco && ultimoBloco.text[0] === "se não") {
+                return ultimoBloco.indentLevel + 1;
+            } 
+        }
+    
+        // Por padrão, mantém a indentação do bloco anterior
+        return blocosExistentes.length > 0 ? ultimoBloco.indentLevel : 2;
     };
+    
+    
+    
+    rebuildCodeFromBlocks = () => {
+        const newCode = this.state.blocks.map(block => {
+            // if (block.text[0] === "Imagem" || block.text[0] === "Áudio") {
+            //     return ''; // Ignora blocos de Imagem e Áudio na geração do código
+            // }
+    
+            const tabs = "    ".repeat(block.indentLevel);
+            return tabs + block.text[1];
+        }).join("");
+    
+        this.setState({ code: this.state.imports + this.state.vars + this.state.base + newCode + "\n    pygame.display.update()\n"});
+    };
+    
     
 
     handleInputChange = (blockId, inputValue) => {
@@ -140,6 +220,21 @@ while True:
         });
     };
     
+    handleInputTextChange = (blockId, inputValue) => {
+        this.setState(prevState => ({
+            blocks: prevState.blocks.map(block => {
+                if (block.id === blockId && block.text[0] === "Texto") {
+                    // Substitui o texto do bloco pelo valor do input
+                    return { ...block, text: ["Texto", `escreverTexto('${inputValue}')`, "BlockMessagesText"] };
+                }
+                return block;
+            }),
+        }), () => {
+            this.rebuildCodeFromBlocks(); // Reconstruir o código após atualizar os blocos
+        });
+    };
+    
+
     handleRemoveBlock = (id) => {
         this.setState((prevState) => ({
             code: prevState.code.replace(prevState.blocks.find((block) => block.id === id).text[1], ''),
@@ -153,9 +248,17 @@ while True:
     handleCode = () => {
         console.log(this.state.code);
         console.log(this.state.blocks);
-        //window.handAPI.sendCode(this.state.code);
+        //console.log(this.state.vars)
+        const data = {
+            "name": "Jogo2",
+            "emailCriador": "rafa@aacd.com",
+            "publico": "true"
+            // pegar os dados que preciso mandar pra rota (Sarinha <3)
+        }
+        const serializedState = JSON.stringify(this.state.blocks);
+        window.handAPI.sendCode(this.state.code, serializedState, data);
     };
-
+    
     handleSaveImage = async () => {
         console.log("Saving image...");
     
@@ -164,10 +267,9 @@ while True:
             console.log(result);
     
             const { filePath, originalPath } = result;
-            console.log("File saved successfully:", filePath);
+            //console.log("File saved successfully:", filePath);
     
             this.setState((prevState) => ({
-                imagePath: filePath,
                 blocks: [
                     ...prevState.blocks,
                     {
@@ -176,7 +278,7 @@ while True:
                     },
                 ],
             }), () => {
-                console.log("Image saved successfully:", this.state.imagePath);
+                //console.log("Image saved successfully:", this.state.imagePath);
                 console.log("BlockText: ", this.state.blocks);
             });
     
@@ -249,9 +351,10 @@ while True:
                             <div className="BottomNavbar">
                                 <div className="BottomNavbarBtns">
                                     <button className="NavbarBtn" onClick={this.handleCode}>
-                                        Criar
+                                        SALVAR
                                     </button>
                                     <button className="NavbarBtn" onClick={this.initGame} >Iniciar</button>
+
                                 </div>
                             </div>
                         </div>
@@ -284,9 +387,12 @@ while True:
                                                 ) : (
                                                     <div className="buttonContent">
                                                         <p>{block.text[0]}</p>
-                                                        <input type="number" name="tentacles" min="1" max="16" />
+                                                        <input type="number" name="tentacles" min="1" max="16" onChange={(e) => this.handleInputChange(block.id, e.target.value)}/>
                                                     </div>
                                                 )}
+                                                <div className="textInputSection">
+                                                    <input className="textInput" onChange={(e) => this.handleInputTextChange(block.id, e.target.value)} />
+                                                </div>
                                             </div>
                                         </div>
                                     ))}
