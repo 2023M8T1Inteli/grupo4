@@ -142,7 +142,7 @@ Após concluir essas etapas, você poderá utilizar o executável que estará de
 <br />
 **Observação 3:** Se estiver utilizando o macOS, substitua Nome_do_sistema por 'mac'.
 
-# Releases
+# Tag
 
 * [SPRINT1](https://github.com/2023M8T1Inteli/grupo4/releases/tag/sprint1): Analisador léxico (versão 1), Entendimento do Negócio, Entendimento do Usuário e Arquitetura inicial
 * [SPRINT2](https://github.com/2023M8T1Inteli/grupo4/releases/tag/sprint2): Analisador léxico (versão 2), Analisador sintático (versão 1), IDE (versão 1), Artigo (versão 1)
